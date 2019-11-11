@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44">
+    <!--Description-->
+    
+        <meta name="description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="HappyCoder 自學程式設計學院">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="用 Python 自學程式設計：變數（variable）與資料型別（type）">
+    
+
+    <meta name="google-site-verification" content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM">
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="HappyCoder 自學程式設計學院">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>用 Python 自學程式設計：變數（variable）與資料型別（type） - HappyCoder 自學程式設計學院</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	<style>
+    .intro-header {
+        background-image: url('/img/banner-s.jpg');
+        height: 550px;
+        filter: grayscale(30%);
+        -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+        .intro-header {
+            height: 450px;
+        }
+    }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                文章列表
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>用 Python 自學程式設計：變數（variable）與資料型別（type）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by HappyCoder 自學程式設計學院 on
+                        
+                        2017-08-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Python-Django-MVC-Web-MTV-Web-Backend-Web-Framework-教學-Flask-框架-coding-code-程式設計-自學程式設計-CS-Computer-Computer-Science/">#Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
+
+                <div class="fb-like" data-href="https://www.facebook.com/HappyCoderOrg/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+                <p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前一單元中我們了解了程式設計思維的概念和建立了 Python 的開發環境，在這一單元中我們將了解 Python 變數與資料型別以及如何操作字串。</p>
+<h1 id="電腦最初的用途就是一台超大台計算機"><a href="#電腦最初的用途就是一台超大台計算機" class="headerlink" title="電腦最初的用途就是一台超大台計算機"></a>電腦最初的用途就是一台超大台計算機</h1><p>資料的儲存以及操作在程式設計中扮演非常重要的角色，因為最早的電腦程式就是一種大型的計算機（最早的電腦就稱為計算機），即便現在學校教授電腦科學概論往往都會把課程稱為計算機概論呢！在操作資料的過程中如何儲存資料就是非常重要的事情，一般而言資料儲存有分為暫時儲存的揮發性資料（儲存在記憶體中的變數資料）和持久性儲存的資料（例如：資料庫、檔案等），在這邊我們討論的是變數的資料。</p>
+<h1 id="在-Python-世界，所有東西都是物件"><a href="#在-Python-世界，所有東西都是物件" class="headerlink" title="在 Python 世界，所有東西都是物件"></a>在 Python 世界，所有東西都是物件</h1><p>在 Python 世界中，所有東西都是物件，物件可以視為透明的箱子，裡面存了一些資料。物件會有自己的資料型別，決定它做什麼樣的操作。另外，又依據箱子內的值可否改變而分為<code>不可變物件</code>和<code>可變物件</code>。</p>
+<p>在前面我們有提到資料可以儲存在記憶體中的變數，在 Python 中變數只是一種名稱，當給定值時不會將值複製，而是將名稱貼到給定的物件上（注意 Python 程式語言中的 <code>=</code> 是給定值，<code>==</code> 才是相等的意思）</p>
+<p>談到資料，就不得不談一下資料型別（type），雖然在 Python 不用像 C 語言之類程式語言需要在變數前面定義資料型別（在 Python 中 class 類別和 type 類型幾乎代表同一件事情，class 類別則是定義物件的基礎），但物件的資料型別會影響資料操作，所以值得我們好好認識。在 Python 世界裡，可以分為以下幾種<code>簡單</code>資料型別（可以想像成化學課中的原子）：</p>
+<ol>
+<li><code>bool</code> 布林，分為 <code>True</code>、<code>False</code> 通常用於條件判斷</li>
+<li><code>int</code> 整數，例如： <code>10</code>、<code>999999</code> </li>
+<li><code>float</code> 浮點數，係指有小數點的整數：<code>1.222</code>、<code>1.0e7</code> 等同於 10 的 7 次方</li>
+<li><code>string</code> 字串，一串文字字元</li>
+</ol>
+<p>我們可以透過 <code>type(物件)</code> 去確認該物件的型別：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(True)</span><br><span class="line">print(101)</span><br><span class="line">print(3.14)</span><br><span class="line">print(&apos;happy coding&apos;)</span><br></pre></td></tr></table></figure>
+<p>另外一種是<code>複雜</code>資料型別（可以想像成是化學課中的分子），這個我們會在下一個單元做討論：</p>
+<ol>
+<li><code>list</code> 串列，用於儲存一系列序列資料（可以儲存不同資料型別），類似於其他程式語言的陣列但更為強大</li>
+<li><code>tuple</code> 元組，類似於 list 串列，但不同的是 tuple 給定元素後不能改變</li>
+<li><code>dict</code> 字典，和串列很像但不在乎元素順序，而且不會使用 0,1,…等的序列 index 來選擇項目，反之我們必須宣告唯一的 key 鍵值來對應想儲存的 value 值</li>
+<li><code>set</code> 集合，集合就像是被移除 value 值的字典，只有保留 key 鍵值，也就是說 set 的內容元素都必須是獨一無二的</li>
+</ol>
+<h1 id="物件又分可變和不可變物件"><a href="#物件又分可變和不可變物件" class="headerlink" title="物件又分可變和不可變物件"></a>物件又分可變和不可變物件</h1><ol>
+<li><p>不可變物件（int, string, float, tuple），亦即若資料改變，會複製一份資料到新的記憶體空間然後資料更新，下面是一個簡單範例：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i = 101 # 宣告一個變數將 i 便條紙貼到 101 物件</span><br><span class="line">j = 101 # 宣告一個變數將 j 便條紙貼到 101 物件</span><br><span class="line">print(id(101)) # 印出 101 物件 id，可以想成是記憶體位置        </span><br><span class="line">print(&apos;i id:&apos; + str(id(i))) # 印出 i 指向的 id，和 101 物件值相同</span><br><span class="line">print(&apos;j id:&apos; + str(id(j))) # 印出 j 指向的 id，和 101 物件值相同</span><br><span class="line">print(i is j) # 因為兩者會貼到同一個物件所以會顯示相等，True</span><br><span class="line">j = j + 1 # 若資料改變，會複製一份資料到新的記憶體空間然後資料更新</span><br><span class="line">print(&apos;new i id:&apos; + str(id(i))) # 印出一樣的 id</span><br><span class="line">print(&apos;new j id:&apos; + str(id(j))) # 印出新的 id</span><br><span class="line">print(i is j) # 兩者指到不同的記憶體位置，False</span><br></pre></td></tr></table></figure>
+<p> 執行結果：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">140181136769920</span><br><span class="line">i id:140181136769920</span><br><span class="line">j id:140181136769920</span><br><span class="line">True</span><br><span class="line">new i id:140181136769920</span><br><span class="line">new j id:140181136769952</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可變物件（list, dict, set），亦即若資料改變則直接在指向的記憶體空間改變資料，下面是一個簡單範例：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&#125; # 宣告一個變數指到一個空字典 dict</span><br><span class="line">b = a # 將 b 變數指到 a 同樣記憶體位置</span><br><span class="line">print(id(a)) # 印出 a 的 id </span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br><span class="line">a[&apos;a&apos;] = &apos;python&apos; # 改變 a 的鍵值</span><br><span class="line">print(&apos;id a:&apos; + str(id(a))) # 印出 a id </span><br><span class="line">print(&apos;a:&apos; + str(a)) # 印出內容值</span><br><span class="line">print(&apos;id b:&apos; + str(id(b))) # 印出 b id，dict 為可變物件，印出 id 會和 a 一樣</span><br><span class="line">print(&apos;b:&apos; + str(b)) # dict 為可變物件，印出內容值會和 a 一樣</span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br></pre></td></tr></table></figure>
+<p> 執行結果：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">140181112792336</span><br><span class="line">id a:140181112792336</span><br><span class="line">a:&#123;&apos;a&apos;: &apos;python&apos;&#125;</span><br><span class="line">True</span><br><span class="line">id b:140181112792336</span><br><span class="line">b:&#123;&apos;a&apos;: &apos;python&apos;&#125;</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>另外，Python 支援強制轉換資料型別：<br>可以透過 int()、float()、str() 進行資料型別轉換</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int(1.2)</span><br><span class="line">float(&apos;1.3&apos;)</span><br><span class="line">str(&apos;1&apos;)</span><br></pre></td></tr></table></figure>
+<h1 id="字串操作好好玩"><a href="#字串操作好好玩" class="headerlink" title="字串操作好好玩"></a>字串操作好好玩</h1><p>在程式設計的世界中，操作字串基本上是家常便飯，接著我們來談談在 Python 中如何進行字串的操作：</p>
+<p>在 Python 中若要宣告字串，可以使用單引號或雙引號，會有兩種方式是因為讓開發者可以產生有 <code>&#39;</code> 或 <code>&quot;</code> 內容的字串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_str = &apos;This is a &quot;good&quot; language!&apos;</span><br></pre></td></tr></table></figure>
+<p>但要特別留意的是在 Python3 和 Python2 對於字串的支援不盡相同，在 Python 中支援 Unicode 標準。與其他程式語言不同的是 Python 字元是不可變的，不能直接改變字串，但可以將一部分字串複製到其他字串。</p>
+<p>以下是常見字串操作方式：</p>
+<ol>
+<li><p>宣告字串</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language = &apos;python&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>串連字串 +</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">language = &apos;python&apos;</span><br><span class="line">word = &apos;I love&apos;</span><br><span class="line">word + language</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>複製字串 *</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language = &apos;python&apos;</span><br><span class="line">language * 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>選取字串 [開始:結束:間隔]</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">language = &apos;python&apos;</span><br><span class="line">language[0:1] # p</span><br><span class="line">language[0:-1] # pytho</span><br><span class="line">language[0:4:2] # ph</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>len、split、join、replace 字串操作</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">language = &apos;python&apos;</span><br><span class="line">print(len(language)) # 印出字串長度 6</span><br><span class="line">print(language.split(3)) # 切割字串長度</span><br><span class="line">print(language.join(3)) # 切割字串長度</span><br><span class="line">print(language.replace(3)) # 切割字串長度</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上我們介紹了在 Python 世界中物件是基本元素，也介紹了變數以及字串的操作，接下來我們將透過 Python 介紹程式設計的內涵和不同的應用情境以及<code>複雜</code>資料型別的使用。</p>
+<p>（image via <a href="https://i.amz.mshcdn.com/rRxXhoIhNucutinAio8YRF4TvzE=/1200x630/2017%2F06%2F15%2F71%2Fc1a206081efd44d1b61f5c0f86dcda6c.c222e.jpg" target="_blank" rel="noopener">mshcdn</a>）</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://www.python.org/" target="_blank" rel="noopener">Python 官網</a></li>
+<li><a href="https://pics.ee/1HC~" target="_blank" rel="noopener">JavaScript 程式設計新手村</a></li>
+<li><a href="http://pics.ee/c34g" target="_blank" rel="noopener">Python Web 程式設計入門實戰</a></li>
+<li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/" target="_blank" rel="noopener">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
+<li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/" target="_blank" rel="noopener">自學程式設計學習資源懶人包</a></li>
+<li><a href="http://www.jianshu.com/p/c5582e23b26c" target="_blank" rel="noopener">python可变和不可变对象</a></li>
+</ol>
+
+
+                <br>
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+
+                <br>
+                <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+                <br>
+                <div class="fb-like-block">
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                </div>
+                <br>
+                <br>
+                <div>在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！</div>
+                <div class="fb-page" data-href="https://www.facebook.com/HappyCoderOrg" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/HappyCoderOrg" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/HappyCoderOrg">HappyCoder 自學程式設計學院</a></blockquote></div>
+                <br>
+                <br>
+                <div>
+                    <h2>更多程式設計教學文章</h2>
+                    <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/python101/vscode-index.png" /></div><div class="popular-posts-title"><h3><a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/" title="如何在 Windows 打造 Python 開發環境設定基礎入門教學" rel="bookmark">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/10/learning-programming-and-coding-with-python-introduction/" title="用 Python 自學程式設計：程式設計思維入門" rel="bookmark">用 Python 自學程式設計：程式設計思維入門</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/" title="用 Python 自學程式設計：list、tuple、dict and set" rel="bookmark">用 Python 自學程式設計：list、tuple、dict and set</a></h3></div></li></ul>
+                </div>
+                <style>
+                    .fb-like-block {
+                        width: 100px !important;
+                    }
+                    .popular-posts {
+                        list-style: none;
+                        display: flex;
+                    }
+                    .popular-posts-item {
+                        width: 25%;
+                        padding: 10px;
+                    }
+                    .popular-posts-title a {
+                        font-size: 16px;
+                        text-decoration: none;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        .popular-posts-item {
+                            width: 100%;
+                            padding: 10px;
+                        }
+                        .popular-posts {
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </div>
+
+            <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin: 0 auto; width: 70%;}
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+
+            <hr>
+
+            <div id="mc_embed_signup">
+                <form action="https://happycoder.us18.list-manage.com/subscribe/post?u=c27d54bac8f7fe84eec5086bc&amp;id=829f2fa635" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>訂閱 HappyCoder 自學程式設計學院電子報，自學程式不孤單！</h2>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c27d54bac8f7fe84eec5086bc_829f2fa635" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="馬上訂閱" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder 自學程式設計學院 2019
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>

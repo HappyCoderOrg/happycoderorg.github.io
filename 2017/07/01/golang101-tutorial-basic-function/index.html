@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44">
+    <!--Description-->
+    
+        <meta name="description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="HappyCoder 自學程式設計學院">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Go Web 程式設計入門教學：語法基礎之函式（function）篇">
+    
+
+    <meta name="google-site-verification" content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM">
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="HappyCoder 自學程式設計學院">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Go Web 程式設計入門教學：語法基礎之函式（function）篇 - HappyCoder 自學程式設計學院</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	<style>
+    .intro-header {
+        background-image: url('/img/banner-s.jpg');
+        height: 550px;
+        filter: grayscale(30%);
+        -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+        .intro-header {
+            height: 450px;
+        }
+    }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                文章列表
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Go Web 程式設計入門教學：語法基礎之函式（function）篇</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by HappyCoder 自學程式設計學院 on
+                        
+                        2017-07-01
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/GO-GO-lang-golang-web-go-web-自學程式-自學程式設計-程式設計-線上自學-coding-coder-programming-computer-computer-science-code-電腦科學-學寫程式-學程式/">#GO, GO lang, golang, web, go web, 自學程式, 自學程式設計, 程式設計, 線上自學, coding, coder, programming, computer, computer science, code, 電腦科學, 學寫程式, 學程式</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
+
+                <div class="fb-like" data-href="https://www.facebook.com/HappyCoderOrg/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+                <p><img src="/images/golang101/logo.png" alt="Go Web 程式設計入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面單元我們介紹了如何使用流程控制改變我們的程式執行順序，接下來的單元我們將透過 Golang Web 程式設計來學習 Go 這個程式語言。而在這個單元中我們將介紹 Go 函式的使用。程式語言唯有動手作才能學的好，你可以參考之前的文章建置開發環境或是<a href="https://play.golang.org/" target="_blank" rel="noopener">使用線上開發環境</a>進行學習。</p>
+<h1 id="函式簡介"><a href="#函式簡介" class="headerlink" title="函式簡介"></a>函式簡介</h1><p>有經驗的程式設計都知道程式撰寫的維護性很重要，其中模組化就是很重要的元素。當我們有一組程式出現過兩三次，那就很適合把它當做函式包裝起來。在程式語言中函式和數學上的函數有蠻多類似之處。我們可以把函式想成是一個黑盒子，透過呼叫函式可以完成我們想要做的工作，可能是傳入參數相加或是執行某段沒有回傳值的程式碼。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有一個關鍵字 func 其後接函式命名，可以傳入參數名稱和其資料型別（也可以不傳參數），後面是帶若有回傳值時的回傳值名稱和資料型別（也可以沒有回傳值）</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcName</span><span class="params">(input1 type1, input2 type2)</span> <span class="params">(output1 type1, output2 type2)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 若有回傳值</span></span><br><span class="line">    <span class="keyword">return</span> value1, value2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>基本函式<br> 基本款的函式就是有函式名稱，傳入參數和回傳值：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123; <span class="comment">// 當只傳一個回傳值且沒有定義回傳值變數時可以簡化括號</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(add(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多回傳值</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addAndProduct</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span> &#123; <span class="comment">// 多回傳值要用括號括起</span></span><br><span class="line">    <span class="keyword">return</span> a + b, a * b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(addAndProduct(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>長度不固定參數</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">argFunc</span><span class="params">(arg ...<span class="keyword">int</span>)</span></span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>傳值與傳指標<br> 一般來說我們傳入函式的參數是複製一份傳入，改動參數不會影響原有值。若今天我們傳入的不是複製值而是記憶體位置的指標，則會更改到原有值。</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">1</span></span><br><span class="line">    fmt.Println(add(a)) <span class="comment">// 11</span></span><br><span class="line">    fmt.Println(a) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 換傳指標進去：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    *a = *a + <span class="number">10</span></span><br><span class="line">    <span class="keyword">return</span> *a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">1</span></span><br><span class="line">    fmt.Println(add(&amp;a)) <span class="comment">// 11</span></span><br><span class="line">    fmt.Println(a) <span class="comment">// 11</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>defer<br> 採用後進先出方式在函式全部執行結束前執行，常用於開啟資源後關閉檔案：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ReadFile</span><span class="params">()</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    file.Open(<span class="string">"./file.txt"</span>)</span><br><span class="line">    <span class="keyword">defer</span> file.Close()</span><br><span class="line">    <span class="keyword">if</span> failureA &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> failureB &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函式當做值和類型</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> test <span class="function"><span class="keyword">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">bool</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testIt</span><span class="params">(f test, a <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Panic、Recover<br> 中斷程式進入 panic 狀態，用 Recover 可以恢復</p>
+</li>
+</ol>
+<h1 id="模組"><a href="#模組" class="headerlink" title="模組"></a>模組</h1><ol>
+<li><p>main 函式和 init 函式</p>
+<p> 當程式很複雜時，可以拆成不同 package 和檔案，其中 package main 為必要，其於 package 可以放置其他函式，在 Go 中函式或變數開頭大寫代表公有露出可以讓其他套件使用，反之為私有。其中 main 和 init 是保留函式，init 函式可以用於所有 package，main 用於 package main。Go 語言會自動呼叫兩者，init 是可選的，程式初始化是從 main 開始，如果有匯入其他套件會在編譯時依序匯入。如果有一個套件被引入多次，只會被引入一次。</p>
+<p> 相對路徑：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./model"</span> <span class="comment">// 同一目錄的 model 下</span></span><br></pre></td></tr></table></figure>
+<p> 絕對路徑：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"xxx/model"</span> <span class="comment">// gopath/src/xxx/model</span></span><br></pre></td></tr></table></figure>
+<p> 一般引用套件用法：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fmt.Println(&quot;hi&quot;)</span><br></pre></td></tr></table></figure>
+<p> 點用法：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">   . &quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">Println(&quot;hi&quot;)</span><br></pre></td></tr></table></figure>
+<p> 別名：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">   f &quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">f.Println(&quot;hi&quot;)</span><br></pre></td></tr></table></figure>
+<p> 只執行套件中 init，不使用裡面函式：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">   _ &quot;fmt&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是關於 Go 程式語言的基本語法中流程控制介紹，接下來的文章我們將透過 Golang Web 程式設計來學習 Go 這個程式語言的方方面面。</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a href="https://tour.golang.org/welcome/1" target="_blank" rel="noopener">A tour of go</a></li>
+<li><a href="https://www.tutorialspoint.com/go/" target="_blank" rel="noopener">Go Tutorial</a></li>
+<li><a href="https://gobyexample.com/" target="_blank" rel="noopener">Go by Example</a></li>
+<li><a href="https://www.toptal.com/go/go-programming-a-step-by-step-introductory-tutorial" target="_blank" rel="noopener">Go Programming Language: An Introductory Tutorial</a></li>
+<li><a href="https://github.com/davidhoo/go-tour" target="_blank" rel="noopener">Go tour Exercise</a></li>
+<li><a href="https://github.com/golang/go/wiki/Ubuntu" target="_blank" rel="noopener">Ubuntu Go install</a></li>
+<li><a href="http://www.ithome.com.tw/voice/99698" target="_blank" rel="noopener">從Go看現代程式語言</a></li>
+</ol>
+<p>（image via <a href="http://www.cuelogic.com/blog/wp-content/uploads/2017/06/go_lang1.png" target="_blank" rel="noopener">cuelogic</a>）</p>
+
+
+                <br>
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+
+                <br>
+                <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+                <br>
+                <div class="fb-like-block">
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                </div>
+                <br>
+                <br>
+                <div>在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！</div>
+                <div class="fb-page" data-href="https://www.facebook.com/HappyCoderOrg" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/HappyCoderOrg" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/HappyCoderOrg">HappyCoder 自學程式設計學院</a></blockquote></div>
+                <br>
+                <br>
+                <div>
+                    <h2>更多程式設計教學文章</h2>
+                    <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/golang101/logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/07/01/golang101-tutorial-basic-flow-control/" title="Go Web 程式設計入門教學：語法基礎之流程控制（flow control）篇" rel="bookmark">Go Web 程式設計入門教學：語法基礎之流程控制（flow control）篇</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/golang101/logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/07/01/golang101-tutorial-basic-variable/" title="Go Web 程式設計入門教學：語法基礎之變數（variable）和資料型別（type）篇" rel="bookmark">Go Web 程式設計入門教學：語法基礎之變數（variable）和資料型別（type）篇</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/golang101/logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/07/01/golang101-tutorial-introduction/" title="Go Web 程式設計入門教學：基礎介紹與環境建置" rel="bookmark">Go Web 程式設計入門教學：基礎介紹與環境建置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/golang101/logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/07/02/golang101-tutorial-web-basic/" title="Go Web 程式設計入門教學：Web 基礎" rel="bookmark">Go Web 程式設計入門教學：Web 基礎</a></h3></div></li></ul>
+                </div>
+                <style>
+                    .fb-like-block {
+                        width: 100px !important;
+                    }
+                    .popular-posts {
+                        list-style: none;
+                        display: flex;
+                    }
+                    .popular-posts-item {
+                        width: 25%;
+                        padding: 10px;
+                    }
+                    .popular-posts-title a {
+                        font-size: 16px;
+                        text-decoration: none;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        .popular-posts-item {
+                            width: 100%;
+                            padding: 10px;
+                        }
+                        .popular-posts {
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </div>
+
+            <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin: 0 auto; width: 70%;}
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+
+            <hr>
+
+            <div id="mc_embed_signup">
+                <form action="https://happycoder.us18.list-manage.com/subscribe/post?u=c27d54bac8f7fe84eec5086bc&amp;id=829f2fa635" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>訂閱 HappyCoder 自學程式設計學院電子報，自學程式不孤單！</h2>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c27d54bac8f7fe84eec5086bc_829f2fa635" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="馬上訂閱" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder 自學程式設計學院 2019
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>
