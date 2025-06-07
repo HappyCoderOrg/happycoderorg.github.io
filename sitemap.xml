@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
     
     <lastmod>2025-06-07</lastmod>
@@ -48,24 +39,6 @@
   
   <url>
     <loc>https://www.happycoder.org/about/index.html</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -110,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/10/11/python-data-science-and-machine-learning-pandas-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/10/14/python-data-science-and-machine-learning-scikit-learn-basic-tutorial/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -119,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/10/14/python-data-science-and-machine-learning-scikit-learn-basic-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/10/11/python-data-science-and-machine-learning-pandas-tutorial/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -146,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
+    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -200,6 +173,15 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2016/12/21/javascript101-tutorial/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/</loc>
     
     <lastmod>2025-06-07</lastmod>
@@ -218,7 +200,16 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2016/12/21/javascript101-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -255,6 +246,15 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-flow-control/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -610,6 +610,13 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/tags/JavaScript-ECMAScript2015-ES6-Front-End-Front-End-Development-Environment/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/tags/JavaScript/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -653,13 +660,6 @@
   
   <url>
     <loc>https://www.happycoder.org/tags/web/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/JavaScript-ECMAScript2015-ES6-Front-End-Front-End-Development-Environment/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
