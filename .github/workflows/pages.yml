@@ -1,4 +1,4 @@
-name: Pages
+name: Deploy Hexo site
 
 on:
   push:
@@ -6,45 +6,35 @@ on:
       - main
 
 jobs:
-  pages:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          submodules: recursive
-
-      - name: Use Node.js 18.x
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
-
-      - name: Cache NPM dependencies
+      - name: Cache node modules
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
-
+            ${{ runner.os }}-node-
       - name: Install Dependencies
         run: npm install
-
       - name: Clean
         run: npx hexo clean
-
-      - name: Build
+      - name: Generate static files
         run: npm run build
-
-      - name: Check generated files
+      - name: Check public folder
         run: ls -la ./public
-
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          debug: true
+          # debug: true

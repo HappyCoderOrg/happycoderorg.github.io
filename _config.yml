@@ -139,13 +139,13 @@ category_generator:
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  # repo: https://github.com/ReadThinker/readthinker.github.io
-  repo: git@github.com:happycoderorg/happycoderorg.github.io.git
-  # example, https://github.com/hexojs/hexojs.github.io
-  branch: gh-pages
-  ignore_hidden: false
+# deploy:
+#   type: git
+#   # repo: https://github.com/ReadThinker/readthinker.github.io
+#   repo: git@github.com:happycoderorg/happycoderorg.github.io.git
+#   # example, https://github.com/hexojs/hexojs.github.io
+#   branch: gh-pages
+#   ignore_hidden: false
 
 include:
   .nojekyll
