@@ -11,24 +11,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
     
     <lastmod>2025-06-07</lastmod>
@@ -57,15 +39,6 @@
   
   <url>
     <loc>https://www.happycoder.org/about/index.html</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -146,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -155,25 +128,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2018/09/06/docker101-docker-compose-practice-introduction-python-flask-redis-counter/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-flow-control/</loc>
-    
-    <lastmod>2025-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
+    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -254,7 +209,52 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2018/09/06/docker101-docker-compose-practice-introduction-python-flask-redis-counter/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-flow-control/</loc>
+    
+    <lastmod>2025-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
     
     <lastmod>2025-06-07</lastmod>
     

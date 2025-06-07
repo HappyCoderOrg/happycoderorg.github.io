@@ -214,73 +214,76 @@
 
 
 <style>
-.video-container {
+  .video-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
     overflow: hidden;
-}
+  }
 
-.video-container iframe, .video-container object, .video-container embed {
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
+  }
 </style>
 <header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>如何在 Windows 打造 Python 開發環境設定基礎入門教學</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                            Posted by HappyCoder 自學程式設計學院 on
-                        
-                        2017-11-17
-                    </span>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>如何在 Windows 打造 Python 開發環境設定基礎入門教學</h1>
+          
+          <span class="meta">
+            <!-- Date and Author -->
+             Posted by HappyCoder 自學程式設計學院 on  2017-11-17
+          </span>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 
 <!-- Post Content -->
 <article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+  <div class="container">
+    <div class="row">
+      <!-- Tags and categories -->
+      
+      <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+         
 
 
 <a href="/tags/Python-Django-MVC-Web-MTV-Web-Backend-Web-Framework-教學-Flask-框架-coding-code-程式設計-自學程式設計-CS-Computer-Computer-Science/">#Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</a>
 
+ 
+      </div>
+      <div class="col-lg-4 col-md-5 post-categories">
+        
+      </div>
+      
 
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
+      <!-- Gallery -->
+      
 
-            <!-- Gallery -->
-            
+      <!-- Post Main Content -->
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div
+          class="fb-like"
+          data-href="https://www.facebook.com/HappyCoderOrg/"
+          data-layout="button_count"
+          data-action="like"
+          data-size="large"
+          data-show-faces="true"
+          data-share="true"
+        ></div>
 
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
-
-                <div class="fb-like" data-href="https://www.facebook.com/HappyCoderOrg/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如何設定開發環境應該是每個初學程式設計者的痛（即便是老手有時也會覺得苦惱），尤其當你需要在終端機（terminal）輸入指令（command）來操控你的指令時（好吧，若你完全只走圖形化介面，習慣 GUI 操作就另當別論，但若你有志於往程式設計領域發展，建議還是熟悉一下指令碼）。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如何設定開發環境應該是每個初學程式設計者的痛（即便是老手有時也會覺得苦惱），尤其當你需要在終端機（terminal）輸入指令（command）來操控你的指令時（好吧，若你完全只走圖形化介面，習慣 GUI 操作就另當別論，但若你有志於往程式設計領域發展，建議還是熟悉一下指令碼）。</p>
 <p>要在 <a href="https:#zh.wikipedia.org/zh-tw/Linux">Linux</a>、<a href="https:#zh.wikipedia.org/zh-tw/MacOS">Mac OS</a> 這種屬於<a href="https:#zh.wikipedia.org/wiki/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F">類 Unix 系統</a>（指各種 Unix 的衍生系統，而 <a href="https:#zh.wikipedia.org/wiki/UNIX">Unix</a> 指的是一種電腦作業系統，具有多工、多使用者的特色，是許多作業系統的父親）上打造 Python 開發環境相對容易，但當你使用 Windows 作業系統並希望在終端機下指令操作或開發應用程式時，往往受限於環境而產生許多困難和誤踩地雷。因此，接下來本文將教大家如何在 Windows 打造屬於自己的 Python 開發環境（包含一般 Winodows 安裝和使用虛擬機在 Windows 環境下建立 Linux&#x2F;Ubuntu 作業系統，開發 Python 程式一般建議使用 Linux&#x2F;Ubuntu 環境避免環境設定除錯困擾）！</p>
 <h1 id="開始建置-Python-開發環境"><a href="#開始建置-Python-開發環境" class="headerlink" title="開始建置 Python 開發環境"></a>開始建置 Python 開發環境</h1><p>所謂工欲善其事，必先利其器，在開始之前我們必須先建置相關的開發環境，讓自己從麻瓜（不會寫程式的人）變成擁有程式魔力的魔法師。以下介紹我們在接下來開發 Python Web 應用程式所需要安裝的開發環境工具（強烈建議使用 Virtual Box 虛擬機搭配 Linux&#x2F;Ubuntu 環境，若你真的很想使用 Windows 環境就繼續往下看吧！）。</p>
 <ol>
@@ -402,98 +405,123 @@
 <p>（image via <a href="https:#camo.githubusercontent.com/812b2647d6cd216ecddfb3f0ec71639473717955/687474703a2f2f692e696d6775722e636f6d2f67316e4e6630492e706e67">githubusercontent</a>、<a href="https:#i.ytimg.com/vi/Xm790AkFeK4/maxresdefault.jpg">websiteoptimization</a>、<a target="_blank" rel="noopener" href="https://i.ytimg.com/vi/GGorVpzZQwA/maxresdefault.jpg">ytimg</a>、<a target="_blank" rel="noopener" href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a target="_blank" rel="noopener" href="https://www.ostechnix.com/wp-content/uploads/2017/03/VirtualBox_Ubuntu-16.04-LTS-Desktop_20_03_2017_19_44_58.png">ostechnix</a>）</p>
 
 
-                <br>
+        <br />
 
-                
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script>
+        
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script
+          type="text/javascript"
+          src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"
+        ></script>
 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
-                
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
+        
 
-                <br>
-                <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
-                <br>
-                <div class="fb-like-block">
-                    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                </div>
-                <br>
-                <br>
-                <div>在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！</div>
-                <div class="fb-page" data-href="https://www.facebook.com/HappyCoderOrg" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/HappyCoderOrg" class="fb-xfbml-parse-ignore"><a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">HappyCoder 自學程式設計學院</a></blockquote></div>
-                <br>
-                <br>
-                <div>
-                    <h2>更多程式設計教學文章</h2>
-                    <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/10/learning-programming-and-coding-with-python-introduction/" title="用 Python 自學程式設計：程式設計思維入門" rel="bookmark">用 Python 自學程式設計：程式設計思維入門</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/" title="用 Python 自學程式設計：list、tuple、dict and set" rel="bookmark">用 Python 自學程式設計：list、tuple、dict and set</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/11/learning-programming-and-coding-with-python-variable/" title="用 Python 自學程式設計：變數（variable）與資料型別（type）" rel="bookmark">用 Python 自學程式設計：變數（variable）與資料型別（type）</a></h3></div></li></ul>
-                </div>
-                <style>
-                    .fb-like-block {
-                        width: 100px !important;
-                    }
-                    .popular-posts {
-                        list-style: none;
-                        display: flex;
-                    }
-                    .popular-posts-item {
-                        width: 25%;
-                        padding: 10px;
-                    }
-                    .popular-posts-title a {
-                        font-size: 16px;
-                        text-decoration: none;
-                    }
-                    @media only screen and (max-width: 600px) {
-                        .popular-posts-item {
-                            width: 100%;
-                            padding: 10px;
-                        }
-                        .popular-posts {
-                            list-style: none;
-                            display: flex;
-                            flex-direction: column;
-                        }
-                    }
-                </style>
-            </div>
+        <br />
+        <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+        <br />
+        <div class="fb-like-block">
+          <div
+            class="fb-like"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+        </div>
+        <br />
+        <br />
+        <div>
+          在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！
+        </div>
+        <div
+          class="fb-page"
+          data-href="https://www.facebook.com/HappyCoderOrg"
+          data-small-header="false"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="true"
+        >
+          <blockquote
+            cite="https://www.facebook.com/HappyCoderOrg"
+            class="fb-xfbml-parse-ignore"
+          >
+            <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg"
+              >HappyCoder 自學程式設計學院</a
+            >
+          </blockquote>
+        </div>
+        <br />
+        <br />
+        <div>
+          <h2>更多程式設計教學文章</h2>
+          <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/10/learning-programming-and-coding-with-python-introduction/" title="用 Python 自學程式設計：程式設計思維入門" rel="bookmark">用 Python 自學程式設計：程式設計思維入門</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/" title="用 Python 自學程式設計：list、tuple、dict and set" rel="bookmark">用 Python 自學程式設計：list、tuple、dict and set</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/11/learning-programming-and-coding-with-python-variable/" title="用 Python 自學程式設計：變數（variable）與資料型別（type）" rel="bookmark">用 Python 自學程式設計：變數（variable）與資料型別（type）</a></h3></div></li></ul>
+        </div>
+        <style>
+          .fb-like-block {
+            width: 100px !important;
+          }
+          .popular-posts {
+            list-style: none;
+            display: flex;
+          }
+          .popular-posts-item {
+            width: 25%;
+            padding: 10px;
+          }
+          .popular-posts-title a {
+            font-size: 16px;
+            text-decoration: none;
+          }
+          @media only screen and (max-width: 600px) {
+            .popular-posts-item {
+              width: 100%;
+              padding: 10px;
+            }
+            .popular-posts {
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        </style>
+      </div>
 
-            <!-- Begin MailChimp Signup Form -->
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin: 0 auto; width: 70%;}
-                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+      <!-- Begin MailChimp Signup Form -->
+      <link
+        href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <style type="text/css">
+        #mc_embed_signup {
+          background: #fff;
+          clear: left;
+          font: 14px Helvetica, Arial, sans-serif;
+          margin: 0 auto;
+          width: 70%;
+        }
+        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
                 We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-            </style>
+      </style>
 
-            <hr>
+      <hr />
 
-            <div id="mc_embed_signup">
-                <form action="https://happycoder.us18.list-manage.com/subscribe/post?u=c27d54bac8f7fe84eec5086bc&amp;id=829f2fa635" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                    <h2>訂閱 HappyCoder 自學程式設計學院電子報，自學程式不孤單！</h2>
-                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-                </label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-                </div>
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c27d54bac8f7fe84eec5086bc_829f2fa635" tabindex="-1" value=""></div>
-                    <div class="clear"><input type="submit" value="馬上訂閱" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                    </div>
-                </form>
-            </div>
-            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-            <!--End mc_embed_signup-->
+      <iframe
+        src="https://happycoder.substack.com/embed"
+        width="480"
+        height="320"
+        style="border: 1px solid #eee; background: white"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
 
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
+      <!-- Comments -->
+      
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
     <hr />
     <h3>Comments:</h3>
     <div id="disqus_thread">
@@ -502,11 +530,12 @@
 
 
 
-                </div>
-            
-        </div>
+      </div>
+      
     </div>
+  </div>
 </article>
+
 <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
 
 	
