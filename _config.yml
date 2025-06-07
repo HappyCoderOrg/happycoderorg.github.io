@@ -86,54 +86,28 @@ baidusitemap:
 ## robots.txt
 robotstxt:
   useragent: "*"
-  disallow:
-    - ''
-  sitemap: 
-    - https://www.happycoder.org/sitemap.xml
-  baidusitemap: 
-    - /baidusitemap.xml
-
-## RSS
-feed:
-  type: atom
-  path: atom.xml
-  limit: 30
-  hub:  
-
-## archive
-archive_generator:
-  per_page: 10
-  yearly: true
-  monthly: true
-  daily: false
-
-## Search 
-search:
-  path: search.xml
-  field: post
-
-## social
-addthis:
-  enable: true
-  pubid:
-  facebook: true
-  twitter: true
-  google: true
-  instagram: true
-  pinterest: true
-
-## robots.txt
-robotstxt:
-  useragent: "*"
   disallow: ''
   sitemap: 
     - https://www.happycoder.org/sitemap.xml
   baidusitemap: 
     - /baidusitemap.xml
 
-## category
-category_generator:
-  per_page: 10
+
+## RSS
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: logo.png
+  autodiscovery: true
+  template:
+
 
 ## archive
 archive_generator:
@@ -149,6 +123,20 @@ search:
   content: true
   format: html
 
+## social
+addthis:
+  enable: true
+  pubid:
+  facebook: true
+  twitter: true
+  google: true
+  instagram: true
+  pinterest: true
+
+## category
+category_generator:
+  per_page: 10
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -158,28 +146,6 @@ deploy:
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
   ignore_hidden: false
-
-# hexo sitemap
-sitemap:
-  path: sitemap.xml
-  template: ./sitemap_template.xml
-
-baidusitemap:
-  path: baidusitemap.xml
-
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date
-  icon: logo.png
-  autodiscovery: true
-  template:
 
 include:
   .nojekyll
