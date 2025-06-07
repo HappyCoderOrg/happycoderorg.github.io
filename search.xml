@@ -1,6 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學</title>
+    <url>/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/cs101/git.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作和溝通的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關環境工具若你還沒準備好，可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
+<h1 id="什麼是版本控制系統（Version-Control-System）？"><a href="#什麼是版本控制系統（Version-Control-System）？" class="headerlink" title="什麼是版本控制系統（Version Control System）？"></a>什麼是版本控制系統（Version Control System）？</h1><p><img src="/images/cs101/files.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題！）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。因此，使用版本控制系統的需求就應運而生啦！</p>
+<p><img src="/images/cs101/hero-mac-screenshot.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>一般在軟體開發中又分為中央式系統（例如：<a href="https://zh.wikipedia.org/wiki/Subversion">Subversion</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%94%E4%BD%9C%E7%89%88%E6%9C%AC%E7%B3%BB%E7%B5%B1">CVS</a> 等）與分散式系統（例如：<a href="https://git-scm.com/">Git</a>、<a href="BitKeeper">BitKeeper</a>、<a href="https://zh.wikipedia.org/zh-tw/Mercurial">mercurial</a> 等），中央式版本控制系統的工作主要在一個伺服器進行，由中央管理存取權限「鎖上」檔案庫中的檔案，一次只能讓一個開發者進行工作。而分散式系統讓不同開發者直接在各自的本地檔案庫工作，並容許多個開發者同時更動同一個檔案，而每個檔案庫有另外一個合併各個改變的功能。分散式系統讓開發者能在沒有網路的情況下也能繼續工作，也讓開發者有充分的版本控制能力，而不需經中央管理者的許可，但分散式系統仍然可以有檔案上鎖功能。</p>
+<p><img src="/images/cs101/github.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="什麼是-Git？什麼是-Github？"><a href="#什麼是-Git？什麼是-Github？" class="headerlink" title="什麼是 Git？什麼是 Github？"></a>什麼是 Git？什麼是 Github？</h1><p><a href="https://zh.wikipedia.org/wiki/Git">Git</a> 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 <a href="https://zh.wikipedia.org/zh-tw/Linux">Linux</a> 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力（使用程式碼 snapshot 來比較歷史版本差異）。</p>
+<p><a href="https://github.com/">Github</a> 則是一個支援 git 程式碼存取和遠端托管的平台服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github profile 作品集。</p>
+<h1 id="Git-基本觀念"><a href="#Git-基本觀念" class="headerlink" title="Git 基本觀念"></a>Git 基本觀念</h1><p><img src="/images/cs101/git-workflow.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Git 屬於分散式的版本控制系統，所以開發者可以在離線 local 環境下開發，等到有網路時再將自己的程式推到 Remote 環境或 pull 下其他開發者程式碼進行整合。在 Local 中我們又分為 working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）。</p>
+<p>當自己開發時會在工作資料夾工作，當要進入檔案庫之前會先將檔案加入暫存區，確認沒問題則 commit 到檔案庫中，最後 push 上去 remote 環境。在 Git 中若是有和其他開發者一起合作，則會需要處理不同 branch 之間 conflict 和 merge 的問題。</p>
+<p><img src="/images/cs101/git-branch.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="Git-與-Github-實戰操作入門教學"><a href="#Git-與-Github-實戰操作入門教學" class="headerlink" title="Git 與 Github 實戰操作入門教學"></a>Git 與 Github 實戰操作入門教學</h1><p>接下來我們用一個實際的實戰範例讓讀者可以快速的掌握那些基礎必知必會的 Git&#x2F;Github 操作技能：</p>
+<ol>
+<li><p>安裝並且設定 Git</p>
+<p> <code>任務 1：安裝 Git 到你的電腦上，並且設定好 Git 內部的使用者名稱和電子信箱</code></p>
+<p> Linux 若是使用 <code>Debian</code> 基礎的作業系統可以在終端機輸入以下指令安裝 git：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p> 若是 <code>Fedora</code> 系列可以輸入：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ yum install git-core</span><br></pre></td></tr></table></figure>
+
+<p> 若是 windows 可以下載安裝 <a href="http://cmder.net/">cmder</a> 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 <a href="https://git-scm.com/">Git 官網安裝</a>。當然在市面上有許多免費 <a href="https://git-scm.com/download/gui/linux">GUI 圖形化的 Git 操作軟體</a>，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好，這樣你才比較知道圖形化程式背後做了什麼事情。Mac 則是可以到 <a href="https://git-scm.com/downloads">Git 官方網站</a> 選擇對應作業系統，按照步驟完整下載安裝。另外也可以參考<a href="https://git-scm.com/book/zh-tw/v1/%E9%96%8B%E5%A7%8B-%E5%AE%89%E8%A3%9D-Git">中文安裝教學</a>。</p>
+<p> 由於我們會選擇 Github 當作遠端托管程式的環境，所以我們也可以根據作業系統安裝 <a href="https://desktop.github.com/">Github 桌面版</a>當作操作工具（內建安裝 Git）。</p>
+<p> <img src="/images/cs101/git-version.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 若是安裝完成，打開終端機（terminal）或 cmder 輸入以下指令，若成功顯示版本（建議 Git 版本在 2 以上），代表安裝成功囉！terminal（終端機）是一個可以下指令讓電腦做事情的互動介面（例如：新增檔案、移動到資料夾等）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 其中 $ 為提示字元，在輸入指令時不用輸入該符號，否則會錯誤，若是使用 windows cmder 預設是 λ</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+
+<p> 接下來設定你的帳戶，讓 Git 知道這台電腦做的修改要連結到哪一個使用者（待會我們要在 Github 上註冊帳號，建議使用一致的帳號和電子信箱）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;&lt;Your Name&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<p> 設定電子郵件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.email &quot;&lt;your@gmail.com&gt;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立一個本機的 repository</p>
+<p> <code>任務二：在自己的電腦上建立一個新的 local repositories（本地檔案庫）</code></p>
+<p> <img src="/images/cs101/git-folder.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> repository（檔案庫）是一個什麼樣的概念呢？事實上 repository 就是一個專案，又簡稱 repo。以電腦的檔案資料管理來看，我們通常會把同一個專案的資料放到同一個資料夾下，所以我們也可以把 repository 看成一個資料夾。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個 hello-git 資料夾</span><br><span class="line">$ mkdir hello-git</span><br><span class="line">// 移動到 hello-git 資料夾</span><br><span class="line">$ cd hello-git</span><br><span class="line">// 將專案資料夾建立成 git repository</span><br><span class="line">$ git init</span><br><span class="line">// 列出專案資料夾下的檔案和資料夾（-l 參數為列出詳細資料，-a 為列出隱藏資料夾）</span><br><span class="line">$ ls -la </span><br></pre></td></tr></table></figure>
+
+<p> 當你執行 <code>git init</code> 後，你可以發現多出了 <code>.git</code> 這個隱藏資料夾，可以看到裡面檔案和資料夾如下：</p>
+<p> <img src="/images/cs101/git-folder2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 到這邊恭喜讀者，完成你第一個 git 專案資料夾改造計畫！</p>
+</li>
+<li><p>檢視狀態、新增或修改 commits</p>
+<p> <code>任務三：在你的 repository 檔案庫中建立一個新檔案，新增一些內容到該檔案並且將那些檔案修改提交 commit 到 Git 中</code></p>
+<p> 接著我們使用文字編輯器，新增一個 hello.py 的檔案（裡面是一個會印出 <code>hello python &amp; git</code> 字串的 python 程式）：</p>
+ <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 然後在終端機的專案資料夾下輸入 <code>git status</code> 顯示目前工作環境狀態：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">    hello.py</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p> 我們會發現因為我們有新增新的檔案，但是還沒進到 git 追蹤範圍中&#x2F;暫存區，所以我們要使用 <code>git add hello.py</code> 加入追蹤，這樣之後檔案有修改就可以追蹤到。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add hello.py</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   hello.py</span><br></pre></td></tr></table></figure>
+
+<p> 若是確認沒問題我們就準備 commit 進去 repository 囉！</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// -m 為輸入 commit message，也就是說這個 commit 內做了哪些事情</span><br><span class="line">$ git commit -m &quot;Init hello.py&quot;</span><br><span class="line">[master (root-commit) ad6d328] Init hello.py</span><br><span class="line">1 file changed, 1 insertion(+)</span><br><span class="line">create mode 100644 hello.py</span><br><span class="line"></span><br><span class="line">// commmit 完成</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+<p> 若是想反悔不想把檔案加入追蹤呢？</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 檔案尚未加入過追蹤時使用，即可恢復到檔案尚未加入暫存區</span><br><span class="line">$ git rm --cached hello.py</span><br><span class="line"></span><br><span class="line">// 若檔案已經在 repository 內，則使用以下指令</span><br><span class="line">// repository 與 stage 的檔案都會被還原到 HEAD，但 working directory 內的檔案不變</span><br><span class="line">$ git reset HARD</span><br></pre></td></tr></table></figure>
+
+<p> 當你追蹤後修改了檔案，例如把 <code>hello.py</code> 的內容改成：</p>
+ <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git rock&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 若有檔案修改，記得要再 <code>add</code> 修改的檔案（這是新手比較容易忘記的部分），若是要放棄修改可以使用 <code>git checkout -- 檔案名稱</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// 查看目前工作狀態</span><br><span class="line">$ git status</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   hello.py</span><br></pre></td></tr></table></figure>
+
+<p> commit 這個修改時簡寫會寫成這樣（-a 是 add，-m 為 message 簡寫，後面接訊息資訊）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -a -m &quot;修改了 hello.py&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>註冊 GitHub 帳號</p>
+<p> <code>任務四：建立一個 GitHub 帳號，並在 Git 設定中加入使用者帳號</code></p>
+<p> 到目前為主我們程式主要是在我們 local 工作環境中操作，但還記得我們在 Git 基本觀念中有提到，git 分為 local 和 remote，若是我們想要和全世界其他開發者合作或是貢獻開放原始碼的話，我們可以透過 github 來當作我們 remote 工作環境，去管理我們程式碼，同樣的也可以透過 github 平台和其他開發者一起合作，參與開放原始碼的開發。github 若是公開的 repo 是無限制數量免費的，但是若是想使用 private repo 可以<a href="https://github.com/pricing">參考付費方案</a>。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意大小寫要一致</span><br><span class="line">$ git config --global user.username &lt;你的 github 使用者名稱&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 先到 github.com 註冊帳號：</p>
+<p> <img src="/images/cs101/github-example1.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 註冊成功後登入，可以點選右上顯圖下拉式選單進到個人頁面（profile），觀看個人頁面：</p>
+<p> <img src="/images/cs101/github-example2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> <img src="/images/cs101/github-example4.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右上角 <code>+</code> 來新增 new repository（檔案庫）：</p>
+<p> <img src="/images/cs101/github-example3.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 輸入 repository name（你要取的專案名稱），最好跟電腦 local 專案一致，我們這邊輸入 <code>git-example</code>。然後輸入簡短專案描述並先不勾選初始化 README 和，也先不要選擇 .gitignore 和 License 授權（不然會造成本地端和遠端不一致會需要額外一些處理）：</p>
+<p> <code>.gitignore</code>：要忽略的檔案清單，這是用來告訴 Git，當在做版本控制記錄的時候，忽略這些檔案。通常一些機密資料，如資料庫帳號密碼或是 server IP 位置等，記得要加入。也可以參考 github 上面的<a href="https://github.com/github/gitignore">一些範本</a> 在新增 repository 時選取對應的程式語言</p>
+<p> <code>README.md</code>：repository 介紹和使用方式說明（例如：使用方法、參與專案方式等），使用 <code>markdown</code> 語法撰寫。另外通常有 CONTRIBUTING.md 額外說明如何參與貢獻。</p>
+<p> <code>LICENSE</code>：專案使用何種授權方式，例如：MIT、BSD 等</p>
+<p> <img src="/images/cs101/github-example5.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 接著按 create 按鈕！恭喜你新增成功，創建了自己第一個 github repository（遠端檔案庫）！</p>
+</li>
+<li><p>將 repository 做本機和遠端的連結</p>
+<p> <code>任務五：把電腦裡 Local（本地端）的 repository（檔案庫）和 remote（遠端）的 repository（檔案庫）連結起來，並 push 電腦上的修改</code></p>
+<p> <img src="/images/cs101/github-example6.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 因我們已經在專案有把 <code>hello.py</code> 修改加入追蹤並 commit 到 local 檔案庫，所以我們可以參考下方的指令說明把 remote 網址加入：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 本地端專案知道 origin 對應到遠端網址</span><br><span class="line">$ git remote add origin &lt;remote 網址&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 接者準備將本地端程式 push 到遠端檔案庫：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 觀看情況</span><br><span class="line">$ git status</span><br><span class="line">// 將本地端程式 push 到遠端檔案庫</span><br><span class="line">$ git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Writing objects: 100% (3/3), 239 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https://github.com/happycodergit/git-example.git</span><br><span class="line">* [new branch]      master -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from origin.</span><br></pre></td></tr></table></figure>
+
+<p> 參數 <code>-u</code> 等同於 <code>--set-upstream</code>，設定 <code>upstream</code> 可以使分支開始追蹤指定的遠端分支。事實上，只要做過一次 <code>$ git push -u &lt;remote name&gt; &lt;branch name&gt;</code>，並且成功 push 出去；本機端的 master 就會被設定去追蹤遠端的 <code>&lt;remote name&gt;/&lt;branch name&gt;</code> 分支。只要成功設定好 upstream 後，第二次以後要上傳分支時，就只需要透過 git push 就可以了，不必再帶 <code>&lt;remote name&gt;</code> 跟 <code>&lt;branch name&gt;</code> 等參數。例如：<code>$ git push</code>。</p>
+<p> 事實上，<code>$ git push -u origin master</code> 可以拆解成：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">$ git checkout master</span><br><span class="line">$ git branch -u origin/master</span><br></pre></td></tr></table></figure>
+
+<p> 恭喜你成功把你的專案推送上去 github 啦！</p>
+<p> <img src="/images/cs101/github-example7.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+</li>
+<li><p>Fork 和 clone 一個 open source（開源）的計畫</p>
+<p> <code>任務六：從 GitHub.com 建立專案，複本 fork，並下載 clone 到電腦上</code></p>
+<p> 點選左上角 github icon 回到首頁，我們從上面搜尋欄搜尋 react：</p>
+<p> <img src="/images/cs101/github-example8.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右上角 fork 按鈕，複製一份專案到我們這：</p>
+<p> <img src="/images/cs101/github-example9.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 等待 fork 中：</p>
+<p> <img src="/images/cs101/github-example10.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右邊綠色按鈕 clone download 複製 HTTP 網址：</p>
+<p> <img src="/images/cs101/github-example11.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 複製到本地端</span><br><span class="line">$ git clone https://github.com/happycodergit/react.git</span><br><span class="line">// 移動到 react 資料夾</span><br><span class="line">$ cd react</span><br><span class="line">// 切出自己的新分支（使用 -b）</span><br><span class="line">$ git checkout -b happycoder@feature_branch</span><br><span class="line">// 做一些 README.md 檔案修改，然後 commit 到自己 fork 過來的專案</span><br><span class="line">$ git commit -a -m &quot;Update README&quot;</span><br><span class="line">$ git push origin happycoder@feature_branch</span><br></pre></td></tr></table></figure>
+
+<p> 事實上，每個開放原始碼都有他自己貢獻的方式，記得要先了解。例如可以<a href="https://reactjs.org/docs/how-to-contribute.html">參考 react 貢獻說明</a>！</p>
+<p> <img src="/images/cs101/github-example12.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 你可以透過將自己的修改 commit 到自己 fork 過來的專案，然後到原始專案頁面點選 new pull request 按鈕發 pull request（會比對程式碼的差異）。若對方 review 完後接受就可以將自己的程式碼合併到原始專案中，為開放原始碼做出第一步貢獻！</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 若完成 pull request 記得讓 master（或是合併進去的 branch）保持同步</span><br><span class="line">$ git pull upstream master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>練習建立一個 feature branch</p>
+<p> <code>任務七：回來原來的 git-example 專案新增 feature branch（分支）</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個名為 dev 的 branch</span><br><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
+
+<p> 在 <code>hello.py</code> 最上面多加一行 <code># hi, this is comment</code> 註解後存檔</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// commit 到本地端更新</span><br><span class="line">$ git commit -a -m &quot;Init dev branch&quot;</span><br><span class="line">$ gut push origin dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>邀請別人和你合作</p>
+<p> <code>任務八：在專案新增夥伴 collaborator</code></p>
+<p> 在右上角進入 setting 可以選擇到 collaborator 新增合作者：</p>
+<p> <img src="/images/cs101/github-example13.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+</li>
+<li><p>利用 push 和 pull 來和 GitHub.com 同步</p>
+<p> <code>任務九：用 pull 來和其他 collaborators（合作者）同步更新，確保程式是最新的版本</code></p>
+<p> 請其他開發者 git colone 下來你的 git-example 專案並 checkout 到 <code>dev</code> branch，並完成新增一個 <code>README.md</code> 檔案後發 pull request 過來，若沒問題就按同意並合併。我們則透過 git pull 來保持本地端和遠端程式碼同步：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull origin dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Merge（合併）和刪除 branches</p>
+<p><code>任務十：在本機上 merge 合併你的 branch（分支），刪除舊的 branch（分支）</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 移動到 master branch</span><br><span class="line">$ git checout master</span><br><span class="line">// 合併 dev 到 master</span><br><span class="line">$ git merge dev</span><br><span class="line">// 刪除 dev branch</span><br><span class="line">$ git branch -d dev</span><br><span class="line">// 將合併後的 master 推送到遠端</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是 Git 與 Github 版本控制基本指令與操作入門教學！希望讀者可以動手一起操作，漸漸就能感受到 git 的威力和好處，同時也有能力參與開放原始碼（open source）的社群和提昇自己在職場上的價值，朝成為一個真正的軟體工程師（Software Engineer）邁進！</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md">30 天精通 Git 版本控管</a></li>
+<li><a href="https://git-scm.com/">Git 官方網站</a></li>
+<li><a href="https://www.codeschool.com/courses/try-git">Try Git</a></li>
+<li><a href="http://jlord.us/git-it/index-zhtw.html">Git-it</a></li>
+<li><a href="https://guides.github.com/">GitHub Guides</a></li>
+<li><a href="http://oomusou.io/git/git-remove-stage/">如何將檔案從stage移除?</a></li>
+<li><a href="https://www.gitbook.com/book/zlargon/git-tutorial/details">Git 教學</a></li>
+</ol>
+<p>（image via <a href="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">git-scm</a>、<a href="https://dn-sdkcnssl.qbox.me/article/fyuBUISCkmddVNC0t2Iu.png">qbox</a>、<a href="https://qph.ec.quoracdn.net/main-qimg-3aa29f29ede6a8245b6964f663c60339">quoracdn</a>、<a href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a href="https://i.stack.imgur.com/RUIIq.png">imgur</a>、<a href="https://martinfitzpatrick.name/images/method/1472/GitBranchName_1.png">martinfitzpatrick</a>）</p>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>linux</tag>
+        <tag>指令</tag>
+        <tag>命令列</tag>
+        <tag>command line</tag>
+        <tag>軟體工程師</tag>
+        <tag>軟體工程</tag>
+        <tag>software engineering</tag>
+        <tag>bash</tag>
+        <tag>shell</tag>
+        <tag>svn</tag>
+        <tag>version control</tag>
+        <tag>VCS</tag>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>cvs</tag>
+        <tag>自學程式心得</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學</title>
     <url>/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</url>
     <content><![CDATA[<p><img src="/images/cs101/terminal.jpg" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
@@ -299,197 +490,6 @@
         <tag>mac</tag>
         <tag>os</tag>
         <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學</title>
-    <url>/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</url>
-    <content><![CDATA[<p><img src="/images/cs101/git.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作和溝通的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關環境工具若你還沒準備好，可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
-<h1 id="什麼是版本控制系統（Version-Control-System）？"><a href="#什麼是版本控制系統（Version-Control-System）？" class="headerlink" title="什麼是版本控制系統（Version Control System）？"></a>什麼是版本控制系統（Version Control System）？</h1><p><img src="/images/cs101/files.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題！）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。因此，使用版本控制系統的需求就應運而生啦！</p>
-<p><img src="/images/cs101/hero-mac-screenshot.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>一般在軟體開發中又分為中央式系統（例如：<a href="https://zh.wikipedia.org/wiki/Subversion">Subversion</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%94%E4%BD%9C%E7%89%88%E6%9C%AC%E7%B3%BB%E7%B5%B1">CVS</a> 等）與分散式系統（例如：<a href="https://git-scm.com/">Git</a>、<a href="BitKeeper">BitKeeper</a>、<a href="https://zh.wikipedia.org/zh-tw/Mercurial">mercurial</a> 等），中央式版本控制系統的工作主要在一個伺服器進行，由中央管理存取權限「鎖上」檔案庫中的檔案，一次只能讓一個開發者進行工作。而分散式系統讓不同開發者直接在各自的本地檔案庫工作，並容許多個開發者同時更動同一個檔案，而每個檔案庫有另外一個合併各個改變的功能。分散式系統讓開發者能在沒有網路的情況下也能繼續工作，也讓開發者有充分的版本控制能力，而不需經中央管理者的許可，但分散式系統仍然可以有檔案上鎖功能。</p>
-<p><img src="/images/cs101/github.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="什麼是-Git？什麼是-Github？"><a href="#什麼是-Git？什麼是-Github？" class="headerlink" title="什麼是 Git？什麼是 Github？"></a>什麼是 Git？什麼是 Github？</h1><p><a href="https://zh.wikipedia.org/wiki/Git">Git</a> 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 <a href="https://zh.wikipedia.org/zh-tw/Linux">Linux</a> 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力（使用程式碼 snapshot 來比較歷史版本差異）。</p>
-<p><a href="https://github.com/">Github</a> 則是一個支援 git 程式碼存取和遠端托管的平台服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github profile 作品集。</p>
-<h1 id="Git-基本觀念"><a href="#Git-基本觀念" class="headerlink" title="Git 基本觀念"></a>Git 基本觀念</h1><p><img src="/images/cs101/git-workflow.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Git 屬於分散式的版本控制系統，所以開發者可以在離線 local 環境下開發，等到有網路時再將自己的程式推到 Remote 環境或 pull 下其他開發者程式碼進行整合。在 Local 中我們又分為 working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）。</p>
-<p>當自己開發時會在工作資料夾工作，當要進入檔案庫之前會先將檔案加入暫存區，確認沒問題則 commit 到檔案庫中，最後 push 上去 remote 環境。在 Git 中若是有和其他開發者一起合作，則會需要處理不同 branch 之間 conflict 和 merge 的問題。</p>
-<p><img src="/images/cs101/git-branch.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="Git-與-Github-實戰操作入門教學"><a href="#Git-與-Github-實戰操作入門教學" class="headerlink" title="Git 與 Github 實戰操作入門教學"></a>Git 與 Github 實戰操作入門教學</h1><p>接下來我們用一個實際的實戰範例讓讀者可以快速的掌握那些基礎必知必會的 Git&#x2F;Github 操作技能：</p>
-<ol>
-<li><p>安裝並且設定 Git</p>
-<p> <code>任務 1：安裝 Git 到你的電腦上，並且設定好 Git 內部的使用者名稱和電子信箱</code></p>
-<p> Linux 若是使用 <code>Debian</code> 基礎的作業系統可以在終端機輸入以下指令安裝 git：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ apt-get install git</span><br></pre></td></tr></table></figure>
-
-<p> 若是 <code>Fedora</code> 系列可以輸入：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ yum install git-core</span><br></pre></td></tr></table></figure>
-
-<p> 若是 windows 可以下載安裝 <a href="http://cmder.net/">cmder</a> 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 <a href="https://git-scm.com/">Git 官網安裝</a>。當然在市面上有許多免費 <a href="https://git-scm.com/download/gui/linux">GUI 圖形化的 Git 操作軟體</a>，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好，這樣你才比較知道圖形化程式背後做了什麼事情。Mac 則是可以到 <a href="https://git-scm.com/downloads">Git 官方網站</a> 選擇對應作業系統，按照步驟完整下載安裝。另外也可以參考<a href="https://git-scm.com/book/zh-tw/v1/%E9%96%8B%E5%A7%8B-%E5%AE%89%E8%A3%9D-Git">中文安裝教學</a>。</p>
-<p> 由於我們會選擇 Github 當作遠端托管程式的環境，所以我們也可以根據作業系統安裝 <a href="https://desktop.github.com/">Github 桌面版</a>當作操作工具（內建安裝 Git）。</p>
-<p> <img src="/images/cs101/git-version.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 若是安裝完成，打開終端機（terminal）或 cmder 輸入以下指令，若成功顯示版本（建議 Git 版本在 2 以上），代表安裝成功囉！terminal（終端機）是一個可以下指令讓電腦做事情的互動介面（例如：新增檔案、移動到資料夾等）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 其中 $ 為提示字元，在輸入指令時不用輸入該符號，否則會錯誤，若是使用 windows cmder 預設是 λ</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
-
-<p> 接下來設定你的帳戶，讓 Git 知道這台電腦做的修改要連結到哪一個使用者（待會我們要在 Github 上註冊帳號，建議使用一致的帳號和電子信箱）：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;&lt;Your Name&gt;&quot;</span><br></pre></td></tr></table></figure>
-
-<p> 設定電子郵件：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.email &quot;&lt;your@gmail.com&gt;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立一個本機的 repository</p>
-<p> <code>任務二：在自己的電腦上建立一個新的 local repositories（本地檔案庫）</code></p>
-<p> <img src="/images/cs101/git-folder.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> repository（檔案庫）是一個什麼樣的概念呢？事實上 repository 就是一個專案，又簡稱 repo。以電腦的檔案資料管理來看，我們通常會把同一個專案的資料放到同一個資料夾下，所以我們也可以把 repository 看成一個資料夾。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個 hello-git 資料夾</span><br><span class="line">$ mkdir hello-git</span><br><span class="line">// 移動到 hello-git 資料夾</span><br><span class="line">$ cd hello-git</span><br><span class="line">// 將專案資料夾建立成 git repository</span><br><span class="line">$ git init</span><br><span class="line">// 列出專案資料夾下的檔案和資料夾（-l 參數為列出詳細資料，-a 為列出隱藏資料夾）</span><br><span class="line">$ ls -la </span><br></pre></td></tr></table></figure>
-
-<p> 當你執行 <code>git init</code> 後，你可以發現多出了 <code>.git</code> 這個隱藏資料夾，可以看到裡面檔案和資料夾如下：</p>
-<p> <img src="/images/cs101/git-folder2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 到這邊恭喜讀者，完成你第一個 git 專案資料夾改造計畫！</p>
-</li>
-<li><p>檢視狀態、新增或修改 commits</p>
-<p> <code>任務三：在你的 repository 檔案庫中建立一個新檔案，新增一些內容到該檔案並且將那些檔案修改提交 commit 到 Git 中</code></p>
-<p> 接著我們使用文字編輯器，新增一個 hello.py 的檔案（裡面是一個會印出 <code>hello python &amp; git</code> 字串的 python 程式）：</p>
- <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p> 然後在終端機的專案資料夾下輸入 <code>git status</code> 顯示目前工作環境狀態：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">    hello.py</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
-
-<p> 我們會發現因為我們有新增新的檔案，但是還沒進到 git 追蹤範圍中&#x2F;暫存區，所以我們要使用 <code>git add hello.py</code> 加入追蹤，這樣之後檔案有修改就可以追蹤到。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add hello.py</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   hello.py</span><br></pre></td></tr></table></figure>
-
-<p> 若是確認沒問題我們就準備 commit 進去 repository 囉！</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// -m 為輸入 commit message，也就是說這個 commit 內做了哪些事情</span><br><span class="line">$ git commit -m &quot;Init hello.py&quot;</span><br><span class="line">[master (root-commit) ad6d328] Init hello.py</span><br><span class="line">1 file changed, 1 insertion(+)</span><br><span class="line">create mode 100644 hello.py</span><br><span class="line"></span><br><span class="line">// commmit 完成</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-
-<p> 若是想反悔不想把檔案加入追蹤呢？</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 檔案尚未加入過追蹤時使用，即可恢復到檔案尚未加入暫存區</span><br><span class="line">$ git rm --cached hello.py</span><br><span class="line"></span><br><span class="line">// 若檔案已經在 repository 內，則使用以下指令</span><br><span class="line">// repository 與 stage 的檔案都會被還原到 HEAD，但 working directory 內的檔案不變</span><br><span class="line">$ git reset HARD</span><br></pre></td></tr></table></figure>
-
-<p> 當你追蹤後修改了檔案，例如把 <code>hello.py</code> 的內容改成：</p>
- <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git rock&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p> 若有檔案修改，記得要再 <code>add</code> 修改的檔案（這是新手比較容易忘記的部分），若是要放棄修改可以使用 <code>git checkout -- 檔案名稱</code></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// 查看目前工作狀態</span><br><span class="line">$ git status</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   hello.py</span><br></pre></td></tr></table></figure>
-
-<p> commit 這個修改時簡寫會寫成這樣（-a 是 add，-m 為 message 簡寫，後面接訊息資訊）：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -a -m &quot;修改了 hello.py&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>註冊 GitHub 帳號</p>
-<p> <code>任務四：建立一個 GitHub 帳號，並在 Git 設定中加入使用者帳號</code></p>
-<p> 到目前為主我們程式主要是在我們 local 工作環境中操作，但還記得我們在 Git 基本觀念中有提到，git 分為 local 和 remote，若是我們想要和全世界其他開發者合作或是貢獻開放原始碼的話，我們可以透過 github 來當作我們 remote 工作環境，去管理我們程式碼，同樣的也可以透過 github 平台和其他開發者一起合作，參與開放原始碼的開發。github 若是公開的 repo 是無限制數量免費的，但是若是想使用 private repo 可以<a href="https://github.com/pricing">參考付費方案</a>。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意大小寫要一致</span><br><span class="line">$ git config --global user.username &lt;你的 github 使用者名稱&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 先到 github.com 註冊帳號：</p>
-<p> <img src="/images/cs101/github-example1.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 註冊成功後登入，可以點選右上顯圖下拉式選單進到個人頁面（profile），觀看個人頁面：</p>
-<p> <img src="/images/cs101/github-example2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> <img src="/images/cs101/github-example4.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右上角 <code>+</code> 來新增 new repository（檔案庫）：</p>
-<p> <img src="/images/cs101/github-example3.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 輸入 repository name（你要取的專案名稱），最好跟電腦 local 專案一致，我們這邊輸入 <code>git-example</code>。然後輸入簡短專案描述並先不勾選初始化 README 和，也先不要選擇 .gitignore 和 License 授權（不然會造成本地端和遠端不一致會需要額外一些處理）：</p>
-<p> <code>.gitignore</code>：要忽略的檔案清單，這是用來告訴 Git，當在做版本控制記錄的時候，忽略這些檔案。通常一些機密資料，如資料庫帳號密碼或是 server IP 位置等，記得要加入。也可以參考 github 上面的<a href="https://github.com/github/gitignore">一些範本</a> 在新增 repository 時選取對應的程式語言</p>
-<p> <code>README.md</code>：repository 介紹和使用方式說明（例如：使用方法、參與專案方式等），使用 <code>markdown</code> 語法撰寫。另外通常有 CONTRIBUTING.md 額外說明如何參與貢獻。</p>
-<p> <code>LICENSE</code>：專案使用何種授權方式，例如：MIT、BSD 等</p>
-<p> <img src="/images/cs101/github-example5.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 接著按 create 按鈕！恭喜你新增成功，創建了自己第一個 github repository（遠端檔案庫）！</p>
-</li>
-<li><p>將 repository 做本機和遠端的連結</p>
-<p> <code>任務五：把電腦裡 Local（本地端）的 repository（檔案庫）和 remote（遠端）的 repository（檔案庫）連結起來，並 push 電腦上的修改</code></p>
-<p> <img src="/images/cs101/github-example6.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 因我們已經在專案有把 <code>hello.py</code> 修改加入追蹤並 commit 到 local 檔案庫，所以我們可以參考下方的指令說明把 remote 網址加入：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 本地端專案知道 origin 對應到遠端網址</span><br><span class="line">$ git remote add origin &lt;remote 網址&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 接者準備將本地端程式 push 到遠端檔案庫：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 觀看情況</span><br><span class="line">$ git status</span><br><span class="line">// 將本地端程式 push 到遠端檔案庫</span><br><span class="line">$ git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Writing objects: 100% (3/3), 239 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https://github.com/happycodergit/git-example.git</span><br><span class="line">* [new branch]      master -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from origin.</span><br></pre></td></tr></table></figure>
-
-<p> 參數 <code>-u</code> 等同於 <code>--set-upstream</code>，設定 <code>upstream</code> 可以使分支開始追蹤指定的遠端分支。事實上，只要做過一次 <code>$ git push -u &lt;remote name&gt; &lt;branch name&gt;</code>，並且成功 push 出去；本機端的 master 就會被設定去追蹤遠端的 <code>&lt;remote name&gt;/&lt;branch name&gt;</code> 分支。只要成功設定好 upstream 後，第二次以後要上傳分支時，就只需要透過 git push 就可以了，不必再帶 <code>&lt;remote name&gt;</code> 跟 <code>&lt;branch name&gt;</code> 等參數。例如：<code>$ git push</code>。</p>
-<p> 事實上，<code>$ git push -u origin master</code> 可以拆解成：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">$ git checkout master</span><br><span class="line">$ git branch -u origin/master</span><br></pre></td></tr></table></figure>
-
-<p> 恭喜你成功把你的專案推送上去 github 啦！</p>
-<p> <img src="/images/cs101/github-example7.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-</li>
-<li><p>Fork 和 clone 一個 open source（開源）的計畫</p>
-<p> <code>任務六：從 GitHub.com 建立專案，複本 fork，並下載 clone 到電腦上</code></p>
-<p> 點選左上角 github icon 回到首頁，我們從上面搜尋欄搜尋 react：</p>
-<p> <img src="/images/cs101/github-example8.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右上角 fork 按鈕，複製一份專案到我們這：</p>
-<p> <img src="/images/cs101/github-example9.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 等待 fork 中：</p>
-<p> <img src="/images/cs101/github-example10.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右邊綠色按鈕 clone download 複製 HTTP 網址：</p>
-<p> <img src="/images/cs101/github-example11.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 複製到本地端</span><br><span class="line">$ git clone https://github.com/happycodergit/react.git</span><br><span class="line">// 移動到 react 資料夾</span><br><span class="line">$ cd react</span><br><span class="line">// 切出自己的新分支（使用 -b）</span><br><span class="line">$ git checkout -b happycoder@feature_branch</span><br><span class="line">// 做一些 README.md 檔案修改，然後 commit 到自己 fork 過來的專案</span><br><span class="line">$ git commit -a -m &quot;Update README&quot;</span><br><span class="line">$ git push origin happycoder@feature_branch</span><br></pre></td></tr></table></figure>
-
-<p> 事實上，每個開放原始碼都有他自己貢獻的方式，記得要先了解。例如可以<a href="https://reactjs.org/docs/how-to-contribute.html">參考 react 貢獻說明</a>！</p>
-<p> <img src="/images/cs101/github-example12.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 你可以透過將自己的修改 commit 到自己 fork 過來的專案，然後到原始專案頁面點選 new pull request 按鈕發 pull request（會比對程式碼的差異）。若對方 review 完後接受就可以將自己的程式碼合併到原始專案中，為開放原始碼做出第一步貢獻！</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 若完成 pull request 記得讓 master（或是合併進去的 branch）保持同步</span><br><span class="line">$ git pull upstream master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>練習建立一個 feature branch</p>
-<p> <code>任務七：回來原來的 git-example 專案新增 feature branch（分支）</code></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個名為 dev 的 branch</span><br><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
-
-<p> 在 <code>hello.py</code> 最上面多加一行 <code># hi, this is comment</code> 註解後存檔</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// commit 到本地端更新</span><br><span class="line">$ git commit -a -m &quot;Init dev branch&quot;</span><br><span class="line">$ gut push origin dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>邀請別人和你合作</p>
-<p> <code>任務八：在專案新增夥伴 collaborator</code></p>
-<p> 在右上角進入 setting 可以選擇到 collaborator 新增合作者：</p>
-<p> <img src="/images/cs101/github-example13.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-</li>
-<li><p>利用 push 和 pull 來和 GitHub.com 同步</p>
-<p> <code>任務九：用 pull 來和其他 collaborators（合作者）同步更新，確保程式是最新的版本</code></p>
-<p> 請其他開發者 git colone 下來你的 git-example 專案並 checkout 到 <code>dev</code> branch，並完成新增一個 <code>README.md</code> 檔案後發 pull request 過來，若沒問題就按同意並合併。我們則透過 git pull 來保持本地端和遠端程式碼同步：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull origin dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Merge（合併）和刪除 branches</p>
-<p><code>任務十：在本機上 merge 合併你的 branch（分支），刪除舊的 branch（分支）</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 移動到 master branch</span><br><span class="line">$ git checout master</span><br><span class="line">// 合併 dev 到 master</span><br><span class="line">$ git merge dev</span><br><span class="line">// 刪除 dev branch</span><br><span class="line">$ git branch -d dev</span><br><span class="line">// 將合併後的 master 推送到遠端</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是 Git 與 Github 版本控制基本指令與操作入門教學！希望讀者可以動手一起操作，漸漸就能感受到 git 的威力和好處，同時也有能力參與開放原始碼（open source）的社群和提昇自己在職場上的價值，朝成為一個真正的軟體工程師（Software Engineer）邁進！</p>
-<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
-<li><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md">30 天精通 Git 版本控管</a></li>
-<li><a href="https://git-scm.com/">Git 官方網站</a></li>
-<li><a href="https://www.codeschool.com/courses/try-git">Try Git</a></li>
-<li><a href="http://jlord.us/git-it/index-zhtw.html">Git-it</a></li>
-<li><a href="https://guides.github.com/">GitHub Guides</a></li>
-<li><a href="http://oomusou.io/git/git-remove-stage/">如何將檔案從stage移除?</a></li>
-<li><a href="https://www.gitbook.com/book/zlargon/git-tutorial/details">Git 教學</a></li>
-</ol>
-<p>（image via <a href="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">git-scm</a>、<a href="https://dn-sdkcnssl.qbox.me/article/fyuBUISCkmddVNC0t2Iu.png">qbox</a>、<a href="https://qph.ec.quoracdn.net/main-qimg-3aa29f29ede6a8245b6964f663c60339">quoracdn</a>、<a href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a href="https://i.stack.imgur.com/RUIIq.png">imgur</a>、<a href="https://martinfitzpatrick.name/images/method/1472/GitBranchName_1.png">martinfitzpatrick</a>）</p>
-]]></content>
-      <tags>
-        <tag>自學程式</tag>
-        <tag>自學程式設計</tag>
-        <tag>程式設計</tag>
-        <tag>線上自學</tag>
-        <tag>coding</tag>
-        <tag>coder</tag>
-        <tag>programming</tag>
-        <tag>computer</tag>
-        <tag>computer science</tag>
-        <tag>code</tag>
-        <tag>電腦科學</tag>
-        <tag>學寫程式</tag>
-        <tag>學程式</tag>
-        <tag>linux</tag>
-        <tag>指令</tag>
-        <tag>命令列</tag>
-        <tag>command line</tag>
-        <tag>軟體工程師</tag>
-        <tag>軟體工程</tag>
-        <tag>software engineering</tag>
-        <tag>bash</tag>
-        <tag>shell</tag>
-        <tag>svn</tag>
-        <tag>version control</tag>
-        <tag>VCS</tag>
-        <tag>github</tag>
-        <tag>git</tag>
-        <tag>cvs</tag>
-        <tag>自學程式心得</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,74 +1153,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何在 Windows 打造 JavaScript Web 開發環境入門教學</title>
-    <url>/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/</url>
-    <content><![CDATA[<p><img src="/images/javascript101/javascript.png" alt="如何在 Windows 打造 JavaScript Web 開發環境"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>所謂工欲善其事，必先利其器。我們開發程式之前我們最重要的就是要設定好開發環境，接下來我們將帶領讀者體驗如何在 Windows 打造 JavaScript Web 開發環境。</p>
-<h1 id="安裝軟體步驟"><a href="#安裝軟體步驟" class="headerlink" title="安裝軟體步驟"></a>安裝軟體步驟</h1><ol>
-<li>下載安裝 <a href="https://www.google.com.tw/chrome/browser/desktop/index.html">google chrome</a> 瀏覽器</li>
-<li>下載安裝 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 或 <a href="https://www.sublimetext.com/">Sublime text</a> 文字編輯器</li>
-<li>下載安裝 <a href="http://cmder.net/">cmder</a> terminal 終端機程式 (請下載含 git 的 full 完整版本)</li>
-<li>下載安裝 <a href="https://nodejs.org/en/">Node.JS</a> 選擇左邊穩定版本，按照指令安裝完成</li>
-<li>在終端機輸入 <code>node -v</code> 若成功顯示版本，代表安裝完成</li>
-<li>安裝 <a href="https://www.npmjs.com/package/http-server">http-server</a> 套件：<code>npm install http-server -g</code></li>
-</ol>
-<h1 id="撰寫第一個-JavaScript-程式"><a href="#撰寫第一個-JavaScript-程式" class="headerlink" title="撰寫第一個 JavaScript 程式"></a>撰寫第一個 JavaScript 程式</h1><ol>
-<li><p>打開 Visual Studio Code 或 Sublime text 並建立一個 index.html 檔案：</p>
-</li>
-<li><p>在  <code>index.html</code> 輸入：</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(‘hello <span class="variable constant_">JS</span>!’);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>儲存後在終端機移動到該檔案資料夾下，輸入 <code>http-server -p 7777</code> 啟動伺服器</p>
-</li>
-<li><p>打開瀏覽器輸入網址：<a href="http://127.0.0.1:7777/">http://127.0.0.1:7777</a> 或 <a href="http://localhost:7777/">http://localhost:7777</a></p>
-</li>
-<li><p>打<code>開發者工具</code>，可以在 console 中看到 <code>hello JS!</code></p>
-</li>
-<li><p>恭喜讀者完成第一個 JavaScript 應用程式啦！</p>
-</li>
-</ol>
-<h1 id="影片教學"><a href="#影片教學" class="headerlink" title="影片教學"></a>影片教學</h1><div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rcjPhZitTqI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</div>
-]]></content>
-      <tags>
-        <tag>自學程式</tag>
-        <tag>自學程式設計</tag>
-        <tag>程式設計</tag>
-        <tag>線上自學</tag>
-        <tag>coding</tag>
-        <tag>coder</tag>
-        <tag>programming</tag>
-        <tag>computer</tag>
-        <tag>computer science</tag>
-        <tag>code</tag>
-        <tag>電腦科學</tag>
-        <tag>學寫程式</tag>
-        <tag>學程式</tag>
-        <tag>linux</tag>
-        <tag>指令</tag>
-        <tag>命令列</tag>
-        <tag>command line</tag>
-        <tag>軟體工程師</tag>
-        <tag>軟體工程</tag>
-        <tag>software engineering</tag>
-        <tag>bash</tag>
-        <tag>shell</tag>
-        <tag>svn</tag>
-        <tag>version control</tag>
-        <tag>VCS</tag>
-        <tag>github</tag>
-        <tag>git</tag>
-        <tag>cvs</tag>
-        <tag>自學程式心得</tag>
-        <tag>JavaScript</tag>
-        <tag>環境設定</tag>
-        <tag>Windows</tag>
-        <tag>環境建置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript 101 快速入門教學</title>
     <url>/2016/12/21/javascript101-tutorial/</url>
     <content><![CDATA[<p><img src="/images/javascript.png" alt="JavaScript 101 快速入門教學"></p>
@@ -1403,6 +1335,74 @@
 ]]></content>
       <tags>
         <tag>JavaScript, ECMAScript2015, ES6, Front End, Front End Development Environment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在 Windows 打造 JavaScript Web 開發環境入門教學</title>
+    <url>/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/javascript101/javascript.png" alt="如何在 Windows 打造 JavaScript Web 開發環境"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>所謂工欲善其事，必先利其器。我們開發程式之前我們最重要的就是要設定好開發環境，接下來我們將帶領讀者體驗如何在 Windows 打造 JavaScript Web 開發環境。</p>
+<h1 id="安裝軟體步驟"><a href="#安裝軟體步驟" class="headerlink" title="安裝軟體步驟"></a>安裝軟體步驟</h1><ol>
+<li>下載安裝 <a href="https://www.google.com.tw/chrome/browser/desktop/index.html">google chrome</a> 瀏覽器</li>
+<li>下載安裝 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 或 <a href="https://www.sublimetext.com/">Sublime text</a> 文字編輯器</li>
+<li>下載安裝 <a href="http://cmder.net/">cmder</a> terminal 終端機程式 (請下載含 git 的 full 完整版本)</li>
+<li>下載安裝 <a href="https://nodejs.org/en/">Node.JS</a> 選擇左邊穩定版本，按照指令安裝完成</li>
+<li>在終端機輸入 <code>node -v</code> 若成功顯示版本，代表安裝完成</li>
+<li>安裝 <a href="https://www.npmjs.com/package/http-server">http-server</a> 套件：<code>npm install http-server -g</code></li>
+</ol>
+<h1 id="撰寫第一個-JavaScript-程式"><a href="#撰寫第一個-JavaScript-程式" class="headerlink" title="撰寫第一個 JavaScript 程式"></a>撰寫第一個 JavaScript 程式</h1><ol>
+<li><p>打開 Visual Studio Code 或 Sublime text 並建立一個 index.html 檔案：</p>
+</li>
+<li><p>在  <code>index.html</code> 輸入：</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(‘hello <span class="variable constant_">JS</span>!’);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>儲存後在終端機移動到該檔案資料夾下，輸入 <code>http-server -p 7777</code> 啟動伺服器</p>
+</li>
+<li><p>打開瀏覽器輸入網址：<a href="http://127.0.0.1:7777/">http://127.0.0.1:7777</a> 或 <a href="http://localhost:7777/">http://localhost:7777</a></p>
+</li>
+<li><p>打<code>開發者工具</code>，可以在 console 中看到 <code>hello JS!</code></p>
+</li>
+<li><p>恭喜讀者完成第一個 JavaScript 應用程式啦！</p>
+</li>
+</ol>
+<h1 id="影片教學"><a href="#影片教學" class="headerlink" title="影片教學"></a>影片教學</h1><div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rcjPhZitTqI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>linux</tag>
+        <tag>指令</tag>
+        <tag>命令列</tag>
+        <tag>command line</tag>
+        <tag>軟體工程師</tag>
+        <tag>軟體工程</tag>
+        <tag>software engineering</tag>
+        <tag>bash</tag>
+        <tag>shell</tag>
+        <tag>svn</tag>
+        <tag>version control</tag>
+        <tag>VCS</tag>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>cvs</tag>
+        <tag>自學程式心得</tag>
+        <tag>JavaScript</tag>
+        <tag>環境設定</tag>
+        <tag>Windows</tag>
+        <tag>環境建置</tag>
       </tags>
   </entry>
   <entry>
@@ -1979,74 +1979,6 @@
       </tags>
   </entry>
   <entry>
-    <title>用 Python 自學資料科學與機器學習入門實戰：Numpy 基礎入門</title>
-    <url>/2017/10/10/python-data-science-and-machine-learning-numpy-tutorial/</url>
-    <content><![CDATA[<p><img src="/images/data-science101/numpy.jpg" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本系列文章將透過系統介紹資料科學（Data Science）相關的知識，透過 Python 帶領讀者從零開始進入資料科學的世界。這邊我們將介紹 Numpy 這個強大的 Python 函式庫。</p>
-<h1 id="什麼是-Numpy？"><a href="#什麼是-Numpy？" class="headerlink" title="什麼是 Numpy？"></a>什麼是 Numpy？</h1><p>Numpy 是 Python 的一個重要模組（Python 是一個高階語言也是一種膠水語言，可以透過整合其他低階語言同時擁有效能和高效率的開發），主要用於資料處理上。Numpy 底層以 C 和 Fortran 語言實作，所以能快速操作多重維度的陣列。當 Python 處理龐大資料時，其原生 list 效能表現並不理想（但可以動態存異質資料），而 Numpy 具備平行處理的能力，可以將操作動作一次套用在大型陣列上。此外 Python 其餘重量級的資料科學相關套件（例如：Pandas、SciPy、Scikit-learn 等）都幾乎是奠基在 Numpy 的基礎上。因此學會 Numpy 對於往後學習其他資料科學相關套件打好堅實的基礎。</p>
-<h1 id="Numpy-基礎操作"><a href="#Numpy-基礎操作" class="headerlink" title="Numpy 基礎操作"></a>Numpy 基礎操作</h1><p><img src="/images/data-science101/arrays.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
-<ol>
-<li><p>Numpy 陣列<br> Numpy 的重點在於陣列的操作，其所有功能特色都建築在同質且多重維度的 <code>ndarray</code>（N-dimensional array）上。<code>ndarray</code> 的關鍵屬性是維度（ndim）、形狀（shape）和數值類型（dtype）。 一般我們稱一維陣列為 <code>vector</code> 而二維陣列為 <code>matrix</code>。一開始我們會引入 <code>numpy</code> 模組，透過傳入 <code>list</code> 到 <code>numpy.array()</code> 創建陣列。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 引入 numpy 模組</span><br><span class="line">import numpy as np</span><br><span class="line">np1 = np.array([1, 2, 3])</span><br><span class="line">np2 = np.array([3, 4, 5])</span><br><span class="line"></span><br><span class="line"># 陣列相加</span><br><span class="line">print(np1 + np2) # [4 6 8]</span><br><span class="line"></span><br><span class="line"># 顯示相關資訊</span><br><span class="line">print(np1.ndim, np1.shape, np1.dtype) # 1 (3,) int64 =&gt; 一維陣列, 三個元素, 資料型別</span><br><span class="line"></span><br><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br></pre></td></tr></table></figure>
-
-<p> 從檔案取資料：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npd = np.genfromtxt(&#x27;data.csv&#x27;, delimiter=&#x27;,&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p> 改變陣列維度：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line">print(np3.ndim, np3.shape, np3.dtype) # 2 (2, 3) int64</span><br></pre></td></tr></table></figure>
-
-<p> 改變陣列型別（bool、int、float、string）：</p>
-<p> <code>bool</code> 可以包含 True、False，<code>int</code> 可以包含 int16、int32、int64。其中數字是指 <code>bits</code>。<code>float</code> 可以包含 16、32、64 表示小數點後幾位。<code>string</code> 可以是 string、unicode。<code>nan</code> 則表示遺失值。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.astype(&#x27;int64&#x27;)</span><br><span class="line">np3.dtype</span><br><span class="line"># dtype(&#x27;int64&#x27;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立陣列<br> 建立填滿 0 或 1 的陣列：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np1 = np.zeros([2, 3]) # array([[ 0.,  0.,  0.], [ 0.,  0.,  0.]])</span><br><span class="line">np2 = np.ones([2, 3]) # array([[ 1.,  1.,  1.], [ 1.,  1.,  1.]])</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/images/data-science101/numpy_indexing.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
-<ol start="3">
-<li><p>陣列索引與切片<br> 一維陣列操作和 Python 原生 list 類似：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br><span class="line">print(np3[2]) # 3    </span><br></pre></td></tr></table></figure>
-
-<p> 二維陣列：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line"></span><br><span class="line">print(np3[1, 0]) # 4</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/images/data-science101/axis.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
-<ol start="4">
-<li><p>基本操作<br> 使用布林遮罩來取值：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br><span class="line">print(np3 &gt; 3) # [False False False  True  True  True]</span><br><span class="line">print(np3[np3 &gt; 3]) # [4 5 6]</span><br></pre></td></tr></table></figure>
-
-<p> 加總：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line">print(np3.sum(axis=1)) # 將 axis=1 橫向加總 [6 15]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上介紹了 Numpy 的基礎知識，建立了基本的 array 和 ndarray 的觀念。相信在熟悉 Numpy 之後 Pandas 的學習將會比較容易 （Pandas 的資料容器 DataFrame、Series 事實上是奠基在 Numpy 的陣列上）</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="http://www.kdnuggets.com/2015/11/seven-steps-machine-learning-python.html">7 Steps to Mastering Machine Learning With Python</a></li>
-<li><a href="http://changtw-blog.logdown.com/posts/895468-python-numpy-axis-concept-organize-notes">[python] numpy axis概念整理筆記</a></li>
-<li><a href="https://wklchris.github.io/Py3-numpy.html">Python科学计算：numpy</a></li>
-</ol>
-<p>（image via <a href="https://bids.berkeley.edu/sites/default/files/styles/400x225/public/projects/numpy_project_page.jpg?itok=flrdydei">berkeley</a>、<a href="http://www.codingeek.com/wp-content/uploads/2017/01/2D-arrays.png">codingeek</a>、<a href="http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/anatomyarray.png">cornell</a>、<a href="http://www.scipy-lectures.org/_images/numpy_fancy_indexing.png">scipy-lectures</a>）</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Machine Learning</tag>
-        <tag>機器學習</tag>
-        <tag>AI</tag>
-        <tag>Artificial Intelligence</tag>
-        <tag>NLP</tag>
-        <tag>Data Mining</tag>
-        <tag>人工智慧</tag>
-        <tag>監督式學習</tag>
-        <tag>Supervised learning</tag>
-        <tag>從零開始學資料科學</tag>
-        <tag>Numpy</tag>
-        <tag>資料科學</tag>
-        <tag>data science</tag>
-        <tag>data scientist</tag>
-        <tag>pandas</tag>
-        <tag>scikit-learn</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用 Python 自學資料科學與機器學習入門實戰：Matplotlib 基礎入門</title>
     <url>/2017/10/13/python-data-science-and-machine-learning-matplotlib-tutorial/</url>
     <content><![CDATA[<p><img src="/images/data-science101/matplotlib/logo.svg" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
@@ -2142,6 +2074,74 @@
 <li><a href="http://www.cnblogs.com/kylinlin/p/5236601.html">数据可视化（三）- Seaborn简易入门</a></li>
 </ol>
 <p>（image via <a href="https://matplotlib.org/_static/logo2.svg">matplotlib</a></p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Machine Learning</tag>
+        <tag>機器學習</tag>
+        <tag>AI</tag>
+        <tag>Artificial Intelligence</tag>
+        <tag>NLP</tag>
+        <tag>Data Mining</tag>
+        <tag>人工智慧</tag>
+        <tag>監督式學習</tag>
+        <tag>Supervised learning</tag>
+        <tag>從零開始學資料科學</tag>
+        <tag>Numpy</tag>
+        <tag>資料科學</tag>
+        <tag>data science</tag>
+        <tag>data scientist</tag>
+        <tag>pandas</tag>
+        <tag>scikit-learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Python 自學資料科學與機器學習入門實戰：Numpy 基礎入門</title>
+    <url>/2017/10/10/python-data-science-and-machine-learning-numpy-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/data-science101/numpy.jpg" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本系列文章將透過系統介紹資料科學（Data Science）相關的知識，透過 Python 帶領讀者從零開始進入資料科學的世界。這邊我們將介紹 Numpy 這個強大的 Python 函式庫。</p>
+<h1 id="什麼是-Numpy？"><a href="#什麼是-Numpy？" class="headerlink" title="什麼是 Numpy？"></a>什麼是 Numpy？</h1><p>Numpy 是 Python 的一個重要模組（Python 是一個高階語言也是一種膠水語言，可以透過整合其他低階語言同時擁有效能和高效率的開發），主要用於資料處理上。Numpy 底層以 C 和 Fortran 語言實作，所以能快速操作多重維度的陣列。當 Python 處理龐大資料時，其原生 list 效能表現並不理想（但可以動態存異質資料），而 Numpy 具備平行處理的能力，可以將操作動作一次套用在大型陣列上。此外 Python 其餘重量級的資料科學相關套件（例如：Pandas、SciPy、Scikit-learn 等）都幾乎是奠基在 Numpy 的基礎上。因此學會 Numpy 對於往後學習其他資料科學相關套件打好堅實的基礎。</p>
+<h1 id="Numpy-基礎操作"><a href="#Numpy-基礎操作" class="headerlink" title="Numpy 基礎操作"></a>Numpy 基礎操作</h1><p><img src="/images/data-science101/arrays.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
+<ol>
+<li><p>Numpy 陣列<br> Numpy 的重點在於陣列的操作，其所有功能特色都建築在同質且多重維度的 <code>ndarray</code>（N-dimensional array）上。<code>ndarray</code> 的關鍵屬性是維度（ndim）、形狀（shape）和數值類型（dtype）。 一般我們稱一維陣列為 <code>vector</code> 而二維陣列為 <code>matrix</code>。一開始我們會引入 <code>numpy</code> 模組，透過傳入 <code>list</code> 到 <code>numpy.array()</code> 創建陣列。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 引入 numpy 模組</span><br><span class="line">import numpy as np</span><br><span class="line">np1 = np.array([1, 2, 3])</span><br><span class="line">np2 = np.array([3, 4, 5])</span><br><span class="line"></span><br><span class="line"># 陣列相加</span><br><span class="line">print(np1 + np2) # [4 6 8]</span><br><span class="line"></span><br><span class="line"># 顯示相關資訊</span><br><span class="line">print(np1.ndim, np1.shape, np1.dtype) # 1 (3,) int64 =&gt; 一維陣列, 三個元素, 資料型別</span><br><span class="line"></span><br><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br></pre></td></tr></table></figure>
+
+<p> 從檔案取資料：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npd = np.genfromtxt(&#x27;data.csv&#x27;, delimiter=&#x27;,&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p> 改變陣列維度：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line">print(np3.ndim, np3.shape, np3.dtype) # 2 (2, 3) int64</span><br></pre></td></tr></table></figure>
+
+<p> 改變陣列型別（bool、int、float、string）：</p>
+<p> <code>bool</code> 可以包含 True、False，<code>int</code> 可以包含 int16、int32、int64。其中數字是指 <code>bits</code>。<code>float</code> 可以包含 16、32、64 表示小數點後幾位。<code>string</code> 可以是 string、unicode。<code>nan</code> 則表示遺失值。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.astype(&#x27;int64&#x27;)</span><br><span class="line">np3.dtype</span><br><span class="line"># dtype(&#x27;int64&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立陣列<br> 建立填滿 0 或 1 的陣列：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np1 = np.zeros([2, 3]) # array([[ 0.,  0.,  0.], [ 0.,  0.,  0.]])</span><br><span class="line">np2 = np.ones([2, 3]) # array([[ 1.,  1.,  1.], [ 1.,  1.,  1.]])</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><img src="/images/data-science101/numpy_indexing.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
+<ol start="3">
+<li><p>陣列索引與切片<br> 一維陣列操作和 Python 原生 list 類似：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br><span class="line">print(np3[2]) # 3    </span><br></pre></td></tr></table></figure>
+
+<p> 二維陣列：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line"></span><br><span class="line">print(np3[1, 0]) # 4</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><img src="/images/data-science101/axis.png" alt=" 從零開始學資料科學：Numpy 基礎入門"></p>
+<ol start="4">
+<li><p>基本操作<br> 使用布林遮罩來取值：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np.array([1, 2, 3, 4, 5, 6])</span><br><span class="line">print(np3 &gt; 3) # [False False False  True  True  True]</span><br><span class="line">print(np3[np3 &gt; 3]) # [4 5 6]</span><br></pre></td></tr></table></figure>
+
+<p> 加總：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np3 = np3.reshape([2, 3])</span><br><span class="line">print(np3.sum(axis=1)) # 將 axis=1 橫向加總 [6 15]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上介紹了 Numpy 的基礎知識，建立了基本的 array 和 ndarray 的觀念。相信在熟悉 Numpy 之後 Pandas 的學習將會比較容易 （Pandas 的資料容器 DataFrame、Series 事實上是奠基在 Numpy 的陣列上）</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="http://www.kdnuggets.com/2015/11/seven-steps-machine-learning-python.html">7 Steps to Mastering Machine Learning With Python</a></li>
+<li><a href="http://changtw-blog.logdown.com/posts/895468-python-numpy-axis-concept-organize-notes">[python] numpy axis概念整理筆記</a></li>
+<li><a href="https://wklchris.github.io/Py3-numpy.html">Python科学计算：numpy</a></li>
+</ol>
+<p>（image via <a href="https://bids.berkeley.edu/sites/default/files/styles/400x225/public/projects/numpy_project_page.jpg?itok=flrdydei">berkeley</a>、<a href="http://www.codingeek.com/wp-content/uploads/2017/01/2D-arrays.png">codingeek</a>、<a href="http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/anatomyarray.png">cornell</a>、<a href="http://www.scipy-lectures.org/_images/numpy_fancy_indexing.png">scipy-lectures</a>）</p>
 ]]></content>
       <tags>
         <tag>Python</tag>
@@ -3282,6 +3282,115 @@ References
       </tags>
   </entry>
   <entry>
+    <title>Python Web Flask 實戰開發教學 - SQLAlchemy 與 ORM</title>
+    <url>/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</url>
+    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。上一篇我們完成了環境建置，這一單元我們將進入 MVC 架構的 Models 部分並學習如何使用 SQLAlchemy 建立和資料庫互動的 ORM 機制。</p>
+<p><img src="/images/flask101/mvc_role_diagram.png" alt="Python Web Flask 實戰開發教學"> </p>
+<h1 id="什麼是-MVC？"><a href="#什麼是-MVC？" class="headerlink" title="什麼是 MVC？"></a>什麼是 MVC？</h1><p>MVC 模式（Model–view–controller）是軟體工程中的一種軟體架構模式，把軟體系統分為三個基本部分：模型（Model）、視圖（View）和控制器（Controller）。</p>
+<ul>
+<li>控制器（Controller）- 對 Request&#x2F;Response 進行處理並透過 Controller 把 Model 的資料串接到 View（Templates）。 </li>
+<li>視圖（View） - 直接面對使用者的使用者介面設計。</li>
+<li>模型（Model） - 負責和資料庫互動，儲存資料。</li>
+</ul>
+<p>使用 MVC 的好處在於可以用更高階的角度去思考整個程式架構提高程式可重用性和降低程式耦合性。 事實上 Django、Rails 和 ASP.NET MVC 等較成熟的 Web 框架也是參考 MVC 的架構去設計。</p>
+<h1 id="什麼是關聯式資料庫（RDB）？"><a href="#什麼是關聯式資料庫（RDB）？" class="headerlink" title="什麼是關聯式資料庫（RDB）？"></a>什麼是關聯式資料庫（RDB）？</h1><p>Database 資料庫一個資料儲存的集合，方便我們去讀取新增刪除修改，而 Relational Database（關聯式資料庫）廣泛應用資料庫應用程式中，它把資料儲存在行列表格中，有可能不同資料表的內容會彼此依賴關聯。常見的關聯式資料庫，例如：MySQL、Postgres、Oracle、MSSSQL、SQLite，本文我們將使用 SQLite 這個輕量級的關聯式資料庫來當做範例教學。</p>
+<h1 id="什麼是-ORM？"><a href="#什麼是-ORM？" class="headerlink" title="什麼是 ORM？"></a>什麼是 ORM？</h1><p>ORM 指的是 Object Relational Mapping（物件關聯對應），是一種程式設計技術，用於實現物件導向程式語言裡不同類型系統的資料之間的轉換。一般而言物件導向是從軟體工程基本原則（例如：耦合、聚合、封裝）的基礎上發展起來的，然而關聯式資料庫則是從數學理論發展而來的，兩套理論存在顯著的區別。為了解決這個不符合的現象，物件關聯對映技術搬演著中介層的角色，讓開發可以使用物件方式來操作資料庫，而不用使用 SQL 語法，當然若是要使用複雜的操作，仍需要使用到 SQL 語法。</p>
+<p>更多 SQL 語法學習：<a href="http://www.1keydata.com/tw/sql/sql.html">SQL語法教學- 1Keydata</a></p>
+<p><img src="/images/flask101/Flask-SQLAlchemy.png" alt="Python Web Flask 實戰開發教學"> </p>
+<h1 id="Flask-SQLAlchemy-使用設定"><a href="#Flask-SQLAlchemy-使用設定" class="headerlink" title="Flask SQLAlchemy 使用設定"></a>Flask SQLAlchemy 使用設定</h1><p>SQLAlchemy 是 Python 社群最廣泛使用的 ORM 套件。為了方便使用 ORM 來操作資料庫，我們使用 <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> 的封裝 <a href="http://flask-sqlalchemy.pocoo.org/2.1/">Flask SQLAlchemy</a> 來進行 Models 的建立（當然你也可以單獨使用 SQLAlchemy）。以下是 SQLAlchemy 使用的簡單範例：</p>
+<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="comment"># 設定資料庫位置，並建立 app</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_DATABASE_URI&#x27;</span>] = <span class="string">&#x27;sqlite:////tmp/test.db&#x27;</span></span><br><span class="line">db = SQLAlchemy(app)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Todo</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, content</span>):</span><br><span class="line">        <span class="variable language_">self</span>.content = content</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Todo %r&gt;&#x27;</span> % <span class="variable language_">self</span>.content</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Todo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app, Todo=Todo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
+
+<p>操作指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python manage.py shell</span><br><span class="line">&gt;&gt;&gt; db.create_all()</span><br></pre></td></tr></table></figure>
+
+<h1 id="CRUD-操作設計"><a href="#CRUD-操作設計" class="headerlink" title="CRUD 操作設計"></a>CRUD 操作設計</h1><p>CRUD 是一般網路應用程式<a href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E6%93%8D%E7%B8%B1%E8%AA%9E%E8%A8%80">最常見的資料庫操作</a>（create, read, update, delete），接著我們要使用 session 來操作我們的 CRUD 功能，首先先在終端機中輸入 <code>$ python manage.py shell</code> 後進行資料庫指令模擬操作（要注意的是 Flask SQLAlchemy 針對每個 request 會創建一個新的 session，若沒有 commit 的操作即被丟棄）：</p>
+<ol>
+<li><p>新增（Create）<br> 新增一筆資料後將它加到 db.session 中，完成 commit：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo(content=&#x27;hacking&#x27;)</span><br><span class="line">&gt;&gt;&gt; db.session.add(todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取（Read）<br>Model.query 是 db.session.query(Model) 的簡寫，所以我們可以使用以下方式讀取資料庫資料：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取得所有 todo 資料</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.all()</span><br><span class="line">&gt;&gt;&gt; todos</span><br><span class="line"># 限制 1 筆資料</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.limit(1).all()</span><br><span class="line"># 正向/逆向排序</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.order_by(Todo.content).all()</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.order_by(Todo.content.desc()).all()</span><br><span class="line"># 取得第一筆資料</span><br><span class="line">&gt;&gt;&gt; todo = Todo.query.first()</span><br><span class="line"># 取得 primary key=1 一筆資料</span><br><span class="line">&gt;&gt;&gt; todo = Todo.query.get(1)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>分頁（Pagination）</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todos = Todo.query.paginate(1, 10)</span><br><span class="line"># 總頁數</span><br><span class="line">&gt;&gt;&gt; todos.pages</span><br><span class="line"># 上/下一頁</span><br><span class="line">&gt;&gt;&gt; todos.prev()</span><br><span class="line">&gt;&gt;&gt; todos.next()</span><br><span class="line">&gt;&gt;&gt; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>條件查詢（Filter）</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(content=&#x27;hacking&#x27;).first()</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todos = Todo.query.filter(Todo.id &gt; 1).all()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改（Update）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(contant=&#x27;hacking&#x27;).update(&#123;</span><br><span class="line">    &#x27;content&#x27;: &#x27;reading&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刪除（Delete）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(content=&#x27;reading&#x27;).first()</span><br><span class="line">&gt;&gt;&gt; db.session.delete(todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="資料庫關聯用法"><a href="#資料庫關聯用法" class="headerlink" title="資料庫關聯用法"></a>資料庫關聯用法</h1><p>在關聯式資料庫中，最重要的就是資料表之間的關聯，透過關聯的使用，可以讓我們取得我們想要的資料。舉例而言，一篇部落格文章通常會對應多則評論，所以若是建立好關係則可以透過文章去取得所有和這篇文章有關的評論。同理，一篇文章通常會有多個 tag，而一個 tag 通常對應多篇文章，所以是個多對多關係。</p>
+<ul>
+<li>一對多</li>
+</ul>
+<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Todo</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line">    user_id = db.Column(db.String(<span class="number">80</span>), db.ForeignKey(<span class="string">&#x27;user.id))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, content):</span></span><br><span class="line"><span class="string">        self.content = content</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __repr__(self):</span></span><br><span class="line"><span class="string">        return &#x27;</span>&lt;Todo %r&gt;<span class="string">&#x27; % self.content</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class User(db.Model):</span></span><br><span class="line"><span class="string">    id = db.Column(db.Integer, primary_key=True)</span></span><br><span class="line"><span class="string">    name = db.Column(db.String(80))</span></span><br><span class="line"><span class="string">    todos = db.relationship(</span></span><br><span class="line"><span class="string">        &#x27;</span>Todo<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">        backref=&#x27;</span>use<span class="string">r&#x27;, # ref 可以讓我們使用 Todo.user 進行對 User 操作</span></span><br><span class="line"><span class="string">        lazy=&#x27;</span>dynamic<span class="string">&#x27; # 有使用才載入，提昇效能</span></span><br><span class="line"><span class="string">    )</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, name):</span></span><br><span class="line"><span class="string">        self.name = name</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __repr__(self):</span></span><br><span class="line"><span class="string">        return &#x27;</span>&lt;User %r&gt;<span class="string">&#x27; % self.name</span></span><br></pre></td></tr></table></figure>
+
+<p>操作方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; user = User.query.get(1)</span><br><span class="line">&gt;&gt;&gt; new_todo = Todo(&#x27;Booking&#x27;)</span><br><span class="line">&gt;&gt;&gt; new_todo.user_id = user.id</span><br><span class="line">&gt;&gt;&gt; db.session.add(new_todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br><span class="line">&gt;&gt;&gt; user.todos</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>多對多</li>
+</ul>
+<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line">tags = db.Table(<span class="string">&#x27;todo_tags&#x27;</span>,</span><br><span class="line">    db.Column(<span class="string">&#x27;todo_id&#x27;</span>, db.Integer, db.ForeignKey(<span class="string">&#x27;todo.id&#x27;</span>)),</span><br><span class="line">    db.Column(<span class="string">&#x27;tag_id&#x27;</span>, db.Integer, db.ForeignKey(<span class="string">&#x27;tag.id&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Post</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看小寫 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, title, content</span>):</span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line">        <span class="variable language_">self</span>.content = content</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Todo %r&gt;&#x27;</span> % <span class="variable language_">self</span>.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tag</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, title</span>):</span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Tag %r&gt;&#x27;</span> % <span class="variable language_">self</span>.title</span><br></pre></td></tr></table></figure>
+
+<p>操作方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 創建 3 個 todo</span><br><span class="line">&gt;&gt;&gt; todo_1 = Todo(&#x27;Python&#x27;)</span><br><span class="line">&gt;&gt;&gt; todo_2 = Todo(&#x27;JS&#x27;)</span><br><span class="line">&gt;&gt;&gt; todo_3 = Todo(&#x27;R&#x27;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; tag_1 = Tag(&#x27;coding&#x27;)</span><br><span class="line">&gt;&gt;&gt; tag_1.tags = [todo_1, todo_2]</span><br><span class="line">&gt;&gt;&gt; db.session.add()</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/flask101/Flask-Migration.png" alt="Python Web Flask 實戰開發教學"> </p>
+<h1 id="Flask-Migration（Alembic）使用"><a href="#Flask-Migration（Alembic）使用" class="headerlink" title="Flask Migration（Alembic）使用"></a>Flask Migration（<a href="http://alembic.zzzcomputing.com/en/latest/index.html">Alembic</a>）使用</h1><p>隨著網路應用程式的發展，我們的 models 會不斷變更，為了記錄所有有關 models 的改動，我們使用 <code>Flask-Migrate</code> 這個 extensions。所有 models 改動都會記錄在 migration 檔案中，就像是資料庫的 git 一樣方便版本控制。</p>
+<p>安裝 <code>Flask-Migrate</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install Flask-Migrate</span><br></pre></td></tr></table></figure>
+
+<p>將 db 加入 Flask-Migrate 控制：</p>
+<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_migrate <span class="keyword">import</span> Migrate, MigrateCommand</span><br><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Todo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py db 來管理 models</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;db&#x27;</span>, MigrateCommand)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app, Todo=Todo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()    </span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>Flask-Migrate</code> 操作 DB：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化</span><br><span class="line">$ python manage.py db init</span><br><span class="line"># 記錄 model 變化</span><br><span class="line">$ python manage.py db migrate</span><br><span class="line"># 更新同步到 db</span><br><span class="line">$ python manage.py db upgrade</span><br><span class="line"># 查詢指令</span><br><span class="line">$ python manage.py db --help</span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了資料庫、關聯式資料庫、ORM 的概念，我們也實際使用了 Flask SQLAlchemy 和 Flask-Migrate 來操作我們的資料庫。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Wiki MVC</a></li>
+<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
+</ol>
+<p>（image via <a href="https://basicsofwebdevelopment.files.wordpress.com/2015/01/mvc_role_diagram.png">basicsofwebdevelopment</a>）</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>程式教學</tag>
+        <tag>Django</tag>
+        <tag>MVC</tag>
+        <tag>Web</tag>
+        <tag>MTV</tag>
+        <tag>Web Backend</tag>
+        <tag>Web Framework</tag>
+        <tag>Flask</tag>
+        <tag>框架</tag>
+        <tag>網站開發</tag>
+        <tag>Anaconda</tag>
+        <tag>ORM</tag>
+        <tag>SQLAlchemy</tag>
+        <tag>Database</tag>
+        <tag>Models</tag>
+        <tag>資料庫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python 101 快速入門教學</title>
     <url>/2016/12/31/python101-tutorial/</url>
     <content><![CDATA[<p><img src="/images/python-logo.png" alt="Python 101 快速入門教學 "> </p>
@@ -3545,115 +3654,6 @@ References
         <tag>Web Framework</tag>
         <tag>Flask</tag>
         <tag>框架</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python Web Flask 實戰開發教學 - SQLAlchemy 與 ORM</title>
-    <url>/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</url>
-    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學"> </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。上一篇我們完成了環境建置，這一單元我們將進入 MVC 架構的 Models 部分並學習如何使用 SQLAlchemy 建立和資料庫互動的 ORM 機制。</p>
-<p><img src="/images/flask101/mvc_role_diagram.png" alt="Python Web Flask 實戰開發教學"> </p>
-<h1 id="什麼是-MVC？"><a href="#什麼是-MVC？" class="headerlink" title="什麼是 MVC？"></a>什麼是 MVC？</h1><p>MVC 模式（Model–view–controller）是軟體工程中的一種軟體架構模式，把軟體系統分為三個基本部分：模型（Model）、視圖（View）和控制器（Controller）。</p>
-<ul>
-<li>控制器（Controller）- 對 Request&#x2F;Response 進行處理並透過 Controller 把 Model 的資料串接到 View（Templates）。 </li>
-<li>視圖（View） - 直接面對使用者的使用者介面設計。</li>
-<li>模型（Model） - 負責和資料庫互動，儲存資料。</li>
-</ul>
-<p>使用 MVC 的好處在於可以用更高階的角度去思考整個程式架構提高程式可重用性和降低程式耦合性。 事實上 Django、Rails 和 ASP.NET MVC 等較成熟的 Web 框架也是參考 MVC 的架構去設計。</p>
-<h1 id="什麼是關聯式資料庫（RDB）？"><a href="#什麼是關聯式資料庫（RDB）？" class="headerlink" title="什麼是關聯式資料庫（RDB）？"></a>什麼是關聯式資料庫（RDB）？</h1><p>Database 資料庫一個資料儲存的集合，方便我們去讀取新增刪除修改，而 Relational Database（關聯式資料庫）廣泛應用資料庫應用程式中，它把資料儲存在行列表格中，有可能不同資料表的內容會彼此依賴關聯。常見的關聯式資料庫，例如：MySQL、Postgres、Oracle、MSSSQL、SQLite，本文我們將使用 SQLite 這個輕量級的關聯式資料庫來當做範例教學。</p>
-<h1 id="什麼是-ORM？"><a href="#什麼是-ORM？" class="headerlink" title="什麼是 ORM？"></a>什麼是 ORM？</h1><p>ORM 指的是 Object Relational Mapping（物件關聯對應），是一種程式設計技術，用於實現物件導向程式語言裡不同類型系統的資料之間的轉換。一般而言物件導向是從軟體工程基本原則（例如：耦合、聚合、封裝）的基礎上發展起來的，然而關聯式資料庫則是從數學理論發展而來的，兩套理論存在顯著的區別。為了解決這個不符合的現象，物件關聯對映技術搬演著中介層的角色，讓開發可以使用物件方式來操作資料庫，而不用使用 SQL 語法，當然若是要使用複雜的操作，仍需要使用到 SQL 語法。</p>
-<p>更多 SQL 語法學習：<a href="http://www.1keydata.com/tw/sql/sql.html">SQL語法教學- 1Keydata</a></p>
-<p><img src="/images/flask101/Flask-SQLAlchemy.png" alt="Python Web Flask 實戰開發教學"> </p>
-<h1 id="Flask-SQLAlchemy-使用設定"><a href="#Flask-SQLAlchemy-使用設定" class="headerlink" title="Flask SQLAlchemy 使用設定"></a>Flask SQLAlchemy 使用設定</h1><p>SQLAlchemy 是 Python 社群最廣泛使用的 ORM 套件。為了方便使用 ORM 來操作資料庫，我們使用 <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> 的封裝 <a href="http://flask-sqlalchemy.pocoo.org/2.1/">Flask SQLAlchemy</a> 來進行 Models 的建立（當然你也可以單獨使用 SQLAlchemy）。以下是 SQLAlchemy 使用的簡單範例：</p>
-<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="comment"># 設定資料庫位置，並建立 app</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_DATABASE_URI&#x27;</span>] = <span class="string">&#x27;sqlite:////tmp/test.db&#x27;</span></span><br><span class="line">db = SQLAlchemy(app)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Todo</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, content</span>):</span><br><span class="line">        <span class="variable language_">self</span>.content = content</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Todo %r&gt;&#x27;</span> % <span class="variable language_">self</span>.content</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Todo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app, Todo=Todo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
-
-<p>操作指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python manage.py shell</span><br><span class="line">&gt;&gt;&gt; db.create_all()</span><br></pre></td></tr></table></figure>
-
-<h1 id="CRUD-操作設計"><a href="#CRUD-操作設計" class="headerlink" title="CRUD 操作設計"></a>CRUD 操作設計</h1><p>CRUD 是一般網路應用程式<a href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E6%93%8D%E7%B8%B1%E8%AA%9E%E8%A8%80">最常見的資料庫操作</a>（create, read, update, delete），接著我們要使用 session 來操作我們的 CRUD 功能，首先先在終端機中輸入 <code>$ python manage.py shell</code> 後進行資料庫指令模擬操作（要注意的是 Flask SQLAlchemy 針對每個 request 會創建一個新的 session，若沒有 commit 的操作即被丟棄）：</p>
-<ol>
-<li><p>新增（Create）<br> 新增一筆資料後將它加到 db.session 中，完成 commit：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo(content=&#x27;hacking&#x27;)</span><br><span class="line">&gt;&gt;&gt; db.session.add(todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取（Read）<br>Model.query 是 db.session.query(Model) 的簡寫，所以我們可以使用以下方式讀取資料庫資料：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取得所有 todo 資料</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.all()</span><br><span class="line">&gt;&gt;&gt; todos</span><br><span class="line"># 限制 1 筆資料</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.limit(1).all()</span><br><span class="line"># 正向/逆向排序</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.order_by(Todo.content).all()</span><br><span class="line">&gt;&gt;&gt; todos = Todo.query.order_by(Todo.content.desc()).all()</span><br><span class="line"># 取得第一筆資料</span><br><span class="line">&gt;&gt;&gt; todo = Todo.query.first()</span><br><span class="line"># 取得 primary key=1 一筆資料</span><br><span class="line">&gt;&gt;&gt; todo = Todo.query.get(1)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>分頁（Pagination）</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todos = Todo.query.paginate(1, 10)</span><br><span class="line"># 總頁數</span><br><span class="line">&gt;&gt;&gt; todos.pages</span><br><span class="line"># 上/下一頁</span><br><span class="line">&gt;&gt;&gt; todos.prev()</span><br><span class="line">&gt;&gt;&gt; todos.next()</span><br><span class="line">&gt;&gt;&gt; </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>條件查詢（Filter）</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(content=&#x27;hacking&#x27;).first()</span><br></pre></td></tr></table></figure>
-
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todos = Todo.query.filter(Todo.id &gt; 1).all()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改（Update）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(contant=&#x27;hacking&#x27;).update(&#123;</span><br><span class="line">    &#x27;content&#x27;: &#x27;reading&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>刪除（Delete）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; todo = Todo.query.filter_by(content=&#x27;reading&#x27;).first()</span><br><span class="line">&gt;&gt;&gt; db.session.delete(todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="資料庫關聯用法"><a href="#資料庫關聯用法" class="headerlink" title="資料庫關聯用法"></a>資料庫關聯用法</h1><p>在關聯式資料庫中，最重要的就是資料表之間的關聯，透過關聯的使用，可以讓我們取得我們想要的資料。舉例而言，一篇部落格文章通常會對應多則評論，所以若是建立好關係則可以透過文章去取得所有和這篇文章有關的評論。同理，一篇文章通常會有多個 tag，而一個 tag 通常對應多篇文章，所以是個多對多關係。</p>
-<ul>
-<li>一對多</li>
-</ul>
-<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Todo</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line">    user_id = db.Column(db.String(<span class="number">80</span>), db.ForeignKey(<span class="string">&#x27;user.id))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, content):</span></span><br><span class="line"><span class="string">        self.content = content</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __repr__(self):</span></span><br><span class="line"><span class="string">        return &#x27;</span>&lt;Todo %r&gt;<span class="string">&#x27; % self.content</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class User(db.Model):</span></span><br><span class="line"><span class="string">    id = db.Column(db.Integer, primary_key=True)</span></span><br><span class="line"><span class="string">    name = db.Column(db.String(80))</span></span><br><span class="line"><span class="string">    todos = db.relationship(</span></span><br><span class="line"><span class="string">        &#x27;</span>Todo<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">        backref=&#x27;</span>use<span class="string">r&#x27;, # ref 可以讓我們使用 Todo.user 進行對 User 操作</span></span><br><span class="line"><span class="string">        lazy=&#x27;</span>dynamic<span class="string">&#x27; # 有使用才載入，提昇效能</span></span><br><span class="line"><span class="string">    )</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, name):</span></span><br><span class="line"><span class="string">        self.name = name</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __repr__(self):</span></span><br><span class="line"><span class="string">        return &#x27;</span>&lt;User %r&gt;<span class="string">&#x27; % self.name</span></span><br></pre></td></tr></table></figure>
-
-<p>操作方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; user = User.query.get(1)</span><br><span class="line">&gt;&gt;&gt; new_todo = Todo(&#x27;Booking&#x27;)</span><br><span class="line">&gt;&gt;&gt; new_todo.user_id = user.id</span><br><span class="line">&gt;&gt;&gt; db.session.add(new_todo)</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br><span class="line">&gt;&gt;&gt; user.todos</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>多對多</li>
-</ul>
-<figure class="highlight python"><figcaption><span>models.py</span></figcaption><table><tr><td class="code"><pre><span class="line">tags = db.Table(<span class="string">&#x27;todo_tags&#x27;</span>,</span><br><span class="line">    db.Column(<span class="string">&#x27;todo_id&#x27;</span>, db.Integer, db.ForeignKey(<span class="string">&#x27;todo.id&#x27;</span>)),</span><br><span class="line">    db.Column(<span class="string">&#x27;tag_id&#x27;</span>, db.Integer, db.ForeignKey(<span class="string">&#x27;tag.id&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立資料表欄位</span></span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Post</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看小寫 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line">    content = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, title, content</span>):</span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line">        <span class="variable language_">self</span>.content = content</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Todo %r&gt;&#x27;</span> % <span class="variable language_">self</span>.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tag</span>(db.Model):</span><br><span class="line">    <span class="comment"># __table__name = &#x27;user_table&#x27;，若不寫則看 class name</span></span><br><span class="line">    <span class="comment"># 設定 primary_key</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">80</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, title</span>):</span><br><span class="line">        <span class="variable language_">self</span>.title = title</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;Tag %r&gt;&#x27;</span> % <span class="variable language_">self</span>.title</span><br></pre></td></tr></table></figure>
-
-<p>操作方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 創建 3 個 todo</span><br><span class="line">&gt;&gt;&gt; todo_1 = Todo(&#x27;Python&#x27;)</span><br><span class="line">&gt;&gt;&gt; todo_2 = Todo(&#x27;JS&#x27;)</span><br><span class="line">&gt;&gt;&gt; todo_3 = Todo(&#x27;R&#x27;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; tag_1 = Tag(&#x27;coding&#x27;)</span><br><span class="line">&gt;&gt;&gt; tag_1.tags = [todo_1, todo_2]</span><br><span class="line">&gt;&gt;&gt; db.session.add()</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/flask101/Flask-Migration.png" alt="Python Web Flask 實戰開發教學"> </p>
-<h1 id="Flask-Migration（Alembic）使用"><a href="#Flask-Migration（Alembic）使用" class="headerlink" title="Flask Migration（Alembic）使用"></a>Flask Migration（<a href="http://alembic.zzzcomputing.com/en/latest/index.html">Alembic</a>）使用</h1><p>隨著網路應用程式的發展，我們的 models 會不斷變更，為了記錄所有有關 models 的改動，我們使用 <code>Flask-Migrate</code> 這個 extensions。所有 models 改動都會記錄在 migration 檔案中，就像是資料庫的 git 一樣方便版本控制。</p>
-<p>安裝 <code>Flask-Migrate</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install Flask-Migrate</span><br></pre></td></tr></table></figure>
-
-<p>將 db 加入 Flask-Migrate 控制：</p>
-<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_migrate <span class="keyword">import</span> Migrate, MigrateCommand</span><br><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Todo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py db 來管理 models</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;db&#x27;</span>, MigrateCommand)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app, Todo=Todo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()    </span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>Flask-Migrate</code> 操作 DB：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化</span><br><span class="line">$ python manage.py db init</span><br><span class="line"># 記錄 model 變化</span><br><span class="line">$ python manage.py db migrate</span><br><span class="line"># 更新同步到 db</span><br><span class="line">$ python manage.py db upgrade</span><br><span class="line"># 查詢指令</span><br><span class="line">$ python manage.py db --help</span><br></pre></td></tr></table></figure>
-
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了資料庫、關聯式資料庫、ORM 的概念，我們也實際使用了 Flask SQLAlchemy 和 Flask-Migrate 來操作我們的資料庫。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Wiki MVC</a></li>
-<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
-</ol>
-<p>（image via <a href="https://basicsofwebdevelopment.files.wordpress.com/2015/01/mvc_role_diagram.png">basicsofwebdevelopment</a>）</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>程式教學</tag>
-        <tag>Django</tag>
-        <tag>MVC</tag>
-        <tag>Web</tag>
-        <tag>MTV</tag>
-        <tag>Web Backend</tag>
-        <tag>Web Framework</tag>
-        <tag>Flask</tag>
-        <tag>框架</tag>
-        <tag>網站開發</tag>
-        <tag>Anaconda</tag>
-        <tag>ORM</tag>
-        <tag>SQLAlchemy</tag>
-        <tag>Database</tag>
-        <tag>Models</tag>
-        <tag>資料庫</tag>
       </tags>
   </entry>
   <entry>
