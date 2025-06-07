@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44" />
+    <!--Description-->
+    
+        <meta name="description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="HappyCoder 自學程式設計學院">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JavaScript 101 快速入門教學"/>
+    
+
+    <meta name="google-site-verification" content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM" />
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="HappyCoder 自學程式設計學院"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="https://www.happycoder.org/images/javascript.png" />
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>JavaScript 101 快速入門教學 - HappyCoder 自學程式設計學院</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	<style>
+    .intro-header {
+        background-image: url('/img/banner-s.jpg');
+        height: 550px;
+        filter: grayscale(30%);
+        -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+        .intro-header {
+            height: 450px;
+        }
+    }
+    </style>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="HappyCoder 自學程式設計學院" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                文章列表
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>JavaScript 101 快速入門教學</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by HappyCoder 自學程式設計學院 on
+                        
+                        2016-12-21
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/JavaScript-ECMAScript2015-ES6-Front-End-Front-End-Development-Environment/">#JavaScript, ECMAScript2015, ES6, Front End, Front End Development Environment</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
+
+                <div class="fb-like" data-href="https://www.facebook.com/HappyCoderOrg/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+                <p><img src="/images/javascript.png" alt="JavaScript 101 快速入門教學"></p>
+<p><a target="_blank" rel="noopener" href="https://pics.ee/1HC~">JavaScript 程式設計新手村課程準備上課囉！</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Java 和 JavaScript 雖然名稱相似，但卻是熱狗和狗的差別。JavaScript 是由 Netscape 工程師 Brendan Eich 於 1995 年僅花 10 天所設計的程式語言，也因為一些歷史因素，JavaScript 成為被誤解最深的程式語言。JavaScript 是一種直譯式、基於原型（prototype based）的物件導向程式語言，但又具有函數式程式設計（Functional programming）的特性。其具備簡單好上手、應用範圍廣泛，容易有成就感，但精通不易等特性。過去一段時間 JavaScript 一直被認為是玩具語言，難登大雅之堂。但隨著版本的演進，再加上 NodeJS 的出現，讓 JavaScript 由黑翻紅成為程式語言的當紅巨星，目前雄據在程式語言排行榜前幾名，除了網頁開發外，在許多的領域都可以看到 JavaScript 的身影。本文將快速帶領大家掌握 JavaScript 重要且核心的觀念。</p>
+<h1 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h1><p>JavaScript 的檔案只要使用一般的文字編輯器即可編輯（存成 .js 檔案），也可以使用 <a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a> 等編輯器進行開發，<a target="_blank" rel="noopener" href="https://jsbin.com/">JSBin</a> 這個線上工具進行測試（當然你也可以使用 Chrome、Firefox 等瀏覽器的開發者工具）。除了編輯器外，實際開發上我們也會需要用到 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js 開發環境</a> 和 NPM 套件管理系統（按照 Node.js 官方指示即可安裝）。Node.js 是一個開放原始碼、跨平台的、可用於伺服器端和網路應用的執行環境。</p>
+<h1 id="JavaScript-程式使用方式（HTML-中引入）"><a href="#JavaScript-程式使用方式（HTML-中引入）" class="headerlink" title="JavaScript 程式使用方式（HTML 中引入）"></a>JavaScript 程式使用方式（HTML 中引入）</h1><ol>
+<li><p>內嵌於 <code>&lt;head&gt;&lt;/head&gt;</code> (因 JS 為直譯式程式語言，讀到即會執行)</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">		alert(Hello JavaScript);</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>內嵌於 <code>&lt;body&gt;&lt;/body&gt;</code> 之中 (可以讓 HTML 優先載入)</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">	alert(Hello JavaScript);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外部引入檔案置於 <code>&lt;head&gt;</code> 或 <code>&lt;body&gt;</code> 內 (推薦使用)</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>注意外部引入的 <code>&lt;script&gt;&lt;/script&gt;</code> 中不可再寫 JS。</p>
+<h1 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h1><p>在程式語言中變數是一個暫時儲存資料的地方，賦值給變數的值都會有對應的資料型態，然而 JavaScript 是弱型別（Weak type）所以會有自動轉型的情形。</p>
+<p>在 JavaScript 中，全域變數將使用 <code>var</code>，而在 ES6 中為了解決變數污染或誤用情形將 <code>block-scope</code> 的變數使用 <code>let</code>，若你需要固定不變的常數則是使用 <code>const</code>。 其中變數型別又分為：Primitive Data Type：String、Number、Boolean（ true 或 false）、undefinded、null，Reference Data Types：Object 兩種，差別在於將物件變數賦值給另外一個變數時是把引用賦值給新變數，所以當新變數更改屬性時會影響到原來物件。</p>
+<p>Primitive Data Type：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Mark&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">checkLike</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> isActived = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log 可以讓開發者透過瀏覽器開發者工具看到訊息，方便除錯</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str);</span><br><span class="line"><span class="comment">// 因為 let 是 function block scope，故會產生 &quot;ReferenceError: isActived is not defined 錯誤</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(isActived);</span><br></pre></td></tr></table></figure>
+
+<p>Reference Data Types：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 將物件變數賦值給另外一個變數時是把引用賦值給新變數，所以當新變數更改屬性時會影響到原來物件</span></span><br><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">name</span>: <span class="string">&#x27;Zuck&#x27;</span> &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">b.<span class="property">name</span> = <span class="string">&#x27;Jack&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br></pre></td></tr></table></figure>
+
+<h1 id="運算子-運算元"><a href="#運算子-運算元" class="headerlink" title="運算子&#x2F;運算元"></a>運算子&#x2F;運算元</h1><p>在程式語言中都需要運算子，在 JavaScript 中有賦值運算子、算數運算子、比較運算子、邏輯運算子等不同運算子。</p>
+<ol>
+<li><p>賦值運算子：使用 <code>=</code> 給定值給變數</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Mark</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Mark&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>算數運算子：四則運算</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="number">1</span> + <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比較運算子：數值比較</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">23</span>;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> canVote = age &gt;= <span class="number">20</span>;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="keyword">const</span> canVote = age &lt; <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>邏輯運算子：邏輯判斷</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 且，要兩個都 true</span></span><br><span class="line"><span class="keyword">const</span> result1 = a &amp;&amp; b;</span><br><span class="line"><span class="comment">// 或，只要有一個 true，即為 true</span></span><br><span class="line"><span class="keyword">const</span> result2 = a || b;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="流程控制（flow-control）"><a href="#流程控制（flow-control）" class="headerlink" title="流程控制（flow control）"></a>流程控制（flow control）</h1><p>在 JavaScript 中和許多程式語言一樣有 <code>if...else</code>、<code>switch</code> 條件判斷以及在處理陣列上很常使用的迴圈（當有明確次數時使用 <code>for</code>，當沒有明確數字時使用 <code>while</code>）</p>
+<p>另外要注意的是在 JavaScript 中的 falsey 值：<code>undefined</code>、<code>null</code>、<code>NaN</code>、<code>0</code>、<code>&quot;&quot;</code>（空字串）和 <code>false</code>，以上幾種情況在邏輯判斷時會轉換成 false</p>
+<ol>
+<li><p>if…else</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以投票</span></span><br><span class="line"><span class="keyword">if</span>(age &gt; <span class="number">20</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;可以投票！&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>switch：當條件很多時可以善用 switch 判斷，記得要在每個 case 後寫 break，不然會全部都執行	</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> country = <span class="string">&#x27;Taiwan&#x27;</span>;</span><br><span class="line"><span class="keyword">switch</span>(grade) &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;Taiwan&#x27;</span>:</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span> + country);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;Japan&#x27;</span>:</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span> + country);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;Korea&#x27;</span>:</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span> + country);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="attr">default</span>:</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span> + country);		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for：當你知道程式需要重複執行幾次時可以使用 for 迴圈</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;Mark&#x27;</span>, <span class="string">&#x27;Zuck&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; arrr++) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>while：當你程式不知道需要重複執行幾次時可以使用 while 迴圈</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 從 1 累加到 10</span></span><br><span class="line"><span class="keyword">const</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(num &lt;= <span class="number">10</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> sum += num; <span class="comment">// sum = sum + num</span></span><br><span class="line">	num += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>do…while：當迴圈次數不明確時，可以使用 while，而 do while 會至少執行一次</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(x);</span><br><span class="line">	x++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(y);</span><br><span class="line">	y++;	</span><br><span class="line">&#125; <span class="keyword">while</span>(i &lt; <span class="number">10</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="函式-函數（function）"><a href="#函式-函數（function）" class="headerlink" title="函式&#x2F;函數（function）"></a>函式&#x2F;函數（function）</h1><p>函數是一種可以讓一段程式區塊重複使用的程式撰寫方式，在 JavaScript 中函數屬於一級物件（first class object），可以將函數當參數或變數傳遞，其扮演非常重要的角色，也讓 JavaScript 在函數式程式設計（functional programming）上更容易發揮。<br>函數可以傳入參數（如下的 x, y），也有可能沒有。函數使用 return 回傳值，若沒寫則回傳 undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">12</span>, <span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在 ES6 簡化了函數的使用出現了箭頭函數（arrow function）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">x, y</span>) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="物件（object）"><a href="#物件（object）" class="headerlink" title="物件（object）"></a>物件（object）</h1><p>物件是一種儲存資料的資料結構，可以對應成真實世界的物件（有屬性值和方法），一般而言主要有三種建立方式：</p>
+<ol>
+<li><p>使用 <code>new Object</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>&#123;&#125;</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="string">&#x27;Mark&#x27;</span>,</span><br><span class="line">	<span class="attr">age</span>: <span class="number">23</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用建構函數</p>
+<p> 雖然 JavaScript 並非是 class-based 的物件導向程式語言，而是 prototype-based 的物件導向程式語言，但在 JavaScript 可以透過 function 建立類別的宣告函數（在 ES6 中已有 class 可以使用，但只是個語法糖）：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 實務上建構函數命名採單字首字大寫。狗狗物件有 name, age 屬性，方法是 wow </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Dog</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">	<span class="comment">// 屬性值</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">	<span class="comment">// 每個實例都會有一份方法副本</span></span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">wow</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;wow!wow&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 多個實例共用，可以減少記憶體等資源運用</span></span><br><span class="line"><span class="title class_">Dog</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">cry</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;QQQ&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dog = <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&#x27;lucky&#x27;</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// wow!wow!</span></span><br><span class="line">dog.<span class="title function_">wow</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="DOM-BOM"><a href="#DOM-BOM" class="headerlink" title="DOM &amp; BOM"></a>DOM &amp; BOM</h1><p>事實上 HTML 可以轉換成一棵物件樹，也稱為 Document Object Model（DOM）。在撰寫網頁應用程式時往往需要操作到瀏覽器元素，我們通常是透過選取我們想要改變的元素（選擇器），然後修改我們的物件屬性</p>
+<ol>
+<li><p>物件模型</p>
+<p> 所謂的物件模型（Object Model）對於HTML 網頁來說，是一種規範如何存取HTML 元素、CSS 樣式和 JavaScript 程式碼的一種機制，可以將HTML元素、CSS樣式和 JavaScript 程式碼視為物件</p>
+</li>
+<li><p>BOM</p>
+<p> <img src="/images/bom.jpg" alt="js101"></p>
+<p> BOM 就是 Browser Object Model  中文叫做瀏覽器物件模型，window 物件是瀏覽器最頂層物件，其下有 document（DOM）、history、location、navigator、screen 子物件。<code>window</code> 物件不須經過宣告，可直接使用，代表目前瀏覽器視窗。事實上，所有的全域變數、函式、物件，其實都是屬於 window 物件，而 BOM 物件的使用可讓我們操作包含開啟&#x2F;關閉視窗，改變視窗大小，計時器與取得網址、存取瀏覽器屬性等</p>
+</li>
+<li><p>DOM</p>
+<p> 文件物件模型（Document Object Model，DOM）是給 HTML 與 XML 文件使用的一組 API。簡單的說就是將文件（文件可以想成單一網頁）物件化，以便提供一套通用存取的方式來處理文件內容。DOM 提供  HTML 網頁一種存取的方式，可以將 HTML 元素轉換成一棵節點樹，每一個標籤和文字內容是為一個節點，讓我們可以走訪節點 (Nodes) 來存取 HTML 元素 </p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>My title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>My header<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>My link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="/images/DOM.gif" alt="js101"></p>
+<p> 要操作 DOM 元素前要選取要操作哪個</p>
+<ul>
+<li><p>根據ID名稱選取<br> <code>document.getElementById(elementId)</code></p>
+</li>
+<li><p>根據元素名稱選取<br> <code>document.getElementsByTagName(tagName)</code></p>
+</li>
+<li><p>根據名稱選取<br> <code>document.getElementsByName(name) </code></p>
+</li>
+<li><p>根據 Class 名稱選取<br> <code>document.getElementsByClassName(classname)</code></p>
+</li>
+</ul>
+<p> 有很多元素符合，回傳的是 <code>NodeList</code> 物件集合，使用 item() 存取 (注意 Element’s’)，迭代使用 forEach 不然就要轉陣列</p>
+<p> document 物件有提供使用 CSS 選擇器來選取元素，效能較好</p>
+<ul>
+<li><p><code>document.querySelectorAll()</code> 方法<br>  document 物件的 <code>querySelectorAll()</code> 方法可以取得 HTML 的節點陣列或清單，為一個 <code>NodeList</code> 物件（若要使用 map 方法需要轉陣列，不然只能用 forEach ）</p>
+</li>
+<li><p><code>document.querySelector()</code> 方法<br> 只會回傳一個符合的元素，沒有就回傳 null</p>
+</li>
+</ul>
+<p> 範例：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;danger&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#danger&#x27;</span>).<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;h1&gt;嘿嘿，是我&lt;/h1&gt;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.info&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	  value.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;h1&gt;坐著打，普天之下排名第二&lt;/h1&gt;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">	&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="事件處理（event-handler）"><a href="#事件處理（event-handler）" class="headerlink" title="事件處理（event handler）"></a>事件處理（event handler）</h1><p>事件處理（Event Handlers）是 JavaScript 非常重要的功能，事件是用來處理 JavaScript 與 HTML 之間的互動、建立動畫效果並和使用者互動</p>
+<ul>
+<li><p>事件處理簡單說就是當一個事件發生時（網頁載入、按下右鍵等），程式會相對應做出怎樣的處理</p>
+</li>
+<li><p>例如：當使用者按下按鈕時會觸發 click 的事件（事件發生）並讓按鈕變成紅色（處理事件），這就是一種事件處理機制</p>
+</li>
+</ul>
+<h2 id="事件處理機制"><a href="#事件處理機制" class="headerlink" title="事件處理機制"></a>事件處理機制</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事件處理 = 事件種類 + 事件處理方法</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>事件種類（Event Type）<br>又稱事件名稱 (Event Name)，為一個字串，說明發生了什麼事件，例如：click (點擊)、mousemove (滑鼠滑過)</p>
+</li>
+<li><p>事件處理（Event Handlers）<br>係指處理事件的函數名稱，當事件發生時要呼叫哪個函數進行處理</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 當發生 click 事件，會發出 alert </span></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	  <span class="title function_">alert</span>(<span class="string">&#x27;被點了!&#x27;</span>);</span><br><span class="line">&#125;);  </span><br></pre></td></tr></table></figure>
+
+<p>完整範例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>點我點我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#btn&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	  <span class="title function_">alert</span>(<span class="string">&#x27;被點了!&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">	&#125;);  	</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="非同步處理（Ajax）"><a href="#非同步處理（Ajax）" class="headerlink" title="非同步處理（Ajax）"></a>非同步處理（Ajax）</h1><p>傳統上我們會使用 <code>&lt;form&gt;</code> 表單和後端程式作互動，然而每次提交表單送出請求給伺服器，伺服器接收並處理傳來的表單，然後送回一個新的網頁。使用 Ajax 應用可以僅向伺服器發送並取回必須的數據，並在客戶端採用JavaScript 處理來自伺服器的回應，不僅減少伺服器負擔也加快反應速度</p>
+<h2 id="同步-vs-非同步"><a href="#同步-vs-非同步" class="headerlink" title="同步 vs. 非同步"></a>同步 vs. 非同步</h2><p><img src="/images/sync.png" alt="JavaScript 101 快速入門教學"></p>
+<p>依序執行，等到上一個函數任務執行完才能執行下一個</p>
+<p><img src="/images/async-1.png" alt="JavaScript 101 快速入門教學"></p>
+<p>不會因為上一個函數尚未執行完（例如：回傳結果）就卡住，會往下執行下一個任務</p>
+<h2 id="什麼是同步-非同步？"><a href="#什麼是同步-非同步？" class="headerlink" title="什麼是同步&#x2F;非同步？"></a>什麼是同步&#x2F;非同步？</h2><ul>
+<li><p>非同步係指程式不會因為上一個函數尚未執行完（例如：回傳結果）就卡住，會往下執行下一個任務</p>
+</li>
+<li><p>同步就是要等到上一個函數任務執行完才能執行下一個，是依序執行</p>
+</li>
+</ul>
+<p>由於 <code>DOM 事件處理</code> 和 <code>Ajax 呼叫</code>是非同步處理，所以大部分人會為 JavaScript 貼上非同步程式設計的標籤</p>
+<h2 id="什麼是-Ajax？"><a href="#什麼是-Ajax？" class="headerlink" title="什麼是 Ajax？"></a>什麼是 Ajax？</h2><ul>
+<li><p>Ajax 全名：<code>Asynchronous Javascript And XML</code>，指的是一套綜合了多項技術的瀏覽器端網頁開發技術</p>
+</li>
+<li><p>雖然 Ajax 中使用 XML 為名，不過 Ajax 不是指一種單一的技術。現在許多應用都使用更輕量的 JSON 進行資料傳輸</p>
+</li>
+<li><p>可以完成不刷頁局部更新應用，使用者體驗較好。不過要小心回調地獄（callback hell）</p>
+</li>
+</ul>
+<h2 id="簡易-Ajax-實作"><a href="#簡易-Ajax-實作" class="headerlink" title="簡易 Ajax 實作"></a>簡易 Ajax 實作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若需要支援跨瀏覽器，還需要額外檢驗</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">XMLHttpRequest</span> != <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 一般使用 XMLHttpRequest 物件</span></span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">REQUEST_URL</span> = <span class="string">&#x27;http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 監聽是否完成</span></span><br><span class="line">    xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.<span class="property">readyState</span> === <span class="title class_">XMLHttpRequest</span>.<span class="property">DONE</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="variable constant_">REQUEST_URL</span>);</span><br><span class="line">    xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON-基礎概念"><a href="#JSON-基礎概念" class="headerlink" title="JSON 基礎概念"></a>JSON 基礎概念</h2><ul>
+<li><p>JSON（JavaScript Object Notation）是一種由Douglas Crockford 構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀</p>
+</li>
+<li><p>JSON 雖然起於 JavaScript，但資料格式與語言無關，目前很多程式語言都支援 JSON 格式資料的生成和解析</p>
+</li>
+<li><p>JSON 的官方 MIME 類型是 <code>application/json</code>，其副檔名是 <code>.json</code></p>
+</li>
+<li><p>基本格式 <code>&#123; &quot;key&quot;: &quot;value&quot; &#125;</code>、<code>&#123; &quot;key&quot;: [&quot;value1&quot;, &quot;value2&quot;] &#125;</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="JSON-長這樣"><a href="#JSON-長這樣" class="headerlink" title="JSON 長這樣"></a>JSON 長這樣</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">     <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Smith&quot;</span><span class="punctuation">,</span></span><br><span class="line">     <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> </span><br><span class="line">     <span class="punctuation">&#123;</span></span><br><span class="line">         <span class="attr">&quot;streetAddress&quot;</span><span class="punctuation">:</span> <span class="string">&quot;21 2nd Street&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;New York&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;state&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NY&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;postalCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10021&quot;</span></span><br><span class="line">     <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">     <span class="attr">&quot;phoneNumber&quot;</span><span class="punctuation">:</span> </span><br><span class="line">     <span class="punctuation">[</span></span><br><span class="line">         <span class="punctuation">&#123;</span></span><br><span class="line">           <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;home&quot;</span><span class="punctuation">,</span></span><br><span class="line">           <span class="attr">&quot;number&quot;</span><span class="punctuation">:</span> <span class="string">&quot;212 555-1234&quot;</span></span><br><span class="line">         <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="punctuation">&#123;</span></span><br><span class="line">           <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;fax&quot;</span><span class="punctuation">,</span></span><br><span class="line">           <span class="attr">&quot;number&quot;</span><span class="punctuation">:</span> <span class="string">&quot;646 555-4567&quot;</span></span><br><span class="line">         <span class="punctuation">&#125;</span></span><br><span class="line">     <span class="punctuation">]</span></span><br><span class="line"> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上介紹了新手上路 JavaScript 入門核心基礎概念，大家可以善用 <a target="_blank" rel="noopener" href="http://jsbin.com/">JSBin</a> 實際動手操作，並參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/">MDN</a> 或 <a target="_blank" rel="noopener" href="http://www.w3schools.com/">W3CSchool</a> 的案例會更清楚整體觀念喔！更多豐富教學內容都在 <a target="_blank" rel="noopener" href="https://pics.ee/1HC~">JavaScript 程式設計新手村課程！</a></p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a target="_blank" rel="noopener" href="http://www.slideshare.net/ccckmit/javascript-c">用十分鐘瞭解 陳鍾誠的程式設計課 (採用JavaScript + C的原因)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS">You-Dont-Know-JS</a></li>
+<li><a target="_blank" rel="noopener" href="https://tw.twincl.com/javascript/*6731">JavaScript與前端程式設計入門自學參考</a></li>
+<li><a target="_blank" rel="noopener" href="http://bonsaiden.github.io/JavaScript-Garden/zhtw/">JavaScript Garden  </a></li>
+<li><a target="_blank" rel="noopener" href="http://weizhifeng.net/javascript-the-core.html">JavaScript核心</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004253577">[稀土掘金日报] JavaScript 开发者必备的资源合集</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/ccckmit/javascript/details">專為中學生寫的 JavaScript 程式書</a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nzakas/computer-science-in-javascript">nzakas&#x2F;computer-science-in-javascript</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/A_re-introduction_to_JavaScript">重新介紹 JavaScript</a></li>
+</ol>
+<p>（image via <a target="_blank" rel="noopener" href="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAY4AAAAJDNmOTRkMTk2LTljNDEtNDAwOS05YTJlLTFmMTg2M2YzYzBiMQ.png">mpr</a>、<a target="_blank" rel="noopener" href="http://www.blog.mahmoudzalt.com/wp-content/uploads/2014/07/tools.png">mahmoudzalt</a>）</p>
+
+
+                <br>
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+
+                <br>
+                <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+                <br>
+                <div class="fb-like-block">
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                </div>
+                <br>
+                <br>
+                <div>在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！</div>
+                <div class="fb-page" data-href="https://www.facebook.com/HappyCoderOrg" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/HappyCoderOrg" class="fb-xfbml-parse-ignore"><a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">HappyCoder 自學程式設計學院</a></blockquote></div>
+                <br>
+                <br>
+                <div>
+                    <h2>更多程式設計教學文章</h2>
+                    
+                </div>
+                <style>
+                    .fb-like-block {
+                        width: 100px !important;
+                    }
+                    .popular-posts {
+                        list-style: none;
+                        display: flex;
+                    }
+                    .popular-posts-item {
+                        width: 25%;
+                        padding: 10px;
+                    }
+                    .popular-posts-title a {
+                        font-size: 16px;
+                        text-decoration: none;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        .popular-posts-item {
+                            width: 100%;
+                            padding: 10px;
+                        }
+                        .popular-posts {
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </div>
+
+            <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin: 0 auto; width: 70%;}
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+
+            <hr>
+
+            <div id="mc_embed_signup">
+                <form action="https://happycoder.us18.list-manage.com/subscribe/post?u=c27d54bac8f7fe84eec5086bc&amp;id=829f2fa635" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>訂閱 HappyCoder 自學程式設計學院電子報，自學程式不孤單！</h2>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c27d54bac8f7fe84eec5086bc_829f2fa635" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="馬上訂閱" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder 自學程式設計學院 2025
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>

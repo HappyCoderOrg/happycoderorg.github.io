@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44" />
+    <!--Description-->
+    
+        <meta name="description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="HappyCoder 自學程式設計學院">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"/>
+    
+
+    <meta name="google-site-verification" content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM" />
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="HappyCoder 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="HappyCoder 自學程式設計學院"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學 - HappyCoder 自學程式設計學院</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	<style>
+    .intro-header {
+        background-image: url('/img/banner-s.jpg');
+        height: 550px;
+        filter: grayscale(30%);
+        -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+        .intro-header {
+            height: 450px;
+        }
+    }
+    </style>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="HappyCoder 自學程式設計學院" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                文章列表
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by HappyCoder 自學程式設計學院 on
+                        
+                        2017-11-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/自學程式/">#自學程式</a> <a href="/tags/自學程式設計/">#自學程式設計</a> <a href="/tags/程式設計/">#程式設計</a> <a href="/tags/線上自學/">#線上自學</a> <a href="/tags/coding/">#coding</a> <a href="/tags/coder/">#coder</a> <a href="/tags/programming/">#programming</a> <a href="/tags/computer/">#computer</a> <a href="/tags/computer-science/">#computer science</a> <a href="/tags/code/">#code</a> <a href="/tags/電腦科學/">#電腦科學</a> <a href="/tags/學寫程式/">#學寫程式</a> <a href="/tags/學程式/">#學程式</a> <a href="/tags/linux/">#linux</a> <a href="/tags/指令/">#指令</a> <a href="/tags/命令列/">#命令列</a> <a href="/tags/command-line/">#command line</a> <a href="/tags/軟體工程師/">#軟體工程師</a> <a href="/tags/軟體工程/">#軟體工程</a> <a href="/tags/software-engineering/">#software engineering</a> <a href="/tags/bash/">#bash</a> <a href="/tags/shell/">#shell</a> <a href="/tags/script/">#script</a> <a href="/tags/unix/">#unix</a> <a href="/tags/mac/">#mac</a> <a href="/tags/os/">#os</a> <a href="/tags/windows/">#windows</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
+
+                <div class="fb-like" data-href="https://www.facebook.com/HappyCoderOrg/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+                <p><img src="/images/cs101/terminal.jpg" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）不一定一定要使用 vim 之類的編輯器進行開發，但熟悉使用終端機（terminal）操作和常用的 Linux 命令列指令碼操作則是必須的。因此接著我們將介紹軟體工程師在開發上常用的 Linux 命令列指令碼給讀者參考。若讀者使用的是 Windows 建議安裝 VirtualBox 並在上面跑 Linux&#x2F;Ubuntu 來進行指令碼操作，或是使用像是 Cmder 的工具來進行操作。關於相關工具安裝可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
+<p><img src="/images/cs101/linux.jpg" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
+<h1 id="什麼是-Linux？"><a href="#什麼是-Linux？" class="headerlink" title="什麼是 Linux？"></a>什麼是 Linux？</h1><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Linux">Linux</a> 是一種自由開放原始碼的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F">類 Unix</a> 的作業系統，其廣泛運用於伺服器和嵌入式系統中。目前主流的 Linux 發佈版本（Linux distributions，係指可完整安裝使用的套件版本）包括：Debian、Fedora、CentOS、Ubuntu 等。以下我們主要將會聚焦在 Linux&#x2F;Ubuntu 常用指令和基礎操作的入門教學介紹上（每個指令前使用 <code>$</code> 當作提示字元，不用輸入）。</p>
+<p><img src="/images/cs101/ubuntu.png" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
+<h1 id="Linux-檔案系統架構"><a href="#Linux-檔案系統架構" class="headerlink" title="Linux 檔案系統架構"></a>Linux 檔案系統架構</h1><p>理論上所有的 Linux 發佈版本應該都要遵守檔案系統的標準（Filesystem Hierarchy Standard, FHS），但根據發佈版本不同或有差異，不過大致上檔案系統架構如下：</p>
+<ol>
+<li><p>&#x2F;bin, &#x2F;sbin<br><code>/bin</code> 主要放置一般使用者可以操作的指令，<code>/sbin</code> 放置系統管理員可以操作的指令。連結到 <code>/usr/bin</code>，<code>/usr/sbin</code> </p>
+</li>
+<li><p>&#x2F;boot<br>主要放置開機相關檔案  </p>
+</li>
+<li><p>&#x2F;dev<br>放置 device 裝置檔案，包話滑鼠鍵盤等</p>
+</li>
+<li><p>&#x2F;etc<br>主要放置系統檔案</p>
+</li>
+<li><p>&#x2F;home, &#x2F;root<br><code>/home</code> 主要是一般帳戶的家目錄，<code>/root</code> 為系統管理者的家目錄</p>
+</li>
+<li><p>&#x2F;lib, &#x2F;lib64<br>主要為系統函式庫和核心函式庫，若是 64 位元則放在 <code>/lib64</code>。連結到 <code>/usr/lib</code>, <code>/usr/lib64</code></p>
+</li>
+<li><p>&#x2F;proc<br>將記憶體內的資料做成檔案類型</p>
+</li>
+<li><p>&#x2F;sys<br>與 <code>/proc</code> 類似，但主要針對硬體相關參數</p>
+</li>
+<li><p>&#x2F;usr<br><code>/usr</code> 全名為 <code>unix software resource</code> 縮寫，放置系統相關軟體、服務（注意不是 user 的縮寫喔！）</p>
+</li>
+<li><p>&#x2F;var<br>全名為 <code>variable</code>，放置一些變數或記錄檔</p>
+</li>
+<li><p>&#x2F;tmp<br>全名為 <code>temporary</code>，放置暫存檔案</p>
+</li>
+<li><p>&#x2F;media, &#x2F;mnt<br>放置隨插即用的裝置慣用目錄， <code>/mnt</code> 為管理員&#x2F;使用者手動掛上（mount）的目錄</p>
+</li>
+<li><p>&#x2F;opt<br>全名為 <code>optional</code>，通常為第三方廠商放置軟體處</p>
+</li>
+<li><p>&#x2F;run<br>系統進行服務軟體運作管理處</p>
+</li>
+<li><p>&#x2F;srv<br>通常是放置開發的服務（service），如：網站服務 <code>www</code> 等</p>
+</li>
+</ol>
+<h1 id="檔案與目錄管理指令"><a href="#檔案與目錄管理指令" class="headerlink" title="檔案與目錄管理指令"></a>檔案與目錄管理指令</h1><p>在 Ubuntu 中我們可以打開終端機進行指令操作，就可以透過指令來管理檔案。</p>
+<p>一般指令格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 指令 [選項] [選項值]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/cs101/linux-ls-g.png" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
+<ol>
+<li><p>ls：list，查看檔案及子目錄</p>
+<p> 列出基本資料夾資料：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p> 列出詳細資料和隱藏資料：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// -l 列出詳細資料 -a 列出隱藏資料</span><br><span class="line">$ ls -la</span><br></pre></td></tr></table></figure>
+
+<p> 列出部分檔案：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 列出為 .js 的檔案</span><br><span class="line">$ ls *.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pwd：print work directory，印出目前工作目錄</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pwd</span><br><span class="line">// /Users/happycoder/Desktop/projects/HappyCoder</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd：change directory，移動進入資料夾</p>
+<p> 移動到目前資料夾下的 examples 資料夾：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ./examples</span><br></pre></td></tr></table></figure>
+
+<p> 移動到家目錄：<code>~</code>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~</span><br></pre></td></tr></table></figure>
+
+<p> 移動到上一層目錄 <code>..</code>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ..</span><br></pre></td></tr></table></figure>
+
+<p> 移動到根目錄 <code>/</code>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mkdir：make directory，創建新資料夾</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir examples</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp：copy，複製檔案</p>
+<p> 先將字串 TEST 存入 README.md 文件中</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;TEST&quot; &gt; README.md</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mv：move (rename) files，移動檔案或是重新命名檔案</p>
+<p> 移動檔案：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv README.md /examples/README.md</span><br></pre></td></tr></table></figure>
+
+<p> 重新命名</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv README.md README_MV.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rm：remove file，刪除檔案</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm README.md</span><br></pre></td></tr></table></figure>
+
+<p> 刪除目前資料夾下副檔名為 .js 檔案：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm *.js</span><br></pre></td></tr></table></figure>
+
+<p> 刪除資料夾和所有檔案：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -f examples</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>touch：用來更新已存在文件的 timestamp 時間戳記或是新增空白檔案</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cat：將文件印出在終端機上</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tail：顯示檔案最後幾行內容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail README.md</span><br></pre></td></tr></table></figure>
+
+<p>持續顯示更新內容，常用於 web server 看 log debug 使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>more：將檔案一頁頁印在終端機上</p>
+<p>可以使用上下移動換頁，按 q 離開：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ more README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>file：檢查檔案類型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file README.md</span><br><span class="line">// README.md: HTML document text, UTF-8 Unicode text</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="編輯文字檔案"><a href="#編輯文字檔案" class="headerlink" title="編輯文字檔案"></a>編輯文字檔案</h1><ol>
+<li><p>nano：在終端機編輯文字檔案</p>
+<p> 編輯或是新增文字檔案：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nano README.md</span><br></pre></td></tr></table></figure>
+
+<p> 啟動編輯完後可以使用 Ctrl + X 離開，Ctrl + V 移動到上一頁，Ctrl + Y 移動到下一頁，Ctrl + W 搜尋文字內容 </p>
+</li>
+<li><p>vim：在終端機編輯文字檔案</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim README.md</span><br></pre></td></tr></table></figure>
+
+<p> 啟動後，使用 i 進入編輯，esc 離開編輯模式，<code>:q</code> 不儲存離開，<code>:wq</code> 儲存離開，<code>:q!</code> 強制離開</p>
+</li>
+</ol>
+<h1 id="檔案權限設定"><a href="#檔案權限設定" class="headerlink" title="檔案權限設定"></a>檔案權限設定</h1><p>在 Linux 系統中，每一個 Linux 檔案都具有四種存取權限：</p>
+<ol>
+<li>可讀取<code>（r，Readable）</code>，用數字 4 表示</li>
+<li>可寫入<code>（w，writable）</code>，用數字 2 表示</li>
+<li>可執行：<code>（x，eXecute）</code>，用數字 1 表示</li>
+<li>無權限（-），用數字 0 表示</li>
+</ol>
+<p>系統管理者依據使用者需求來設定檔案權限，若我們想檢視檔案權限可以使用 <code>$ ls -l</code> 來查看</p>
+<p><img src="/images/cs101/linux-ls-al.png" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
+<ol>
+<li><p>第一欄：使用者權限<br> 由 10 個字元組成，第一個字元表示檔案型態（- 為檔案，d 表示目錄，1 表示連結檔案）。字元 2、3、4 表示檔案擁有者的存取權限。字元 5、6、7 表示檔案擁有者所屬群組成員的存取權限。字元 8、9、10 表示其他使用者的存取權限</p>
+<p> 舉例來說 -rwxrwxr–，代表這是一格檔案，擁有者和群組都具備讀取、寫入和執行權限，其他使用者只擁有讀取權限</p>
+</li>
+<li><p>第二欄：檔案數量</p>
+</li>
+<li><p>第三欄：擁有者</p>
+</li>
+<li><p>第四欄：群組</p>
+</li>
+<li><p>第五欄：檔案大小</p>
+</li>
+<li><p>第六欄：檔案建立時間</p>
+</li>
+<li><p>第七欄：檔案名稱</p>
+</li>
+</ol>
+<p>接下來介紹如何透過指令修改權限：</p>
+<ol>
+<li><p>chmod：修改檔案權限</p>
+<p> 將權限設為 <code>rw-rw-r--</code>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 664 README.md</span><br></pre></td></tr></table></figure>
+
+<p> 將檔案的使用者和群組加入執行權限</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod ug+x README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>chown：修改檔案擁有者與群組</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chown www-data:www-data README.md</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="系統管理"><a href="#系統管理" class="headerlink" title="系統管理"></a>系統管理</h1><ol>
+<li><p>sudo：使用最高權限（superuser）執行指令，會要求輸入自己密碼，使用上必須非常小心</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo git clone xxx.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>su：su 指令可以讓一般的 Linux 使用者輸入 root 密碼取得 root 權限，暫時取得 root 權限的使用者就如同 root 一樣可以對系統進行各種變更動作</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kill：根據 Process ID 指定要終止程式</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kill PID</span><br></pre></td></tr></table></figure>
+
+<p> 立即強制執行：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kill -9 PID</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>killall：直接使用程式的名稱來指定要終止的程式</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ killall hello.py</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="套件管理"><a href="#套件管理" class="headerlink" title="套件管理"></a>套件管理</h1><ol>
+<li><p>apt-get：套件管理工具</p>
+<p> 更新套件資料庫列表：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p> 升級套件並下載安裝套件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p> 搜尋相關軟體套件（使用名稱）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-cache search --names-only fortune</span><br></pre></td></tr></table></figure>
+
+<p> 安裝套件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fortune</span><br></pre></td></tr></table></figure>
+
+<p> 移除套件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove fortune</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="網際網路相關操作"><a href="#網際網路相關操作" class="headerlink" title="網際網路相關操作"></a>網際網路相關操作</h1><ol>
+<li><p>ping：網路檢測工具，透過發送 <code>ICMP ECHO_REQUEST</code> 的封包，檢查自己與特定設備之間的網路是否暢通，速度是否正常</p>
+<p> 可輸入 hostname 或是 IP：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ping google.com</span><br></pre></td></tr></table></figure>
+
+
+<p> PING google.com (172.217.160.110): 56 data bytes<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;0 ttl&#x3D;57 time&#x3D;7.037 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;1 ttl&#x3D;57 time&#x3D;9.411 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;2 ttl&#x3D;57 time&#x3D;22.690 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;3 ttl&#x3D;57 time&#x3D;6.561 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;4 ttl&#x3D;57 time&#x3D;6.909 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;5 ttl&#x3D;57 time&#x3D;6.311 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;6 ttl&#x3D;57 time&#x3D;6.860 ms<br> 64 bytes from 172.217.160.110: icmp_seq&#x3D;7 ttl&#x3D;57 time&#x3D;6.583 ms</p>
+</li>
+<li><p>traceroutes：檢查從你的電腦到網路另一端的主機是走的什麼路徑</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ traceroute google.com</span><br></pre></td></tr></table></figure>
+
+<p> traceroute to google.com (172.217.27.142), 64 hops max, 52 byte packets<br> 1  zyxel.home (192.168.1.1)  2.047 ms  1.208 ms  1.888 ms<br> 2  h254.s98.ts.hinet.net (168.95.98.254)  6.189 ms  8.556 ms  5.875 ms<br> 3  168-95-85-2.hinet-ip.hinet.net (168.95.85.2)  7.057 ms  5.796 ms  5.998 ms<br> 4  211-22-226-1.hinet-ip.hinet.net (211.22.226.1)  9.766 ms  10.422 ms<br> 72.14.222.94 (72.14.222.94)  9.744 ms<br> 5  108.170.244.97 (108.170.244.97)  8.386 ms<br> 108.170.244.129 (108.170.244.129)  11.500 ms  12.247 ms<br> 6  209.85.142.13 (209.85.142.13)  7.015 ms  7.505 ms<br> 209.85.240.15 (209.85.240.15)  6.750 ms<br> 7  tsa03s02-in-f142.1e100.net (172.217.27.142)  11.478 ms  6.608 ms  6.893 ms</p>
+</li>
+<li><p>nslookup：查詢 DNS 回應是否正常</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup google.com</span><br></pre></td></tr></table></figure>
+
+<p> Server:		192.168.1.1<br> Address:	192.168.1.1#53</p>
+<p> Non-authoritative answer:<br> Name:	google.com<br> Address: 216.58.200.238</p>
+</li>
+</ol>
+<h1 id="其他好用指令"><a href="#其他好用指令" class="headerlink" title="其他好用指令"></a>其他好用指令</h1><ol>
+<li><p>man：查詢 Linux 線上手冊（man page）</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ man</span><br></pre></td></tr></table></figure>
+
+<p> 例如我們可以使用 <code>man</code> 來查詢 <code>ls</code> 的使用用法：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ man ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find：查詢檔案</p>
+<p> 在目前目錄下尋找檔名為 README.md 檔案</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find . -name README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grep：強大文件字串搜尋工具</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep &#x27;找這個字串&#x27; file_name</span><br></pre></td></tr></table></figure>
+
+<p> 找所有目錄（含子目錄）下檔案</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -r &#x27;字串&#x27; *</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>crontab：例行性工作排程</p>
+<p> 編輯 crontab</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crontab -e</span><br></pre></td></tr></table></figure>
+
+<p> crontab 格式：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">分 時 日 月 星期 要執行的指令</span><br><span class="line"></span><br><span class="line">30 12   *   *   *  python /projects/hello.py &amp;</span><br><span class="line"></span><br><span class="line">在 12:30 時執行 hello.py，&amp; 表示背景執行</span><br><span class="line">* 號表示每日每月每星期都執行</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="撰寫第一個-shell-script"><a href="#撰寫第一個-shell-script" class="headerlink" title="撰寫第一個 shell script"></a>撰寫第一個 shell script</h1><p>Shell 是我們和 Linux 系統的介面，我們可以透過終端機在上面輸入指令和作業系統互動，讓他做我們想做的事情。在 Linux 中標準的 Shell 為（Bourne Again Shell），檔案路徑為 <code>/bin/sh</code>，我們可以透過 <code>$ echo $SHELL</code> 去印出目前使用的 shell</p>
+<p>其中 Shell Script 為使用 shell 所提供的語法所撰寫的程式碼，其為直譯式不用編譯。可以讓你將複雜或是重複性的指令寫成程式碼檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim example.sh</span><br></pre></td></tr></table></figure>
+
+<p>在編輯模式輸入以下程式碼，：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 這是註解，上面所使用的 shell</span><br><span class="line"></span><br><span class="line">echo &quot;日期&quot;</span><br><span class="line">date</span><br><span class="line">echo &quot;印出檔案列表&quot;</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+
+<p>修改權限成可以執行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod u+x example.sh</span><br></pre></td></tr></table></figure>
+
+<p>接著執行，若是一切順利就可以在終端機看到時間日期和檔案列表！恭喜你完成你的第一個 shell script！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./example.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上介紹了 Linux&#x2F;Ubuntu 常用指令和基礎操作的入門教學介紹上，實際上讀者不用刻意去背誦，而是在實際上操作中練習，多累積撰寫程式並使用指令碼去加快程式開發的速度自然而然就會把指令碼記憶起來了，若是真的忘記再去網路上查找就好，加油！</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/ljianhui/article/details/11100625">初窥Linux 之 我最常用的20条命令</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.xuite.net/chingwei/blog/16285667-%E3%80%90%EF%BC%AC%E3%80%91Linux+%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86">【Ｌ】Linux 常用指令集</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.gtwang.org/linux/sudo-su-command-tutorial-examples/">Linux 的 su 與 sudo 指令教學與範例</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.vixual.net/blog/archives/100">dig、host 與 nslookup 指令的查詢語法</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.phpini.com/linux/nslookup-query-dns-command">nslookup — 查詢 DNS 指令</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2010/08/27/Linux-find-command-tips-and-notice.aspx">在 Linux 下使用 find 指令查詢目錄與檔案的速查筆記</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.phpini.com/linux/grep-directory-all-files">grep 搜尋目錄下所有檔案字串</a></li>
+<li><a target="_blank" rel="noopener" href="http://linux.vbird.org/linux_basic/0430cron.php">第十五章、例行性工作排程(crontab)</a></li>
+</ol>
+<p>（image via <a target="_blank" rel="noopener" href="https://www.javatpoint.com/linux/images/linux-ls-g.png">unixmen</a>、<a target="_blank" rel="noopener" href="https://s3.amazonaws.com/cloudxlab/static/images/aha/ls-al.png">cloudxlab</a>、<a target="_blank" rel="noopener" href="https://i.ytimg.com/vi/GGorVpzZQwA/maxresdefault.jpg">ytimg</a>、<a target="_blank" rel="noopener" href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a target="_blank" rel="noopener" href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a target="_blank" rel="noopener" href="https://i.stack.imgur.com/RUIIq.png">imgur</a>）</p>
+
+
+                <br>
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+
+                <br>
+                <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+                <br>
+                <div class="fb-like-block">
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                </div>
+                <br>
+                <br>
+                <div>在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！</div>
+                <div class="fb-page" data-href="https://www.facebook.com/HappyCoderOrg" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/HappyCoderOrg" class="fb-xfbml-parse-ignore"><a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">HappyCoder 自學程式設計學院</a></blockquote></div>
+                <br>
+                <br>
+                <div>
+                    <h2>更多程式設計教學文章</h2>
+                    <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/cs101/git.png" /></div><div class="popular-posts-title"><h3><a href="/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/" title="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學" rel="bookmark">自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/javascript101/javascript.png" /></div><div class="popular-posts-title"><h3><a href="/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/" title="如何在 Windows 打造 JavaScript Web 開發環境入門教學" rel="bookmark">如何在 Windows 打造 JavaScript Web 開發環境入門教學</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/python101/python-logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/12/20/python101-windows-dev-environment-setup-tutorial-part1/" title="如何在 Windows 打造 Python Web 開發環境入門教學 Part1" rel="bookmark">如何在 Windows 打造 Python Web 開發環境入門教學 Part1</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/python101/python-logo.png" /></div><div class="popular-posts-title"><h3><a href="/2017/12/21/python101-windows-dev-environment-setup-tutorial-part2/" title="如何在 Windows 打造 Python Web 開發環境入門教學 Part2" rel="bookmark">如何在 Windows 打造 Python Web 開發環境入門教學 Part2</a></h3></div></li></ul>
+                </div>
+                <style>
+                    .fb-like-block {
+                        width: 100px !important;
+                    }
+                    .popular-posts {
+                        list-style: none;
+                        display: flex;
+                    }
+                    .popular-posts-item {
+                        width: 25%;
+                        padding: 10px;
+                    }
+                    .popular-posts-title a {
+                        font-size: 16px;
+                        text-decoration: none;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        .popular-posts-item {
+                            width: 100%;
+                            padding: 10px;
+                        }
+                        .popular-posts {
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </div>
+
+            <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin: 0 auto; width: 70%;}
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+
+            <hr>
+
+            <div id="mc_embed_signup">
+                <form action="https://happycoder.us18.list-manage.com/subscribe/post?u=c27d54bac8f7fe84eec5086bc&amp;id=829f2fa635" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>訂閱 HappyCoder 自學程式設計學院電子報，自學程式不孤單！</h2>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c27d54bac8f7fe84eec5086bc_829f2fa635" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="馬上訂閱" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder 自學程式設計學院 2025
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>
