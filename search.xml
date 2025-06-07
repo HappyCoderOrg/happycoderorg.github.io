@@ -1548,6 +1548,93 @@
       </tags>
   </entry>
   <entry>
+    <title>使用 ChatGPT 自學程式設計：觀念、策略與實作練習</title>
+    <url>/2024/01/27/learning-coding-programming-with-chatgpt-ai-tool-tutorial/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在過去，學寫程式意味著需要投入大量時間閱讀厚重的教材、反覆摸索錯誤訊息的意義，甚至在 Stack Overflow 上尋求救援。而如今，透過 AI 工具的協助，例如 ChatGPT、GitHub Copilot、Codeium 等，初學者能更快速地理解語法、解決錯誤、模擬情境，提升學習效率。然而，AI 工具並不能替代你的思考，它是加速學習的助力，但不是學習的捷徑。</p>
+<h2 id="使用-ChatGPT-自學程式設計：觀念、策略與實作練習"><a href="#使用-ChatGPT-自學程式設計：觀念、策略與實作練習" class="headerlink" title="使用 ChatGPT 自學程式設計：觀念、策略與實作練習"></a>使用 ChatGPT 自學程式設計：觀念、策略與實作練習</h2><p>在人工智慧快速發展的時代，學習寫程式不再是一條孤單、艱難的路。現在有了 ChatGPT 這樣的語言模型作為學習輔助工具，自學者不再需要花大量時間在搜尋資料、理解英文技術文檔或等待他人回答問題上。你可以隨時向 ChatGPT 發問、請它幫忙解釋觀念、修正錯誤，甚至請它幫你出練習題，進行模擬面試。只要方法得當，ChatGPT 可以成為你學習程式設計過程中最可靠的學伴。</p>
+<p>本筆記將說明如何結合 ChatGPT 學習程式設計的策略，並透過一個 Python 小專案，實際示範學習流程。</p>
+<hr>
+<h2 id="為什麼選擇-ChatGPT-自學程式設計？"><a href="#為什麼選擇-ChatGPT-自學程式設計？" class="headerlink" title="為什麼選擇 ChatGPT 自學程式設計？"></a>為什麼選擇 ChatGPT 自學程式設計？</h2><p>過去自學程式最困難的部分在於：</p>
+<ol>
+<li><strong>資源太多，不知從何下手</strong></li>
+<li><strong>卡關時找不到人問問題</strong></li>
+<li><strong>英文技術文件理解困難</strong></li>
+<li><strong>缺乏練習與回饋機制</strong></li>
+</ol>
+<p>而 ChatGPT 正好可以解決這四點。你可以用自然語言提問，像對一位資深工程師學習，快速獲得解答、範例與練習題。</p>
+<hr>
+<h2 id="建議學習語言：Python"><a href="#建議學習語言：Python" class="headerlink" title="建議學習語言：Python"></a>建議學習語言：Python</h2><p>Python 是目前最推薦的入門語言，原因包括：</p>
+<ul>
+<li>語法簡單、可讀性高</li>
+<li>廣泛應用於網頁後端、資料分析、機器學習</li>
+<li>有豐富的學習資源與社群</li>
+<li>ChatGPT 對 Python 的支援度最佳</li>
+</ul>
+<hr>
+<h2 id="ChatGPT-自學步驟建議"><a href="#ChatGPT-自學步驟建議" class="headerlink" title="ChatGPT 自學步驟建議"></a>ChatGPT 自學步驟建議</h2><h3 id="步驟一：建立學習計畫"><a href="#步驟一：建立學習計畫" class="headerlink" title="步驟一：建立學習計畫"></a>步驟一：建立學習計畫</h3><p>你可以直接問 ChatGPT：「我是一個程式設計初學者，請幫我規劃一份 30 天的 Python 自學計畫，每天學習 1 小時。」</p>
+<p>它會給你一份條列式進度表，包含觀念、實作與資源建議。</p>
+<h3 id="步驟二：每個主題搭配-ChatGPT-提問"><a href="#步驟二：每個主題搭配-ChatGPT-提問" class="headerlink" title="步驟二：每個主題搭配 ChatGPT 提問"></a>步驟二：每個主題搭配 ChatGPT 提問</h3><p>舉例：你在學「變數與資料型別」，可以問：</p>
+<ul>
+<li>什麼是 Python 中的變數？</li>
+<li>請舉幾個整數、浮點數、字串的例子。</li>
+<li>有哪些常見的型別轉換方法？</li>
+</ul>
+<p>ChatGPT 回答後，請自己動手寫一段練習程式確認理解。</p>
+<hr>
+<h2 id="小專案練習：待辦清單-CLI-程式"><a href="#小專案練習：待辦清單-CLI-程式" class="headerlink" title="小專案練習：待辦清單 CLI 程式"></a>小專案練習：待辦清單 CLI 程式</h2><p>這是一個適合初學者練習的 Python 小專案，透過這個例子，你可以學到以下基礎概念：</p>
+<ul>
+<li>變數與資料型別</li>
+<li>陣列（列表）</li>
+<li>函式定義</li>
+<li>使用 while 迴圈與 if 條件判斷</li>
+<li>使用 input() 與 print()</li>
+</ul>
+<h3 id="專案目標"><a href="#專案目標" class="headerlink" title="專案目標"></a>專案目標</h3><p>製作一個可以在命令列中操作的待辦清單程式，讓使用者可以新增、刪除與列出事項。</p>
+<h3 id="程式碼示範"><a href="#程式碼示範" class="headerlink" title="程式碼示範"></a>程式碼示範</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">todo_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_menu</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n--- 我的待辦清單 ---&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;1. 新增事項&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;2. 查看清單&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;3. 刪除事項&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;4. 離開&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    show_menu()</span><br><span class="line">    choice = <span class="built_in">input</span>(<span class="string">&quot;請輸入選項（1-4）：&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> choice == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">        item = <span class="built_in">input</span>(<span class="string">&quot;請輸入待辦事項：&quot;</span>)</span><br><span class="line">        todo_list.append(item)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;已新增！&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> choice == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;\n--- 待辦事項 ---&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> todo_list:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;清單是空的&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> i, task <span class="keyword">in</span> <span class="built_in">enumerate</span>(todo_list):</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;i + <span class="number">1</span>&#125;</span>. <span class="subst">&#123;task&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> choice == <span class="string">&quot;3&quot;</span>:</span><br><span class="line">        index = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;請輸入要刪除的編號：&quot;</span>)) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= index &lt; <span class="built_in">len</span>(todo_list):</span><br><span class="line">            removed = todo_list.pop(index)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;已刪除：<span class="subst">&#123;removed&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;無效的編號&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> choice == <span class="string">&quot;4&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;感謝使用，再見！&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;無效的輸入，請重新輸入 1-4&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>這個小專案完整結合了輸入輸出、資料儲存、條件與迴圈控制結構，是一個理想的練習題目。</p>
+<hr>
+<h2 id="如何用-ChatGPT-擴充與優化"><a href="#如何用-ChatGPT-擴充與優化" class="headerlink" title="如何用 ChatGPT 擴充與優化"></a>如何用 ChatGPT 擴充與優化</h2><p>完成後你可以繼續問 ChatGPT：</p>
+<ul>
+<li>我要加上「儲存清單到檔案」功能該怎麼做？</li>
+<li>我要讓這個程式使用英文與中文雙語介面？</li>
+<li>請幫我用物件導向方式重構這段程式。</li>
+</ul>
+<p>你會發現，透過這樣的對話過程，你正在一步步學會更進階的程式技巧與架構設計觀念。</p>
+<hr>
+<h2 id="自學關鍵原則"><a href="#自學關鍵原則" class="headerlink" title="自學關鍵原則"></a>自學關鍵原則</h2><ol>
+<li><strong>主動提問</strong>：卡住時請立即向 ChatGPT 提問，避免原地打轉。</li>
+<li><strong>多做小專案</strong>：觀念看過就忘，實作才記得住。</li>
+<li><strong>理解 AI 回答，而非只是複製貼上</strong>：每次用 ChatGPT 給你的程式碼時，都要確實理解它的邏輯。</li>
+<li><strong>刻意練習 + 反饋迴圈</strong>：請 ChatGPT 幫你批改程式、找出錯誤、提出改進建議。</li>
+</ol>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>程式設計不再是一門只能靠天份與背景的技能。現在，只要你有好奇心與持續練習的動力，結合像 ChatGPT 這樣的 AI 工具，任何人都能成為開發者。</p>
+<p>你可以從「請幫我寫一支輸出 Hello, World 的 Python 程式」這樣簡單的對話開始，到最後獨立完成一個個有用的小工具。這不僅是一條技能學習的道路，更是你建立邏輯思維、自信心與問題解決力的旅程。</p>
+<p>現在就打開你的編輯器，開始寫第一行程式吧。如果你不知道該寫什麼，試著問 ChatGPT：「今天我可以練習什麼 Python 題目？」</p>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>software</tag>
+        <tag>software enginnering</tag>
+        <tag>web</tag>
+        <tag>ChatGPT</tag>
+        <tag>AI 工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用 Python 自學程式設計：程式設計思維入門</title>
     <url>/2017/08/10/learning-programming-and-coding-with-python-introduction/</url>
     <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
