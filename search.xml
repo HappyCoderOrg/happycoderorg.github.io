@@ -1,6 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學</title>
+    <url>/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/cs101/git.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作和溝通的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關環境工具若你還沒準備好，可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
+<h1 id="什麼是版本控制系統（Version-Control-System）？"><a href="#什麼是版本控制系統（Version-Control-System）？" class="headerlink" title="什麼是版本控制系統（Version Control System）？"></a>什麼是版本控制系統（Version Control System）？</h1><p><img src="/images/cs101/files.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題！）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。因此，使用版本控制系統的需求就應運而生啦！</p>
+<p><img src="/images/cs101/hero-mac-screenshot.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>一般在軟體開發中又分為中央式系統（例如：<a href="https://zh.wikipedia.org/wiki/Subversion">Subversion</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%94%E4%BD%9C%E7%89%88%E6%9C%AC%E7%B3%BB%E7%B5%B1">CVS</a> 等）與分散式系統（例如：<a href="https://git-scm.com/">Git</a>、<a href="BitKeeper">BitKeeper</a>、<a href="https://zh.wikipedia.org/zh-tw/Mercurial">mercurial</a> 等），中央式版本控制系統的工作主要在一個伺服器進行，由中央管理存取權限「鎖上」檔案庫中的檔案，一次只能讓一個開發者進行工作。而分散式系統讓不同開發者直接在各自的本地檔案庫工作，並容許多個開發者同時更動同一個檔案，而每個檔案庫有另外一個合併各個改變的功能。分散式系統讓開發者能在沒有網路的情況下也能繼續工作，也讓開發者有充分的版本控制能力，而不需經中央管理者的許可，但分散式系統仍然可以有檔案上鎖功能。</p>
+<p><img src="/images/cs101/github.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="什麼是-Git？什麼是-Github？"><a href="#什麼是-Git？什麼是-Github？" class="headerlink" title="什麼是 Git？什麼是 Github？"></a>什麼是 Git？什麼是 Github？</h1><p><a href="https://zh.wikipedia.org/wiki/Git">Git</a> 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 <a href="https://zh.wikipedia.org/zh-tw/Linux">Linux</a> 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力（使用程式碼 snapshot 來比較歷史版本差異）。</p>
+<p><a href="https://github.com/">Github</a> 則是一個支援 git 程式碼存取和遠端托管的平台服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github profile 作品集。</p>
+<h1 id="Git-基本觀念"><a href="#Git-基本觀念" class="headerlink" title="Git 基本觀念"></a>Git 基本觀念</h1><p><img src="/images/cs101/git-workflow.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Git 屬於分散式的版本控制系統，所以開發者可以在離線 local 環境下開發，等到有網路時再將自己的程式推到 Remote 環境或 pull 下其他開發者程式碼進行整合。在 Local 中我們又分為 working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）。</p>
+<p>當自己開發時會在工作資料夾工作，當要進入檔案庫之前會先將檔案加入暫存區，確認沒問題則 commit 到檔案庫中，最後 push 上去 remote 環境。在 Git 中若是有和其他開發者一起合作，則會需要處理不同 branch 之間 conflict 和 merge 的問題。</p>
+<p><img src="/images/cs101/git-branch.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="Git-與-Github-實戰操作入門教學"><a href="#Git-與-Github-實戰操作入門教學" class="headerlink" title="Git 與 Github 實戰操作入門教學"></a>Git 與 Github 實戰操作入門教學</h1><p>接下來我們用一個實際的實戰範例讓讀者可以快速的掌握那些基礎必知必會的 Git&#x2F;Github 操作技能：</p>
+<ol>
+<li><p>安裝並且設定 Git</p>
+<p> <code>任務 1：安裝 Git 到你的電腦上，並且設定好 Git 內部的使用者名稱和電子信箱</code></p>
+<p> Linux 若是使用 <code>Debian</code> 基礎的作業系統可以在終端機輸入以下指令安裝 git：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p> 若是 <code>Fedora</code> 系列可以輸入：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ yum install git-core</span><br></pre></td></tr></table></figure>
+
+<p> 若是 windows 可以下載安裝 <a href="http://cmder.net/">cmder</a> 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 <a href="https://git-scm.com/">Git 官網安裝</a>。當然在市面上有許多免費 <a href="https://git-scm.com/download/gui/linux">GUI 圖形化的 Git 操作軟體</a>，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好，這樣你才比較知道圖形化程式背後做了什麼事情。Mac 則是可以到 <a href="https://git-scm.com/downloads">Git 官方網站</a> 選擇對應作業系統，按照步驟完整下載安裝。另外也可以參考<a href="https://git-scm.com/book/zh-tw/v1/%E9%96%8B%E5%A7%8B-%E5%AE%89%E8%A3%9D-Git">中文安裝教學</a>。</p>
+<p> 由於我們會選擇 Github 當作遠端托管程式的環境，所以我們也可以根據作業系統安裝 <a href="https://desktop.github.com/">Github 桌面版</a>當作操作工具（內建安裝 Git）。</p>
+<p> <img src="/images/cs101/git-version.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 若是安裝完成，打開終端機（terminal）或 cmder 輸入以下指令，若成功顯示版本（建議 Git 版本在 2 以上），代表安裝成功囉！terminal（終端機）是一個可以下指令讓電腦做事情的互動介面（例如：新增檔案、移動到資料夾等）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 其中 $ 為提示字元，在輸入指令時不用輸入該符號，否則會錯誤，若是使用 windows cmder 預設是 λ</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+
+<p> 接下來設定你的帳戶，讓 Git 知道這台電腦做的修改要連結到哪一個使用者（待會我們要在 Github 上註冊帳號，建議使用一致的帳號和電子信箱）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;&lt;Your Name&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<p> 設定電子郵件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.email &quot;&lt;your@gmail.com&gt;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立一個本機的 repository</p>
+<p> <code>任務二：在自己的電腦上建立一個新的 local repositories（本地檔案庫）</code></p>
+<p> <img src="/images/cs101/git-folder.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> repository（檔案庫）是一個什麼樣的概念呢？事實上 repository 就是一個專案，又簡稱 repo。以電腦的檔案資料管理來看，我們通常會把同一個專案的資料放到同一個資料夾下，所以我們也可以把 repository 看成一個資料夾。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個 hello-git 資料夾</span><br><span class="line">$ mkdir hello-git</span><br><span class="line">// 移動到 hello-git 資料夾</span><br><span class="line">$ cd hello-git</span><br><span class="line">// 將專案資料夾建立成 git repository</span><br><span class="line">$ git init</span><br><span class="line">// 列出專案資料夾下的檔案和資料夾（-l 參數為列出詳細資料，-a 為列出隱藏資料夾）</span><br><span class="line">$ ls -la </span><br></pre></td></tr></table></figure>
+
+<p> 當你執行 <code>git init</code> 後，你可以發現多出了 <code>.git</code> 這個隱藏資料夾，可以看到裡面檔案和資料夾如下：</p>
+<p> <img src="/images/cs101/git-folder2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 到這邊恭喜讀者，完成你第一個 git 專案資料夾改造計畫！</p>
+</li>
+<li><p>檢視狀態、新增或修改 commits</p>
+<p> <code>任務三：在你的 repository 檔案庫中建立一個新檔案，新增一些內容到該檔案並且將那些檔案修改提交 commit 到 Git 中</code></p>
+<p> 接著我們使用文字編輯器，新增一個 hello.py 的檔案（裡面是一個會印出 <code>hello python &amp; git</code> 字串的 python 程式）：</p>
+ <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 然後在終端機的專案資料夾下輸入 <code>git status</code> 顯示目前工作環境狀態：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">    hello.py</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p> 我們會發現因為我們有新增新的檔案，但是還沒進到 git 追蹤範圍中&#x2F;暫存區，所以我們要使用 <code>git add hello.py</code> 加入追蹤，這樣之後檔案有修改就可以追蹤到。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add hello.py</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   hello.py</span><br></pre></td></tr></table></figure>
+
+<p> 若是確認沒問題我們就準備 commit 進去 repository 囉！</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// -m 為輸入 commit message，也就是說這個 commit 內做了哪些事情</span><br><span class="line">$ git commit -m &quot;Init hello.py&quot;</span><br><span class="line">[master (root-commit) ad6d328] Init hello.py</span><br><span class="line">1 file changed, 1 insertion(+)</span><br><span class="line">create mode 100644 hello.py</span><br><span class="line"></span><br><span class="line">// commmit 完成</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+<p> 若是想反悔不想把檔案加入追蹤呢？</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 檔案尚未加入過追蹤時使用，即可恢復到檔案尚未加入暫存區</span><br><span class="line">$ git rm --cached hello.py</span><br><span class="line"></span><br><span class="line">// 若檔案已經在 repository 內，則使用以下指令</span><br><span class="line">// repository 與 stage 的檔案都會被還原到 HEAD，但 working directory 內的檔案不變</span><br><span class="line">$ git reset HARD</span><br></pre></td></tr></table></figure>
+
+<p> 當你追蹤後修改了檔案，例如把 <code>hello.py</code> 的內容改成：</p>
+ <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git rock&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 若有檔案修改，記得要再 <code>add</code> 修改的檔案（這是新手比較容易忘記的部分），若是要放棄修改可以使用 <code>git checkout -- 檔案名稱</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// 查看目前工作狀態</span><br><span class="line">$ git status</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   hello.py</span><br></pre></td></tr></table></figure>
+
+<p> commit 這個修改時簡寫會寫成這樣（-a 是 add，-m 為 message 簡寫，後面接訊息資訊）：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -a -m &quot;修改了 hello.py&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>註冊 GitHub 帳號</p>
+<p> <code>任務四：建立一個 GitHub 帳號，並在 Git 設定中加入使用者帳號</code></p>
+<p> 到目前為主我們程式主要是在我們 local 工作環境中操作，但還記得我們在 Git 基本觀念中有提到，git 分為 local 和 remote，若是我們想要和全世界其他開發者合作或是貢獻開放原始碼的話，我們可以透過 github 來當作我們 remote 工作環境，去管理我們程式碼，同樣的也可以透過 github 平台和其他開發者一起合作，參與開放原始碼的開發。github 若是公開的 repo 是無限制數量免費的，但是若是想使用 private repo 可以<a href="https://github.com/pricing">參考付費方案</a>。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意大小寫要一致</span><br><span class="line">$ git config --global user.username &lt;你的 github 使用者名稱&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 先到 github.com 註冊帳號：</p>
+<p> <img src="/images/cs101/github-example1.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 註冊成功後登入，可以點選右上顯圖下拉式選單進到個人頁面（profile），觀看個人頁面：</p>
+<p> <img src="/images/cs101/github-example2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> <img src="/images/cs101/github-example4.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右上角 <code>+</code> 來新增 new repository（檔案庫）：</p>
+<p> <img src="/images/cs101/github-example3.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 輸入 repository name（你要取的專案名稱），最好跟電腦 local 專案一致，我們這邊輸入 <code>git-example</code>。然後輸入簡短專案描述並先不勾選初始化 README 和，也先不要選擇 .gitignore 和 License 授權（不然會造成本地端和遠端不一致會需要額外一些處理）：</p>
+<p> <code>.gitignore</code>：要忽略的檔案清單，這是用來告訴 Git，當在做版本控制記錄的時候，忽略這些檔案。通常一些機密資料，如資料庫帳號密碼或是 server IP 位置等，記得要加入。也可以參考 github 上面的<a href="https://github.com/github/gitignore">一些範本</a> 在新增 repository 時選取對應的程式語言</p>
+<p> <code>README.md</code>：repository 介紹和使用方式說明（例如：使用方法、參與專案方式等），使用 <code>markdown</code> 語法撰寫。另外通常有 CONTRIBUTING.md 額外說明如何參與貢獻。</p>
+<p> <code>LICENSE</code>：專案使用何種授權方式，例如：MIT、BSD 等</p>
+<p> <img src="/images/cs101/github-example5.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 接著按 create 按鈕！恭喜你新增成功，創建了自己第一個 github repository（遠端檔案庫）！</p>
+</li>
+<li><p>將 repository 做本機和遠端的連結</p>
+<p> <code>任務五：把電腦裡 Local（本地端）的 repository（檔案庫）和 remote（遠端）的 repository（檔案庫）連結起來，並 push 電腦上的修改</code></p>
+<p> <img src="/images/cs101/github-example6.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 因我們已經在專案有把 <code>hello.py</code> 修改加入追蹤並 commit 到 local 檔案庫，所以我們可以參考下方的指令說明把 remote 網址加入：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 本地端專案知道 origin 對應到遠端網址</span><br><span class="line">$ git remote add origin &lt;remote 網址&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 接者準備將本地端程式 push 到遠端檔案庫：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 觀看情況</span><br><span class="line">$ git status</span><br><span class="line">// 將本地端程式 push 到遠端檔案庫</span><br><span class="line">$ git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Writing objects: 100% (3/3), 239 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https://github.com/happycodergit/git-example.git</span><br><span class="line">* [new branch]      master -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from origin.</span><br></pre></td></tr></table></figure>
+
+<p> 參數 <code>-u</code> 等同於 <code>--set-upstream</code>，設定 <code>upstream</code> 可以使分支開始追蹤指定的遠端分支。事實上，只要做過一次 <code>$ git push -u &lt;remote name&gt; &lt;branch name&gt;</code>，並且成功 push 出去；本機端的 master 就會被設定去追蹤遠端的 <code>&lt;remote name&gt;/&lt;branch name&gt;</code> 分支。只要成功設定好 upstream 後，第二次以後要上傳分支時，就只需要透過 git push 就可以了，不必再帶 <code>&lt;remote name&gt;</code> 跟 <code>&lt;branch name&gt;</code> 等參數。例如：<code>$ git push</code>。</p>
+<p> 事實上，<code>$ git push -u origin master</code> 可以拆解成：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">$ git checkout master</span><br><span class="line">$ git branch -u origin/master</span><br></pre></td></tr></table></figure>
+
+<p> 恭喜你成功把你的專案推送上去 github 啦！</p>
+<p> <img src="/images/cs101/github-example7.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+</li>
+<li><p>Fork 和 clone 一個 open source（開源）的計畫</p>
+<p> <code>任務六：從 GitHub.com 建立專案，複本 fork，並下載 clone 到電腦上</code></p>
+<p> 點選左上角 github icon 回到首頁，我們從上面搜尋欄搜尋 react：</p>
+<p> <img src="/images/cs101/github-example8.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右上角 fork 按鈕，複製一份專案到我們這：</p>
+<p> <img src="/images/cs101/github-example9.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 等待 fork 中：</p>
+<p> <img src="/images/cs101/github-example10.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 點選右邊綠色按鈕 clone download 複製 HTTP 網址：</p>
+<p> <img src="/images/cs101/github-example11.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 複製到本地端</span><br><span class="line">$ git clone https://github.com/happycodergit/react.git</span><br><span class="line">// 移動到 react 資料夾</span><br><span class="line">$ cd react</span><br><span class="line">// 切出自己的新分支（使用 -b）</span><br><span class="line">$ git checkout -b happycoder@feature_branch</span><br><span class="line">// 做一些 README.md 檔案修改，然後 commit 到自己 fork 過來的專案</span><br><span class="line">$ git commit -a -m &quot;Update README&quot;</span><br><span class="line">$ git push origin happycoder@feature_branch</span><br></pre></td></tr></table></figure>
+
+<p> 事實上，每個開放原始碼都有他自己貢獻的方式，記得要先了解。例如可以<a href="https://reactjs.org/docs/how-to-contribute.html">參考 react 貢獻說明</a>！</p>
+<p> <img src="/images/cs101/github-example12.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p> 你可以透過將自己的修改 commit 到自己 fork 過來的專案，然後到原始專案頁面點選 new pull request 按鈕發 pull request（會比對程式碼的差異）。若對方 review 完後接受就可以將自己的程式碼合併到原始專案中，為開放原始碼做出第一步貢獻！</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 若完成 pull request 記得讓 master（或是合併進去的 branch）保持同步</span><br><span class="line">$ git pull upstream master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>練習建立一個 feature branch</p>
+<p> <code>任務七：回來原來的 git-example 專案新增 feature branch（分支）</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個名為 dev 的 branch</span><br><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
+
+<p> 在 <code>hello.py</code> 最上面多加一行 <code># hi, this is comment</code> 註解後存檔</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// commit 到本地端更新</span><br><span class="line">$ git commit -a -m &quot;Init dev branch&quot;</span><br><span class="line">$ gut push origin dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>邀請別人和你合作</p>
+<p> <code>任務八：在專案新增夥伴 collaborator</code></p>
+<p> 在右上角進入 setting 可以選擇到 collaborator 新增合作者：</p>
+<p> <img src="/images/cs101/github-example13.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+</li>
+<li><p>利用 push 和 pull 來和 GitHub.com 同步</p>
+<p> <code>任務九：用 pull 來和其他 collaborators（合作者）同步更新，確保程式是最新的版本</code></p>
+<p> 請其他開發者 git colone 下來你的 git-example 專案並 checkout 到 <code>dev</code> branch，並完成新增一個 <code>README.md</code> 檔案後發 pull request 過來，若沒問題就按同意並合併。我們則透過 git pull 來保持本地端和遠端程式碼同步：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull origin dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Merge（合併）和刪除 branches</p>
+<p><code>任務十：在本機上 merge 合併你的 branch（分支），刪除舊的 branch（分支）</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 移動到 master branch</span><br><span class="line">$ git checout master</span><br><span class="line">// 合併 dev 到 master</span><br><span class="line">$ git merge dev</span><br><span class="line">// 刪除 dev branch</span><br><span class="line">$ git branch -d dev</span><br><span class="line">// 將合併後的 master 推送到遠端</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是 Git 與 Github 版本控制基本指令與操作入門教學！希望讀者可以動手一起操作，漸漸就能感受到 git 的威力和好處，同時也有能力參與開放原始碼（open source）的社群和提昇自己在職場上的價值，朝成為一個真正的軟體工程師（Software Engineer）邁進！</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md">30 天精通 Git 版本控管</a></li>
+<li><a href="https://git-scm.com/">Git 官方網站</a></li>
+<li><a href="https://www.codeschool.com/courses/try-git">Try Git</a></li>
+<li><a href="http://jlord.us/git-it/index-zhtw.html">Git-it</a></li>
+<li><a href="https://guides.github.com/">GitHub Guides</a></li>
+<li><a href="http://oomusou.io/git/git-remove-stage/">如何將檔案從stage移除?</a></li>
+<li><a href="https://www.gitbook.com/book/zlargon/git-tutorial/details">Git 教學</a></li>
+</ol>
+<p>（image via <a href="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">git-scm</a>、<a href="https://dn-sdkcnssl.qbox.me/article/fyuBUISCkmddVNC0t2Iu.png">qbox</a>、<a href="https://qph.ec.quoracdn.net/main-qimg-3aa29f29ede6a8245b6964f663c60339">quoracdn</a>、<a href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a href="https://i.stack.imgur.com/RUIIq.png">imgur</a>、<a href="https://martinfitzpatrick.name/images/method/1472/GitBranchName_1.png">martinfitzpatrick</a>）</p>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>linux</tag>
+        <tag>指令</tag>
+        <tag>命令列</tag>
+        <tag>command line</tag>
+        <tag>軟體工程師</tag>
+        <tag>軟體工程</tag>
+        <tag>software engineering</tag>
+        <tag>bash</tag>
+        <tag>shell</tag>
+        <tag>svn</tag>
+        <tag>version control</tag>
+        <tag>VCS</tag>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>cvs</tag>
+        <tag>自學程式心得</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自學程式設計與電腦科學入門實戰：Git 常見指令入門教學</title>
+    <url>/2017/11/20/cs101-learning-programming-and-coding-with-python-git-command-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/cs101/git.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關工具安裝可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
+<h1 id="什麼是版本控制系統（Version-Control-System）？"><a href="#什麼是版本控制系統（Version-Control-System）？" class="headerlink" title="什麼是版本控制系統（Version Control System）？"></a>什麼是版本控制系統（Version Control System）？</h1><p>版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。</p>
+<p><img src="/images/cs101/files.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>一般在軟體開發中又分為中央式系統（例如：<a href="https://zh.wikipedia.org/wiki/Subversion">Subversion</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%94%E4%BD%9C%E7%89%88%E6%9C%AC%E7%B3%BB%E7%B5%B1">CVS</a>）與分散式系統（例如：<a href="https://git-scm.com/">Git</a>、<a href="BitKeeper">BitKeeper</a>、<a href="https://zh.wikipedia.org/zh-tw/Mercurial">mercurial</a> 等），中央式版本控制系統的工作主要在一個伺服器進行，由中央管理存取權限「鎖上」檔案庫中的檔案，一次只能讓一個開發者進行工作。而分散式系統讓不同開發者直接在各自的本地檔案庫工作，並容許多個開發者同時更動同一個檔案，而每個檔案庫有另外一個合併各個改變的功能。這個方式讓開發者能在沒有網路的情況下也能繼續工作，也讓開發者有充分的版本控制能力，而不需經中央管理者的許可。此外，分散式系統仍然可以有檔案上鎖功能。</p>
+<p><img src="/images/cs101/github.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<h1 id="什麼是-Git？什麼是-Github？"><a href="#什麼是-Git？什麼是-Github？" class="headerlink" title="什麼是 Git？什麼是 Github？"></a>什麼是 Git？什麼是 Github？</h1><p><a href="https://zh.wikipedia.org/wiki/Git">Git</a> 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 Linux 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力。</p>
+<p><a href="https://github.com/">Github</a> 則是一個支援 git 程式碼存取和托管的服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github 作品集。</p>
+<h1 id="Git-基本觀念與常見指令"><a href="#Git-基本觀念與常見指令" class="headerlink" title="Git 基本觀念與常見指令"></a>Git 基本觀念與常見指令</h1><h2 id="環境安裝"><a href="#環境安裝" class="headerlink" title="環境安裝"></a>環境安裝</h2><p>Linux&#x2F;Mac 一般都有內建 git 軟體，若是 windows 可以下載安裝 <a href="http://cmder.net/">cmder</a> 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 <a href="https://git-scm.com/">Git 官網安裝</a>。當然在市面上有許多免費 <a href="https://git-scm.com/download/gui/linux">GUI 圖形化的 Git 操作軟體</a>，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 在終端機輸入以下指令，若成功顯示版本，代表安裝成功</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本觀念"><a href="#基本觀念" class="headerlink" title="基本觀念"></a>基本觀念</h2><p><img src="/images/cs101/git-workflow.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
+<p>Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Git 屬於分散式的版本控制系統，所以開發者可以在離線 local 環境下開發，等到有網路時再將自己的程式推到 Remote 環境和 pull 下其他開發者程式碼進行整合。在 Local 中我們又分為 working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）。當自己開發時會在工作資料夾工作，當要進入檔案庫之前會先將檔案加入暫存區，確認沒問題則 commit 到檔案庫中，最後 push 上去 remote 環境。在 Git 中若是有和其他開發者一起合作，則會需要處理不同 branch 之間 conflict 和 merge 的問題。</p>
+<h2 id="常見指令"><a href="#常見指令" class="headerlink" title="常見指令"></a>常見指令</h2><ol>
+<li><p>設定使用者的資訊</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將刪除修改的紀錄放入 stage，等 commit 後就可以真正修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add -A</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將沒有 track 的資料加入追蹤</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add -u</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -m</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rebase</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reset</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git revert</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ gitk</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md">30 天精通 Git 版本控管</a></li>
+<li><a href="https://git-scm.com/">Git 官方網站</a></li>
+<li><a href="https://www.codeschool.com/courses/try-git">Try Git</a></li>
+<li><a href="http://jlord.us/git-it/index-zhtw.html">Git-it</a></li>
+<li><a href="https://guides.github.com/">GitHub Guides</a></li>
+</ol>
+<p>（image via <a href="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">git-scm</a>、<a href="https://dn-sdkcnssl.qbox.me/article/fyuBUISCkmddVNC0t2Iu.png">qbox</a>、<a href="https://qph.ec.quoracdn.net/main-qimg-3aa29f29ede6a8245b6964f663c60339">quoracdn</a>、<a href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a href="https://i.stack.imgur.com/RUIIq.png">imgur</a>）</p>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>linux</tag>
+        <tag>指令</tag>
+        <tag>命令列</tag>
+        <tag>command line</tag>
+        <tag>軟體工程師</tag>
+        <tag>軟體工程</tag>
+        <tag>software engineering</tag>
+        <tag>bash</tag>
+        <tag>shell</tag>
+        <tag>svn</tag>
+        <tag>version control</tag>
+        <tag>VCS</tag>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>cvs</tag>
+        <tag>自學程式心得</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學</title>
     <url>/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</url>
     <content><![CDATA[<p><img src="/images/cs101/terminal.jpg" alt="自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學"></p>
@@ -299,197 +573,6 @@
         <tag>mac</tag>
         <tag>os</tag>
         <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學</title>
-    <url>/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</url>
-    <content><![CDATA[<p><img src="/images/cs101/git.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作和溝通的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關環境工具若你還沒準備好，可以參考 <a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a> 這篇教學文章。好，那我們就準備開始吧！</p>
-<h1 id="什麼是版本控制系統（Version-Control-System）？"><a href="#什麼是版本控制系統（Version-Control-System）？" class="headerlink" title="什麼是版本控制系統（Version Control System）？"></a>什麼是版本控制系統（Version Control System）？</h1><p><img src="/images/cs101/files.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題！）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。因此，使用版本控制系統的需求就應運而生啦！</p>
-<p><img src="/images/cs101/hero-mac-screenshot.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>一般在軟體開發中又分為中央式系統（例如：<a href="https://zh.wikipedia.org/wiki/Subversion">Subversion</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8D%94%E4%BD%9C%E7%89%88%E6%9C%AC%E7%B3%BB%E7%B5%B1">CVS</a> 等）與分散式系統（例如：<a href="https://git-scm.com/">Git</a>、<a href="BitKeeper">BitKeeper</a>、<a href="https://zh.wikipedia.org/zh-tw/Mercurial">mercurial</a> 等），中央式版本控制系統的工作主要在一個伺服器進行，由中央管理存取權限「鎖上」檔案庫中的檔案，一次只能讓一個開發者進行工作。而分散式系統讓不同開發者直接在各自的本地檔案庫工作，並容許多個開發者同時更動同一個檔案，而每個檔案庫有另外一個合併各個改變的功能。分散式系統讓開發者能在沒有網路的情況下也能繼續工作，也讓開發者有充分的版本控制能力，而不需經中央管理者的許可，但分散式系統仍然可以有檔案上鎖功能。</p>
-<p><img src="/images/cs101/github.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="什麼是-Git？什麼是-Github？"><a href="#什麼是-Git？什麼是-Github？" class="headerlink" title="什麼是 Git？什麼是 Github？"></a>什麼是 Git？什麼是 Github？</h1><p><a href="https://zh.wikipedia.org/wiki/Git">Git</a> 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 <a href="https://zh.wikipedia.org/zh-tw/Linux">Linux</a> 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力（使用程式碼 snapshot 來比較歷史版本差異）。</p>
-<p><a href="https://github.com/">Github</a> 則是一個支援 git 程式碼存取和遠端托管的平台服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github profile 作品集。</p>
-<h1 id="Git-基本觀念"><a href="#Git-基本觀念" class="headerlink" title="Git 基本觀念"></a>Git 基本觀念</h1><p><img src="/images/cs101/git-workflow.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p>Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Git 屬於分散式的版本控制系統，所以開發者可以在離線 local 環境下開發，等到有網路時再將自己的程式推到 Remote 環境或 pull 下其他開發者程式碼進行整合。在 Local 中我們又分為 working directory（工作資料夾）、staging area（暫存區）和 repositories（檔案庫）。</p>
-<p>當自己開發時會在工作資料夾工作，當要進入檔案庫之前會先將檔案加入暫存區，確認沒問題則 commit 到檔案庫中，最後 push 上去 remote 環境。在 Git 中若是有和其他開發者一起合作，則會需要處理不同 branch 之間 conflict 和 merge 的問題。</p>
-<p><img src="/images/cs101/git-branch.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<h1 id="Git-與-Github-實戰操作入門教學"><a href="#Git-與-Github-實戰操作入門教學" class="headerlink" title="Git 與 Github 實戰操作入門教學"></a>Git 與 Github 實戰操作入門教學</h1><p>接下來我們用一個實際的實戰範例讓讀者可以快速的掌握那些基礎必知必會的 Git&#x2F;Github 操作技能：</p>
-<ol>
-<li><p>安裝並且設定 Git</p>
-<p> <code>任務 1：安裝 Git 到你的電腦上，並且設定好 Git 內部的使用者名稱和電子信箱</code></p>
-<p> Linux 若是使用 <code>Debian</code> 基礎的作業系統可以在終端機輸入以下指令安裝 git：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ apt-get install git</span><br></pre></td></tr></table></figure>
-
-<p> 若是 <code>Fedora</code> 系列可以輸入：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ yum install git-core</span><br></pre></td></tr></table></figure>
-
-<p> 若是 windows 可以下載安裝 <a href="http://cmder.net/">cmder</a> 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 <a href="https://git-scm.com/">Git 官網安裝</a>。當然在市面上有許多免費 <a href="https://git-scm.com/download/gui/linux">GUI 圖形化的 Git 操作軟體</a>，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好，這樣你才比較知道圖形化程式背後做了什麼事情。Mac 則是可以到 <a href="https://git-scm.com/downloads">Git 官方網站</a> 選擇對應作業系統，按照步驟完整下載安裝。另外也可以參考<a href="https://git-scm.com/book/zh-tw/v1/%E9%96%8B%E5%A7%8B-%E5%AE%89%E8%A3%9D-Git">中文安裝教學</a>。</p>
-<p> 由於我們會選擇 Github 當作遠端托管程式的環境，所以我們也可以根據作業系統安裝 <a href="https://desktop.github.com/">Github 桌面版</a>當作操作工具（內建安裝 Git）。</p>
-<p> <img src="/images/cs101/git-version.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 若是安裝完成，打開終端機（terminal）或 cmder 輸入以下指令，若成功顯示版本（建議 Git 版本在 2 以上），代表安裝成功囉！terminal（終端機）是一個可以下指令讓電腦做事情的互動介面（例如：新增檔案、移動到資料夾等）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 其中 $ 為提示字元，在輸入指令時不用輸入該符號，否則會錯誤，若是使用 windows cmder 預設是 λ</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
-
-<p> 接下來設定你的帳戶，讓 Git 知道這台電腦做的修改要連結到哪一個使用者（待會我們要在 Github 上註冊帳號，建議使用一致的帳號和電子信箱）：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;&lt;Your Name&gt;&quot;</span><br></pre></td></tr></table></figure>
-
-<p> 設定電子郵件：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.email &quot;&lt;your@gmail.com&gt;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立一個本機的 repository</p>
-<p> <code>任務二：在自己的電腦上建立一個新的 local repositories（本地檔案庫）</code></p>
-<p> <img src="/images/cs101/git-folder.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> repository（檔案庫）是一個什麼樣的概念呢？事實上 repository 就是一個專案，又簡稱 repo。以電腦的檔案資料管理來看，我們通常會把同一個專案的資料放到同一個資料夾下，所以我們也可以把 repository 看成一個資料夾。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個 hello-git 資料夾</span><br><span class="line">$ mkdir hello-git</span><br><span class="line">// 移動到 hello-git 資料夾</span><br><span class="line">$ cd hello-git</span><br><span class="line">// 將專案資料夾建立成 git repository</span><br><span class="line">$ git init</span><br><span class="line">// 列出專案資料夾下的檔案和資料夾（-l 參數為列出詳細資料，-a 為列出隱藏資料夾）</span><br><span class="line">$ ls -la </span><br></pre></td></tr></table></figure>
-
-<p> 當你執行 <code>git init</code> 後，你可以發現多出了 <code>.git</code> 這個隱藏資料夾，可以看到裡面檔案和資料夾如下：</p>
-<p> <img src="/images/cs101/git-folder2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 到這邊恭喜讀者，完成你第一個 git 專案資料夾改造計畫！</p>
-</li>
-<li><p>檢視狀態、新增或修改 commits</p>
-<p> <code>任務三：在你的 repository 檔案庫中建立一個新檔案，新增一些內容到該檔案並且將那些檔案修改提交 commit 到 Git 中</code></p>
-<p> 接著我們使用文字編輯器，新增一個 hello.py 的檔案（裡面是一個會印出 <code>hello python &amp; git</code> 字串的 python 程式）：</p>
- <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p> 然後在終端機的專案資料夾下輸入 <code>git status</code> 顯示目前工作環境狀態：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">    hello.py</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
-
-<p> 我們會發現因為我們有新增新的檔案，但是還沒進到 git 追蹤範圍中&#x2F;暫存區，所以我們要使用 <code>git add hello.py</code> 加入追蹤，這樣之後檔案有修改就可以追蹤到。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add hello.py</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   hello.py</span><br></pre></td></tr></table></figure>
-
-<p> 若是確認沒問題我們就準備 commit 進去 repository 囉！</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// -m 為輸入 commit message，也就是說這個 commit 內做了哪些事情</span><br><span class="line">$ git commit -m &quot;Init hello.py&quot;</span><br><span class="line">[master (root-commit) ad6d328] Init hello.py</span><br><span class="line">1 file changed, 1 insertion(+)</span><br><span class="line">create mode 100644 hello.py</span><br><span class="line"></span><br><span class="line">// commmit 完成</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-
-<p> 若是想反悔不想把檔案加入追蹤呢？</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 檔案尚未加入過追蹤時使用，即可恢復到檔案尚未加入暫存區</span><br><span class="line">$ git rm --cached hello.py</span><br><span class="line"></span><br><span class="line">// 若檔案已經在 repository 內，則使用以下指令</span><br><span class="line">// repository 與 stage 的檔案都會被還原到 HEAD，但 working directory 內的檔案不變</span><br><span class="line">$ git reset HARD</span><br></pre></td></tr></table></figure>
-
-<p> 當你追蹤後修改了檔案，例如把 <code>hello.py</code> 的內容改成：</p>
- <figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python &amp; git rock&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p> 若有檔案修改，記得要再 <code>add</code> 修改的檔案（這是新手比較容易忘記的部分），若是要放棄修改可以使用 <code>git checkout -- 檔案名稱</code></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 比較現在檔案和上次 commit 之間的差異，也就是說你做了哪些修改</span><br><span class="line">$ git diff</span><br><span class="line">// 查看目前工作狀態</span><br><span class="line">$ git status</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   hello.py</span><br></pre></td></tr></table></figure>
-
-<p> commit 這個修改時簡寫會寫成這樣（-a 是 add，-m 為 message 簡寫，後面接訊息資訊）：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -a -m &quot;修改了 hello.py&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>註冊 GitHub 帳號</p>
-<p> <code>任務四：建立一個 GitHub 帳號，並在 Git 設定中加入使用者帳號</code></p>
-<p> 到目前為主我們程式主要是在我們 local 工作環境中操作，但還記得我們在 Git 基本觀念中有提到，git 分為 local 和 remote，若是我們想要和全世界其他開發者合作或是貢獻開放原始碼的話，我們可以透過 github 來當作我們 remote 工作環境，去管理我們程式碼，同樣的也可以透過 github 平台和其他開發者一起合作，參與開放原始碼的開發。github 若是公開的 repo 是無限制數量免費的，但是若是想使用 private repo 可以<a href="https://github.com/pricing">參考付費方案</a>。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意大小寫要一致</span><br><span class="line">$ git config --global user.username &lt;你的 github 使用者名稱&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 先到 github.com 註冊帳號：</p>
-<p> <img src="/images/cs101/github-example1.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 註冊成功後登入，可以點選右上顯圖下拉式選單進到個人頁面（profile），觀看個人頁面：</p>
-<p> <img src="/images/cs101/github-example2.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> <img src="/images/cs101/github-example4.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右上角 <code>+</code> 來新增 new repository（檔案庫）：</p>
-<p> <img src="/images/cs101/github-example3.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 輸入 repository name（你要取的專案名稱），最好跟電腦 local 專案一致，我們這邊輸入 <code>git-example</code>。然後輸入簡短專案描述並先不勾選初始化 README 和，也先不要選擇 .gitignore 和 License 授權（不然會造成本地端和遠端不一致會需要額外一些處理）：</p>
-<p> <code>.gitignore</code>：要忽略的檔案清單，這是用來告訴 Git，當在做版本控制記錄的時候，忽略這些檔案。通常一些機密資料，如資料庫帳號密碼或是 server IP 位置等，記得要加入。也可以參考 github 上面的<a href="https://github.com/github/gitignore">一些範本</a> 在新增 repository 時選取對應的程式語言</p>
-<p> <code>README.md</code>：repository 介紹和使用方式說明（例如：使用方法、參與專案方式等），使用 <code>markdown</code> 語法撰寫。另外通常有 CONTRIBUTING.md 額外說明如何參與貢獻。</p>
-<p> <code>LICENSE</code>：專案使用何種授權方式，例如：MIT、BSD 等</p>
-<p> <img src="/images/cs101/github-example5.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 接著按 create 按鈕！恭喜你新增成功，創建了自己第一個 github repository（遠端檔案庫）！</p>
-</li>
-<li><p>將 repository 做本機和遠端的連結</p>
-<p> <code>任務五：把電腦裡 Local（本地端）的 repository（檔案庫）和 remote（遠端）的 repository（檔案庫）連結起來，並 push 電腦上的修改</code></p>
-<p> <img src="/images/cs101/github-example6.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 因我們已經在專案有把 <code>hello.py</code> 修改加入追蹤並 commit 到 local 檔案庫，所以我們可以參考下方的指令說明把 remote 網址加入：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 本地端專案知道 origin 對應到遠端網址</span><br><span class="line">$ git remote add origin &lt;remote 網址&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 接者準備將本地端程式 push 到遠端檔案庫：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 觀看情況</span><br><span class="line">$ git status</span><br><span class="line">// 將本地端程式 push 到遠端檔案庫</span><br><span class="line">$ git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Writing objects: 100% (3/3), 239 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https://github.com/happycodergit/git-example.git</span><br><span class="line">* [new branch]      master -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from origin.</span><br></pre></td></tr></table></figure>
-
-<p> 參數 <code>-u</code> 等同於 <code>--set-upstream</code>，設定 <code>upstream</code> 可以使分支開始追蹤指定的遠端分支。事實上，只要做過一次 <code>$ git push -u &lt;remote name&gt; &lt;branch name&gt;</code>，並且成功 push 出去；本機端的 master 就會被設定去追蹤遠端的 <code>&lt;remote name&gt;/&lt;branch name&gt;</code> 分支。只要成功設定好 upstream 後，第二次以後要上傳分支時，就只需要透過 git push 就可以了，不必再帶 <code>&lt;remote name&gt;</code> 跟 <code>&lt;branch name&gt;</code> 等參數。例如：<code>$ git push</code>。</p>
-<p> 事實上，<code>$ git push -u origin master</code> 可以拆解成：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">$ git checkout master</span><br><span class="line">$ git branch -u origin/master</span><br></pre></td></tr></table></figure>
-
-<p> 恭喜你成功把你的專案推送上去 github 啦！</p>
-<p> <img src="/images/cs101/github-example7.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-</li>
-<li><p>Fork 和 clone 一個 open source（開源）的計畫</p>
-<p> <code>任務六：從 GitHub.com 建立專案，複本 fork，並下載 clone 到電腦上</code></p>
-<p> 點選左上角 github icon 回到首頁，我們從上面搜尋欄搜尋 react：</p>
-<p> <img src="/images/cs101/github-example8.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右上角 fork 按鈕，複製一份專案到我們這：</p>
-<p> <img src="/images/cs101/github-example9.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 等待 fork 中：</p>
-<p> <img src="/images/cs101/github-example10.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 點選右邊綠色按鈕 clone download 複製 HTTP 網址：</p>
-<p> <img src="/images/cs101/github-example11.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 複製到本地端</span><br><span class="line">$ git clone https://github.com/happycodergit/react.git</span><br><span class="line">// 移動到 react 資料夾</span><br><span class="line">$ cd react</span><br><span class="line">// 切出自己的新分支（使用 -b）</span><br><span class="line">$ git checkout -b happycoder@feature_branch</span><br><span class="line">// 做一些 README.md 檔案修改，然後 commit 到自己 fork 過來的專案</span><br><span class="line">$ git commit -a -m &quot;Update README&quot;</span><br><span class="line">$ git push origin happycoder@feature_branch</span><br></pre></td></tr></table></figure>
-
-<p> 事實上，每個開放原始碼都有他自己貢獻的方式，記得要先了解。例如可以<a href="https://reactjs.org/docs/how-to-contribute.html">參考 react 貢獻說明</a>！</p>
-<p> <img src="/images/cs101/github-example12.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-<p> 你可以透過將自己的修改 commit 到自己 fork 過來的專案，然後到原始專案頁面點選 new pull request 按鈕發 pull request（會比對程式碼的差異）。若對方 review 完後接受就可以將自己的程式碼合併到原始專案中，為開放原始碼做出第一步貢獻！</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 若完成 pull request 記得讓 master（或是合併進去的 branch）保持同步</span><br><span class="line">$ git pull upstream master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>練習建立一個 feature branch</p>
-<p> <code>任務七：回來原來的 git-example 專案新增 feature branch（分支）</code></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 建立一個名為 dev 的 branch</span><br><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
-
-<p> 在 <code>hello.py</code> 最上面多加一行 <code># hi, this is comment</code> 註解後存檔</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// commit 到本地端更新</span><br><span class="line">$ git commit -a -m &quot;Init dev branch&quot;</span><br><span class="line">$ gut push origin dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>邀請別人和你合作</p>
-<p> <code>任務八：在專案新增夥伴 collaborator</code></p>
-<p> 在右上角進入 setting 可以選擇到 collaborator 新增合作者：</p>
-<p> <img src="/images/cs101/github-example13.png" alt="自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學"></p>
-</li>
-<li><p>利用 push 和 pull 來和 GitHub.com 同步</p>
-<p> <code>任務九：用 pull 來和其他 collaborators（合作者）同步更新，確保程式是最新的版本</code></p>
-<p> 請其他開發者 git colone 下來你的 git-example 專案並 checkout 到 <code>dev</code> branch，並完成新增一個 <code>README.md</code> 檔案後發 pull request 過來，若沒問題就按同意並合併。我們則透過 git pull 來保持本地端和遠端程式碼同步：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull origin dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Merge（合併）和刪除 branches</p>
-<p><code>任務十：在本機上 merge 合併你的 branch（分支），刪除舊的 branch（分支）</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 移動到 master branch</span><br><span class="line">$ git checout master</span><br><span class="line">// 合併 dev 到 master</span><br><span class="line">$ git merge dev</span><br><span class="line">// 刪除 dev branch</span><br><span class="line">$ git branch -d dev</span><br><span class="line">// 將合併後的 master 推送到遠端</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是 Git 與 Github 版本控制基本指令與操作入門教學！希望讀者可以動手一起操作，漸漸就能感受到 git 的威力和好處，同時也有能力參與開放原始碼（open source）的社群和提昇自己在職場上的價值，朝成為一個真正的軟體工程師（Software Engineer）邁進！</p>
-<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
-<li><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md">30 天精通 Git 版本控管</a></li>
-<li><a href="https://git-scm.com/">Git 官方網站</a></li>
-<li><a href="https://www.codeschool.com/courses/try-git">Try Git</a></li>
-<li><a href="http://jlord.us/git-it/index-zhtw.html">Git-it</a></li>
-<li><a href="https://guides.github.com/">GitHub Guides</a></li>
-<li><a href="http://oomusou.io/git/git-remove-stage/">如何將檔案從stage移除?</a></li>
-<li><a href="https://www.gitbook.com/book/zlargon/git-tutorial/details">Git 教學</a></li>
-</ol>
-<p>（image via <a href="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">git-scm</a>、<a href="https://dn-sdkcnssl.qbox.me/article/fyuBUISCkmddVNC0t2Iu.png">qbox</a>、<a href="https://qph.ec.quoracdn.net/main-qimg-3aa29f29ede6a8245b6964f663c60339">quoracdn</a>、<a href="https://i.ytimg.com/vi/DPIPC25xzUM/maxresdefault.jpg">ytimg</a>、<a href="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2014/linux.jpg">linux</a>、<a href="https://i.stack.imgur.com/RUIIq.png">imgur</a>、<a href="https://martinfitzpatrick.name/images/method/1472/GitBranchName_1.png">martinfitzpatrick</a>）</p>
-]]></content>
-      <tags>
-        <tag>自學程式</tag>
-        <tag>自學程式設計</tag>
-        <tag>程式設計</tag>
-        <tag>線上自學</tag>
-        <tag>coding</tag>
-        <tag>coder</tag>
-        <tag>programming</tag>
-        <tag>computer</tag>
-        <tag>computer science</tag>
-        <tag>code</tag>
-        <tag>電腦科學</tag>
-        <tag>學寫程式</tag>
-        <tag>學程式</tag>
-        <tag>linux</tag>
-        <tag>指令</tag>
-        <tag>命令列</tag>
-        <tag>command line</tag>
-        <tag>軟體工程師</tag>
-        <tag>軟體工程</tag>
-        <tag>software engineering</tag>
-        <tag>bash</tag>
-        <tag>shell</tag>
-        <tag>svn</tag>
-        <tag>version control</tag>
-        <tag>VCS</tag>
-        <tag>github</tag>
-        <tag>git</tag>
-        <tag>cvs</tag>
-        <tag>自學程式心得</tag>
       </tags>
   </entry>
   <entry>
@@ -858,6 +941,75 @@
       </tags>
   </entry>
   <entry>
+    <title>Go Web 程式設計入門教學：Web 基礎</title>
+    <url>/2017/07/02/golang101-tutorial-web-basic/</url>
+    <content><![CDATA[<p><img src="/images/golang101/logo.png" alt="Go Web 程式設計入門教學"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面幾個單元中我們介紹了許多 <a href="https://en.wikipedia.org/wiki/Go_(programming_language">Go 程式語言</a> 的基本語法，讓我們了解了 Go 程式語言的用法。接下來我們將透過 Go 來架設簡單的 Web Server。</p>
+<h1 id="Web-基本工作流程"><a href="#Web-基本工作流程" class="headerlink" title="Web 基本工作流程"></a>Web 基本工作流程</h1><p><img src="/images/golang101/http-req-resp.jpg" alt="Go Web 程式設計入門教學"></p>
+<p>在我們平常透過瀏覽器（Browser）瀏覽網站時，其背後事實上進行了一連串 Client 客戶端和 Server 伺服器端的互動，以下介紹 Web Server 工作流程簡介：</p>
+<ol>
+<li>使用者在瀏覽器（Browser）網址列輸入 URL，瀏覽器會透過 DNS 伺服器進行解析，取得 Domain 對應伺服器（Server）的 IP 位置</li>
+<li>找到對應 Server IP 後，Client 透過 TCP&#x2F;IP 協定建立到 Server 的 TCP 連接</li>
+<li>Client 向 Server 發送 http 協定請求（request）封包，請求 server 資料</li>
+<li>若請求資源中有動態網站的內容，Server 端會先呼叫伺服器端的程式語言解譯引擎負責處理內容。Server 將組好的內容向 Client 發送 http 協定回應（response）封包</li>
+<li>Client 和 Server 中斷 TCP 連線，等待下一次請求。由 Client 解析收到的回應（response）封包內容（body），在瀏覽器繪製 HTML&#x2F;CSS&#x2F;JavaScript 檔案內容</li>
+</ol>
+<p><img src="/images/golang101/http-req.png" alt="Go Web 程式設計入門教學"></p>
+<ul>
+<li>URL 解析</li>
+</ul>
+<p>一般 URL（Uniform Resource Locator）結構大概長這樣：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Scheme://host&#123;:port#&#125;/path/.../[?query-string][#anchor]</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. scheme：底層使用的協定（例如：https、http 或 ftp 等）
+2. host：http 伺服器 ip 位置或 domain
+3. port：http 預設是 80 可以省略，如果是使用其他則需要填寫，可以想成是 ip 的名牌號碼
+4. path：資源路徑
+5. query-string：使用 get 傳送的參數
+6. anchor：記錄超連結錨點
+</code></pre>
+<ul>
+<li><p>DNS（Domain Name System）解析路徑</p>
+<ol>
+<li>輸入網址，查找本機的 host 檔案</li>
+<li>若 host 沒有 domain&#x2F;ip 對應，則查找本機的 DNS 解析器快取</li>
+<li>若 host&#x2F;本機 DNS 快取都沒有 domain 對應則解析 TCP&#x2F;IP 參數中設定的第一個 DNS 伺服器或其快取回傳（不具權威性）</li>
+<li>若都故障，則會由 domain 右往左查找對應 DNS 伺服器（轉發&#x2F;非轉發模式），回傳給本機 DNS 伺服器</li>
+</ol>
+</li>
+<li><p>HTTP request 請求解析<br>  接著我們聊聊在 HTTP 協定中有定義許多和伺服器互動的方式，最基本的有四種：<code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code>，分別對應資源的查增更刪，最常見的舊是 <code>GET</code>、<code>POST</code>。</p>
+<p>  其中 GET 會把傳送資料放在網址後面，資料為明碼且有長度限制，一般用於查找資料。而 POST 資料傳遞主要是放在 http request 的 body 中，所以新增資料或是傳遞較敏感資料通常會用 POST 傳送</p>
+</li>
+<li><p>HTTP response 回應解析<br>  http response 封包組成由版本編號、狀態碼、狀態訊息組成</p>
+<p>  HTTP 狀態碼是使用三位數字組成，在 HTTP&#x2F;1.1 中定義五大類狀態碼：</p>
+<p>  1XX 提示訊息<br>  2XX 成功<br>  3XX 重新導向<br>  4XX client 錯誤<br>  5XX server 錯誤</p>
+</li>
+</ul>
+<h1 id="使用-Go-架設基本-Web-Server"><a href="#使用-Go-架設基本-Web-Server" class="headerlink" title="使用 Go 架設基本 Web Server"></a>使用 Go 架設基本 Web Server</h1><p>在 Go 中可以使用 <code>net/http</code> 套件建立 Web 伺服器：</p>
+<ol>
+<li>Request：使用者請求的資訊，包含 post, get, cookie 等</li>
+<li>Response：伺服器需要回饋給使用者的資訊</li>
+<li>Conn：使用者請求每次產生連結</li>
+<li>Handler：處理請求和產生傳回資訊的處理邏輯</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;net/http&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 處理函式</span><br><span class="line">func helloHandler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">    fmt.Fprintf(w, &quot;hello world!&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    // 網址對應處理函式</span><br><span class="line">    http.HandleFunc(&quot;/&quot;, helloHandler)</span><br><span class="line">    // 監聽通訊 port</span><br><span class="line">    err := http.ListenAndServe(&quot;:7777&quot;, nil)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(&quot;ListenAndServe&quot;, err)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">		log.Println(&quot;listen 7777&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是關於 Go 程式語言的 Web 基礎和 http 協定簡介，接下來的文章我們將透過 Golang Web 程式設計來學習 Go 這個程式語言的方方面面。</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a href="https://tour.golang.org/welcome/1">A tour of go</a></li>
+<li><a href="https://www.tutorialspoint.com/go/">Go Tutorial</a></li>
+<li><a href="https://gobyexample.com/">Go by Example</a></li>
+<li><a href="https://www.toptal.com/go/go-programming-a-step-by-step-introductory-tutorial">Go Programming Language: An Introductory Tutorial</a></li>
+<li><a href="https://github.com/davidhoo/go-tour">Go tour Exercise</a></li>
+<li><a href="https://github.com/golang/go/wiki/Ubuntu">Ubuntu Go install</a></li>
+</ol>
+<p>（image via <a href="https://image.slidesharecdn.com/rg-introductiontohtmlcssandjavascript-150206101801-conversion-gate01/95/rails-girls-introduction-to-html-css-11-638.jpg?cb=1423239531">slidesharecdn</a>、<a href="http://www.websiteoptimization.com/secrets/metrics/10-21-http-request.png">websiteoptimization</a>）</p>
+]]></content>
+      <tags>
+        <tag>GO, GO lang, golang, web, go web, 自學程式, 自學程式設計, 程式設計, 線上自學, coding, coder, programming, computer, computer science, code, 電腦科學, 學寫程式, 學程式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>想要自學程式？七個自學程式設計正確的觀念和心態</title>
     <url>/2019/01/28/how-to-learn-coding-and-computer-programming/</url>
     <content><![CDATA[<p><img src="/images/python101/coding101.jpeg" alt="想要自學程式？七個自學程式設計正確的觀念和心態"></p>
@@ -953,75 +1105,6 @@
         <tag>Computer Science</tag>
         <tag>程式語言</tag>
         <tag>程式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go Web 程式設計入門教學：Web 基礎</title>
-    <url>/2017/07/02/golang101-tutorial-web-basic/</url>
-    <content><![CDATA[<p><img src="/images/golang101/logo.png" alt="Go Web 程式設計入門教學"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面幾個單元中我們介紹了許多 <a href="https://en.wikipedia.org/wiki/Go_(programming_language">Go 程式語言</a> 的基本語法，讓我們了解了 Go 程式語言的用法。接下來我們將透過 Go 來架設簡單的 Web Server。</p>
-<h1 id="Web-基本工作流程"><a href="#Web-基本工作流程" class="headerlink" title="Web 基本工作流程"></a>Web 基本工作流程</h1><p><img src="/images/golang101/http-req-resp.jpg" alt="Go Web 程式設計入門教學"></p>
-<p>在我們平常透過瀏覽器（Browser）瀏覽網站時，其背後事實上進行了一連串 Client 客戶端和 Server 伺服器端的互動，以下介紹 Web Server 工作流程簡介：</p>
-<ol>
-<li>使用者在瀏覽器（Browser）網址列輸入 URL，瀏覽器會透過 DNS 伺服器進行解析，取得 Domain 對應伺服器（Server）的 IP 位置</li>
-<li>找到對應 Server IP 後，Client 透過 TCP&#x2F;IP 協定建立到 Server 的 TCP 連接</li>
-<li>Client 向 Server 發送 http 協定請求（request）封包，請求 server 資料</li>
-<li>若請求資源中有動態網站的內容，Server 端會先呼叫伺服器端的程式語言解譯引擎負責處理內容。Server 將組好的內容向 Client 發送 http 協定回應（response）封包</li>
-<li>Client 和 Server 中斷 TCP 連線，等待下一次請求。由 Client 解析收到的回應（response）封包內容（body），在瀏覽器繪製 HTML&#x2F;CSS&#x2F;JavaScript 檔案內容</li>
-</ol>
-<p><img src="/images/golang101/http-req.png" alt="Go Web 程式設計入門教學"></p>
-<ul>
-<li>URL 解析</li>
-</ul>
-<p>一般 URL（Uniform Resource Locator）結構大概長這樣：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Scheme://host&#123;:port#&#125;/path/.../[?query-string][#anchor]</span><br></pre></td></tr></table></figure>
-
-<pre><code>1. scheme：底層使用的協定（例如：https、http 或 ftp 等）
-2. host：http 伺服器 ip 位置或 domain
-3. port：http 預設是 80 可以省略，如果是使用其他則需要填寫，可以想成是 ip 的名牌號碼
-4. path：資源路徑
-5. query-string：使用 get 傳送的參數
-6. anchor：記錄超連結錨點
-</code></pre>
-<ul>
-<li><p>DNS（Domain Name System）解析路徑</p>
-<ol>
-<li>輸入網址，查找本機的 host 檔案</li>
-<li>若 host 沒有 domain&#x2F;ip 對應，則查找本機的 DNS 解析器快取</li>
-<li>若 host&#x2F;本機 DNS 快取都沒有 domain 對應則解析 TCP&#x2F;IP 參數中設定的第一個 DNS 伺服器或其快取回傳（不具權威性）</li>
-<li>若都故障，則會由 domain 右往左查找對應 DNS 伺服器（轉發&#x2F;非轉發模式），回傳給本機 DNS 伺服器</li>
-</ol>
-</li>
-<li><p>HTTP request 請求解析<br>  接著我們聊聊在 HTTP 協定中有定義許多和伺服器互動的方式，最基本的有四種：<code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code>，分別對應資源的查增更刪，最常見的舊是 <code>GET</code>、<code>POST</code>。</p>
-<p>  其中 GET 會把傳送資料放在網址後面，資料為明碼且有長度限制，一般用於查找資料。而 POST 資料傳遞主要是放在 http request 的 body 中，所以新增資料或是傳遞較敏感資料通常會用 POST 傳送</p>
-</li>
-<li><p>HTTP response 回應解析<br>  http response 封包組成由版本編號、狀態碼、狀態訊息組成</p>
-<p>  HTTP 狀態碼是使用三位數字組成，在 HTTP&#x2F;1.1 中定義五大類狀態碼：</p>
-<p>  1XX 提示訊息<br>  2XX 成功<br>  3XX 重新導向<br>  4XX client 錯誤<br>  5XX server 錯誤</p>
-</li>
-</ul>
-<h1 id="使用-Go-架設基本-Web-Server"><a href="#使用-Go-架設基本-Web-Server" class="headerlink" title="使用 Go 架設基本 Web Server"></a>使用 Go 架設基本 Web Server</h1><p>在 Go 中可以使用 <code>net/http</code> 套件建立 Web 伺服器：</p>
-<ol>
-<li>Request：使用者請求的資訊，包含 post, get, cookie 等</li>
-<li>Response：伺服器需要回饋給使用者的資訊</li>
-<li>Conn：使用者請求每次產生連結</li>
-<li>Handler：處理請求和產生傳回資訊的處理邏輯</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;net/http&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 處理函式</span><br><span class="line">func helloHandler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">    fmt.Fprintf(w, &quot;hello world!&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    // 網址對應處理函式</span><br><span class="line">    http.HandleFunc(&quot;/&quot;, helloHandler)</span><br><span class="line">    // 監聽通訊 port</span><br><span class="line">    err := http.ListenAndServe(&quot;:7777&quot;, nil)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(&quot;ListenAndServe&quot;, err)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">		log.Println(&quot;listen 7777&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是關於 Go 程式語言的 Web 基礎和 http 協定簡介，接下來的文章我們將透過 Golang Web 程式設計來學習 Go 這個程式語言的方方面面。</p>
-<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
-<li><a href="https://tour.golang.org/welcome/1">A tour of go</a></li>
-<li><a href="https://www.tutorialspoint.com/go/">Go Tutorial</a></li>
-<li><a href="https://gobyexample.com/">Go by Example</a></li>
-<li><a href="https://www.toptal.com/go/go-programming-a-step-by-step-introductory-tutorial">Go Programming Language: An Introductory Tutorial</a></li>
-<li><a href="https://github.com/davidhoo/go-tour">Go tour Exercise</a></li>
-<li><a href="https://github.com/golang/go/wiki/Ubuntu">Ubuntu Go install</a></li>
-</ol>
-<p>（image via <a href="https://image.slidesharecdn.com/rg-introductiontohtmlcssandjavascript-150206101801-conversion-gate01/95/rails-girls-introduction-to-html-css-11-638.jpg?cb=1423239531">slidesharecdn</a>、<a href="http://www.websiteoptimization.com/secrets/metrics/10-21-http-request.png">websiteoptimization</a>）</p>
-]]></content>
-      <tags>
-        <tag>GO, GO lang, golang, web, go web, 自學程式, 自學程式設計, 程式設計, 線上自學, coding, coder, programming, computer, computer science, code, 電腦科學, 學寫程式, 學程式</tag>
       </tags>
   </entry>
   <entry>
@@ -3115,113 +3198,6 @@ References
       </tags>
   </entry>
   <entry>
-    <title>Python Web Flask 實戰開發教學 - 簡介與環境建置</title>
-    <url>/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</url>
-    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。一開始先從簡介和環境建置開始吧！</p>
-<h1 id="什麼是-Python？"><a href="#什麼是-Python？" class="headerlink" title="什麼是 Python？"></a>什麼是 Python？</h1><p><a href="https://zh.wikipedia.org/wiki/Python">Python</a> 是一種物件導向、直譯式的跨平台電腦程式語言，它包含了一組功能完備的標準庫和豐富套件生態系，可以輕鬆完成很多常見的任務（例如：讀寫檔案、自然語言處理、網路爬蟲、網站開發、機器學習等），因為它可以很輕易整合其他底層語言（例如：C&#x2F;C++ 等），所以又稱為膠水語言。它的語法簡單，與其它大多數程式設計語言使用大括弧不一樣，它使用空白縮進來定義語句塊。由於具備簡潔易學等特性，許多開發者推薦 Python 為初學者第一個學習的程式語言。由於版本更迭，我們接下來討論的主要是以 Python3 為主，若電腦沒有安裝的話，你可以在<a href="https://www.python.org/">官方網站下載</a>，若你不是安裝 <a href="https://www.continuum.io/downloads">Anaconda</a> 這個 all-in-one 版本的話（自帶許多套件和科學運算工具，也可以建立虛擬開發環境），記得要安裝 <a href="https://pypi.python.org/pypi/pip">pip</a>、<a href="https://ipython.org/">IPython</a>。 </p>
-<p>接下來我們將以 Anaconda 這個開發環境為主要講解環境。由於我們假定讀者已經有一些 Python 基礎，所以我們會跳過有關 Python 語法的基本較邵，若您對於 Python 入門基礎較不熟悉的話建議參考 <a href="/2016/12/31/python101-tutorial/">Python 101 快速入門教學</a> ，此外我們也提供了 <a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a> 可以參考。那就讓我們開始吧！</p>
-<h1 id="什麼是-Flask？"><a href="#什麼是-Flask？" class="headerlink" title="什麼是 Flask？"></a>什麼是 Flask？</h1><p><img src="/images/flask101/flask-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p><a href="http://flask.pocoo.org/">Flask</a> 是一個使用 Python 撰寫的輕量級 Web 應用程式框架，由於其輕量特性，也稱為 micro-framework（微框架）。Flask 核心十分簡單，主要是由 <a href="http://werkzeug.pocoo.org/">Werkzeug WSGI 工具箱</a>和 <a href="http://jinja.pocoo.org/docs/2.9/">Jinja2 模板引擎</a>所組成，Flask 和 Django 不同的地方在於 Flask 給予開發者非常大的彈性（當然你也可以說是需要思考更多事情），可以選用不同的用的 extension 來增加其功能。相比之下，Django 雖然完善但技術選擇相對不彈性，不論是 ORM、表單驗證或是模版引擎都有自己的作法。事實上沒有最好的框架，只有合適的使用情境，Django 相比之下適合需要快速的開發大型的應用程式，和 Ruby 中的 <a href="http://rubyonrails.org/">Ruby on Rails</a> 相似，而 Flask 則是相對輕量彈性，更像是 Ruby 界的 <a href="http://www.sinatrarb.com/">Sinatra</a>。若讀者想先體驗看看 Flask 的程式狀況，以下是 Flask 簡易運行的程式，啟動測試伺服器後，可以在瀏覽器中（<a href="http://localhost:5000/%EF%BC%89%E5%8D%B0%E5%87%BA">http://localhost:5000/）印出</a> <code>Hello World!</code>。</p>
-<figure class="highlight python"><figcaption><span>index.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
-<h1 id="Python-Web-開發環境建置"><a href="#Python-Web-開發環境建置" class="headerlink" title="Python Web 開發環境建置"></a>Python Web 開發環境建置</h1><p>所謂工欲善其事，必先利其器，要開發好的應用程式必須先準備好開發環境才行。以下介紹我們在接下來開發 Python Flask Web 應用程式所需要安裝的開發環境工具（以下以 Mac OS 等 Unix-like 作業系統為示範，若是 Windows 使用者建議安裝 Virtualbox 並運行 Linux Ubuntu 作業系統，<a href="http://blog.xuite.net/yh96301/blog/432341564-VirtualBox+5.1%E5%AE%89%E8%A3%9DUbuntu+16.04">參考安裝文件</a>）：</p>
-<ol>
-<li><p>Microsoft VSCode 編輯器<br> Microsoft VSCode 是 Microsoft 推出的編輯器（非整合開發環境 IDE），夾帶著 Microsoft 過去打造 Visual studio 整合開發環境的豐富經驗，相比 Sublime Text 和其他編輯器，VSCode 的優勢在於開源且活躍的開發社群、內建 debugger 框架、原生 Git 整合、套件整合容易等特性。所以對於初學者來說 VSCode 是一個蠻適合入門的開發環境。它的安裝方式也十分簡易，在官網下載後按照指示安裝完成即可。</p>
-<p> <img src="/images/flask101/vscode-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 我們可以安裝 Python 語法和格式檢查的相關 Python 套件幫助除錯：</p>
-<p> <img src="/images/flask101/vscode-python.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-</li>
-<li><p>終端機環境（iTterm&#x2F;內建 terminal）<br> terminal（終端機）是我們下指令的地方，許多時候我們進行程式開發時不會使用 GUI 的介面而是使用下指令方式請電腦做相對應的行為。在 Linux 和 Mac 裡面都有內建的 terminal 的應用程式，若你是 Mac 用戶想使用更便利的工具（分割視窗、熱鍵、搜尋、自動補完等）可以額外安裝 <a href="https://www.iterm2.com/index.html">iterm2</a> 做使用。</p>
-<p> <img src="/images/flask101/iterm2.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 下指令（$ 為提示字元，不用輸入）：</p>
-<p> <img src="/images/flask101/iterm2-example.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 對於有志於從事程式開發相關工作的讀者建議可以多熟悉指令碼的輸入，更多指令碼可以參考鳥哥撰寫的 <a href="http://linux.vbird.org/linux_basic/redhat6.1/linux_06command.php">Linux 基本指令介紹</a> 和 <a href="http://www.linux.org.tw/resource.html">Linux 學習資源</a>。</p>
-</li>
-<li><p>Git 版本控制系統&#x2F;註冊 GitHub 帳戶<br> Git 是一種分散式版本控制系統，可以讓我們可以更方便地管理我們的程式碼。在網路上有非常多優秀的 Git 教學文件（<a href="https://backlogtool.com/git-guide/tw/">連猴子都能懂的Git入門指南</a>、<a href="https://www.slideshare.net/littlebtc/git-5528339">寫給大家的 Git 教學</a>、<a href="https://www.slideshare.net/lkiral/git-34157836">初心者 Git 上手攻略</a>）。安裝 Git 方式是到官網下載軟體，依照指示安裝。</p>
-<p> <img src="/images/flask101/git-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 互動式語法學習：</p>
-<p> <img src="/images/flask101/try-git.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 在介紹完 git 之後我們來了解一下 GitHub。GitHub 是一個可以存放 git 程式碼專案的平台，透過 GitHub 我們可以接觸到最新的開放原始碼資訊，也可以將我們的程式碼開源出來。</p>
-<p> <img src="/images/flask101/github-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 從 GitHub 上複製程式碼</p>
-<p> <img src="/images/flask101/github-clone.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 複製一份到本地端</span><br><span class="line">$ git clone https://github.com/kdchang/flask101.git</span><br><span class="line"># 移動到資料夾</span><br><span class="line">$ cd flask101</span><br></pre></td></tr></table></figure>
-
-<p> 常見 Git 指令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化專案</span><br><span class="line">$ git init</span><br><span class="line"># 查看狀態</span><br><span class="line">$ git status</span><br><span class="line"># 檢查差異</span><br><span class="line">$ git diff </span><br><span class="line"># 將變更檔案放入暫存區</span><br><span class="line">$ git add index.py</span><br><span class="line"># 使用 commit -m 提交變更</span><br><span class="line">$ git -a -m &#x27;init commit&#x27;</span><br><span class="line"># 查看歷史</span><br><span class="line">$ git log</span><br><span class="line"># 放棄已經 commit 的檔案重回暫存區</span><br><span class="line">$ git reset HEAD index.py</span><br><span class="line"># 放棄檔案變更</span><br><span class="line">$ git checkout index.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Anaconda Python3 版本<br> Anaconda 是一個 all-in-one 的 Python 開發環境，對於初學者來說是個十分合適的開發環境包。Anaconda 具備了幾項特點：</p>
-<ul>
-<li>便於安裝許多流行的科學、數學、工程、數據分析的 Python 模組  </li>
-<li>開源和免費</li>
-<li>跨平台支持：Linux、Windows、Mac</li>
-<li>支持 Python 版本切換，方便建立不同的虛擬開發環境</li>
-<li>內建 Spyder 編輯器和 Jupyter Notebook 環境</li>
-</ul>
-<p> 安裝流程也十分簡單，進入 Anaconda 首頁，選擇對應作業系統（這邊使用 Mac OS）：<br> <img src="/images/flask101/anaconda-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"></p>
-<p> 選擇對應 Python 版本下載，我們使用 Graphical Installer（圖像介面安裝方式），接著在下載完成時按照預設的安裝方式完成安裝；<br> <img src="/images/flask101/anaconda-install.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 若是完整安裝成功，可以打開終端機輸入，若是顯示 Python 3.6.0 :: Anaconda 4.3.0 (x86_64) 版本號即安裝成功：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 3.6.0 :: Anaconda 4.3.0 (x86_64)</span><br></pre></td></tr></table></figure>
-
-<p> 接著要建立我們專案虛擬環境，這樣在安裝操作套件時比較不容易被污染到 root 的環境，啟動後會出現（套件名稱）的提示字元：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 顯示目前虛擬環境列表</span><br><span class="line">$ conda info -e </span><br><span class="line"># 創建虛擬環境</span><br><span class="line">$ conda create -n 套件名稱 python=3.6</span><br><span class="line"># 進入虛擬環境（若是 Windows cmder 環境不用加 source） ，成功後提示字元變成：（套件名稱）$</span><br><span class="line">$ source activate 套件名稱</span><br><span class="line"># 離開虛擬環境（若是 Windows cmder 環境不用加 source） </span><br><span class="line">$ source deactivate </span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="建立第一個-Flask-開發專案"><a href="#建立第一個-Flask-開發專案" class="headerlink" title="建立第一個 Flask 開發專案"></a>建立第一個 Flask 開發專案</h1><h2 id="使用-pip-管理-Python-模組"><a href="#使用-pip-管理-Python-模組" class="headerlink" title="使用 pip 管理 Python 模組"></a>使用 pip 管理 Python 模組</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安裝模組</span><br><span class="line">$ pip install 模組名</span><br><span class="line"># 移除模組</span><br><span class="line">$ pip uninstall 模組名</span><br><span class="line"># 搜尋模組</span><br><span class="line">$ pip search 模組名</span><br></pre></td></tr></table></figure>
-
-<p>通常開發專案時我們會將已安裝模組名稱和版本號存成一個列表，以便下次安裝使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>根據 <code>requirements.txt</code> 列表安裝模組：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h2><p>在了解 pip 套件管理工具後我們正式來建立一個 Flask 的專案：</p>
-<p>建立專案資料夾</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mkdir python-flask-todo-app</span><br><span class="line">$ cd python-flask-todo-app</span><br></pre></td></tr></table></figure>
-
-<p>建立獨立虛擬環境</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ conda create -n python-flask-todo-app python=3.6</span><br><span class="line">$ source activate python-flask-todo-app</span><br></pre></td></tr></table></figure>
-
-<p>安裝 Flask 模組</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask</span><br></pre></td></tr></table></figure>
-
-<h2 id="設定-Config-設定檔案"><a href="#設定-Config-設定檔案" class="headerlink" title="設定 Config 設定檔案"></a>設定 Config 設定檔案</h2><p>建立設定檔 <code>config.py</code> 檔案在專案資料夾的根目錄中：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Config</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProdConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DevConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-<p>建立一個 <code>main.py</code> 檔案初始化 Flask App 和使用其 API，若是一切正常在終端機執行 <code>python main.py</code> 會在瀏覽器網址列輸入 <code>localhost:5000</code> 後看到 <code>Hello World</code> 了！</p>
-<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> DevConfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Flask 類別成為 instance</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(DevConfig)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由和處理函式配對</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判斷自己執行非被當做引入的模組，因為 __name__ 這變數若被當做模組引入使用就不會是 __main__</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-Flask-Script"><a href="#使用-Flask-Script" class="headerlink" title="使用 Flask Script"></a>使用 Flask Script</h2><p><a href="https://flask-script.readthedocs.io/en/latest/">Flask Script</a> 是 Flask 常用的 extensions，可以讓我們使用指令列來操作 Flask 程式並在 shell 環境下操作 app context，使用方式如下：</p>
-<p>安裝模組</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask-script</span><br></pre></td></tr></table></figure>
-
-<p>建立 <code>manage.py</code> 於根目錄</p>
-<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
-
-<p>當執行 <code>$ python manage.py runserver</code> 即會執行測試伺服器，<code>$ python manage.py shell</code> 可以在對話指令列中中輸入 <code>app</code> 找到被引入的 <code>&lt;Flask &#39;main&#39;&gt;</code>，可以讓我們在互動式指令對話框中測試操作使用。</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了如何建置 Python Web 開發環境，我們也實際完成了我們第一個 Python Flask 程式。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Wiki Flask (web framework)</a></li>
-<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
-</ol>
-<p>（image via <a href="https://cdn.fedoramagazine.org/wp-content/uploads/2015/11/Python_logo.png">fedoramagazine</a>）</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>教學</tag>
-        <tag>Django</tag>
-        <tag>MVC</tag>
-        <tag>Web</tag>
-        <tag>MTV</tag>
-        <tag>Web Backend</tag>
-        <tag>Web Framework</tag>
-        <tag>Flask</tag>
-        <tag>框架</tag>
-        <tag>網站開發</tag>
-        <tag>Anaconda</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用 Python 自學資料科學與機器學習入門實戰：入門導論</title>
     <url>/2017/10/07/python-data-science-and-machine-learning-tutorial-introduction/</url>
     <content><![CDATA[<p><img src="/images/data-science101/intro/machine_learning.jpg" alt=" 如何使用 Python 學習機器學習（Machine Learning）"></p>
@@ -3367,6 +3343,113 @@ References
         <tag>data scientist</tag>
         <tag>pandas</tag>
         <tag>scikit-learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Web Flask 實戰開發教學 - 簡介與環境建置</title>
+    <url>/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</url>
+    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。一開始先從簡介和環境建置開始吧！</p>
+<h1 id="什麼是-Python？"><a href="#什麼是-Python？" class="headerlink" title="什麼是 Python？"></a>什麼是 Python？</h1><p><a href="https://zh.wikipedia.org/wiki/Python">Python</a> 是一種物件導向、直譯式的跨平台電腦程式語言，它包含了一組功能完備的標準庫和豐富套件生態系，可以輕鬆完成很多常見的任務（例如：讀寫檔案、自然語言處理、網路爬蟲、網站開發、機器學習等），因為它可以很輕易整合其他底層語言（例如：C&#x2F;C++ 等），所以又稱為膠水語言。它的語法簡單，與其它大多數程式設計語言使用大括弧不一樣，它使用空白縮進來定義語句塊。由於具備簡潔易學等特性，許多開發者推薦 Python 為初學者第一個學習的程式語言。由於版本更迭，我們接下來討論的主要是以 Python3 為主，若電腦沒有安裝的話，你可以在<a href="https://www.python.org/">官方網站下載</a>，若你不是安裝 <a href="https://www.continuum.io/downloads">Anaconda</a> 這個 all-in-one 版本的話（自帶許多套件和科學運算工具，也可以建立虛擬開發環境），記得要安裝 <a href="https://pypi.python.org/pypi/pip">pip</a>、<a href="https://ipython.org/">IPython</a>。 </p>
+<p>接下來我們將以 Anaconda 這個開發環境為主要講解環境。由於我們假定讀者已經有一些 Python 基礎，所以我們會跳過有關 Python 語法的基本較邵，若您對於 Python 入門基礎較不熟悉的話建議參考 <a href="/2016/12/31/python101-tutorial/">Python 101 快速入門教學</a> ，此外我們也提供了 <a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a> 可以參考。那就讓我們開始吧！</p>
+<h1 id="什麼是-Flask？"><a href="#什麼是-Flask？" class="headerlink" title="什麼是 Flask？"></a>什麼是 Flask？</h1><p><img src="/images/flask101/flask-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p><a href="http://flask.pocoo.org/">Flask</a> 是一個使用 Python 撰寫的輕量級 Web 應用程式框架，由於其輕量特性，也稱為 micro-framework（微框架）。Flask 核心十分簡單，主要是由 <a href="http://werkzeug.pocoo.org/">Werkzeug WSGI 工具箱</a>和 <a href="http://jinja.pocoo.org/docs/2.9/">Jinja2 模板引擎</a>所組成，Flask 和 Django 不同的地方在於 Flask 給予開發者非常大的彈性（當然你也可以說是需要思考更多事情），可以選用不同的用的 extension 來增加其功能。相比之下，Django 雖然完善但技術選擇相對不彈性，不論是 ORM、表單驗證或是模版引擎都有自己的作法。事實上沒有最好的框架，只有合適的使用情境，Django 相比之下適合需要快速的開發大型的應用程式，和 Ruby 中的 <a href="http://rubyonrails.org/">Ruby on Rails</a> 相似，而 Flask 則是相對輕量彈性，更像是 Ruby 界的 <a href="http://www.sinatrarb.com/">Sinatra</a>。若讀者想先體驗看看 Flask 的程式狀況，以下是 Flask 簡易運行的程式，啟動測試伺服器後，可以在瀏覽器中（<a href="http://localhost:5000/%EF%BC%89%E5%8D%B0%E5%87%BA">http://localhost:5000/）印出</a> <code>Hello World!</code>。</p>
+<figure class="highlight python"><figcaption><span>index.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Python-Web-開發環境建置"><a href="#Python-Web-開發環境建置" class="headerlink" title="Python Web 開發環境建置"></a>Python Web 開發環境建置</h1><p>所謂工欲善其事，必先利其器，要開發好的應用程式必須先準備好開發環境才行。以下介紹我們在接下來開發 Python Flask Web 應用程式所需要安裝的開發環境工具（以下以 Mac OS 等 Unix-like 作業系統為示範，若是 Windows 使用者建議安裝 Virtualbox 並運行 Linux Ubuntu 作業系統，<a href="http://blog.xuite.net/yh96301/blog/432341564-VirtualBox+5.1%E5%AE%89%E8%A3%9DUbuntu+16.04">參考安裝文件</a>）：</p>
+<ol>
+<li><p>Microsoft VSCode 編輯器<br> Microsoft VSCode 是 Microsoft 推出的編輯器（非整合開發環境 IDE），夾帶著 Microsoft 過去打造 Visual studio 整合開發環境的豐富經驗，相比 Sublime Text 和其他編輯器，VSCode 的優勢在於開源且活躍的開發社群、內建 debugger 框架、原生 Git 整合、套件整合容易等特性。所以對於初學者來說 VSCode 是一個蠻適合入門的開發環境。它的安裝方式也十分簡易，在官網下載後按照指示安裝完成即可。</p>
+<p> <img src="/images/flask101/vscode-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 我們可以安裝 Python 語法和格式檢查的相關 Python 套件幫助除錯：</p>
+<p> <img src="/images/flask101/vscode-python.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+</li>
+<li><p>終端機環境（iTterm&#x2F;內建 terminal）<br> terminal（終端機）是我們下指令的地方，許多時候我們進行程式開發時不會使用 GUI 的介面而是使用下指令方式請電腦做相對應的行為。在 Linux 和 Mac 裡面都有內建的 terminal 的應用程式，若你是 Mac 用戶想使用更便利的工具（分割視窗、熱鍵、搜尋、自動補完等）可以額外安裝 <a href="https://www.iterm2.com/index.html">iterm2</a> 做使用。</p>
+<p> <img src="/images/flask101/iterm2.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 下指令（$ 為提示字元，不用輸入）：</p>
+<p> <img src="/images/flask101/iterm2-example.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 對於有志於從事程式開發相關工作的讀者建議可以多熟悉指令碼的輸入，更多指令碼可以參考鳥哥撰寫的 <a href="http://linux.vbird.org/linux_basic/redhat6.1/linux_06command.php">Linux 基本指令介紹</a> 和 <a href="http://www.linux.org.tw/resource.html">Linux 學習資源</a>。</p>
+</li>
+<li><p>Git 版本控制系統&#x2F;註冊 GitHub 帳戶<br> Git 是一種分散式版本控制系統，可以讓我們可以更方便地管理我們的程式碼。在網路上有非常多優秀的 Git 教學文件（<a href="https://backlogtool.com/git-guide/tw/">連猴子都能懂的Git入門指南</a>、<a href="https://www.slideshare.net/littlebtc/git-5528339">寫給大家的 Git 教學</a>、<a href="https://www.slideshare.net/lkiral/git-34157836">初心者 Git 上手攻略</a>）。安裝 Git 方式是到官網下載軟體，依照指示安裝。</p>
+<p> <img src="/images/flask101/git-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 互動式語法學習：</p>
+<p> <img src="/images/flask101/try-git.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 在介紹完 git 之後我們來了解一下 GitHub。GitHub 是一個可以存放 git 程式碼專案的平台，透過 GitHub 我們可以接觸到最新的開放原始碼資訊，也可以將我們的程式碼開源出來。</p>
+<p> <img src="/images/flask101/github-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 從 GitHub 上複製程式碼</p>
+<p> <img src="/images/flask101/github-clone.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 複製一份到本地端</span><br><span class="line">$ git clone https://github.com/kdchang/flask101.git</span><br><span class="line"># 移動到資料夾</span><br><span class="line">$ cd flask101</span><br></pre></td></tr></table></figure>
+
+<p> 常見 Git 指令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化專案</span><br><span class="line">$ git init</span><br><span class="line"># 查看狀態</span><br><span class="line">$ git status</span><br><span class="line"># 檢查差異</span><br><span class="line">$ git diff </span><br><span class="line"># 將變更檔案放入暫存區</span><br><span class="line">$ git add index.py</span><br><span class="line"># 使用 commit -m 提交變更</span><br><span class="line">$ git -a -m &#x27;init commit&#x27;</span><br><span class="line"># 查看歷史</span><br><span class="line">$ git log</span><br><span class="line"># 放棄已經 commit 的檔案重回暫存區</span><br><span class="line">$ git reset HEAD index.py</span><br><span class="line"># 放棄檔案變更</span><br><span class="line">$ git checkout index.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Anaconda Python3 版本<br> Anaconda 是一個 all-in-one 的 Python 開發環境，對於初學者來說是個十分合適的開發環境包。Anaconda 具備了幾項特點：</p>
+<ul>
+<li>便於安裝許多流行的科學、數學、工程、數據分析的 Python 模組  </li>
+<li>開源和免費</li>
+<li>跨平台支持：Linux、Windows、Mac</li>
+<li>支持 Python 版本切換，方便建立不同的虛擬開發環境</li>
+<li>內建 Spyder 編輯器和 Jupyter Notebook 環境</li>
+</ul>
+<p> 安裝流程也十分簡單，進入 Anaconda 首頁，選擇對應作業系統（這邊使用 Mac OS）：<br> <img src="/images/flask101/anaconda-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"></p>
+<p> 選擇對應 Python 版本下載，我們使用 Graphical Installer（圖像介面安裝方式），接著在下載完成時按照預設的安裝方式完成安裝；<br> <img src="/images/flask101/anaconda-install.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 若是完整安裝成功，可以打開終端機輸入，若是顯示 Python 3.6.0 :: Anaconda 4.3.0 (x86_64) 版本號即安裝成功：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 3.6.0 :: Anaconda 4.3.0 (x86_64)</span><br></pre></td></tr></table></figure>
+
+<p> 接著要建立我們專案虛擬環境，這樣在安裝操作套件時比較不容易被污染到 root 的環境，啟動後會出現（套件名稱）的提示字元：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 顯示目前虛擬環境列表</span><br><span class="line">$ conda info -e </span><br><span class="line"># 創建虛擬環境</span><br><span class="line">$ conda create -n 套件名稱 python=3.6</span><br><span class="line"># 進入虛擬環境（若是 Windows cmder 環境不用加 source） ，成功後提示字元變成：（套件名稱）$</span><br><span class="line">$ source activate 套件名稱</span><br><span class="line"># 離開虛擬環境（若是 Windows cmder 環境不用加 source） </span><br><span class="line">$ source deactivate </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="建立第一個-Flask-開發專案"><a href="#建立第一個-Flask-開發專案" class="headerlink" title="建立第一個 Flask 開發專案"></a>建立第一個 Flask 開發專案</h1><h2 id="使用-pip-管理-Python-模組"><a href="#使用-pip-管理-Python-模組" class="headerlink" title="使用 pip 管理 Python 模組"></a>使用 pip 管理 Python 模組</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安裝模組</span><br><span class="line">$ pip install 模組名</span><br><span class="line"># 移除模組</span><br><span class="line">$ pip uninstall 模組名</span><br><span class="line"># 搜尋模組</span><br><span class="line">$ pip search 模組名</span><br></pre></td></tr></table></figure>
+
+<p>通常開發專案時我們會將已安裝模組名稱和版本號存成一個列表，以便下次安裝使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>根據 <code>requirements.txt</code> 列表安裝模組：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h2><p>在了解 pip 套件管理工具後我們正式來建立一個 Flask 的專案：</p>
+<p>建立專案資料夾</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mkdir python-flask-todo-app</span><br><span class="line">$ cd python-flask-todo-app</span><br></pre></td></tr></table></figure>
+
+<p>建立獨立虛擬環境</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ conda create -n python-flask-todo-app python=3.6</span><br><span class="line">$ source activate python-flask-todo-app</span><br></pre></td></tr></table></figure>
+
+<p>安裝 Flask 模組</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask</span><br></pre></td></tr></table></figure>
+
+<h2 id="設定-Config-設定檔案"><a href="#設定-Config-設定檔案" class="headerlink" title="設定 Config 設定檔案"></a>設定 Config 設定檔案</h2><p>建立設定檔 <code>config.py</code> 檔案在專案資料夾的根目錄中：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Config</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProdConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DevConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>建立一個 <code>main.py</code> 檔案初始化 Flask App 和使用其 API，若是一切正常在終端機執行 <code>python main.py</code> 會在瀏覽器網址列輸入 <code>localhost:5000</code> 後看到 <code>Hello World</code> 了！</p>
+<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> DevConfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Flask 類別成為 instance</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(DevConfig)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由和處理函式配對</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判斷自己執行非被當做引入的模組，因為 __name__ 這變數若被當做模組引入使用就不會是 __main__</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Flask-Script"><a href="#使用-Flask-Script" class="headerlink" title="使用 Flask Script"></a>使用 Flask Script</h2><p><a href="https://flask-script.readthedocs.io/en/latest/">Flask Script</a> 是 Flask 常用的 extensions，可以讓我們使用指令列來操作 Flask 程式並在 shell 環境下操作 app context，使用方式如下：</p>
+<p>安裝模組</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask-script</span><br></pre></td></tr></table></figure>
+
+<p>建立 <code>manage.py</code> 於根目錄</p>
+<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
+
+<p>當執行 <code>$ python manage.py runserver</code> 即會執行測試伺服器，<code>$ python manage.py shell</code> 可以在對話指令列中中輸入 <code>app</code> 找到被引入的 <code>&lt;Flask &#39;main&#39;&gt;</code>，可以讓我們在互動式指令對話框中測試操作使用。</p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了如何建置 Python Web 開發環境，我們也實際完成了我們第一個 Python Flask 程式。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Wiki Flask (web framework)</a></li>
+<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
+</ol>
+<p>（image via <a href="https://cdn.fedoramagazine.org/wp-content/uploads/2015/11/Python_logo.png">fedoramagazine</a>）</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>教學</tag>
+        <tag>Django</tag>
+        <tag>MVC</tag>
+        <tag>Web</tag>
+        <tag>MTV</tag>
+        <tag>Web Backend</tag>
+        <tag>Web Framework</tag>
+        <tag>Flask</tag>
+        <tag>框架</tag>
+        <tag>網站開發</tag>
+        <tag>Anaconda</tag>
       </tags>
   </entry>
   <entry>
