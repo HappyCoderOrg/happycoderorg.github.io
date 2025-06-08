@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.happycoder.org/tutorials/index.html</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/search/index.html</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -20,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
+    <loc>https://www.happycoder.org/tutorials/index.html</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -48,24 +39,6 @@
   
   <url>
     <loc>https://www.happycoder.org/about/index.html</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/11/learning-programming-and-coding-with-python-variable/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2018/09/27/python-automation-programming-how-to-use-python-manipulate-excel-spreadsheet/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -137,6 +110,15 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/11/17/how-to-setup-python-development-environment-in-windows/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -192,6 +174,33 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/08/11/learning-programming-and-coding-with-python-variable/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2018/09/27/python-automation-programming-how-to-use-python-manipulate-excel-spreadsheet/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -264,15 +273,6 @@
   
   <url>
     <loc>https://www.happycoder.org/2019/01/28/how-to-learn-coding-and-computer-programming/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
