@@ -2,45 +2,47 @@
 title: 自學程式設計與電腦科學入門實戰：Git 常見指令入門教學
 date: 2017-11-20 10:23:23
 author: HappyCoder 自學程式設計學院
-tags: 
-    - 自學程式
-    - 自學程式設計
-    - 程式設計
-    - 線上自學
-    - coding
-    - coder
-    - programming
-    - computer
-    - computer science
-    - code
-    - 電腦科學
-    - 學寫程式
-    - 學程式
-    - linux
-    - 指令
-    - 命令列
-    - command line
-    - 軟體工程師
-    - 軟體工程
-    - software engineering
-    - bash
-    - shell
-    - svn
-    - version control
-    - VCS
-    - github
-    - git
-    - svn
-    - cvs
-    - 自學程式心得   
+tags:
+  - 自學程式
+  - 自學程式設計
+  - 程式設計
+  - 線上自學
+  - coding
+  - coder
+  - programming
+  - computer
+  - computer science
+  - code
+  - 電腦科學
+  - 學寫程式
+  - 學程式
+  - linux
+  - 指令
+  - 命令列
+  - command line
+  - 軟體工程師
+  - 軟體工程
+  - software engineering
+  - bash
+  - shell
+  - svn
+  - version control
+  - VCS
+  - github
+  - git
+  - svn
+  - cvs
+  - 自學程式心得
 ---
 
 ![自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學](/images/cs101/git.png)
 
 # 前言
+
 要成為一個真正的軟體工程師（Software Engineer）除了掌握基礎開發能力外，更重要的是和其他工程師和開發者團隊合作的能力，所以若你能培養出掌握 Git 等版本控制操作和 Git server 架設的能力，你會更容易參與開放原始碼（open source）的社群和提昇自己在職場上的價值。關於相關工具安裝可以參考 [如何在 Windows 打造 Python 開發環境設定基礎入門教學](/2017/11/17/how-to-setup-python-development-environment-in-windows/) 這篇教學文章。好，那我們就準備開始吧！
 
 # 什麼是版本控制系統（Version Control System）？
+
 版本控制系統是一種軟體工程的開發技巧，可以透過這個系統讓每位成員的軟體版本可以方便同步和維護管理（不然要用 email 或是其他工具傳送和管理十分麻煩，尤其程式又常常會有不同版本修改的問題）。在沒有版本控制系統時，我們常會在編輯檔案前複製一個備份，或是在更新檔案後產生許多重複檔案，非常不便且難以維護。
 
 ![自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學](/images/cs101/files.png)
@@ -50,12 +52,15 @@ tags:
 ![自學程式設計與電腦科學入門實戰：Git 與 Github 版本控制基本指令與操作入門教學](/images/cs101/github.png)
 
 # 什麼是 Git？什麼是 Github？
+
 [Git](https://zh.wikipedia.org/wiki/Git) 是一個分散式版本控制軟體，最初由 Linus Torvalds 創作（也是作業系統 Linux 系統的開發者），其最初目的是為更好地管理 Linux kernel 開發而設計，其具備優秀的 merge tracing 合併程式碼的能力。
 
 [Github](https://github.com) 則是一個支援 git 程式碼存取和托管的服務，有許多的開放原始碼的專案都是使用 Github 進行程式碼的管理。若是讀者未來有志於從事程式設計相關工作的話，建議可以熟悉掌握 Git 和 Github 的使用，並建立自己的 Github 作品集。
 
 # Git 基本觀念與常見指令
+
 ## 環境安裝
+
 Linux/Mac 一般都有內建 git 軟體，若是 windows 可以下載安裝 [cmder](http://cmder.net/) 這個模擬 Linux terminal 終端機時選擇完整版本就會順便安裝或是到 [Git 官網安裝](https://git-scm.com/)。當然在市面上有許多免費 [GUI 圖形化的 Git 操作軟體](https://git-scm.com/download/gui/linux)，若是初學者則建議先熟悉整個 git 工作模式和指令，再去使用圖形化工具會比較好。
 
 ```
@@ -72,64 +77,75 @@ Git 可以分為 Local（本地）和 Remote（遠端）兩個環境，由於 Gi
 ## 常見指令
 
 1. 設定使用者的資訊
-``` 
+
+```
 $ git config
 ```
 
 2. 將刪除修改的紀錄放入 stage，等 commit 後就可以真正修改
+
 ```
 $ git add -A
 ```
 
 3. 將沒有 track 的資料加入追蹤
+
 ```
 $ git add .
 ```
 
 4.
+
 ```
 $ git add -u
 ```
 
-5. 
+5.
+
 ```
 $ git commit -m
 ```
 
-6. 
+6.
+
 ```
 $ git push
 ```
 
-7. 
+7.
+
 ```
 $ git rebase
 ```
 
-8. 
+8.
+
 ```
 $ git reset
 ```
 
-9. 
+9.
+
 ```
 $ git revert
 ```
 
-10. 
+10.
+
 ```
 $ git reflog
 ```
 
-11. 
+11.
+
 ```
 $ gitk
 ```
 
 # 總結
 
-
 # 參考文件
+
 1. [30 天精通 Git 版本控管](https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md)
 2. [Git 官方網站](https://git-scm.com/)
 3. [Try Git](https://www.codeschool.com/courses/try-git)
