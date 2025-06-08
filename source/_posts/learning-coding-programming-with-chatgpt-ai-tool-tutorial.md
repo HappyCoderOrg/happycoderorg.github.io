@@ -1,5 +1,5 @@
 ---
-title: 使用 ChatGPT 自學程式設計：觀念、策略與實作練習
+title: 使用 ChatGPT 自學程式設計指南
 date: 2024-01-27 00:23:23
 author: HappyCoder AI 自學程式設計學院
 tags:
@@ -23,19 +23,19 @@ tags:
 	- web
 ---
 
-![](images/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg)
+![](images/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial-1.jpg)
 
 ## 前言
 
 在過去，學寫程式意味著需要投入大量時間閱讀厚重的教材、反覆摸索錯誤訊息的意義，甚至在 Stack Overflow 上尋求救援。而如今，透過 AI 工具的協助，例如 ChatGPT、GitHub Copilot、Cursor 等，初學者能更快速地理解語法、解決錯誤、模擬情境，提升學習效率。然而，AI 工具並不能替代你的思考，它是加速學習的助力，但不是學習的捷徑。
 
-## 使用 ChatGPT 自學程式設計：觀念、策略與實作練習
+## 使用 ChatGPT 自學程式設計指南
 
 在人工智慧快速發展的時代，學習寫程式不再是一條孤單、艱難的路。現在有了 ChatGPT 這樣的語言模型作為學習輔助工具，自學者不再需要花大量時間在搜尋資料、理解英文技術文檔或等待他人回答問題上。你可以隨時向 ChatGPT 發問、請它幫忙解釋觀念、修正錯誤，甚至請它幫你出練習題，進行模擬面試。只要方法得當，ChatGPT 可以成為你學習程式設計過程中最可靠的學伴。
 
 本筆記將說明如何結合 ChatGPT 學習程式設計的策略，並透過一個 Python 小專案，實際示範學習流程。
 
----
+![](images/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial-2.jpg)
 
 ## 為什麼選擇 ChatGPT 自學程式設計？
 
