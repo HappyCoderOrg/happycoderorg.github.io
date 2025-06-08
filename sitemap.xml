@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
+    <loc>https://www.happycoder.org/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -255,15 +264,6 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/11/18/cs101-learning-programming-and-coding-with-python-linux-commnd-line-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
