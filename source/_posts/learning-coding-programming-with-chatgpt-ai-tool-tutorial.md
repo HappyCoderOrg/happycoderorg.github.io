@@ -23,6 +23,8 @@ tags:
 	- web
 ---
 
+![](img/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg)
+
 ## 前言
 
 在過去，學寫程式意味著需要投入大量時間閱讀厚重的教材、反覆摸索錯誤訊息的意義，甚至在 Stack Overflow 上尋求救援。而如今，透過 AI 工具的協助，例如 ChatGPT、GitHub Copilot、Cursor 等，初學者能更快速地理解語法、解決錯誤、模擬情境，提升學習效率。然而，AI 工具並不能替代你的思考，它是加速學習的助力，但不是學習的捷徑。
