@@ -4,7 +4,6 @@ menu:
   關於我們: /about
   搜尋: /search
   程式設計教學: /tutorials
-  訂閱 RSS: /atom.xml
   社群連結:
     url: https://portaly.cc/happycoder
   FB 交流社群:
@@ -12,6 +11,7 @@ menu:
   臉書粉絲頁:
     url: https://www.facebook.com/HappyCoderOrg
     icon: facebook
+  訂閱 RSS: /atom.xml
   Instagram:
     url: https://www.instagram.com/happycoder_org
     icon: instagram
