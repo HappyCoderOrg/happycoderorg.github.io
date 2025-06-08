@@ -1550,7 +1550,7 @@
   <entry>
     <title>使用 ChatGPT 自學程式設計：觀念、策略與實作練習</title>
     <url>/2024/01/27/learning-coding-programming-with-chatgpt-ai-tool-tutorial/</url>
-    <content><![CDATA[<p><img src="/img/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg"></p>
+    <content><![CDATA[<p><img src="/images/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在過去，學寫程式意味著需要投入大量時間閱讀厚重的教材、反覆摸索錯誤訊息的意義，甚至在 Stack Overflow 上尋求救援。而如今，透過 AI 工具的協助，例如 ChatGPT、GitHub Copilot、Cursor 等，初學者能更快速地理解語法、解決錯誤、模擬情境，提升學習效率。然而，AI 工具並不能替代你的思考，它是加速學習的助力，但不是學習的捷徑。</p>
 <h2 id="使用-ChatGPT-自學程式設計：觀念、策略與實作練習"><a href="#使用-ChatGPT-自學程式設計：觀念、策略與實作練習" class="headerlink" title="使用 ChatGPT 自學程式設計：觀念、策略與實作練習"></a>使用 ChatGPT 自學程式設計：觀念、策略與實作練習</h2><p>在人工智慧快速發展的時代，學習寫程式不再是一條孤單、艱難的路。現在有了 ChatGPT 這樣的語言模型作為學習輔助工具，自學者不再需要花大量時間在搜尋資料、理解英文技術文檔或等待他人回答問題上。你可以隨時向 ChatGPT 發問、請它幫忙解釋觀念、修正錯誤，甚至請它幫你出練習題，進行模擬面試。只要方法得當，ChatGPT 可以成為你學習程式設計過程中最可靠的學伴。</p>
 <p>本筆記將說明如何結合 ChatGPT 學習程式設計的策略，並透過一個 Python 小專案，實際示範學習流程。</p>
@@ -3479,69 +3479,6 @@ References
       </tags>
   </entry>
   <entry>
-    <title>如何在 Windows 打造 Python Web 開發環境入門教學 Part1</title>
-    <url>/2017/12/20/python101-windows-dev-environment-setup-tutorial-part1/</url>
-    <content><![CDATA[<p><img src="/images/python101/python-logo.png" alt="如何在 Windows 打造 Python Web 開發環境"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>所謂工欲善其事，必先利其器。我們開發程式之前我們最重要的就是要設定好開發環境，接下來我們將帶領讀者體驗如何在 Windows 打造 Python Web 開發環境。</p>
-<h1 id="安裝軟體步驟"><a href="#安裝軟體步驟" class="headerlink" title="安裝軟體步驟"></a>安裝軟體步驟</h1><ol>
-<li>下載安裝 <a href="https://www.google.com.tw/chrome/browser/desktop/index.html">google chrome</a> 瀏覽器</li>
-<li>下載安裝 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 或 <a href="https://www.sublimetext.com/">Sublime text</a> 文字編輯器</li>
-<li>下載安裝 <a href="http://cmder.net/">cmder</a> terminal 終端機程式 (請下載含 git 的 full 完整版本)</li>
-<li>下載安裝 <a href="https://www.anaconda.com/download/">anaconda for windows</a> (請依你的作業系統位元 32&#x2F;64 下載對應程式，記得安裝時要勾選加入環境變數)</li>
-<li>在終端機輸入 (若正確顯示版本即為安裝成功)：<code>python -V</code></li>
-<li>輸入 <code>python</code> 可進入互動式對話環境，可以執行 <code>python</code> 程式</li>
-</ol>
-<h1 id="撰寫第一個-Python-程式"><a href="#撰寫第一個-Python-程式" class="headerlink" title="撰寫第一個 Python 程式"></a>撰寫第一個 Python 程式</h1><ol>
-<li>打開 Visual Studio Code 或 Sublime text 並建立一個 hello.py 檔案：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&#x27;hello python&#x27;)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>到 cmder 終端機移動到 <code>hello.py</code> 資料夾下輸入 <code>python hello.py</code></li>
-</ol>
-<p>就可以看到你撰寫的第一個 Python 程式 <code>hello python</code> 啦！</p>
-<h1 id="影片教學"><a href="#影片教學" class="headerlink" title="影片教學"></a>影片教學</h1><div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/FQw0S7-WShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</div>
-
-]]></content>
-      <tags>
-        <tag>自學程式</tag>
-        <tag>自學程式設計</tag>
-        <tag>程式設計</tag>
-        <tag>線上自學</tag>
-        <tag>coding</tag>
-        <tag>coder</tag>
-        <tag>programming</tag>
-        <tag>computer</tag>
-        <tag>computer science</tag>
-        <tag>code</tag>
-        <tag>電腦科學</tag>
-        <tag>學寫程式</tag>
-        <tag>學程式</tag>
-        <tag>linux</tag>
-        <tag>指令</tag>
-        <tag>命令列</tag>
-        <tag>command line</tag>
-        <tag>軟體工程師</tag>
-        <tag>軟體工程</tag>
-        <tag>software engineering</tag>
-        <tag>bash</tag>
-        <tag>shell</tag>
-        <tag>svn</tag>
-        <tag>version control</tag>
-        <tag>VCS</tag>
-        <tag>github</tag>
-        <tag>git</tag>
-        <tag>cvs</tag>
-        <tag>自學程式心得</tag>
-        <tag>環境設定</tag>
-        <tag>Windows</tag>
-        <tag>環境建置</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python 101 快速入門教學</title>
     <url>/2016/12/31/python101-tutorial/</url>
     <content><![CDATA[<p><img src="/images/python-logo.png" alt="Python 101 快速入門教學 "> </p>
@@ -3805,6 +3742,69 @@ References
         <tag>Web Framework</tag>
         <tag>Flask</tag>
         <tag>框架</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在 Windows 打造 Python Web 開發環境入門教學 Part1</title>
+    <url>/2017/12/20/python101-windows-dev-environment-setup-tutorial-part1/</url>
+    <content><![CDATA[<p><img src="/images/python101/python-logo.png" alt="如何在 Windows 打造 Python Web 開發環境"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>所謂工欲善其事，必先利其器。我們開發程式之前我們最重要的就是要設定好開發環境，接下來我們將帶領讀者體驗如何在 Windows 打造 Python Web 開發環境。</p>
+<h1 id="安裝軟體步驟"><a href="#安裝軟體步驟" class="headerlink" title="安裝軟體步驟"></a>安裝軟體步驟</h1><ol>
+<li>下載安裝 <a href="https://www.google.com.tw/chrome/browser/desktop/index.html">google chrome</a> 瀏覽器</li>
+<li>下載安裝 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 或 <a href="https://www.sublimetext.com/">Sublime text</a> 文字編輯器</li>
+<li>下載安裝 <a href="http://cmder.net/">cmder</a> terminal 終端機程式 (請下載含 git 的 full 完整版本)</li>
+<li>下載安裝 <a href="https://www.anaconda.com/download/">anaconda for windows</a> (請依你的作業系統位元 32&#x2F;64 下載對應程式，記得安裝時要勾選加入環境變數)</li>
+<li>在終端機輸入 (若正確顯示版本即為安裝成功)：<code>python -V</code></li>
+<li>輸入 <code>python</code> 可進入互動式對話環境，可以執行 <code>python</code> 程式</li>
+</ol>
+<h1 id="撰寫第一個-Python-程式"><a href="#撰寫第一個-Python-程式" class="headerlink" title="撰寫第一個 Python 程式"></a>撰寫第一個 Python 程式</h1><ol>
+<li>打開 Visual Studio Code 或 Sublime text 並建立一個 hello.py 檔案：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&#x27;hello python&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>到 cmder 終端機移動到 <code>hello.py</code> 資料夾下輸入 <code>python hello.py</code></li>
+</ol>
+<p>就可以看到你撰寫的第一個 Python 程式 <code>hello python</code> 啦！</p>
+<h1 id="影片教學"><a href="#影片教學" class="headerlink" title="影片教學"></a>影片教學</h1><div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/FQw0S7-WShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>linux</tag>
+        <tag>指令</tag>
+        <tag>命令列</tag>
+        <tag>command line</tag>
+        <tag>軟體工程師</tag>
+        <tag>軟體工程</tag>
+        <tag>software engineering</tag>
+        <tag>bash</tag>
+        <tag>shell</tag>
+        <tag>svn</tag>
+        <tag>version control</tag>
+        <tag>VCS</tag>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>cvs</tag>
+        <tag>自學程式心得</tag>
+        <tag>環境設定</tag>
+        <tag>Windows</tag>
+        <tag>環境建置</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
