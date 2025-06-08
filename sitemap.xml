@@ -11,6 +11,24 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/10/14/python-data-science-and-machine-learning-scikit-learn-basic-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/10/07/python-data-science-and-machine-learning-tutorial-introduction/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -65,7 +83,43 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
+    <loc>https://www.happycoder.org/2017/11/17/how-to-setup-python-development-environment-in-windows/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2016/12/21/javascript101-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2024/01/27/learning-coding-programming-with-chatgpt-ai-tool-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -75,6 +129,15 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -101,15 +164,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/10/13/python-data-science-and-machine-learning-matplotlib-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2017/10/10/python-data-science-and-machine-learning-numpy-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -119,25 +173,16 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/10/13/python-data-science-and-machine-learning-matplotlib-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/10/11/python-data-science-and-machine-learning-pandas-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/10/14/python-data-science-and-machine-learning-scikit-learn-basic-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/10/07/python-data-science-and-machine-learning-tutorial-introduction/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -156,6 +201,15 @@
   
   <url>
     <loc>https://www.happycoder.org/2018/09/06/docker101-docker-compose-practice-introduction-python-flask-redis-counter/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -210,60 +264,6 @@
   
   <url>
     <loc>https://www.happycoder.org/2019/01/28/how-to-learn-coding-and-computer-programming/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/11/17/how-to-setup-python-development-environment-in-windows/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2016/12/21/javascript101-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/12/19/javascript101-windows-dev-environment-setup-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2024/01/27/learning-coding-programming-with-chatgpt-ai-tool-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/11/19/cs101-learning-programming-and-coding-with-python-git-and-github-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -444,55 +444,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/tags/svn/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/version-control/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/VCS/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/github/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/git/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/cvs/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/%E8%87%AA%E5%AD%B8%E7%A8%8B%E5%BC%8F%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/tags/script/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -570,6 +521,55 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/tags/svn/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/version-control/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/VCS/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/github/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/git/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/cvs/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/%E8%87%AA%E5%AD%B8%E7%A8%8B%E5%BC%8F%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/tags/GO-GO-lang-golang-web-go-web-%E8%87%AA%E5%AD%B8%E7%A8%8B%E5%BC%8F-%E8%87%AA%E5%AD%B8%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88-%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88-%E7%B7%9A%E4%B8%8A%E8%87%AA%E5%AD%B8-coding-coder-programming-computer-computer-science-code-%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8-%E5%AD%B8%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E5%AD%B8%E7%A8%8B%E5%BC%8F/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -626,6 +626,27 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/tags/software/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/software-enginnering/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/tags/web/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/tags/JavaScript/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -648,27 +669,6 @@
   
   <url>
     <loc>https://www.happycoder.org/tags/%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/software/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/software-enginnering/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/tags/web/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
