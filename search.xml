@@ -1636,132 +1636,6 @@
       </tags>
   </entry>
   <entry>
-    <title>用 Python 自學程式設計：list、tuple、dict and set</title>
-    <url>/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</url>
-    <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前一單元中我們了解了變數和 Python 世界物件的重要性，也介紹了簡單的資料型別，我們也有提到簡單資料型別（布林、整數、浮點數和字串）就像是原子一樣，而複雜資料型別就像是分子一樣，在這一單元中我們將更進一步了解 Python 複雜的資料型別以及如何操作它們。</p>
-<h1 id="串列-list-與元組-tuple"><a href="#串列-list-與元組-tuple" class="headerlink" title="串列 list 與元組 tuple"></a>串列 list 與元組 tuple</h1><p>在程式語言中通常可以利用序列式方式去記錄資料，在 Python 中，我們使用 list 串列和 tuple 元組來儲存序列式資料。兩者最大的不同在於 tuple 是不可以改變的。</p>
-<ol>
-<li><p>串列 list<br> 串列是一連串順序性的元素組成，我們可以新增、讀取、刪除和修改串列，串列中可以有重複的元素。</p>
-<ul>
-<li>建立串列</li>
-</ul>
-<p> 串列可以透過中括號或是使用 list 關鍵字來創建，裡面元素由逗號分隔</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my_list0 = []</span><br><span class="line">my_list1 = list()</span><br><span class="line">my_list2 = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;SQL&#x27;]</span><br><span class="line"></span><br><span class="line">list(&#x27;js&#x27;)</span><br><span class="line"># [&#x27;j&#x27;, &#x27;s&#x27;]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 index offset 和範圍來取得元素</li>
-</ul>
-<p> 在電腦科學世界，index 通常是從 0 開始，-1 從結尾數回來：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages[0] # python</span><br><span class="line">languages[1] # js</span><br><span class="line">languages[-1] # go</span><br></pre></td></tr></table></figure>
-
-<p> 範圍取值 [開始:結束（不含）:間隔（default 1）]：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">my_list2[0:1] # [&#x27;python&#x27;]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>append 元素到串列最後</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages.append(&#x27;java&#x27;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>extend 串連串列</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line"></span><br><span class="line">languages.extend(&#x27;c++&#x27;) # [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;, &#x27;c++&#x27;]</span><br><span class="line"></span><br><span class="line">languages += [&#x27;ruby&#x27;, &#x27;c&#x27;] # [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;, &#x27;c++&#x27;, &#x27;ruby&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>insert 插入元素到位置上</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages.insert(0, &#x27;java&#x27;) # [&#x27;java&#x27;, &#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>del 刪除特定 index 值</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line"></span><br><span class="line">del languages[-1] # [&#x27;python&#x27;, &#x27;js&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>len() 元素長度</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">len([&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]) # 3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>in 檢查元素是否在串列</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;java&#x27; in [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;] # False</span><br></pre></td></tr></table></figure>
-
-<p> 還有更多好用的方法，讀者可以進一步查詢使用：<br> <code>remove()</code>、<code>index()</code>、<code>count()</code>、<code>join()、sort()、copy()</code></p>
-</li>
-<li><p>元組 tuple<br> 元組可以視為不可改變的串列，使用方式如下：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = python&#x27;, &#x27;js&#x27;, &#x27;go&#x27; # (python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;)</span><br><span class="line">tuple([&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;])</span><br></pre></td></tr></table></figure>
-
-<p> 元組比起串列好處：</p>
-<ul>
-<li>佔用空間較少</li>
-<li>可以當做字典的 key（因不可變）</li>
-<li>具名 tuple 可當做物件替代</li>
-<li>當做函式引數</li>
-</ul>
-</li>
-</ol>
-<h1 id="字典-dict-和集合-set"><a href="#字典-dict-和集合-set" class="headerlink" title="字典 dict 和集合 set"></a>字典 dict 和集合 set</h1><ol>
-<li><p>dict<br> 在其他程式語言可能稱 <code>&#123;&#39;key&#39;:&#39;value&#39;&#125;</code> 字典為關聯式陣列或是雜湊表，其用獨一無二不可變的鍵（布林、整數、浮點數、字串和串列）去對應值，字典通常是可變的，可以新增刪除、修改鍵值。</p>
-<ul>
-<li><p>創建 dict</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dict([(&#x27;name&#x27;, &#x27;python&#x27;), (&#x27;version&#x27;, &#x27;3.5&#x27;)])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增和取值</p>
-</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;&#125;</span><br><span class="line"></span><br><span class="line">languages[&#x27;name&#x27;] = &#x27;python&#x27;</span><br><span class="line"></span><br><span class="line">print(languages[&#x27;name&#x27;]) # python</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>合併</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages2 = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;js&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;6&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages.update(languages2)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>keys() 取得所有鍵、values() 取得所有值、items() 取得所有鍵值對</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages.keys() # [&#x27;name&#x27;, &#x27;version&#x27;]</span><br><span class="line">languages.values() # [&#x27;python&#x27;, &#x27;3.5&#x27;]</span><br><span class="line">languages.items() # [(&#x27;name&#x27;, &#x27;python&#x27;), (&#x27;version&#x27;, &#x27;3.5&#x27;)]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 in 判斷 key 是否存在 dict</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x27;name&#x27; in languages # True</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>set<br> 類似小學時候學習的數學集合，可以想成就是留下鍵值的 dict。由於 set 存不重複值。當你只想知道值是否存在就是使用 set 的時機，例如使用 in 來判斷值是否存在。</p>
-<ul>
-<li>建立 set</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = set()</span><br><span class="line"></span><br><span class="line">languages = &#123;&#x27;python&#x27;, &#x27;js&#x27;, &#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line"># &#123;&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>轉換成 set</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(&#x27;python&#x27;) # &#123;&#x27;p&#x27;, &#x27;y&#x27;, &#x27;t&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;n&#x27;&#125;</span><br><span class="line">set([&#x27;python&#x27;, &#x27;js&#x27;]) # &#123;&#x27;python&#x27;, &#x27;js&#x27;&#125;</span><br><span class="line">set((&#x27;python&#x27;, &#x27;js&#x27;)) # &#123;&#x27;python&#x27;, &#x27;js&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 intersection 取交集，union 取聯集，difference 取差集</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages1 = &#123;&#x27;js&#x27;, &#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages2 = &#123;&#x27;python&#x27;, &#x27;go&#x27;, &#x27;java&#x27;&#125;</span><br><span class="line">languages1.intersection(languages2) # &#123;&#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages1.union(languages2) # &#123;&#x27;js&#x27;, &#x27;python&#x27;, &#x27;java&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages1.difference(languages2) # &#123;&#x27;js&#x27;&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="整合在一起"><a href="#整合在一起" class="headerlink" title="整合在一起"></a>整合在一起</h1><p>回想一下，我們可以使用 [] 建立 list 串列，用 , 來創立 tuple 元組，使用 {} 來建立字典。雖然建立方式不盡相同，但相同的是你都可以透過中括號來存取內容值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages0 = [&#x27;python&#x27;, &#x27;js&#x27;] # languages0[0]</span><br><span class="line">languages1 = (&#x27;python&#x27;, &#x27;js&#x27;) # languages1[0]</span><br><span class="line">languages2 = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125; # languages2[&#x27;name&#x27;]</span><br></pre></td></tr></table></figure>
-
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是程式設計思維入門簡介，透過了解什麼是程式設計思維和不同語言的特性，我們將對於自學程式設計有更正確的認識。接下來我們將透過 Python 介紹程式設計的內涵和不同的應用情境。當然，網路上也有<a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">許多學習資源</a>可以當做參考。</p>
-<p>（image via <a href="https://i.amz.mshcdn.com/rRxXhoIhNucutinAio8YRF4TvzE=/1200x630/2017%2F06%2F15%2F71%2Fc1a206081efd44d1b61f5c0f86dcda6c.c222e.jpg">mshcdn</a>）</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="https://www.python.org/">Python 官網</a></li>
-<li><a href="https://pics.ee/1HC~">JavaScript 程式設計新手村</a></li>
-<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰</a></li>
-<li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
-<li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用 Python 自學程式設計：程式設計思維入門</title>
     <url>/2017/08/10/learning-programming-and-coding-with-python-introduction/</url>
     <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
@@ -1986,6 +1860,132 @@
 <li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
 <li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
 <li><a href="http://www.jianshu.com/p/c5582e23b26c">python可变和不可变对象</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Python 自學程式設計：list、tuple、dict and set</title>
+    <url>/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</url>
+    <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前一單元中我們了解了變數和 Python 世界物件的重要性，也介紹了簡單的資料型別，我們也有提到簡單資料型別（布林、整數、浮點數和字串）就像是原子一樣，而複雜資料型別就像是分子一樣，在這一單元中我們將更進一步了解 Python 複雜的資料型別以及如何操作它們。</p>
+<h1 id="串列-list-與元組-tuple"><a href="#串列-list-與元組-tuple" class="headerlink" title="串列 list 與元組 tuple"></a>串列 list 與元組 tuple</h1><p>在程式語言中通常可以利用序列式方式去記錄資料，在 Python 中，我們使用 list 串列和 tuple 元組來儲存序列式資料。兩者最大的不同在於 tuple 是不可以改變的。</p>
+<ol>
+<li><p>串列 list<br> 串列是一連串順序性的元素組成，我們可以新增、讀取、刪除和修改串列，串列中可以有重複的元素。</p>
+<ul>
+<li>建立串列</li>
+</ul>
+<p> 串列可以透過中括號或是使用 list 關鍵字來創建，裡面元素由逗號分隔</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my_list0 = []</span><br><span class="line">my_list1 = list()</span><br><span class="line">my_list2 = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;SQL&#x27;]</span><br><span class="line"></span><br><span class="line">list(&#x27;js&#x27;)</span><br><span class="line"># [&#x27;j&#x27;, &#x27;s&#x27;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 index offset 和範圍來取得元素</li>
+</ul>
+<p> 在電腦科學世界，index 通常是從 0 開始，-1 從結尾數回來：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages[0] # python</span><br><span class="line">languages[1] # js</span><br><span class="line">languages[-1] # go</span><br></pre></td></tr></table></figure>
+
+<p> 範圍取值 [開始:結束（不含）:間隔（default 1）]：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">my_list2[0:1] # [&#x27;python&#x27;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>append 元素到串列最後</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages.append(&#x27;java&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>extend 串連串列</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line"></span><br><span class="line">languages.extend(&#x27;c++&#x27;) # [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;, &#x27;c++&#x27;]</span><br><span class="line"></span><br><span class="line">languages += [&#x27;ruby&#x27;, &#x27;c&#x27;] # [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;, &#x27;c++&#x27;, &#x27;ruby&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>insert 插入元素到位置上</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line">languages.insert(0, &#x27;java&#x27;) # [&#x27;java&#x27;, &#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>del 刪除特定 index 值</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]</span><br><span class="line"></span><br><span class="line">del languages[-1] # [&#x27;python&#x27;, &#x27;js&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>len() 元素長度</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">len([&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;]) # 3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>in 檢查元素是否在串列</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;java&#x27; in [&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;] # False</span><br></pre></td></tr></table></figure>
+
+<p> 還有更多好用的方法，讀者可以進一步查詢使用：<br> <code>remove()</code>、<code>index()</code>、<code>count()</code>、<code>join()、sort()、copy()</code></p>
+</li>
+<li><p>元組 tuple<br> 元組可以視為不可改變的串列，使用方式如下：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = python&#x27;, &#x27;js&#x27;, &#x27;go&#x27; # (python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;)</span><br><span class="line">tuple([&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;])</span><br></pre></td></tr></table></figure>
+
+<p> 元組比起串列好處：</p>
+<ul>
+<li>佔用空間較少</li>
+<li>可以當做字典的 key（因不可變）</li>
+<li>具名 tuple 可當做物件替代</li>
+<li>當做函式引數</li>
+</ul>
+</li>
+</ol>
+<h1 id="字典-dict-和集合-set"><a href="#字典-dict-和集合-set" class="headerlink" title="字典 dict 和集合 set"></a>字典 dict 和集合 set</h1><ol>
+<li><p>dict<br> 在其他程式語言可能稱 <code>&#123;&#39;key&#39;:&#39;value&#39;&#125;</code> 字典為關聯式陣列或是雜湊表，其用獨一無二不可變的鍵（布林、整數、浮點數、字串和串列）去對應值，字典通常是可變的，可以新增刪除、修改鍵值。</p>
+<ul>
+<li><p>創建 dict</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dict([(&#x27;name&#x27;, &#x27;python&#x27;), (&#x27;version&#x27;, &#x27;3.5&#x27;)])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增和取值</p>
+</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;&#125;</span><br><span class="line"></span><br><span class="line">languages[&#x27;name&#x27;] = &#x27;python&#x27;</span><br><span class="line"></span><br><span class="line">print(languages[&#x27;name&#x27;]) # python</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>合併</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages2 = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;js&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;6&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages.update(languages2)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>keys() 取得所有鍵、values() 取得所有值、items() 取得所有鍵值對</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">languages.keys() # [&#x27;name&#x27;, &#x27;version&#x27;]</span><br><span class="line">languages.values() # [&#x27;python&#x27;, &#x27;3.5&#x27;]</span><br><span class="line">languages.items() # [(&#x27;name&#x27;, &#x27;python&#x27;), (&#x27;version&#x27;, &#x27;3.5&#x27;)]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 in 判斷 key 是否存在 dict</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x27;name&#x27; in languages # True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>set<br> 類似小學時候學習的數學集合，可以想成就是留下鍵值的 dict。由於 set 存不重複值。當你只想知道值是否存在就是使用 set 的時機，例如使用 in 來判斷值是否存在。</p>
+<ul>
+<li>建立 set</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages = set()</span><br><span class="line"></span><br><span class="line">languages = &#123;&#x27;python&#x27;, &#x27;js&#x27;, &#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line"># &#123;&#x27;python&#x27;, &#x27;js&#x27;, &#x27;go&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>轉換成 set</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set(&#x27;python&#x27;) # &#123;&#x27;p&#x27;, &#x27;y&#x27;, &#x27;t&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;n&#x27;&#125;</span><br><span class="line">set([&#x27;python&#x27;, &#x27;js&#x27;]) # &#123;&#x27;python&#x27;, &#x27;js&#x27;&#125;</span><br><span class="line">set((&#x27;python&#x27;, &#x27;js&#x27;)) # &#123;&#x27;python&#x27;, &#x27;js&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 intersection 取交集，union 取聯集，difference 取差集</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages1 = &#123;&#x27;js&#x27;, &#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages2 = &#123;&#x27;python&#x27;, &#x27;go&#x27;, &#x27;java&#x27;&#125;</span><br><span class="line">languages1.intersection(languages2) # &#123;&#x27;python&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages1.union(languages2) # &#123;&#x27;js&#x27;, &#x27;python&#x27;, &#x27;java&#x27;, &#x27;go&#x27;&#125;</span><br><span class="line">languages1.difference(languages2) # &#123;&#x27;js&#x27;&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="整合在一起"><a href="#整合在一起" class="headerlink" title="整合在一起"></a>整合在一起</h1><p>回想一下，我們可以使用 [] 建立 list 串列，用 , 來創立 tuple 元組，使用 {} 來建立字典。雖然建立方式不盡相同，但相同的是你都可以透過中括號來存取內容值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">languages0 = [&#x27;python&#x27;, &#x27;js&#x27;] # languages0[0]</span><br><span class="line">languages1 = (&#x27;python&#x27;, &#x27;js&#x27;) # languages1[0]</span><br><span class="line">languages2 = &#123;</span><br><span class="line">    &#x27;name&#x27;: &#x27;python&#x27;,</span><br><span class="line">    &#x27;version&#x27;: &#x27;3.5&#x27;</span><br><span class="line">&#125; # languages2[&#x27;name&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上就是程式設計思維入門簡介，透過了解什麼是程式設計思維和不同語言的特性，我們將對於自學程式設計有更正確的認識。接下來我們將透過 Python 介紹程式設計的內涵和不同的應用情境。當然，網路上也有<a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">許多學習資源</a>可以當做參考。</p>
+<p>（image via <a href="https://i.amz.mshcdn.com/rRxXhoIhNucutinAio8YRF4TvzE=/1200x630/2017%2F06%2F15%2F71%2Fc1a206081efd44d1b61f5c0f86dcda6c.c222e.jpg">mshcdn</a>）</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://www.python.org/">Python 官網</a></li>
+<li><a href="https://pics.ee/1HC~">JavaScript 程式設計新手村</a></li>
+<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰</a></li>
+<li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
+<li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
 </ol>
 ]]></content>
       <tags>
