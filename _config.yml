@@ -120,8 +120,8 @@ archive_generator:
 search:
   path: search.xml
   field: post
-  content: true
   format: html
+  limit: 10000
 
 ## social
 addthis:
