@@ -20,33 +20,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2017/12/20/python101-windows-dev-environment-setup-tutorial-part1/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -101,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/10/10/python-data-science-and-machine-learning-numpy-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/10/11/python-data-science-and-machine-learning-pandas-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -110,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/10/11/python-data-science-and-machine-learning-pandas-tutorial/</loc>
+    <loc>https://www.happycoder.org/2017/10/10/python-data-science-and-machine-learning-numpy-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -129,6 +102,42 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/10/07/python-data-science-and-machine-learning-tutorial-introduction/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2016/12/31/python101-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2019/01/28/how-to-learn-coding-and-computer-programming/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -191,15 +200,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/08/15/learning-markdown-html-tutorial/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2017/08/10/learning-programming-and-coding-with-python-introduction/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -209,7 +209,25 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/08/15/learning-markdown-html-tutorial/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2019/01/27/algorithm-introduction/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -282,24 +300,6 @@
   
   <url>
     <loc>https://www.happycoder.org/2017/07/02/golang101-tutorial-web-basic/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2019/01/28/how-to-learn-coding-and-computer-programming/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2019/01/27/algorithm-introduction/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
