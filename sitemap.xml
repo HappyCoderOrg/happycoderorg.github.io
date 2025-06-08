@@ -20,42 +20,6 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/about/index.html</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/08/11/learning-programming-and-coding-with-python-variable/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2018/09/27/python-automation-programming-how-to-use-python-manipulate-excel-spreadsheet/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.happycoder.org/2017/10/13/python-data-science-and-machine-learning-matplotlib-tutorial/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -146,25 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-flow-control/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-variable/</loc>
+    <loc>https://www.happycoder.org/about/index.html</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -272,6 +218,33 @@
   </url>
   
   <url>
+    <loc>https://www.happycoder.org/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/08/11/learning-programming-and-coding-with-python-variable/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2018/09/27/python-automation-programming-how-to-use-python-manipulate-excel-spreadsheet/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.happycoder.org/2019/01/27/algorithm-introduction/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -300,6 +273,33 @@
   
   <url>
     <loc>https://www.happycoder.org/2018/09/06/docker101-docker-compose-practice-introduction-python-flask-redis-counter/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-flow-control/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-function/</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.happycoder.org/2017/07/01/golang101-tutorial-basic-variable/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
