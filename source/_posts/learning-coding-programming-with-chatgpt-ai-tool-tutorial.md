@@ -23,7 +23,7 @@ tags:
 	- web
 ---
 
-![](img/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg)
+![](images/posts/learning-coding-programming-with-chatgpt-ai-tool-tutorial.jpg)
 
 ## 前言
 
