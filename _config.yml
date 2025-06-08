@@ -116,7 +116,7 @@ archive_generator:
   monthly: true
   daily: false
 
-## Search 
+## Search
 search:
   path: search.xml
   field: post
