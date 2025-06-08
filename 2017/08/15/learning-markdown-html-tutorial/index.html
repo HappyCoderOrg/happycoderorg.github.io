@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="google-site-verification"
+    content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44"
+  />
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/search.js"></script>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css?v=1" />
+  <!--Description-->
+  
+  <meta name="description" content="HappyCoder | AI 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="HappyCoder | AI 自學程式設計學院" />
+  
+
+  <!--Open Graph Title-->
+  
+  <meta property="og:title" content="用 Python 自學程式設計：list、tuple、dict and set" />
+   
+  <script type="text/javascript">
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    searchFunc(path, "local-search-input", "local-search-result");
+  </script>
+  
+
+  <meta
+    name="google-site-verification"
+    content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM"
+  />
+
+  <!--Open Graph Description-->
+  
+  <meta property="og:description" content="HappyCoder | AI 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+  
+
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="HappyCoder | AI 自學程式設計學院" />
+
+  <!--Type page-->
+  
+  <meta property="og:type" content="article" />
+  
+
+  <!--Page Cover-->
+  
+
+  <meta name="twitter:card" content="summary" />
+  
+
+  <!-- Title -->
+  
+  <title>用 Python 自學程式設計：list、tuple、dict and set - HappyCoder | AI 自學程式設計學院</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- Custom Fonts -->
+  <link
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Gallery -->
+  <link
+    href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css"
+    type="text/css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Analytics -->
+  
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+  <!-- favicon -->
+  
+  <link rel="icon" href="/img/favicon.png" />
+  
+  <style>
+    .intro-header {
+      background-image: url("/img/banner-s.jpg");
+      height: 550px;
+      filter: grayscale(30%);
+      -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+      .intro-header {
+        height: 450px;
+      }
+    }
+  </style>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="HappyCoder | AI 自學程式設計學院" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/search">
+                            
+                                搜尋
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://portaly.cc/happycoder">
+                            
+                                社群連結
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/happycoder_org">
+                            
+                                <i class="fa fa-instagram fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@HappyCoderOrg">
+                            
+                                <i class="fa fa-youtube fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<header class="intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>用 Python 自學程式設計：list、tuple、dict and set</h1>
+          
+          <span class="meta">
+            <!-- Date and Author -->
+             Posted by HappyCoder 自學程式設計學院 on  2017-08-15
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Tags and categories -->
+      
+      <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+         
+
+
+<a href="/tags/Python-Django-MVC-Web-MTV-Web-Backend-Web-Framework-教學-Flask-框架-coding-code-程式設計-自學程式設計-CS-Computer-Computer-Science/">#Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</a>
+
+ 
+      </div>
+      <div class="col-lg-4 col-md-5 post-categories">
+        
+      </div>
+      
+
+      <!-- Gallery -->
+      
+
+      <!-- Post Main Content -->
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div
+          class="fb-like"
+          data-href="https://www.facebook.com/HappyCoderOrg/"
+          data-layout="button_count"
+          data-action="like"
+          data-size="large"
+          data-show-faces="true"
+          data-share="true"
+        ></div>
+
+        <p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"></p>
+<p><img src="/images/posts/learning-markdown-html-tutorial-1.jpg"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/Markdown">Markdown</a> 是一種輕量級的標記語言，最初為 John Gruber 所設計。Markdown 特色在於允許人們「使用易讀易寫的純文字格式編寫文件，然後轉換成有效的 HTML 文件」。簡而言之，Markdown 就是一種簡潔易懂的語法，讓我們可以專注在內容上，不用花時間思考外觀樣式，在透過轉換變成可以呈現在網頁上的 HTML 語法。目前在許多知名技術&#x2F;開發者論壇或是開發者工具（例如：<a target="_blank" rel="noopener" href="https://github.com/">Github</a>）、技術部落格工具都有支援 Markdown 語法。</p>
+<h1 id="什麼是-HTML？"><a href="#什麼是-HTML？" class="headerlink" title="什麼是 HTML？"></a>什麼是 HTML？</h1><p>在開始學習 Markdown 之前我們先來認識一下 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/HTML">HTML</a>，畢竟 Markdown 最終還是要轉換成 HTML 這個網頁上內容結構的標準語法。HTML 中文稱作超文本標記語言（英文全名為 HyperText Markup Language，簡稱 HTML），是一種用於建立網頁的標準標記語言。</p>
+<p>這樣講起來有點抽象，事實上我們每天在觀看瀏覽的網頁就是由一個個 HTML 所組成。所以我們可以透過瀏覽器的檢視原始碼功能去一窺目前網頁的 HTML 樣貌。</p>
+<p>這邊我們使用 Google Chrome 瀏覽器當作範例，可以在畫面中點選右鍵 &gt; 檢視原始碼（View Page Source）：</p>
+<p><img src="/images/posts/learning-markdown-html-tutorial-2.jpg"></p>
+<p>就可以看到該網頁的 HTML 內容：</p>
+<p><img src="/images/posts/learning-markdown-html-tutorial-3.jpg"></p>
+<p>網頁來源：<a href="view-source:https://zh.wikipedia.org/zh-tw/HTML">view-source:https://zh.wikipedia.org/zh-tw/HTML</a></p>
+<p>由於這個網頁已經有點複雜，因為它已經包含了 CSS 外觀樣式語法和 JavaScript 互動邏輯程式的部分，對於初學者來說比較難一眼理解。所以我們用一下範例來介紹 HTML 最基礎的部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;我是標題&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt;我是段落&lt;/p&gt;</span><br><span class="line">    &lt;a href=&quot;https://zh.wikipedia.org/zh-tw/Markdown&quot;&gt;我是超連結&lt;/a&gt;</span><br><span class="line">    &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/HTML.svg/200px-HTML.svg.png&quot; alt=&quot;&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>若是使用瀏覽器打開這個 HTML 網頁會呈現：</p>
+<p><img src="/images/posts/learning-markdown-html-tutorial-4.jpg"></p>
+<p>HTML 標籤語法每個標籤皆有其意義且大部分成對出現，標籤元素內可以設定屬性值。網頁元素主要放置於 <code>&lt;body&gt;&lt;/body&gt;</code> 中，<code>&lt;head&gt;&lt;/head&gt;</code> 內主要放置 meta data 設定檔案和放置引入的外觀樣式檔案、程式邏輯等。元素內可以透過設定屬性值（attribute）來宣告元素功能，以下 <code>href=&quot;https://zh.wikipedia.org/zh-tw/Markdown&quot;</code> 代表點擊該連結會到該 wikipedia 網址。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- href 是屬性，決定連結點擊後目的地 --&gt;</span><br><span class="line">&lt;a href=&quot;https://zh.wikipedia.org/zh-tw/Markdown&quot;&gt;我是超連結&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- src 是屬性，決定載入圖片位置--&gt;</span><br><span class="line">&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/HTML.svg/200px-HTML.svg.png&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>元素包裹內容在內，代表標題元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;我是標題&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Markdown-常見語法教學"><a href="#Markdown-常見語法教學" class="headerlink" title="Markdown 常見語法教學"></a>Markdown 常見語法教學</h1><p>一般 Markdwon 段落以空白行分隔。若是序列則內容需要內縮（一個 tab）。</p>
+<h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">是一级標題</span><br><span class="line">=======</span><br><span class="line"></span><br><span class="line"># 一級標題</span><br><span class="line">## 二级標題</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;是一级標題&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;一級標題&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;二级標題&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<h1 id="是一级標題"><a href="#是一级標題" class="headerlink" title="是一级標題"></a>是一级標題</h1><h1 id="一級標題"><a href="#一級標題" class="headerlink" title="一級標題"></a>一級標題</h1><h2 id="二级標題"><a href="#二级標題" class="headerlink" title="二级標題"></a>二级標題</h2><h2 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_斜體_</span><br><span class="line">**粗體**</span><br><span class="line">`等寬字型Monospace`</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;em&gt;斜體&lt;/em&gt;</span><br><span class="line">&lt;strong&gt;粗體&lt;/strong&gt;</span><br><span class="line">&lt;code&gt;等寬字型Monospace&lt;/code&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><em>斜體</em><br><strong>粗體</strong><br><code>等寬字型Monospace</code></p>
+<h2 id="多行程式碼"><a href="#多行程式碼" class="headerlink" title="多行程式碼"></a>多行程式碼</h2><p><img src="https://static.coderbridge.com/img/happycoder/5e381c25c2674912a76cf31f1f241573.png"></p>
+<p><img src="/images/posts/learning-markdown-html-tutorial-4.jpg"></p>
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;</span><br><span class="line">    &lt;code&gt;</span><br><span class="line">        &lt;span&gt;print(&#x27;hello world&#x27;)&lt;/span&gt;</span><br><span class="line">    &lt;/code&gt;</span><br><span class="line">&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;hello world code :)&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="水平線"><a href="#水平線" class="headerlink" title="水平線"></a>水平線</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<hr>
+<h2 id="無序列表"><a href="#無序列表" class="headerlink" title="無序列表"></a>無序列表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 張三</span><br><span class="line">* 李四</span><br><span class="line">* 王二</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;張三&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;李四&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;王二&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li>張三</li>
+<li>李四</li>
+<li>王二</li>
+</ul>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 不論</span><br><span class="line">2. 三七</span><br><span class="line">3. 二十一</span><br></pre></td></tr></table></figure>
+
+<p>有序列表，其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">    &lt;li&gt;不論&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;三七&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;二十一&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ol>
+<li>不論</li>
+<li>三七</li>
+<li>二十一</li>
+</ol>
+<h2 id="巢狀有序列表"><a href="#巢狀有序列表" class="headerlink" title="巢狀有序列表"></a>巢狀有序列表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 不論</span><br><span class="line">    - 第一</span><br><span class="line">    - 第二</span><br><span class="line">    - 第三</span><br><span class="line">2. 三七</span><br><span class="line">    1. 第一</span><br><span class="line">    2. 第二</span><br><span class="line">    3. 第三</span><br><span class="line">3. 二十一</span><br></pre></td></tr></table></figure>
+
+<p>有序列表，其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">    &lt;li&gt;不論</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;第一&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;第二&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;第三&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    &lt;li&gt;三七</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li&gt;第一&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;第二&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;第三&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    &lt;li&gt;二十一&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ol>
+<li>不論<ul>
+<li>第一</li>
+<li>第二</li>
+<li>第三</li>
+</ul>
+</li>
+<li>三七<ol>
+<li>第一</li>
+<li>第二</li>
+<li>第三</li>
+</ol>
+</li>
+<li>二十一</li>
+</ol>
+<h2 id="超連結"><a href="#超連結" class="headerlink" title="超連結"></a>超連結</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[連結文字](連結網址)</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/HTML.svg/200px-HTML.svg.png&quot;&gt;連結文字&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><a href="https://www.happycoder.org/">連結文字</a></p>
+<h2 id="圖片"><a href="#圖片" class="headerlink" title="圖片"></a>圖片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![文字屬性](Icon-pictures.png &quot;文字標題&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為（少數沒有成對出現的元素標籤）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;連結網址&quot; alt=&quot;文字屬性&quot; title=&quot;文字標題&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="https://www.python.org/static/opengraph-icon-200x200.png" alt="圖片文字" title="圖片標題"></p>
+<h2 id="注釋引用"><a href="#注釋引用" class="headerlink" title="注釋引用"></a>注釋引用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Markdown使用電郵用字元「&gt;」來引用。</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;連結網址&quot;&gt;連結文字&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>Markdown 使用電郵用字元「&gt;」來引用。</p>
+</blockquote>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| Column 1 | Column 2 | Column 3 |</span><br><span class="line">| -------- | -------- | -------- |</span><br><span class="line">| Text     | Text     | Text     |</span><br></pre></td></tr></table></figure>
+
+<p>其 HTML 元素為：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;Column 1&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;Column 2&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;Column 3&lt;/th&gt;</span><br><span class="line">         &lt;/tr&gt;</span><br><span class="line">     &lt;/thead&gt;</span><br><span class="line">     &lt;tbody&gt;</span><br><span class="line">         &lt;tr&gt;</span><br><span class="line">             &lt;td&gt;Text&lt;/td&gt;</span><br><span class="line">             &lt;td&gt;Text&lt;/td&gt;</span><br><span class="line">             &lt;td&gt;Text&lt;/td&gt;</span><br><span class="line">         &lt;/tr&gt;</span><br><span class="line">     &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Text</td>
+<td>Text</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上簡單介紹了：</p>
+<ol>
+<li>什麼是 HTML？</li>
+<li>Markdown 常見語法教學</li>
+</ol>
+<p>以上介紹了 HTML 和 Markdown 基礎語法的教學，透過 Markdown 這一種簡潔易懂的語法，我們可以更專注在內容創作上。對於一個自學程式設計新手而言，培養撰寫文章的習慣（例如：建立自己的技術部落格）是很重要的環節，不但可以累計自己經歷也可以強化記憶並幫助到需要的人。若是需要完整語法介紹可以參考<a target="_blank" rel="noopener" href="https://markdown.tw/">markdown.tw</a>，當然，只要多加練習就可以慢慢掌握 Markdown 語法的訣竅，進而喜歡這種簡潔的書寫方式。</p>
+<h1 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Github Basic writing and formatting syntax</a></li>
+<li><a target="_blank" rel="noopener" href="https://markdown.tw/">markdown.tw</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Markdown">markdown wiki</a></li>
+</ol>
+
+
+        <br />
+
+        
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script
+          type="text/javascript"
+          src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"
+        ></script>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
+        
+
+        <br />
+        <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+        <br />
+        <div class="fb-like-block">
+          <div
+            class="fb-like"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+        </div>
+        <br />
+        <br />
+        <div>
+          在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！
+        </div>
+        <div
+          class="fb-page"
+          data-href="https://www.facebook.com/HappyCoderOrg"
+          data-small-header="false"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="true"
+        >
+          <blockquote
+            cite="https://www.facebook.com/HappyCoderOrg"
+            class="fb-xfbml-parse-ignore"
+          >
+            <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg"
+              >HappyCoder 自學程式設計學院</a
+            >
+          </blockquote>
+        </div>
+        <br />
+        <br />
+        <div>
+          <h2>更多程式設計教學文章</h2>
+          <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/python101/vscode-index.png" /></div><div class="popular-posts-title"><h3><a href="/2017/11/17/how-to-setup-python-development-environment-in-windows/" title="如何在 Windows 打造 Python 開發環境設定基礎入門教學" rel="bookmark">如何在 Windows 打造 Python 開發環境設定基礎入門教學</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/10/learning-programming-and-coding-with-python-introduction/" title="用 Python 自學程式設計：程式設計思維入門" rel="bookmark">用 Python 自學程式設計：程式設計思維入門</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/" title="用 Python 自學程式設計：list、tuple、dict and set" rel="bookmark">用 Python 自學程式設計：list、tuple、dict and set</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="/images/learning-programming/coding.jpg" /></div><div class="popular-posts-title"><h3><a href="/2017/08/11/learning-programming-and-coding-with-python-variable/" title="用 Python 自學程式設計：變數（variable）與資料型別（type）" rel="bookmark">用 Python 自學程式設計：變數（variable）與資料型別（type）</a></h3></div></li></ul>
+        </div>
+        <style>
+          .fb-like-block {
+            width: 100px !important;
+          }
+          .popular-posts {
+            list-style: none;
+            display: flex;
+          }
+          .popular-posts-item {
+            width: 25%;
+            padding: 10px;
+          }
+          .popular-posts-title a {
+            font-size: 16px;
+            text-decoration: none;
+          }
+          @media only screen and (max-width: 600px) {
+            .popular-posts-item {
+              width: 100%;
+              padding: 10px;
+            }
+            .popular-posts {
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        </style>
+      </div>
+      <br />
+      <hr />
+      <div class="container">
+        <iframe
+          src="https://happycoder.substack.com/embed"
+          width="100%"
+          height="320"
+          style="border: 1px solid #eee; background: white"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+
+      <!-- Comments -->
+      
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.instagram.com/happycoder_org" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.youtube.com/@HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder | AI 自學程式設計學院 2025
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>
