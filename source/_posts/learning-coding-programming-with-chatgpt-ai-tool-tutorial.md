@@ -168,3 +168,7 @@ while True:
 你可以從「請幫我寫一支輸出 Hello, World 的 Python 程式」這樣簡單的對話開始，到最後獨立完成一個個有用的小工具。這不僅是一條技能學習的道路，更是你建立邏輯思維、自信心與問題解決力的旅程。
 
 現在就打開你的編輯器，開始寫第一行程式吧。如果你不知道該寫什麼，試著問 ChatGPT：「今天我可以練習什麼 Python 題目？」
+
+## 參考文件
+
+1. [直覺式程式開發是什麼？](https://cloud.google.com/discover/what-is-vibe-coding?hl=zh-TW)
