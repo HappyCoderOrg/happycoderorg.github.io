@@ -1821,6 +1821,161 @@
       </tags>
   </entry>
   <entry>
+    <title>使用 Cursor AI Editor 自學程式設計指南</title>
+    <url>/2025/01/27/learning-coding-programming-with-cursor-ai-editor-tool-tutorial/</url>
+    <content><![CDATA[<p><img src="/images/posts/learning-coding-programming-with-cursor-ai-editor-tool-tutorial-1.jpg"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在過去，自學程式設計往往需要依靠書籍、線上課程與不斷查詢文件。但隨著 AI 工具的發展，學習編程的方式有了根本性的改變。其中，<strong>Cursor AI Editor</strong> 作為一款內建 AI 協作的程式開發工具，正在迅速改變開發與學習的流程。</p>
+<p><strong>Cursor</strong> 是一款基於 Visual Studio Code（VSCode）打造的 AI 編輯器，結合了大型語言模型（如 GPT-4）的強大能力，提供自然語言詢問、程式碼補全、錯誤解釋、重構建議、即時除錯等功能。它不只是編輯器，更是學習者的私人助教。</p>
+<p>本篇教學筆記將介紹 Cursor 的特色、安裝方式、學習策略與實際操作案例，幫助讀者高效且系統性地使用 Cursor 進行自學。</p>
+<p><img src="/images/posts/learning-coding-programming-with-cursor-ai-editor-tool-tutorial-2.jpg"></p>
+<hr>
+<h2 id="重點摘要"><a href="#重點摘要" class="headerlink" title="重點摘要"></a>重點摘要</h2><ul>
+<li><p><strong>什麼是 Cursor？</strong></p>
+<ul>
+<li>基於 VSCode 打造的 AI 編輯器，內建 OpenAI 的 GPT 模型。</li>
+<li>主打「AI 內嵌互動」，能即時解釋、補全、建議與生成程式碼。</li>
+</ul>
+</li>
+<li><p><strong>為什麼用 Cursor 來自學程式？</strong></p>
+<ul>
+<li>可以「邊寫邊問」：例如不懂 for 迴圈可以直接用自然語言提問。</li>
+<li>不需要來回切換 ChatGPT 網頁與 IDE。</li>
+<li>適合快速原型設計、除錯與重構練習。</li>
+<li>學習者可專注在理解邏輯與實作，不被語法阻礙。</li>
+</ul>
+</li>
+<li><p><strong>適合學習的語言</strong></p>
+<ul>
+<li>Python（入門首選）</li>
+<li>JavaScript、TypeScript（網頁開發）</li>
+<li>Go、Rust（系統程式）</li>
+<li>HTML、CSS、React（前端設計）</li>
+</ul>
+</li>
+<li><p><strong>常見使用場景</strong></p>
+<ul>
+<li>問語法與錯誤訊息</li>
+<li>撰寫函式與模組</li>
+<li>重構既有程式碼</li>
+<li>撰寫註解與單元測試</li>
+<li>撰寫教學與技術說明文件</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="安裝與啟用教學"><a href="#安裝與啟用教學" class="headerlink" title="安裝與啟用教學"></a>安裝與啟用教學</h2><h3 id="Step-1：下載-Cursor"><a href="#Step-1：下載-Cursor" class="headerlink" title="Step 1：下載 Cursor"></a>Step 1：下載 Cursor</h3><ul>
+<li>前往官網：<a href="https://www.cursor.sh/">https://www.cursor.sh</a></li>
+<li>支援 macOS、Windows、Linux</li>
+<li>安裝後即為一個 VSCode-like 的獨立應用程式</li>
+</ul>
+<h3 id="Step-2：登入與模型設定"><a href="#Step-2：登入與模型設定" class="headerlink" title="Step 2：登入與模型設定"></a>Step 2：登入與模型設定</h3><ul>
+<li>使用 Google 或 GitHub 帳號登入</li>
+<li>免費帳號可使用 GPT-3.5</li>
+<li>若訂閱 Plus，可使用 GPT-4 Turbo，提升準確率與理解能力</li>
+</ul>
+<h3 id="Step-3：開啟專案或建立新檔案"><a href="#Step-3：開啟專案或建立新檔案" class="headerlink" title="Step 3：開啟專案或建立新檔案"></a>Step 3：開啟專案或建立新檔案</h3><ul>
+<li>可直接開啟資料夾或單一檔案進行練習</li>
+<li>支援多種語言高亮與執行（視安裝套件而定）</li>
+</ul>
+<hr>
+<h2 id="實際學習範例"><a href="#實際學習範例" class="headerlink" title="實際學習範例"></a>實際學習範例</h2><h3 id="範例一：學習-Python-的-for-迴圈"><a href="#範例一：學習-Python-的-for-迴圈" class="headerlink" title="範例一：學習 Python 的 for 迴圈"></a>範例一：學習 Python 的 for 迴圈</h3><p><strong>操作步驟：</strong></p>
+<ol>
+<li>建立一個檔案 <code>loop_example.py</code></li>
+<li>輸入註解：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用 for 迴圈列出 1 到 10 的平方</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Cursor AI 自動補齊：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    <span class="built_in">print</span>(i ** <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>若不懂 <code>range(1, 11)</code>，可選取並右鍵點選「Ask AI」，輸入：「這段 range 是什麼意思？」</p>
+</li>
+<li><p>AI 回覆：</p>
+</li>
+</ol>
+<blockquote>
+<p><code>range(1, 11)</code> 代表從 1 到 10（不含 11）的整數序列。</p>
+</blockquote>
+<hr>
+<h3 id="範例二：重構程式碼並學習函式封裝"><a href="#範例二：重構程式碼並學習函式封裝" class="headerlink" title="範例二：重構程式碼並學習函式封裝"></a>範例二：重構程式碼並學習函式封裝</h3><p><strong>原始碼：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, Alice&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, Bob&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, Charlie&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>操作：</strong></p>
+<ul>
+<li>選取三行程式，點擊「Ask AI」→ Prompt：「將這段重構成一個函式並使用參數」</li>
+</ul>
+<p><strong>AI 回覆：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">greet(<span class="string">&quot;Alice&quot;</span>)</span><br><span class="line">greet(<span class="string">&quot;Bob&quot;</span>)</span><br><span class="line">greet(<span class="string">&quot;Charlie&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>你可以反向問 AI：「為什麼這樣寫比較好？」來進行設計思維學習。</p>
+<hr>
+<h3 id="範例三：查錯與除錯練習"><a href="#範例三：查錯與除錯練習" class="headerlink" title="範例三：查錯與除錯練習"></a>範例三：查錯與除錯練習</h3><p><strong>錯誤程式碼：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<p><strong>操作：</strong></p>
+<ul>
+<li>AI 會即時標出語法錯誤</li>
+<li>你可以點選錯誤紅線，詢問 AI「為什麼錯？」</li>
+</ul>
+<p><strong>AI 解釋：</strong></p>
+<blockquote>
+<p>缺少冒號，應改為 <code>for i in range(5):</code></p>
+</blockquote>
+<p>這能幫助初學者從錯誤中快速學習語法規則。</p>
+<hr>
+<h3 id="範例四：使用自然語言寫出完整函式"><a href="#範例四：使用自然語言寫出完整函式" class="headerlink" title="範例四：使用自然語言寫出完整函式"></a>範例四：使用自然語言寫出完整函式</h3><p><strong>Prompt：</strong></p>
+<blockquote>
+<p>寫一個函式，輸入生日字串 “1990-05-20”，回傳目前年齡（以今天為準）</p>
+</blockquote>
+<p><strong>AI 產生：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_age</span>(<span class="params">birthday_str</span>):</span><br><span class="line">    birthday = datetime.strptime(birthday_str, <span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">    today = datetime.today()</span><br><span class="line">    age = today.year - birthday.year - ((today.month, today.day) &lt; (birthday.month, birthday.day))</span><br><span class="line">    <span class="keyword">return</span> age</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(calculate_age(<span class="string">&quot;1990-05-20&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>你可以繼續問 AI：「請幫我加上類型註解與 docstring」。</p>
+<hr>
+<h2 id="自學策略建議"><a href="#自學策略建議" class="headerlink" title="自學策略建議"></a>自學策略建議</h2><ul>
+<li><strong>從小功能練習開始</strong>：例如撰寫簡單計算器、字串反轉等</li>
+<li><strong>每日一題 &#x2F; 一功能</strong>：寫完後請 AI 幫忙檢查、重構</li>
+<li><strong>主動問問題</strong>：任何看不懂的語法、邏輯、錯誤訊息都可以問 AI</li>
+<li><strong>反覆重構與測試</strong>：藉由練習重構與單元測試培養良好工程習慣</li>
+<li><strong>閱讀 AI 解釋</strong>：不要只複製貼上，理解 AI 為何這樣寫</li>
+</ul>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>Cursor AI Editor 提供了一個嶄新的學習編程體驗，不需要離開編輯器、查 Stack Overflow 或切到 ChatGPT 頁面，就能獲得即時的回饋與教學。它讓程式碼本身成為教材，讓錯誤成為學習的入口，也讓初學者擁有如同一對一家教般的指導資源。</p>
+<p>無論你是程式設計初學者、職涯轉職者，或是希望精進特定語言技巧的開發者，使用 Cursor 都能有效提升學習效率與成效。建議搭配一個實際專案（如 Todo App、API Server）作為學習主軸，在實作中成長，在 AI 引導下理解設計背後的邏輯。</p>
+<h2 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h2><ol>
+<li><a href="https://cloud.google.com/discover/what-is-vibe-coding?hl=zh-TW">直覺式程式開發是什麼？</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>自學程式</tag>
+        <tag>自學程式設計</tag>
+        <tag>程式設計</tag>
+        <tag>線上自學</tag>
+        <tag>coding</tag>
+        <tag>coder</tag>
+        <tag>programming</tag>
+        <tag>computer</tag>
+        <tag>computer science</tag>
+        <tag>code</tag>
+        <tag>電腦科學</tag>
+        <tag>學寫程式</tag>
+        <tag>學程式</tag>
+        <tag>software</tag>
+        <tag>software enginnering</tag>
+        <tag>web</tag>
+        <tag>ChatGPT</tag>
+        <tag>AI 工具</tag>
+        <tag>cursor</tag>
+        <tag>vibe coding</tag>
+        <tag>vibe</tag>
+        <tag>AI 輔助程式設計</tag>
+        <tag>AI 直覺式程式設計</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用 Python 自學程式設計：list、tuple、dict and set</title>
     <url>/2017/08/15/learning-markdown-html-tutorial/</url>
     <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"></p>
@@ -2129,84 +2284,6 @@
       </tags>
   </entry>
   <entry>
-    <title>用 Python 自學程式設計：變數（variable）與資料型別（type）</title>
-    <url>/2017/08/11/learning-programming-and-coding-with-python-variable/</url>
-    <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前一單元中我們了解了程式設計思維的概念和建立了 Python 的開發環境，在這一單元中我們將了解 Python 變數與資料型別以及如何操作字串。</p>
-<h1 id="電腦最初的用途就是一台超大台計算機"><a href="#電腦最初的用途就是一台超大台計算機" class="headerlink" title="電腦最初的用途就是一台超大台計算機"></a>電腦最初的用途就是一台超大台計算機</h1><p>資料的儲存以及操作在程式設計中扮演非常重要的角色，因為最早的電腦程式就是一種大型的計算機（最早的電腦就稱為計算機），即便現在學校教授電腦科學概論往往都會把課程稱為計算機概論呢！在操作資料的過程中如何儲存資料就是非常重要的事情，一般而言資料儲存有分為暫時儲存的揮發性資料（儲存在記憶體中的變數資料）和持久性儲存的資料（例如：資料庫、檔案等），在這邊我們討論的是變數的資料。</p>
-<h1 id="在-Python-世界，所有東西都是物件"><a href="#在-Python-世界，所有東西都是物件" class="headerlink" title="在 Python 世界，所有東西都是物件"></a>在 Python 世界，所有東西都是物件</h1><p>在 Python 世界中，所有東西都是物件，物件可以視為透明的箱子，裡面存了一些資料。物件會有自己的資料型別，決定它做什麼樣的操作。另外，又依據箱子內的值可否改變而分為<code>不可變物件</code>和<code>可變物件</code>。</p>
-<p>在前面我們有提到資料可以儲存在記憶體中的變數，在 Python 中變數只是一種名稱，當給定值時不會將值複製，而是將名稱貼到給定的物件上（注意 Python 程式語言中的 <code>=</code> 是給定值，<code>==</code> 才是相等的意思）</p>
-<p>談到資料，就不得不談一下資料型別（type），雖然在 Python 不用像 C 語言之類程式語言需要在變數前面定義資料型別（在 Python 中 class 類別和 type 類型幾乎代表同一件事情，class 類別則是定義物件的基礎），但物件的資料型別會影響資料操作，所以值得我們好好認識。在 Python 世界裡，可以分為以下幾種<code>簡單</code>資料型別（可以想像成化學課中的原子）：</p>
-<ol>
-<li><code>bool</code> 布林，分為 <code>True</code>、<code>False</code> 通常用於條件判斷</li>
-<li><code>int</code> 整數，例如： <code>10</code>、<code>999999</code> </li>
-<li><code>float</code> 浮點數，係指有小數點的整數：<code>1.222</code>、<code>1.0e7</code> 等同於 10 的 7 次方</li>
-<li><code>string</code> 字串，一串文字字元</li>
-</ol>
-<p>我們可以透過 <code>type(物件)</code> 去確認該物件的型別：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(True)</span><br><span class="line">print(101)</span><br><span class="line">print(3.14)</span><br><span class="line">print(&#x27;happy coding&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p>另外一種是<code>複雜</code>資料型別（可以想像成是化學課中的分子），這個我們會在下一個單元做討論：</p>
-<ol>
-<li><code>list</code> 串列，用於儲存一系列序列資料（可以儲存不同資料型別），類似於其他程式語言的陣列但更為強大</li>
-<li><code>tuple</code> 元組，類似於 list 串列，但不同的是 tuple 給定元素後不能改變</li>
-<li><code>dict</code> 字典，和串列很像但不在乎元素順序，而且不會使用 0,1,…等的序列 index 來選擇項目，反之我們必須宣告唯一的 key 鍵值來對應想儲存的 value 值</li>
-<li><code>set</code> 集合，集合就像是被移除 value 值的字典，只有保留 key 鍵值，也就是說 set 的內容元素都必須是獨一無二的</li>
-</ol>
-<h1 id="物件又分可變和不可變物件"><a href="#物件又分可變和不可變物件" class="headerlink" title="物件又分可變和不可變物件"></a>物件又分可變和不可變物件</h1><ol>
-<li><p>不可變物件（int, string, float, tuple），亦即若資料改變，會複製一份資料到新的記憶體空間然後資料更新，下面是一個簡單範例：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">i = 101 # 宣告一個變數將 i 便條紙貼到 101 物件</span><br><span class="line">j = 101 # 宣告一個變數將 j 便條紙貼到 101 物件</span><br><span class="line">print(id(101)) # 印出 101 物件 id，可以想成是記憶體位置        </span><br><span class="line">print(&#x27;i id:&#x27; + str(id(i))) # 印出 i 指向的 id，和 101 物件值相同</span><br><span class="line">print(&#x27;j id:&#x27; + str(id(j))) # 印出 j 指向的 id，和 101 物件值相同</span><br><span class="line">print(i is j) # 因為兩者會貼到同一個物件所以會顯示相等，True</span><br><span class="line">j = j + 1 # 若資料改變，會複製一份資料到新的記憶體空間然後資料更新</span><br><span class="line">print(&#x27;new i id:&#x27; + str(id(i))) # 印出一樣的 id</span><br><span class="line">print(&#x27;new j id:&#x27; + str(id(j))) # 印出新的 id</span><br><span class="line">print(i is j) # 兩者指到不同的記憶體位置，False</span><br></pre></td></tr></table></figure>
-
-<p> 執行結果：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140181136769920</span><br><span class="line">i id:140181136769920</span><br><span class="line">j id:140181136769920</span><br><span class="line">True</span><br><span class="line">new i id:140181136769920</span><br><span class="line">new j id:140181136769952</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可變物件（list, dict, set），亦即若資料改變則直接在指向的記憶體空間改變資料，下面是一個簡單範例：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = &#123;&#125; # 宣告一個變數指到一個空字典 dict</span><br><span class="line">b = a # 將 b 變數指到 a 同樣記憶體位置</span><br><span class="line">print(id(a)) # 印出 a 的 id </span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br><span class="line">a[&#x27;a&#x27;] = &#x27;python&#x27; # 改變 a 的鍵值</span><br><span class="line">print(&#x27;id a:&#x27; + str(id(a))) # 印出 a id </span><br><span class="line">print(&#x27;a:&#x27; + str(a)) # 印出內容值</span><br><span class="line">print(&#x27;id b:&#x27; + str(id(b))) # 印出 b id，dict 為可變物件，印出 id 會和 a 一樣</span><br><span class="line">print(&#x27;b:&#x27; + str(b)) # dict 為可變物件，印出內容值會和 a 一樣</span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br></pre></td></tr></table></figure>
-
-<p> 執行結果：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140181112792336</span><br><span class="line">id a:140181112792336</span><br><span class="line">a:&#123;&#x27;a&#x27;: &#x27;python&#x27;&#125;</span><br><span class="line">True</span><br><span class="line">id b:140181112792336</span><br><span class="line">b:&#123;&#x27;a&#x27;: &#x27;python&#x27;&#125;</span><br><span class="line">True</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>另外，Python 支援強制轉換資料型別：<br>可以透過 int()、float()、str() 進行資料型別轉換</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int(1.2)</span><br><span class="line">float(&#x27;1.3&#x27;)</span><br><span class="line">str(&#x27;1&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="字串操作好好玩"><a href="#字串操作好好玩" class="headerlink" title="字串操作好好玩"></a>字串操作好好玩</h1><p>在程式設計的世界中，操作字串基本上是家常便飯，接著我們來談談在 Python 中如何進行字串的操作：</p>
-<p>在 Python 中若要宣告字串，可以使用單引號或雙引號，會有兩種方式是因為讓開發者可以產生有 <code>&#39;</code> 或 <code>&quot;</code> 內容的字串。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my_str = &#x27;This is a &quot;good&quot; language!&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>但要特別留意的是在 Python3 和 Python2 對於字串的支援不盡相同，在 Python 中支援 Unicode 標準。與其他程式語言不同的是 Python 字元是不可變的，不能直接改變字串，但可以將一部分字串複製到其他字串。</p>
-<p>以下是常見字串操作方式：</p>
-<ol>
-<li><p>宣告字串</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>串連字串 +</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">word = &#x27;I love&#x27;</span><br><span class="line">word + language </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>複製字串 *</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">language * 3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>選取字串 [開始:結束:間隔]</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">language[0:1] # p</span><br><span class="line">language[0:-1] # pytho</span><br><span class="line">language[0:4:2] # ph</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>len、split、join、replace 字串操作</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">print(len(language)) # 印出字串長度 6</span><br><span class="line">print(language.split(3)) # 切割字串長度</span><br><span class="line">print(language.join(3)) # 切割字串長度</span><br><span class="line">print(language.replace(3)) # 切割字串長度</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上我們介紹了在 Python 世界中物件是基本元素，也介紹了變數以及字串的操作，接下來我們將透過 Python 介紹程式設計的內涵和不同的應用情境以及<code>複雜</code>資料型別的使用。</p>
-<p>（image via <a href="https://i.amz.mshcdn.com/rRxXhoIhNucutinAio8YRF4TvzE=/1200x630/2017%2F06%2F15%2F71%2Fc1a206081efd44d1b61f5c0f86dcda6c.c222e.jpg">mshcdn</a>）</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="https://www.python.org/">Python 官網</a></li>
-<li><a href="https://pics.ee/1HC~">JavaScript 程式設計新手村</a></li>
-<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰</a></li>
-<li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
-<li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
-<li><a href="http://www.jianshu.com/p/c5582e23b26c">python可变和不可变对象</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用 Python 自學程式設計：list、tuple、dict and set</title>
     <url>/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/</url>
     <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
@@ -2326,6 +2403,84 @@
 <li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰</a></li>
 <li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
 <li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Python, Django, MVC, Web, MTV, Web Backend, Web Framework, 教學, Flask, 框架, coding, code, 程式設計, 自學程式設計, CS, Computer, Computer Science</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Python 自學程式設計：變數（variable）與資料型別（type）</title>
+    <url>/2017/08/11/learning-programming-and-coding-with-python-variable/</url>
+    <content><![CDATA[<p><img src="/images/learning-programming/coding.jpg" alt="Python 自學程式設計：程式設計思維入門"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在前一單元中我們了解了程式設計思維的概念和建立了 Python 的開發環境，在這一單元中我們將了解 Python 變數與資料型別以及如何操作字串。</p>
+<h1 id="電腦最初的用途就是一台超大台計算機"><a href="#電腦最初的用途就是一台超大台計算機" class="headerlink" title="電腦最初的用途就是一台超大台計算機"></a>電腦最初的用途就是一台超大台計算機</h1><p>資料的儲存以及操作在程式設計中扮演非常重要的角色，因為最早的電腦程式就是一種大型的計算機（最早的電腦就稱為計算機），即便現在學校教授電腦科學概論往往都會把課程稱為計算機概論呢！在操作資料的過程中如何儲存資料就是非常重要的事情，一般而言資料儲存有分為暫時儲存的揮發性資料（儲存在記憶體中的變數資料）和持久性儲存的資料（例如：資料庫、檔案等），在這邊我們討論的是變數的資料。</p>
+<h1 id="在-Python-世界，所有東西都是物件"><a href="#在-Python-世界，所有東西都是物件" class="headerlink" title="在 Python 世界，所有東西都是物件"></a>在 Python 世界，所有東西都是物件</h1><p>在 Python 世界中，所有東西都是物件，物件可以視為透明的箱子，裡面存了一些資料。物件會有自己的資料型別，決定它做什麼樣的操作。另外，又依據箱子內的值可否改變而分為<code>不可變物件</code>和<code>可變物件</code>。</p>
+<p>在前面我們有提到資料可以儲存在記憶體中的變數，在 Python 中變數只是一種名稱，當給定值時不會將值複製，而是將名稱貼到給定的物件上（注意 Python 程式語言中的 <code>=</code> 是給定值，<code>==</code> 才是相等的意思）</p>
+<p>談到資料，就不得不談一下資料型別（type），雖然在 Python 不用像 C 語言之類程式語言需要在變數前面定義資料型別（在 Python 中 class 類別和 type 類型幾乎代表同一件事情，class 類別則是定義物件的基礎），但物件的資料型別會影響資料操作，所以值得我們好好認識。在 Python 世界裡，可以分為以下幾種<code>簡單</code>資料型別（可以想像成化學課中的原子）：</p>
+<ol>
+<li><code>bool</code> 布林，分為 <code>True</code>、<code>False</code> 通常用於條件判斷</li>
+<li><code>int</code> 整數，例如： <code>10</code>、<code>999999</code> </li>
+<li><code>float</code> 浮點數，係指有小數點的整數：<code>1.222</code>、<code>1.0e7</code> 等同於 10 的 7 次方</li>
+<li><code>string</code> 字串，一串文字字元</li>
+</ol>
+<p>我們可以透過 <code>type(物件)</code> 去確認該物件的型別：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(True)</span><br><span class="line">print(101)</span><br><span class="line">print(3.14)</span><br><span class="line">print(&#x27;happy coding&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>另外一種是<code>複雜</code>資料型別（可以想像成是化學課中的分子），這個我們會在下一個單元做討論：</p>
+<ol>
+<li><code>list</code> 串列，用於儲存一系列序列資料（可以儲存不同資料型別），類似於其他程式語言的陣列但更為強大</li>
+<li><code>tuple</code> 元組，類似於 list 串列，但不同的是 tuple 給定元素後不能改變</li>
+<li><code>dict</code> 字典，和串列很像但不在乎元素順序，而且不會使用 0,1,…等的序列 index 來選擇項目，反之我們必須宣告唯一的 key 鍵值來對應想儲存的 value 值</li>
+<li><code>set</code> 集合，集合就像是被移除 value 值的字典，只有保留 key 鍵值，也就是說 set 的內容元素都必須是獨一無二的</li>
+</ol>
+<h1 id="物件又分可變和不可變物件"><a href="#物件又分可變和不可變物件" class="headerlink" title="物件又分可變和不可變物件"></a>物件又分可變和不可變物件</h1><ol>
+<li><p>不可變物件（int, string, float, tuple），亦即若資料改變，會複製一份資料到新的記憶體空間然後資料更新，下面是一個簡單範例：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">i = 101 # 宣告一個變數將 i 便條紙貼到 101 物件</span><br><span class="line">j = 101 # 宣告一個變數將 j 便條紙貼到 101 物件</span><br><span class="line">print(id(101)) # 印出 101 物件 id，可以想成是記憶體位置        </span><br><span class="line">print(&#x27;i id:&#x27; + str(id(i))) # 印出 i 指向的 id，和 101 物件值相同</span><br><span class="line">print(&#x27;j id:&#x27; + str(id(j))) # 印出 j 指向的 id，和 101 物件值相同</span><br><span class="line">print(i is j) # 因為兩者會貼到同一個物件所以會顯示相等，True</span><br><span class="line">j = j + 1 # 若資料改變，會複製一份資料到新的記憶體空間然後資料更新</span><br><span class="line">print(&#x27;new i id:&#x27; + str(id(i))) # 印出一樣的 id</span><br><span class="line">print(&#x27;new j id:&#x27; + str(id(j))) # 印出新的 id</span><br><span class="line">print(i is j) # 兩者指到不同的記憶體位置，False</span><br></pre></td></tr></table></figure>
+
+<p> 執行結果：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140181136769920</span><br><span class="line">i id:140181136769920</span><br><span class="line">j id:140181136769920</span><br><span class="line">True</span><br><span class="line">new i id:140181136769920</span><br><span class="line">new j id:140181136769952</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可變物件（list, dict, set），亦即若資料改變則直接在指向的記憶體空間改變資料，下面是一個簡單範例：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = &#123;&#125; # 宣告一個變數指到一個空字典 dict</span><br><span class="line">b = a # 將 b 變數指到 a 同樣記憶體位置</span><br><span class="line">print(id(a)) # 印出 a 的 id </span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br><span class="line">a[&#x27;a&#x27;] = &#x27;python&#x27; # 改變 a 的鍵值</span><br><span class="line">print(&#x27;id a:&#x27; + str(id(a))) # 印出 a id </span><br><span class="line">print(&#x27;a:&#x27; + str(a)) # 印出內容值</span><br><span class="line">print(&#x27;id b:&#x27; + str(id(b))) # 印出 b id，dict 為可變物件，印出 id 會和 a 一樣</span><br><span class="line">print(&#x27;b:&#x27; + str(b)) # dict 為可變物件，印出內容值會和 a 一樣</span><br><span class="line">print(a is b) # 兩者指到相同的記憶體位置，True</span><br></pre></td></tr></table></figure>
+
+<p> 執行結果：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140181112792336</span><br><span class="line">id a:140181112792336</span><br><span class="line">a:&#123;&#x27;a&#x27;: &#x27;python&#x27;&#125;</span><br><span class="line">True</span><br><span class="line">id b:140181112792336</span><br><span class="line">b:&#123;&#x27;a&#x27;: &#x27;python&#x27;&#125;</span><br><span class="line">True</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>另外，Python 支援強制轉換資料型別：<br>可以透過 int()、float()、str() 進行資料型別轉換</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int(1.2)</span><br><span class="line">float(&#x27;1.3&#x27;)</span><br><span class="line">str(&#x27;1&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="字串操作好好玩"><a href="#字串操作好好玩" class="headerlink" title="字串操作好好玩"></a>字串操作好好玩</h1><p>在程式設計的世界中，操作字串基本上是家常便飯，接著我們來談談在 Python 中如何進行字串的操作：</p>
+<p>在 Python 中若要宣告字串，可以使用單引號或雙引號，會有兩種方式是因為讓開發者可以產生有 <code>&#39;</code> 或 <code>&quot;</code> 內容的字串。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">my_str = &#x27;This is a &quot;good&quot; language!&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>但要特別留意的是在 Python3 和 Python2 對於字串的支援不盡相同，在 Python 中支援 Unicode 標準。與其他程式語言不同的是 Python 字元是不可變的，不能直接改變字串，但可以將一部分字串複製到其他字串。</p>
+<p>以下是常見字串操作方式：</p>
+<ol>
+<li><p>宣告字串</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>串連字串 +</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">word = &#x27;I love&#x27;</span><br><span class="line">word + language </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>複製字串 *</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">language * 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>選取字串 [開始:結束:間隔]</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">language[0:1] # p</span><br><span class="line">language[0:-1] # pytho</span><br><span class="line">language[0:4:2] # ph</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>len、split、join、replace 字串操作</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language = &#x27;python&#x27;</span><br><span class="line">print(len(language)) # 印出字串長度 6</span><br><span class="line">print(language.split(3)) # 切割字串長度</span><br><span class="line">print(language.join(3)) # 切割字串長度</span><br><span class="line">print(language.replace(3)) # 切割字串長度</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>以上我們介紹了在 Python 世界中物件是基本元素，也介紹了變數以及字串的操作，接下來我們將透過 Python 介紹程式設計的內涵和不同的應用情境以及<code>複雜</code>資料型別的使用。</p>
+<p>（image via <a href="https://i.amz.mshcdn.com/rRxXhoIhNucutinAio8YRF4TvzE=/1200x630/2017%2F06%2F15%2F71%2Fc1a206081efd44d1b61f5c0f86dcda6c.c222e.jpg">mshcdn</a>）</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://www.python.org/">Python 官網</a></li>
+<li><a href="https://pics.ee/1HC~">JavaScript 程式設計新手村</a></li>
+<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰</a></li>
+<li><a href="https://cofounderinc.com/2015/03/15/lerning-how-to-write-code/">非本科生，我想半路出家學寫程式，該如何開始？</a></li>
+<li><a href="http://happycoder.org/2017/01/27/learning-coding-programming-tutorial-and-resource/">自學程式設計學習資源懶人包</a></li>
+<li><a href="http://www.jianshu.com/p/c5582e23b26c">python可变和不可变对象</a></li>
 </ol>
 ]]></content>
       <tags>
@@ -3603,6 +3758,113 @@ References
       </tags>
   </entry>
   <entry>
+    <title>Python Web Flask 實戰開發教學 - 簡介與環境建置</title>
+    <url>/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</url>
+    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。一開始先從簡介和環境建置開始吧！</p>
+<h1 id="什麼是-Python？"><a href="#什麼是-Python？" class="headerlink" title="什麼是 Python？"></a>什麼是 Python？</h1><p><a href="https://zh.wikipedia.org/wiki/Python">Python</a> 是一種物件導向、直譯式的跨平台電腦程式語言，它包含了一組功能完備的標準庫和豐富套件生態系，可以輕鬆完成很多常見的任務（例如：讀寫檔案、自然語言處理、網路爬蟲、網站開發、機器學習等），因為它可以很輕易整合其他底層語言（例如：C&#x2F;C++ 等），所以又稱為膠水語言。它的語法簡單，與其它大多數程式設計語言使用大括弧不一樣，它使用空白縮進來定義語句塊。由於具備簡潔易學等特性，許多開發者推薦 Python 為初學者第一個學習的程式語言。由於版本更迭，我們接下來討論的主要是以 Python3 為主，若電腦沒有安裝的話，你可以在<a href="https://www.python.org/">官方網站下載</a>，若你不是安裝 <a href="https://www.continuum.io/downloads">Anaconda</a> 這個 all-in-one 版本的話（自帶許多套件和科學運算工具，也可以建立虛擬開發環境），記得要安裝 <a href="https://pypi.python.org/pypi/pip">pip</a>、<a href="https://ipython.org/">IPython</a>。 </p>
+<p>接下來我們將以 Anaconda 這個開發環境為主要講解環境。由於我們假定讀者已經有一些 Python 基礎，所以我們會跳過有關 Python 語法的基本較邵，若您對於 Python 入門基礎較不熟悉的話建議參考 <a href="/2016/12/31/python101-tutorial/">Python 101 快速入門教學</a> ，此外我們也提供了 <a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a> 可以參考。那就讓我們開始吧！</p>
+<h1 id="什麼是-Flask？"><a href="#什麼是-Flask？" class="headerlink" title="什麼是 Flask？"></a>什麼是 Flask？</h1><p><img src="/images/flask101/flask-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p><a href="http://flask.pocoo.org/">Flask</a> 是一個使用 Python 撰寫的輕量級 Web 應用程式框架，由於其輕量特性，也稱為 micro-framework（微框架）。Flask 核心十分簡單，主要是由 <a href="http://werkzeug.pocoo.org/">Werkzeug WSGI 工具箱</a>和 <a href="http://jinja.pocoo.org/docs/2.9/">Jinja2 模板引擎</a>所組成，Flask 和 Django 不同的地方在於 Flask 給予開發者非常大的彈性（當然你也可以說是需要思考更多事情），可以選用不同的用的 extension 來增加其功能。相比之下，Django 雖然完善但技術選擇相對不彈性，不論是 ORM、表單驗證或是模版引擎都有自己的作法。事實上沒有最好的框架，只有合適的使用情境，Django 相比之下適合需要快速的開發大型的應用程式，和 Ruby 中的 <a href="http://rubyonrails.org/">Ruby on Rails</a> 相似，而 Flask 則是相對輕量彈性，更像是 Ruby 界的 <a href="http://www.sinatrarb.com/">Sinatra</a>。若讀者想先體驗看看 Flask 的程式狀況，以下是 Flask 簡易運行的程式，啟動測試伺服器後，可以在瀏覽器中（<a href="http://localhost:5000/%EF%BC%89%E5%8D%B0%E5%87%BA">http://localhost:5000/）印出</a> <code>Hello World!</code>。</p>
+<figure class="highlight python"><figcaption><span>index.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Python-Web-開發環境建置"><a href="#Python-Web-開發環境建置" class="headerlink" title="Python Web 開發環境建置"></a>Python Web 開發環境建置</h1><p>所謂工欲善其事，必先利其器，要開發好的應用程式必須先準備好開發環境才行。以下介紹我們在接下來開發 Python Flask Web 應用程式所需要安裝的開發環境工具（以下以 Mac OS 等 Unix-like 作業系統為示範，若是 Windows 使用者建議安裝 Virtualbox 並運行 Linux Ubuntu 作業系統，<a href="http://blog.xuite.net/yh96301/blog/432341564-VirtualBox+5.1%E5%AE%89%E8%A3%9DUbuntu+16.04">參考安裝文件</a>）：</p>
+<ol>
+<li><p>Microsoft VSCode 編輯器<br> Microsoft VSCode 是 Microsoft 推出的編輯器（非整合開發環境 IDE），夾帶著 Microsoft 過去打造 Visual studio 整合開發環境的豐富經驗，相比 Sublime Text 和其他編輯器，VSCode 的優勢在於開源且活躍的開發社群、內建 debugger 框架、原生 Git 整合、套件整合容易等特性。所以對於初學者來說 VSCode 是一個蠻適合入門的開發環境。它的安裝方式也十分簡易，在官網下載後按照指示安裝完成即可。</p>
+<p> <img src="/images/flask101/vscode-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 我們可以安裝 Python 語法和格式檢查的相關 Python 套件幫助除錯：</p>
+<p> <img src="/images/flask101/vscode-python.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+</li>
+<li><p>終端機環境（iTterm&#x2F;內建 terminal）<br> terminal（終端機）是我們下指令的地方，許多時候我們進行程式開發時不會使用 GUI 的介面而是使用下指令方式請電腦做相對應的行為。在 Linux 和 Mac 裡面都有內建的 terminal 的應用程式，若你是 Mac 用戶想使用更便利的工具（分割視窗、熱鍵、搜尋、自動補完等）可以額外安裝 <a href="https://www.iterm2.com/index.html">iterm2</a> 做使用。</p>
+<p> <img src="/images/flask101/iterm2.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 下指令（$ 為提示字元，不用輸入）：</p>
+<p> <img src="/images/flask101/iterm2-example.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 對於有志於從事程式開發相關工作的讀者建議可以多熟悉指令碼的輸入，更多指令碼可以參考鳥哥撰寫的 <a href="http://linux.vbird.org/linux_basic/redhat6.1/linux_06command.php">Linux 基本指令介紹</a> 和 <a href="http://www.linux.org.tw/resource.html">Linux 學習資源</a>。</p>
+</li>
+<li><p>Git 版本控制系統&#x2F;註冊 GitHub 帳戶<br> Git 是一種分散式版本控制系統，可以讓我們可以更方便地管理我們的程式碼。在網路上有非常多優秀的 Git 教學文件（<a href="https://backlogtool.com/git-guide/tw/">連猴子都能懂的Git入門指南</a>、<a href="https://www.slideshare.net/littlebtc/git-5528339">寫給大家的 Git 教學</a>、<a href="https://www.slideshare.net/lkiral/git-34157836">初心者 Git 上手攻略</a>）。安裝 Git 方式是到官網下載軟體，依照指示安裝。</p>
+<p> <img src="/images/flask101/git-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 互動式語法學習：</p>
+<p> <img src="/images/flask101/try-git.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 在介紹完 git 之後我們來了解一下 GitHub。GitHub 是一個可以存放 git 程式碼專案的平台，透過 GitHub 我們可以接觸到最新的開放原始碼資訊，也可以將我們的程式碼開源出來。</p>
+<p> <img src="/images/flask101/github-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 從 GitHub 上複製程式碼</p>
+<p> <img src="/images/flask101/github-clone.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 複製一份到本地端</span><br><span class="line">$ git clone https://github.com/kdchang/flask101.git</span><br><span class="line"># 移動到資料夾</span><br><span class="line">$ cd flask101</span><br></pre></td></tr></table></figure>
+
+<p> 常見 Git 指令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化專案</span><br><span class="line">$ git init</span><br><span class="line"># 查看狀態</span><br><span class="line">$ git status</span><br><span class="line"># 檢查差異</span><br><span class="line">$ git diff </span><br><span class="line"># 將變更檔案放入暫存區</span><br><span class="line">$ git add index.py</span><br><span class="line"># 使用 commit -m 提交變更</span><br><span class="line">$ git -a -m &#x27;init commit&#x27;</span><br><span class="line"># 查看歷史</span><br><span class="line">$ git log</span><br><span class="line"># 放棄已經 commit 的檔案重回暫存區</span><br><span class="line">$ git reset HEAD index.py</span><br><span class="line"># 放棄檔案變更</span><br><span class="line">$ git checkout index.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Anaconda Python3 版本<br> Anaconda 是一個 all-in-one 的 Python 開發環境，對於初學者來說是個十分合適的開發環境包。Anaconda 具備了幾項特點：</p>
+<ul>
+<li>便於安裝許多流行的科學、數學、工程、數據分析的 Python 模組  </li>
+<li>開源和免費</li>
+<li>跨平台支持：Linux、Windows、Mac</li>
+<li>支持 Python 版本切換，方便建立不同的虛擬開發環境</li>
+<li>內建 Spyder 編輯器和 Jupyter Notebook 環境</li>
+</ul>
+<p> 安裝流程也十分簡單，進入 Anaconda 首頁，選擇對應作業系統（這邊使用 Mac OS）：<br> <img src="/images/flask101/anaconda-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"></p>
+<p> 選擇對應 Python 版本下載，我們使用 Graphical Installer（圖像介面安裝方式），接著在下載完成時按照預設的安裝方式完成安裝；<br> <img src="/images/flask101/anaconda-install.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
+<p> 若是完整安裝成功，可以打開終端機輸入，若是顯示 Python 3.6.0 :: Anaconda 4.3.0 (x86_64) 版本號即安裝成功：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 3.6.0 :: Anaconda 4.3.0 (x86_64)</span><br></pre></td></tr></table></figure>
+
+<p> 接著要建立我們專案虛擬環境，這樣在安裝操作套件時比較不容易被污染到 root 的環境，啟動後會出現（套件名稱）的提示字元：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 顯示目前虛擬環境列表</span><br><span class="line">$ conda info -e </span><br><span class="line"># 創建虛擬環境</span><br><span class="line">$ conda create -n 套件名稱 python=3.6</span><br><span class="line"># 進入虛擬環境（若是 Windows cmder 環境不用加 source） ，成功後提示字元變成：（套件名稱）$</span><br><span class="line">$ source activate 套件名稱</span><br><span class="line"># 離開虛擬環境（若是 Windows cmder 環境不用加 source） </span><br><span class="line">$ source deactivate </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="建立第一個-Flask-開發專案"><a href="#建立第一個-Flask-開發專案" class="headerlink" title="建立第一個 Flask 開發專案"></a>建立第一個 Flask 開發專案</h1><h2 id="使用-pip-管理-Python-模組"><a href="#使用-pip-管理-Python-模組" class="headerlink" title="使用 pip 管理 Python 模組"></a>使用 pip 管理 Python 模組</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安裝模組</span><br><span class="line">$ pip install 模組名</span><br><span class="line"># 移除模組</span><br><span class="line">$ pip uninstall 模組名</span><br><span class="line"># 搜尋模組</span><br><span class="line">$ pip search 模組名</span><br></pre></td></tr></table></figure>
+
+<p>通常開發專案時我們會將已安裝模組名稱和版本號存成一個列表，以便下次安裝使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>根據 <code>requirements.txt</code> 列表安裝模組：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h2><p>在了解 pip 套件管理工具後我們正式來建立一個 Flask 的專案：</p>
+<p>建立專案資料夾</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mkdir python-flask-todo-app</span><br><span class="line">$ cd python-flask-todo-app</span><br></pre></td></tr></table></figure>
+
+<p>建立獨立虛擬環境</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ conda create -n python-flask-todo-app python=3.6</span><br><span class="line">$ source activate python-flask-todo-app</span><br></pre></td></tr></table></figure>
+
+<p>安裝 Flask 模組</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask</span><br></pre></td></tr></table></figure>
+
+<h2 id="設定-Config-設定檔案"><a href="#設定-Config-設定檔案" class="headerlink" title="設定 Config 設定檔案"></a>設定 Config 設定檔案</h2><p>建立設定檔 <code>config.py</code> 檔案在專案資料夾的根目錄中：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Config</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProdConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DevConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>建立一個 <code>main.py</code> 檔案初始化 Flask App 和使用其 API，若是一切正常在終端機執行 <code>python main.py</code> 會在瀏覽器網址列輸入 <code>localhost:5000</code> 後看到 <code>Hello World</code> 了！</p>
+<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> DevConfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Flask 類別成為 instance</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(DevConfig)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由和處理函式配對</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判斷自己執行非被當做引入的模組，因為 __name__ 這變數若被當做模組引入使用就不會是 __main__</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Flask-Script"><a href="#使用-Flask-Script" class="headerlink" title="使用 Flask Script"></a>使用 Flask Script</h2><p><a href="https://flask-script.readthedocs.io/en/latest/">Flask Script</a> 是 Flask 常用的 extensions，可以讓我們使用指令列來操作 Flask 程式並在 shell 環境下操作 app context，使用方式如下：</p>
+<p>安裝模組</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask-script</span><br></pre></td></tr></table></figure>
+
+<p>建立 <code>manage.py</code> 於根目錄</p>
+<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
+
+<p>當執行 <code>$ python manage.py runserver</code> 即會執行測試伺服器，<code>$ python manage.py shell</code> 可以在對話指令列中中輸入 <code>app</code> 找到被引入的 <code>&lt;Flask &#39;main&#39;&gt;</code>，可以讓我們在互動式指令對話框中測試操作使用。</p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了如何建置 Python Web 開發環境，我們也實際完成了我們第一個 Python Flask 程式。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Wiki Flask (web framework)</a></li>
+<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
+</ol>
+<p>（image via <a href="https://cdn.fedoramagazine.org/wp-content/uploads/2015/11/Python_logo.png">fedoramagazine</a>）</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>教學</tag>
+        <tag>Django</tag>
+        <tag>MVC</tag>
+        <tag>Web</tag>
+        <tag>MTV</tag>
+        <tag>Web Backend</tag>
+        <tag>Web Framework</tag>
+        <tag>Flask</tag>
+        <tag>框架</tag>
+        <tag>網站開發</tag>
+        <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Web Flask 實戰開發教學 - SQLAlchemy 與 ORM</title>
     <url>/2017/05/02/python-web-flask101-tutorial-sqlalchemy-orm-database-models/</url>
     <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學"> </p>
@@ -3709,113 +3971,6 @@ References
         <tag>Database</tag>
         <tag>Models</tag>
         <tag>資料庫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python Web Flask 實戰開發教學 - 簡介與環境建置</title>
-    <url>/2017/05/01/python-web-flask101-tutorial-introduction-and-environment-setup/</url>
-    <content><![CDATA[<p><img src="/images/flask101/python-logo.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web 開發涉及層面很廣，包含了前後端開發、資料庫優化、平行處理、負載平衡、高可用性、資訊安全、雲端伺服器部屬等議題，本系列文章將透過介紹 Python Web Flask 實戰開發來學習現代化網站開發的方方面面。一開始先從簡介和環境建置開始吧！</p>
-<h1 id="什麼是-Python？"><a href="#什麼是-Python？" class="headerlink" title="什麼是 Python？"></a>什麼是 Python？</h1><p><a href="https://zh.wikipedia.org/wiki/Python">Python</a> 是一種物件導向、直譯式的跨平台電腦程式語言，它包含了一組功能完備的標準庫和豐富套件生態系，可以輕鬆完成很多常見的任務（例如：讀寫檔案、自然語言處理、網路爬蟲、網站開發、機器學習等），因為它可以很輕易整合其他底層語言（例如：C&#x2F;C++ 等），所以又稱為膠水語言。它的語法簡單，與其它大多數程式設計語言使用大括弧不一樣，它使用空白縮進來定義語句塊。由於具備簡潔易學等特性，許多開發者推薦 Python 為初學者第一個學習的程式語言。由於版本更迭，我們接下來討論的主要是以 Python3 為主，若電腦沒有安裝的話，你可以在<a href="https://www.python.org/">官方網站下載</a>，若你不是安裝 <a href="https://www.continuum.io/downloads">Anaconda</a> 這個 all-in-one 版本的話（自帶許多套件和科學運算工具，也可以建立虛擬開發環境），記得要安裝 <a href="https://pypi.python.org/pypi/pip">pip</a>、<a href="https://ipython.org/">IPython</a>。 </p>
-<p>接下來我們將以 Anaconda 這個開發環境為主要講解環境。由於我們假定讀者已經有一些 Python 基礎，所以我們會跳過有關 Python 語法的基本較邵，若您對於 Python 入門基礎較不熟悉的話建議參考 <a href="/2016/12/31/python101-tutorial/">Python 101 快速入門教學</a> ，此外我們也提供了 <a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a> 可以參考。那就讓我們開始吧！</p>
-<h1 id="什麼是-Flask？"><a href="#什麼是-Flask？" class="headerlink" title="什麼是 Flask？"></a>什麼是 Flask？</h1><p><img src="/images/flask101/flask-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p><a href="http://flask.pocoo.org/">Flask</a> 是一個使用 Python 撰寫的輕量級 Web 應用程式框架，由於其輕量特性，也稱為 micro-framework（微框架）。Flask 核心十分簡單，主要是由 <a href="http://werkzeug.pocoo.org/">Werkzeug WSGI 工具箱</a>和 <a href="http://jinja.pocoo.org/docs/2.9/">Jinja2 模板引擎</a>所組成，Flask 和 Django 不同的地方在於 Flask 給予開發者非常大的彈性（當然你也可以說是需要思考更多事情），可以選用不同的用的 extension 來增加其功能。相比之下，Django 雖然完善但技術選擇相對不彈性，不論是 ORM、表單驗證或是模版引擎都有自己的作法。事實上沒有最好的框架，只有合適的使用情境，Django 相比之下適合需要快速的開發大型的應用程式，和 Ruby 中的 <a href="http://rubyonrails.org/">Ruby on Rails</a> 相似，而 Flask 則是相對輕量彈性，更像是 Ruby 界的 <a href="http://www.sinatrarb.com/">Sinatra</a>。若讀者想先體驗看看 Flask 的程式狀況，以下是 Flask 簡易運行的程式，啟動測試伺服器後，可以在瀏覽器中（<a href="http://localhost:5000/%EF%BC%89%E5%8D%B0%E5%87%BA">http://localhost:5000/）印出</a> <code>Hello World!</code>。</p>
-<figure class="highlight python"><figcaption><span>index.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
-<h1 id="Python-Web-開發環境建置"><a href="#Python-Web-開發環境建置" class="headerlink" title="Python Web 開發環境建置"></a>Python Web 開發環境建置</h1><p>所謂工欲善其事，必先利其器，要開發好的應用程式必須先準備好開發環境才行。以下介紹我們在接下來開發 Python Flask Web 應用程式所需要安裝的開發環境工具（以下以 Mac OS 等 Unix-like 作業系統為示範，若是 Windows 使用者建議安裝 Virtualbox 並運行 Linux Ubuntu 作業系統，<a href="http://blog.xuite.net/yh96301/blog/432341564-VirtualBox+5.1%E5%AE%89%E8%A3%9DUbuntu+16.04">參考安裝文件</a>）：</p>
-<ol>
-<li><p>Microsoft VSCode 編輯器<br> Microsoft VSCode 是 Microsoft 推出的編輯器（非整合開發環境 IDE），夾帶著 Microsoft 過去打造 Visual studio 整合開發環境的豐富經驗，相比 Sublime Text 和其他編輯器，VSCode 的優勢在於開源且活躍的開發社群、內建 debugger 框架、原生 Git 整合、套件整合容易等特性。所以對於初學者來說 VSCode 是一個蠻適合入門的開發環境。它的安裝方式也十分簡易，在官網下載後按照指示安裝完成即可。</p>
-<p> <img src="/images/flask101/vscode-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 我們可以安裝 Python 語法和格式檢查的相關 Python 套件幫助除錯：</p>
-<p> <img src="/images/flask101/vscode-python.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-</li>
-<li><p>終端機環境（iTterm&#x2F;內建 terminal）<br> terminal（終端機）是我們下指令的地方，許多時候我們進行程式開發時不會使用 GUI 的介面而是使用下指令方式請電腦做相對應的行為。在 Linux 和 Mac 裡面都有內建的 terminal 的應用程式，若你是 Mac 用戶想使用更便利的工具（分割視窗、熱鍵、搜尋、自動補完等）可以額外安裝 <a href="https://www.iterm2.com/index.html">iterm2</a> 做使用。</p>
-<p> <img src="/images/flask101/iterm2.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 下指令（$ 為提示字元，不用輸入）：</p>
-<p> <img src="/images/flask101/iterm2-example.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 對於有志於從事程式開發相關工作的讀者建議可以多熟悉指令碼的輸入，更多指令碼可以參考鳥哥撰寫的 <a href="http://linux.vbird.org/linux_basic/redhat6.1/linux_06command.php">Linux 基本指令介紹</a> 和 <a href="http://www.linux.org.tw/resource.html">Linux 學習資源</a>。</p>
-</li>
-<li><p>Git 版本控制系統&#x2F;註冊 GitHub 帳戶<br> Git 是一種分散式版本控制系統，可以讓我們可以更方便地管理我們的程式碼。在網路上有非常多優秀的 Git 教學文件（<a href="https://backlogtool.com/git-guide/tw/">連猴子都能懂的Git入門指南</a>、<a href="https://www.slideshare.net/littlebtc/git-5528339">寫給大家的 Git 教學</a>、<a href="https://www.slideshare.net/lkiral/git-34157836">初心者 Git 上手攻略</a>）。安裝 Git 方式是到官網下載軟體，依照指示安裝。</p>
-<p> <img src="/images/flask101/git-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 互動式語法學習：</p>
-<p> <img src="/images/flask101/try-git.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 在介紹完 git 之後我們來了解一下 GitHub。GitHub 是一個可以存放 git 程式碼專案的平台，透過 GitHub 我們可以接觸到最新的開放原始碼資訊，也可以將我們的程式碼開源出來。</p>
-<p> <img src="/images/flask101/github-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 從 GitHub 上複製程式碼</p>
-<p> <img src="/images/flask101/github-clone.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 複製一份到本地端</span><br><span class="line">$ git clone https://github.com/kdchang/flask101.git</span><br><span class="line"># 移動到資料夾</span><br><span class="line">$ cd flask101</span><br></pre></td></tr></table></figure>
-
-<p> 常見 Git 指令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化專案</span><br><span class="line">$ git init</span><br><span class="line"># 查看狀態</span><br><span class="line">$ git status</span><br><span class="line"># 檢查差異</span><br><span class="line">$ git diff </span><br><span class="line"># 將變更檔案放入暫存區</span><br><span class="line">$ git add index.py</span><br><span class="line"># 使用 commit -m 提交變更</span><br><span class="line">$ git -a -m &#x27;init commit&#x27;</span><br><span class="line"># 查看歷史</span><br><span class="line">$ git log</span><br><span class="line"># 放棄已經 commit 的檔案重回暫存區</span><br><span class="line">$ git reset HEAD index.py</span><br><span class="line"># 放棄檔案變更</span><br><span class="line">$ git checkout index.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Anaconda Python3 版本<br> Anaconda 是一個 all-in-one 的 Python 開發環境，對於初學者來說是個十分合適的開發環境包。Anaconda 具備了幾項特點：</p>
-<ul>
-<li>便於安裝許多流行的科學、數學、工程、數據分析的 Python 模組  </li>
-<li>開源和免費</li>
-<li>跨平台支持：Linux、Windows、Mac</li>
-<li>支持 Python 版本切換，方便建立不同的虛擬開發環境</li>
-<li>內建 Spyder 編輯器和 Jupyter Notebook 環境</li>
-</ul>
-<p> 安裝流程也十分簡單，進入 Anaconda 首頁，選擇對應作業系統（這邊使用 Mac OS）：<br> <img src="/images/flask101/anaconda-index.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"></p>
-<p> 選擇對應 Python 版本下載，我們使用 Graphical Installer（圖像介面安裝方式），接著在下載完成時按照預設的安裝方式完成安裝；<br> <img src="/images/flask101/anaconda-install.png" alt="Python Web Flask 實戰開發教學 - 簡介與環境建置"> </p>
-<p> 若是完整安裝成功，可以打開終端機輸入，若是顯示 Python 3.6.0 :: Anaconda 4.3.0 (x86_64) 版本號即安裝成功：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 3.6.0 :: Anaconda 4.3.0 (x86_64)</span><br></pre></td></tr></table></figure>
-
-<p> 接著要建立我們專案虛擬環境，這樣在安裝操作套件時比較不容易被污染到 root 的環境，啟動後會出現（套件名稱）的提示字元：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 顯示目前虛擬環境列表</span><br><span class="line">$ conda info -e </span><br><span class="line"># 創建虛擬環境</span><br><span class="line">$ conda create -n 套件名稱 python=3.6</span><br><span class="line"># 進入虛擬環境（若是 Windows cmder 環境不用加 source） ，成功後提示字元變成：（套件名稱）$</span><br><span class="line">$ source activate 套件名稱</span><br><span class="line"># 離開虛擬環境（若是 Windows cmder 環境不用加 source） </span><br><span class="line">$ source deactivate </span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="建立第一個-Flask-開發專案"><a href="#建立第一個-Flask-開發專案" class="headerlink" title="建立第一個 Flask 開發專案"></a>建立第一個 Flask 開發專案</h1><h2 id="使用-pip-管理-Python-模組"><a href="#使用-pip-管理-Python-模組" class="headerlink" title="使用 pip 管理 Python 模組"></a>使用 pip 管理 Python 模組</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安裝模組</span><br><span class="line">$ pip install 模組名</span><br><span class="line"># 移除模組</span><br><span class="line">$ pip uninstall 模組名</span><br><span class="line"># 搜尋模組</span><br><span class="line">$ pip search 模組名</span><br></pre></td></tr></table></figure>
-
-<p>通常開發專案時我們會將已安裝模組名稱和版本號存成一個列表，以便下次安裝使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>根據 <code>requirements.txt</code> 列表安裝模組：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h2><p>在了解 pip 套件管理工具後我們正式來建立一個 Flask 的專案：</p>
-<p>建立專案資料夾</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mkdir python-flask-todo-app</span><br><span class="line">$ cd python-flask-todo-app</span><br></pre></td></tr></table></figure>
-
-<p>建立獨立虛擬環境</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ conda create -n python-flask-todo-app python=3.6</span><br><span class="line">$ source activate python-flask-todo-app</span><br></pre></td></tr></table></figure>
-
-<p>安裝 Flask 模組</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask</span><br></pre></td></tr></table></figure>
-
-<h2 id="設定-Config-設定檔案"><a href="#設定-Config-設定檔案" class="headerlink" title="設定 Config 設定檔案"></a>設定 Config 設定檔案</h2><p>建立設定檔 <code>config.py</code> 檔案在專案資料夾的根目錄中：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Config</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProdConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DevConfig</span>(<span class="title class_ inherited__">Config</span>):</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-<p>建立一個 <code>main.py</code> 檔案初始化 Flask App 和使用其 API，若是一切正常在終端機執行 <code>python main.py</code> 會在瀏覽器網址列輸入 <code>localhost:5000</code> 後看到 <code>Hello World</code> 了！</p>
-<figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> DevConfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Flask 類別成為 instance</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(DevConfig)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由和處理函式配對</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判斷自己執行非被當做引入的模組，因為 __name__ 這變數若被當做模組引入使用就不會是 __main__</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-Flask-Script"><a href="#使用-Flask-Script" class="headerlink" title="使用 Flask Script"></a>使用 Flask Script</h2><p><a href="https://flask-script.readthedocs.io/en/latest/">Flask Script</a> 是 Flask 常用的 extensions，可以讓我們使用指令列來操作 Flask 程式並在 shell 環境下操作 app context，使用方式如下：</p>
-<p>安裝模組</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ pip install flask-script</span><br></pre></td></tr></table></figure>
-
-<p>建立 <code>manage.py</code> 於根目錄</p>
-<figure class="highlight python"><figcaption><span>manage.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager, Server</span><br><span class="line"><span class="keyword">from</span> main <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定你的 app</span></span><br><span class="line">manager = Manager(app)</span><br><span class="line"><span class="comment"># 設定 python manage.py runserver 為啟動 server 指令</span></span><br><span class="line">manager.add_command(<span class="string">&#x27;runserver&#x27;</span>, Server())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 python manage.py shell 為啟動互動式指令 shell 的指令 </span></span><br><span class="line"><span class="meta">@manager.shell</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_shell_context</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(app=app)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
-
-<p>當執行 <code>$ python manage.py runserver</code> 即會執行測試伺服器，<code>$ python manage.py shell</code> 可以在對話指令列中中輸入 <code>app</code> 找到被引入的 <code>&lt;Flask &#39;main&#39;&gt;</code>，可以讓我們在互動式指令對話框中測試操作使用。</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>本文介紹了如何建置 Python Web 開發環境，我們也實際完成了我們第一個 Python Flask 程式。在接下來章節中我們將持續介紹 Python Web Flask 實戰開發，並學習現代化網站開發的方方面面。</p>
-<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ol>
-<li><a href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Wiki Flask (web framework)</a></li>
-<li><a href="http://pics.ee/c34g">Python Web 程式設計入門實戰線上課程</a></li>
-</ol>
-<p>（image via <a href="https://cdn.fedoramagazine.org/wp-content/uploads/2015/11/Python_logo.png">fedoramagazine</a>）</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>教學</tag>
-        <tag>Django</tag>
-        <tag>MVC</tag>
-        <tag>Web</tag>
-        <tag>MTV</tag>
-        <tag>Web Backend</tag>
-        <tag>Web Framework</tag>
-        <tag>Flask</tag>
-        <tag>框架</tag>
-        <tag>網站開發</tag>
-        <tag>Anaconda</tag>
       </tags>
   </entry>
   <entry>
