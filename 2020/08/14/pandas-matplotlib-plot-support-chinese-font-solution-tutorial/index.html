@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="google-site-verification"
+    content="Pq6qJ_wSuAF0sQFRmBlI8Qd-ihxQUvJ7akDjPhUKK44"
+  />
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/search.js"></script>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css?v=1" />
+  <!--Description-->
+  
+  <meta name="description" content="HappyCoder | AI 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="HappyCoder | AI 自學程式設計學院" />
+  
+
+  <!--Open Graph Title-->
+  
+  <meta property="og:title" content="Matplotlib / Pandas 資料分析繪圖顯示中文字體入門教學" />
+   
+  <script type="text/javascript">
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    searchFunc(path, "local-search-input", "local-search-result");
+  </script>
+  
+
+  <meta
+    name="google-site-verification"
+    content="1On3xklfwAxbjbbHVJ85wPBgyMipxw5AP3xyO1P1trM"
+  />
+
+  <!--Open Graph Description-->
+  
+  <meta property="og:description" content="HappyCoder | AI 自學程式設計學院是一個自學程式設計、電腦科學 (Computer Science) 交流學習社群。一起加入我們，讓我們彼此分享自學程式學習資源和心路歷程，教學相長！" />
+  
+
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="HappyCoder | AI 自學程式設計學院" />
+
+  <!--Type page-->
+  
+  <meta property="og:type" content="article" />
+  
+
+  <!--Page Cover-->
+  
+
+  <meta name="twitter:card" content="summary" />
+  
+
+  <!-- Title -->
+  
+  <title>Matplotlib / Pandas 資料分析繪圖顯示中文字體入門教學 - HappyCoder | AI 自學程式設計學院</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  <!-- Custom Fonts -->
+  <link
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Gallery -->
+  <link
+    href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css"
+    type="text/css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Analytics -->
+  
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-91250039-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+  <!-- favicon -->
+  
+  <link rel="icon" href="/img/favicon.png" />
+  
+  <style>
+    .intro-header {
+      background-image: url("/img/banner-s.jpg");
+      height: 550px;
+      filter: grayscale(30%);
+      -webkit-filter: grayscale(30%);
+    }
+    @media only screen and (max-width: 600px) {
+      .intro-header {
+        height: 450px;
+      }
+    }
+  </style>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="HappyCoder | AI 自學程式設計學院" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top sticky">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappyCoder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首頁
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                關於我們
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/search">
+                            
+                                搜尋
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tutorials">
+                            
+                                程式設計教學
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://portaly.cc/happycoder">
+                            
+                                社群連結
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/HappyCoderOrg">
+                            
+                                FB 交流社群
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                訂閱 RSS
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-facebook fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/happycoder_org">
+                            
+                                <i class="fa fa-instagram fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@HappyCoderOrg">
+                            
+                                <i class="fa fa-youtube fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/HappyCoderOrg">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.73) !important;
+	transition: all ease 0.2s;
+}
+</style>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<style>
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<header class="intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Matplotlib / Pandas 資料分析繪圖顯示中文字體入門教學</h1>
+          
+          <span class="meta">
+            <!-- Date and Author -->
+             Posted by HappyCoder 自學程式設計學院 on  2020-08-14
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Tags and categories -->
+      
+      <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+         
+
+
+<a href="/tags/自學程式/">#自學程式</a> <a href="/tags/自學程式設計/">#自學程式設計</a> <a href="/tags/程式設計/">#程式設計</a> <a href="/tags/coding/">#coding</a> <a href="/tags/programming/">#programming</a> <a href="/tags/code/">#code</a> <a href="/tags/CS/">#CS</a> <a href="/tags/Computer/">#Computer</a> <a href="/tags/Computer-Science/">#Computer Science</a> <a href="/tags/程式語言/">#程式語言</a> <a href="/tags/程式/">#程式</a>
+
+ 
+      </div>
+      <div class="col-lg-4 col-md-5 post-categories">
+        
+      </div>
+      
+
+      <!-- Gallery -->
+      
+
+      <!-- Post Main Content -->
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div
+          class="fb-like"
+          data-href="https://www.facebook.com/HappyCoderOrg/"
+          data-layout="button_count"
+          data-action="like"
+          data-size="large"
+          data-show-faces="true"
+          data-share="true"
+        ></div>
+
+        <h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><ol>
+<li>前言</li>
+<li>認識圖表專有名詞</li>
+<li>解決中文字體空白方法</li>
+<li>總結</li>
+</ol>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a target="_blank" rel="noopener" href="https://matplotlib.org/">Matplotlib</a> 和 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/">Pandas</a> 是兩個在資料科學專案中時常使用的兩個套件。Pandas 主要用於資料輸入輸出及資料分析操作，而 Matplotlib 主要是用來資料視覺化，呈現圖表使用，兩者可以單獨也可以搭配使用。在使用 <code>Matplotlib</code> 繪製圖表的中文使用者最常會遇到的問題就是中文字體在預設的 Matplotlib 顯示不出中文字體。接下來我們就透過範例程式一步步手把手帶領大家如何在 <code>Matplotlib</code> 顯示圖表的中文字體標籤和說明圖示（本文假設讀者對於 Python 程式語法、Pandas 和 Matplotlib 已有基本認識）。</p>
+<h1 id="認識圖表專有名詞"><a href="#認識圖表專有名詞" class="headerlink" title="認識圖表專有名詞"></a>認識圖表專有名詞</h1><p>Matplotlib 中有一些專有名詞，若能掌握住將對我們接下來學習如何在 <code>Matplotlib</code> 使用中文字體會很有幫助。</p>
+<p>(1) <code>Figure</code>: 代表整個面板<br>(2) <code>Axes</code>: 代表整個圖表<br>(3) <code>Axis</code>: 代表軸<br>(4) <code>Legend</code>: 代表圖示說明<br>(5) <code>Label</code>: 代表軸標頭<br>(6) <code>Title</code>: 代表圖表標頭</p>
+<p><img src="https://static.coderbridge.com/img/happycoder/71b47958976540258e386ca6fc97b3da.jpg"></p>
+<h1 id="解決中文字體空白方法"><a href="#解決中文字體空白方法" class="headerlink" title="解決中文字體空白方法"></a>解決中文字體空白方法</h1><p>解決中文字體空白或是顯示不出來的問題，主要解法有以下兩種：</p>
+<ol>
+<li>在程式中引入支援中文的字體並於需要顯示的地方當作參數使用</li>
+<li>透過本機端電腦參數設定和字體檔案放置到對應資料夾（可以不用每次在程式中指定字體，但第一次設定步驟較為繁瑣）</li>
+</ol>
+<p>接下來本文會先透過一個範例優先介紹 <strong>在程式中引入支援中文的字體</strong> 這種作法。</p>
+<h2 id="範例程式"><a href="#範例程式" class="headerlink" title="範例程式"></a>範例程式</h2><p><strong>Step 1. 規劃目標並準備資料</strong><br>目標：我們希望透過長條圖顯示桃園地區結婚對數，了解結婚分布狀況。</p>
+<p>資料集使用政府開放資料中 <a target="_blank" rel="noopener" href="https://data.gov.tw/dataset/27396">108 年度桃園地區結婚對數資料集</a>，我們下載 <code>.csv</code> 檔案後更改檔案名稱為： <code>marriage.csv</code>。檔案內容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">月份區域別,一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月</span><br><span class="line">桃園區,305,202,240,177,272,221,184,109,222,251,223,268</span><br><span class="line">中壢區,271,198,215,213,222,219,188,94,240,246,215,269</span><br><span class="line">大溪區,54,46,40,37,64,58,38,20,47,74,46,48</span><br><span class="line">楊梅區,103,69,91,71,95,99,81,41,89,115,98,121</span><br><span class="line">蘆竹區,100,72,77,80,92,87,70,38,96,95,103,86</span><br><span class="line">大園區,59,38,40,37,61,53,42,15,49,57,53,50</span><br><span class="line">龜山區,100,64,80,75,86,85,82,46,102,92,80,91</span><br><span class="line">八德區,138,98,114,104,133,122,108,57,108,121,105,130</span><br><span class="line">龍潭區,75,52,67,78,72,49,74,26,76,69,73,83</span><br><span class="line">平鎮區,151,97,110,115,144,132,127,55,115,138,138,150</span><br><span class="line">新屋區,37,15,14,24,21,20,24,7,26,21,23,26</span><br><span class="line">觀音區,45,21,38,31,43,32,29,14,45,31,32,40</span><br><span class="line">復興區,11,4,8,5,6,8,6,5,8,6,7,4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2. 載入資料</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line"># 讀入資料集檔案</span><br><span class="line">df = pd.read_csv(&#x27;married.csv&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>接著要取出我們想要顯示圖表的資料：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># loc 取值方式為 [索引, [欄位]]，取 月份區域別 出來當作 index</span><br><span class="line">data = df.loc[:, [&#x27;月份區域別&#x27;, &#x27;一月&#x27;]]</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<p>印出內容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   月份區域別   一月</span><br><span class="line">0    桃園區  305</span><br><span class="line">1    中壢區  271</span><br><span class="line">2    大溪區   54</span><br><span class="line">3    楊梅區  103</span><br><span class="line">4    蘆竹區  100</span><br><span class="line">5    大園區   59</span><br><span class="line">6    龜山區  100</span><br><span class="line">7    八德區  138</span><br><span class="line">8    龍潭區   75</span><br><span class="line">9    平鎮區  151</span><br><span class="line">10   新屋區   37</span><br><span class="line">11   觀音區   45</span><br><span class="line">12   復興區   11</span><br></pre></td></tr></table></figure>
+
+<p>並設定 dataframe <code>index</code> 為 月份區域別 當作 x 軸，因為原本 預設 index 為 <code>0, 1, 2, ...</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 原本 index 為 0, 1, 2, 3...12，改為 月份區域別，這樣 x 軸標籤就會改為 月份區域別</span><br><span class="line">data = data.set_index(&#x27;月份區域別&#x27;)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<p>印出內容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">        一月</span><br><span class="line">月份區域別</span><br><span class="line">桃園區    305</span><br><span class="line">中壢區    271</span><br><span class="line">大溪區     54</span><br><span class="line">楊梅區    103</span><br><span class="line">蘆竹區    100</span><br><span class="line">大園區     59</span><br><span class="line">龜山區    100</span><br><span class="line">八德區    138</span><br><span class="line">龍潭區     75</span><br><span class="line">平鎮區    151</span><br><span class="line">新屋區     37</span><br><span class="line">觀音區     45</span><br><span class="line">復興區     11</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3. 繪製圖表</strong><br>接著我們於程式最上方引入 <code>matplotlib</code> 套件並使用別名繪製長條圖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># kind 定義圖表類型。plot 函式會取 column 值代表 y 軸的值，index 索引代表 x 軸</span><br><span class="line">axes = data.plot(kind=&#x27;bar&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 4. 中文化</strong><br>若使用自行設定字體若有中文字的地方都要給定字體才不會出現亂碼或空白（ex. <code>title</code>, <code>label</code>, <code>legend</code> 等），這邊我們使用 <code>NotoSansCJK-Black</code>（也可以自行選擇支援中文的字體）可以在 <a target="_blank" rel="noopener" href="https://github.com/googlefonts/noto-cjk">下載連結</a> 下載使用並放入和程式同一個專案工作資料夾下。</p>
+<p><img src="https://static.coderbridge.com/img/happycoder/20a2c9242ee540e0aca5a668986bf9bc.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 使用 FontProperties 建立字體屬性物件</span><br><span class="line">myfont = FontProperties(fname=r&#x27;./NotoSansCJK-Black.ttc&#x27;)</span><br><span class="line"># 設定標頭和字體</span><br><span class="line">plt.title(&#x27;一月份各區域結婚數&#x27;,fontproperties=myfont)</span><br><span class="line"># 設定 x 軸標頭和字體</span><br><span class="line">plt.xlabel(&#x27;區域別&#x27;,fontproperties=myfont)</span><br><span class="line"># 設定 y 軸標頭和字體</span><br><span class="line">plt.ylabel(&#x27;結婚數&#x27;, fontproperties=myfont)</span><br><span class="line"># 設定右上角說明圖示字體</span><br><span class="line">plt.legend(prop=myfont)</span><br><span class="line"></span><br><span class="line"># 使用 for 迴圈一一取出 x 軸標籤 label 設定字體，若 y 軸有中文字也是類似使用方式 get_yticklabels</span><br><span class="line">for label in axes.get_xticklabels():</span><br><span class="line">    label.set_fontproperties(myfont)</span><br></pre></td></tr></table></figure>
+
+<p>其中特別需要注意是 <code>xlabel</code> 需要一一取出設定字體：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 使用 for 迴圈一一取出 x 軸標籤 label 設定字體，若 y 軸有中文字也是類似使用方式 get_yticklabels</span><br><span class="line">for label in axes.get_xticklabels():</span><br><span class="line">    label.set_fontproperties(myfont)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 5. 呈現成果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 顯示圖表</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>完整程式碼：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from matplotlib.font_manager import FontProperties</span><br><span class="line"></span><br><span class="line"># 讀入資料集檔案</span><br><span class="line">df = pd.read_csv(&#x27;married.csv&#x27;)</span><br><span class="line"></span><br><span class="line"># loc 取值方式為 [索引, [欄位]]，取 月份區域別 出來當作 index</span><br><span class="line">data = df.loc[:, [&#x27;月份區域別&#x27;, &#x27;一月&#x27;]]</span><br><span class="line">print(data)</span><br><span class="line"># 原本 index 為 0, 1, 2, 3...12，改為 月份區域別，這樣 x 軸標籤就會改為 月份區域別</span><br><span class="line">data = data.set_index(&#x27;月份區域別&#x27;)</span><br><span class="line">print(data)</span><br><span class="line"># plot 函式會取 column 值代表 y 軸的值，index 索引代表 x 軸</span><br><span class="line">axes = data.plot(kind=&#x27;bar&#x27;)</span><br><span class="line"></span><br><span class="line">myfont = FontProperties(fname=r&#x27;./NotoSansCJK-Black.ttc&#x27;)</span><br><span class="line"># 設定標頭和字體</span><br><span class="line">plt.title(&#x27;一月份各區域結婚數&#x27;,fontproperties=myfont)</span><br><span class="line"># 設定 x 軸標頭和字體</span><br><span class="line">plt.xlabel(&#x27;區域別&#x27;,fontproperties=myfont)</span><br><span class="line"># 設定 y 軸標頭和字體</span><br><span class="line">plt.ylabel(&#x27;結婚數&#x27;, fontproperties=myfont)</span><br><span class="line"># 設定右上角說明圖示字體</span><br><span class="line">plt.legend(prop=myfont)</span><br><span class="line"></span><br><span class="line"># 使用 for 迴圈一一取出 x 軸標籤 label 設定字體，若 y 軸有中文字也是類似使用方式 get_yticklabels</span><br><span class="line">for label in axes.get_xticklabels():</span><br><span class="line">    label.set_fontproperties(myfont)</span><br><span class="line"></span><br><span class="line"># 顯示圖表</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>執行結果：</p>
+<p><img src="https://static.coderbridge.com/img/happycoder/25424f1baf704f4bb036ad9bbd2b91d0.jpg"></p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><ol>
+<li>前言</li>
+<li>認識圖表專有名詞</li>
+<li>解決中文字體空白方法</li>
+<li>總結</li>
+</ol>
+<p>以上透過範例介紹圖表的專有名詞及講解如何設定支援中文字體的物件，並讓 matplotlib 圖表可以顯示中文字體。相信讀者跟著操作可以快速解決 matplotlib 不能顯示中文字體的惱人問題。若有討論或是問題歡迎留言和我們一起交流學習喔！</p>
+
+
+        <br />
+
+        
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script
+          type="text/javascript"
+          src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"
+        ></script>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
+        
+
+        <br />
+        <div>喜歡我們的文章嗎？歡迎分享按讚給予我們支持和鼓勵！</div>
+        <br />
+        <div class="fb-like-block">
+          <div
+            class="fb-like"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+        </div>
+        <br />
+        <br />
+        <div>
+          在 Facebook 上追蹤我們，立即掌握最新和最豐富的程式設計自學資訊！
+        </div>
+        <div
+          class="fb-page"
+          data-href="https://www.facebook.com/HappyCoderOrg"
+          data-small-header="false"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="true"
+        >
+          <blockquote
+            cite="https://www.facebook.com/HappyCoderOrg"
+            class="fb-xfbml-parse-ignore"
+          >
+            <a target="_blank" rel="noopener" href="https://www.facebook.com/HappyCoderOrg"
+              >HappyCoder 自學程式設計學院</a
+            >
+          </blockquote>
+        </div>
+        <br />
+        <br />
+        <div>
+          <h2>更多程式設計教學文章</h2>
+          <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://static.coderbridge.com/img/happycoder/6d032b80cb1145b5bf42f49f29b62ea3.png" /></div><div class="popular-posts-title"><h3><a href="/2019/12/11/[新手村系列]-markdown-html-基礎語法教學/" title="新手村系列：Markdown 和 HTML 基礎語法教學" rel="bookmark">新手村系列：Markdown 和 HTML 基礎語法教學</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://static.coderbridge.com/img/happycoder/21518e18cbc345428fe84e9f20aebb90.png" /></div><div class="popular-posts-title"><h3><a href="/2019/12/27/[看懂-it-術語]-ai-人工智慧/" title="看懂 IT 術語：AI 人工智慧" rel="bookmark">看懂 IT 術語：AI 人工智慧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-img"><img src="https://static.coderbridge.com/img/happycoder/86c40ca5235c4cddb2adf4130ebcf1b3.png" /></div><div class="popular-posts-title"><h3><a href="/2019/12/27/[程式挑戰]-全域變數和區域變數可視範圍-variable-scope/" title="程式挑戰：全域變數和區域變數可視範圍 Variable Scope" rel="bookmark">程式挑戰：全域變數和區域變數可視範圍 Variable Scope</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2023/02/08/co-camp-user-testimonial/" title="程式設計共學營學員回饋心得" rel="bookmark">程式設計共學營學員回饋心得</a></h3></div></li></ul>
+        </div>
+        <style>
+          .fb-like-block {
+            width: 100px !important;
+          }
+          .popular-posts {
+            list-style: none;
+            display: flex;
+          }
+          .popular-posts-item {
+            width: 25%;
+            padding: 10px;
+          }
+          .popular-posts-title a {
+            font-size: 16px;
+            text-decoration: none;
+          }
+          @media only screen and (max-width: 600px) {
+            .popular-posts-item {
+              width: 100%;
+              padding: 10px;
+            }
+            .popular-posts {
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        </style>
+      </div>
+      <br />
+      <hr />
+      <div class="container">
+        <iframe
+          src="https://happycoder.substack.com/embed"
+          width="100%"
+          height="320"
+          style="border: 1px solid #eee; background: white"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+
+      <!-- Comments -->
+      
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5891d7d0431b8118"></script> 
+
+	
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.instagram.com/happycoder_org" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.youtube.com/@HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HappyCoderOrg" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:happycoderorg@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    Special thanks <a href="https://www.flickr.com/photos/hackny/" target="_blank">hackNY</a>、<a href="https://www.flickr.com/photos/derek-john-lee/" target="_blank">Derek</a>  
+                    and <a href="http://blog.kaijun.rocks" target="_blank">Kaijun</a>
+                    <br> 
+                    Copyright &copy; HappyCoder | AI 自學程式設計學院 2025
+                </p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'happycoderorg';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	<!-- addthis -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!-- fb -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"c27d54bac8f7fe84eec5086bc","lid":"829f2fa635"}) })</script> -->
+</body>
+
+</html>
