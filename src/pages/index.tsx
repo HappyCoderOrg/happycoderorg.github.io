@@ -32,7 +32,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="軟體工程和產品專案管理現場觀察：關於軟體開發/程式設計/工程思維的技術部落格"
+      description="最溫馨有趣的 AI 自學程式設計、Vibe Coding 軟體開發交流學習社群"
     >
       <HomepageHeader />
       <main>
