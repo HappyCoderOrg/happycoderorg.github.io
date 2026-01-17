@@ -1,7 +1,7 @@
 ---
 title: Go Web 程式設計入門教學：語法基礎之變數（variable）和資料型別（type）篇
 date: 2017-07-01 10:23:23
-authors: [happycoder]
+authors: happycoder
 tags: 
   - GO
   - GO lang

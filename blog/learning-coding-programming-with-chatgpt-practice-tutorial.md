@@ -1,7 +1,7 @@
 ---
 title: ChatGPT 自學程式設計：觀念、策略與實作練習介紹入門教學筆記
 date: 2024-03-01 00:23:23
-authors: [happycoder]
+authors: happycoder
 tags:
   - ChatGPT
   - AI 工具

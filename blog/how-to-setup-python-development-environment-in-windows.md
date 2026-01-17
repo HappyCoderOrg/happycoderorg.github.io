@@ -1,7 +1,7 @@
 ---
 title: 如何在 Windows 打造 Python 開發環境設定基礎入門教學
 date: 2017-11-17 20:23:23
-authors: [happycoder]
+authors: happycoder
 tags: 
   - Python
   - Django

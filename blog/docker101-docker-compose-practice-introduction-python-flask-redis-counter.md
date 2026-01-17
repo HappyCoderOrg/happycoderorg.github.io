@@ -1,7 +1,7 @@
 ---
 title: Docker 入門實戰教學：如何使用 Docker Compose 建置 Python Flask + Redis 記數器
 date: 2018-09-06 12:23:23
-authors: [happycoder]
+authors: happycoder
 tags: 
     - docker
     - 容器

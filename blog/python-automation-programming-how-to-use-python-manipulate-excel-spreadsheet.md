@@ -1,7 +1,7 @@
 ---
 title: Python 自動化程式設計：如何使用 Python 程式操作 Excel 試算表
 date: 2018-09-27 20:23:23
-authors: [happycoder]
+authors: happycoder
 tags: 
     - Python
     - 教學

@@ -1,7 +1,7 @@
 ---
 title: 使用 Cursor AI Editor 自學程式設計教學指南
 date: 2025-01-27 00:23:23
-authors: [happycoder]
+authors: happycoder
 tags:
   - ChatGPT
   - AI 工具

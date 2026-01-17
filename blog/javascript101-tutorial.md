@@ -1,7 +1,7 @@
 ---
 title: JavaScript 101 快速入門教學
 date: 2016-12-21 22:00:00
-authors: [happycoder]
+authors: happycoder
 share_cover: /img/javascript.png
 tags: 
   - JavaScript

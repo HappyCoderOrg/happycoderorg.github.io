@@ -1,7 +1,7 @@
 ---
 title: Go Web 程式設計入門教學：語法基礎之函式（function）篇
 date: 2017-07-01 12:23:23
-authors: [happycoder]
+authors: happycoder
 tags: 
   - GO
   - GO lang
