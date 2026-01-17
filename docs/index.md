@@ -13,7 +13,7 @@ tags:
 
 # 學習資源
 
-歡迎來到 **HappyCoder | AI 自學程式設計學院**：我們提供完整的 AI 工具和 AI 自學程式設計學習（Vibe Coding）學習資源，包含 AI 輔助開發、Vibe Coding、推薦工具等，助您成透過提高生產力，減少知識焦慮
+歡迎來到 **HappyCoder | AI 自學程式設計學院**：我們提供完整的 AI 工具、常用 AI Prompts 提示詞和 AI 自學程式設計學習（Vibe Coding）學習資源，包含 AI 輔助開發、Vibe Coding、推薦工具等，助您成透過提高生產力，減少知識焦慮
 
 ## 🎯 學習導覽
 
@@ -22,6 +22,19 @@ tags:
 
 ### 🌟 我們的學習理念
 我們致力於分享有趣且系統化的自學資源，結合最新 AI 協作工具 與 AI Vibe Coding（氛圍程式設計）學習方法，讓程式設計變得更輕鬆、更有趣！
+
+:::tip 
+## 🚀 開始您的學習之旅
+
+**準備好了嗎？選擇適合您的學習路徑，開始探索 AI 時代的程式開發！**
+
+- [從 AI 工具開始](/resources/ai-tools) - 了解現代開發必備工具
+- [練習下個好 Prompts](/resources/prompts) - 掌握提示詞讓 AI 了解你的需求
+- [體驗 Vibe Coding](/resources/vibe-coding) - 嘗試氛圍式程式開發
+- [閱讀技術文章](/blog) - 深入了解技術細節與應用
+
+讓我們一起在快速變化的科技世界中，找到屬於自己的成長軌跡。💪
+:::
 
 ## 📚 核心學習資源
 
@@ -130,12 +143,15 @@ tags:
 
 ---
 
+:::tip 
 ## 🚀 開始您的學習之旅
 
 **準備好了嗎？選擇適合您的學習路徑，開始探索 AI 時代的程式開發！**
 
-- 🔰 [從 AI 工具開始](/resources/ai-tools) - 了解現代開發必備工具
-- ⚡ [體驗 Vibe Coding](/resources/vibe-coding) - 嘗試直覺式程式開發
-- 📚 [閱讀技術文章](/blog) - 深入了解技術細節與應用
+- [從 AI 工具開始](/resources/ai-tools) - 了解現代開發必備工具
+- [練習下個好 Prompts](/resources/prompts) - 掌握提示詞讓 AI 了解你的需求
+- [體驗 Vibe Coding](/resources/vibe-coding) - 嘗試氛圍式程式開發
+- [閱讀技術文章](/blog) - 深入了解技術細節與應用
 
 讓我們一起在快速變化的科技世界中，找到屬於自己的成長軌跡。💪
+:::

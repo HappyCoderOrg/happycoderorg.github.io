@@ -1,7 +1,7 @@
 ---
 title: 用 Python 自學資料科學與機器學習入門實戰：入門導論
 date: 2017-10-07 09:54:49
-authors: happycoder
+authors: [happycoder]
 tags: 
   - Python
   - Machine Learning
@@ -21,6 +21,18 @@ tags:
   - pandas
   - scikit-learn
 ---
+
+:::info Python 資料科學系列教學
+本文是 **Python 資料科學與機器學習系列** 的第一篇文章：
+
+1. **Python 資料科學入門介紹** (本文)
+2. [NumPy 基礎教學](/blog/python-data-science-and-machine-learning-numpy-tutorial) 
+3. [Pandas 基礎入門](/blog/python-data-science-and-machine-learning-pandas-tutorial)
+4. [Matplotlib 資料視覺化](/blog/python-data-science-and-machine-learning-matplotlib-tutorial)
+5. [Scikit-learn 機器學習](/blog/python-data-science-and-machine-learning-scikit-learn-basic-tutorial)
+
+📚 [查看完整系列](/blog/tags/從零開始學資料科學)
+:::
 
 ![ 如何使用 Python 學習機器學習（Machine Learning）](/img/data-science101/intro/machine_learning.jpg)
 

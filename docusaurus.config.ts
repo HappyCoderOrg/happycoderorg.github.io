@@ -255,6 +255,10 @@ const config: Config = {
               label: "Follow us on Instagram",
               href: "https://www.instagram.com/HappyCoderOrg",
             },
+            {
+              label: "Follow us on YouTube",
+              href: "https://www.youtube.com/@HappyCoderOrg",
+            },
           ],
         },
         {
