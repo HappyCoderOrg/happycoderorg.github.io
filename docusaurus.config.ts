@@ -90,6 +90,27 @@ const config: Config = {
         blogRouteBasePath: "/blog",
       },
     ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        createRedirects(existingPath) {
+          if (existingPath.includes("/blog/")) {
+            const redirects = [];
+
+            const pathWithoutBlog = existingPath.replace("/blog/", "/");
+            redirects.push(pathWithoutBlog);
+
+            return redirects;
+          }
+
+          if (existingPath.includes("/blog/tags/")) {
+            return [existingPath.replace("/blog/tags/", "/tag/")];
+          }
+
+          return undefined;
+        },
+      },
+    ],
   ],
   themeConfig: {
     // Replace with your project's social card

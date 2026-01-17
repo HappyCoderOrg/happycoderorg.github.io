@@ -1,5 +1,6 @@
 ---
 title: 新手村系列：Markdown 和 HTML 基礎語法教學
+slug: markdown-html-basic-syntax-tutorial
 date: 2019-12-11 20:23:23
 author: HappyCoder 自學程式設計學院
 tags:
