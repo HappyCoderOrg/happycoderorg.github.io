@@ -7,7 +7,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "HappyCoder | AI 自學程式設計學院",
   tagline: "最溫馨有趣的 AI 自學程式設計、Vibe Coding 軟體開發交流學習社群",
-  favicon: "/img/favicon.ico",
+  favicon: "https://www.happycoder.org/img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
