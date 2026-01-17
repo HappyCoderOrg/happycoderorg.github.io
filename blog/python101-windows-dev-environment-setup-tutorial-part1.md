@@ -66,6 +66,6 @@ print('hello python')
 
 # 影片教學
 <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/FQw0S7-WShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/FQw0S7-WShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </div>
 

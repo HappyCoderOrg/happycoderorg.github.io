@@ -23,7 +23,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="margin-left--sm button button--success button--lg"
-            to="/bookstore"
+            to="/resources"
           >
             開始學習
           </Link>
