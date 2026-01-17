@@ -33,9 +33,11 @@ tags:
 
 > 當人工智慧已經能在一分鐘內寫完你原本要花一週開發的程式碼，身為軟體工程師的你，下一步該如何定義自己的價值？
 
-## 核心論點
+## 名言金句
 
 > 「從想法到寫程式的這段過程已被 AI 取代，但從需求轉化為演算法的核心思考能力始終是開發者的護城河。」
+
+## 核心論點
 
 這門課程的重啟代表了軟體教育在生成式人工智慧浪潮下的範式轉移。過往網頁程式設計強調手把手編寫每一行程式碼，但在現代開發環境中，這樣的學習路徑已無法追上技術更迭的速度。教學的核心已從單純的語法記憶，轉向如何與 AI 協作，並在工具輔助下快速構建穩定且具備規模化的網路服務。
 
@@ -73,3 +75,5 @@ tags:
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/CRKeQXpDu1k?si=kxodAfDBlYIQpOWX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [NTU Web Programming (2025.09) -- 00. Course Introduction](http://www.youtube.com/watch?v=CRKeQXpDu1k)
+
+[NTU Web Programming 2025](https://www.youtube.com/playlist?list=PLIAzIZzCjtLJQzoK-1n6R_KVTXm4tHZqP)
