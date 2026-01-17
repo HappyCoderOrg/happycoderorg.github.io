@@ -19,7 +19,13 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/blog">
-            瀏覽最新技術文章
+            瀏覽最新文章
+          </Link>
+          <Link
+            className="margin-left--sm button button--success button--lg"
+            to="/bookstore"
+          >
+            開始學習
           </Link>
         </div>
       </div>
@@ -38,6 +44,19 @@ export default function Home(): ReactNode {
       <main>
         <HomepageFeatures />
       </main>
+      <iframe
+        src="https://happycoder.substack.com/embed"
+        width="100%"
+        height="320"
+        style={{
+          border: "1px solid #EEE",
+          maxWidth: "100%",
+          margin: "0 auto",
+          display: "block",
+        }}
+        frameBorder="0"
+        scrolling="no"
+      ></iframe>
     </Layout>
   );
 }
