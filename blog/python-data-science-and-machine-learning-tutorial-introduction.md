@@ -1,7 +1,7 @@
 ---
 title: 用 Python 自學資料科學與機器學習入門實戰：入門導論
 date: 2017-10-07 09:54:49
-author: happycoder
+authors: [happycoder]
 tags: 
   - Python
   - Machine Learning

@@ -1,8 +1,55 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import * as fs from "fs";
+import * as path from "path";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Function to read blog post date from frontmatter
+function getBlogPostDate(slug: string): string | null {
+  try {
+    const blogPath = path.join(__dirname, "blog", `${slug}.md`);
+    if (!fs.existsSync(blogPath)) {
+      return null;
+    }
+
+    const content = fs.readFileSync(blogPath, "utf-8");
+    const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---/);
+
+    if (frontmatterMatch) {
+      const frontmatter = frontmatterMatch[1];
+      const dateMatch = frontmatter.match(/date:\s*(.+)/);
+
+      if (dateMatch) {
+        return dateMatch[1].trim();
+      }
+    }
+
+    return null;
+  } catch (error) {
+    console.log(`Error reading blog post ${slug}:`, error);
+    return null;
+  }
+}
+
+// Function to format date for Jekyll-style URL
+function formatJekyllDate(dateString: string): string | null {
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return null;
+    }
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `/${year}/${month}/${day}`;
+  } catch (error) {
+    return null;
+  }
+}
 
 const config: Config = {
   title: "HappyCoder | AI 自學程式設計學院",
@@ -103,41 +150,15 @@ const config: Config = {
             if (blogPostMatch) {
               const postSlug = blogPostMatch[1];
 
-              // Create Jekyll-style redirects using a regex-like pattern approach
-              // Since we can't use true regex, we'll create redirects for likely date patterns
-              const createDateRedirect = (year, month, day) => {
-                const paddedMonth = month.toString().padStart(2, "0");
-                const paddedDay = day.toString().padStart(2, "0");
-                return `/${year}/${paddedMonth}/${paddedDay}/${postSlug}/`;
-              };
-
-              // Common Jekyll posting dates based on typical blog patterns
-              const commonDates = [
-                [2020, 8, 14],
-                [2020, 7, 15],
-                [2020, 6, 10],
-                [2020, 5, 20],
-                [2019, 12, 25],
-                [2019, 11, 20],
-                [2019, 10, 15],
-                [2019, 9, 10],
-                [2018, 12, 20],
-                [2018, 11, 15],
-                [2018, 10, 10],
-                [2018, 9, 5],
-                [2017, 12, 15],
-                [2017, 11, 10],
-                [2017, 10, 11],
-                [2017, 9, 5],
-                [2016, 12, 25],
-                [2016, 11, 20],
-                [2016, 10, 15],
-                [2016, 9, 10],
-              ];
-
-              commonDates.forEach(([year, month, day]) => {
-                redirects.push(createDateRedirect(year, month, day));
-              });
+              // Read the actual blog post date and create Jekyll-style redirect
+              const dateString = getBlogPostDate(postSlug);
+              if (dateString) {
+                const jekyllDatePath = formatJekyllDate(dateString);
+                if (jekyllDatePath) {
+                  // Create Jekyll-style redirect: /YYYY/MM/DD/post-slug/
+                  redirects.push(`${jekyllDatePath}/${postSlug}/`);
+                }
+              }
             }
 
             // Handle direct slug redirects (without /blog prefix)

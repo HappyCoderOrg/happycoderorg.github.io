@@ -1,7 +1,7 @@
 ---
 title: Go Web 程式設計入門教學：語法基礎之流程控制（flow control）篇
 date: 2017-07-01 11:23:23
-author: happycoder
+authors: [happycoder]
 tags: 
   - GO
   - GO lang

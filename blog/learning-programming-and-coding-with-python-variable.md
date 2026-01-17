@@ -19,7 +19,7 @@ tags:
   - CS
   - Computer
   - Computer Science
-author: happycoder
+authors: [happycoder]
 ---
 
 ![Python 自學程式設計：程式設計思維入門](/img/learning-programming/coding.jpg) 

@@ -1,7 +1,7 @@
 ---
 title: 使用 ChatGPT 自學程式設計指南
 date: 2024-01-27 00:23:23
-author: HappyCoder AI 自學程式設計學院
+authors: [happycoder]
 tags:
   - ChatGPT
   - AI 工具

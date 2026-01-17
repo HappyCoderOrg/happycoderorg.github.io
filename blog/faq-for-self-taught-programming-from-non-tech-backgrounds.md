@@ -1,7 +1,7 @@
 ---
 title: 跨領域自學程式設計常見問題解析 FAQ
 date: 2019-12-22 20:23:23
-author: happycoder
+authors: [happycoder]
 tags:
   - coding
   - code

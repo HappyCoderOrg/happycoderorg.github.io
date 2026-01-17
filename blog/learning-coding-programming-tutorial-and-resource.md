@@ -1,7 +1,7 @@
 ---
 title: 自學程式設計學習資源懶人包
 date: 2017-01-27 00:23:23
-author: happycoder
+authors: [happycoder]
 tags:
   - 自學程式
   - 自學程式設計

@@ -1,7 +1,7 @@
 ---
 title: Go Web 程式設計入門教學：Web 基礎
 date: 2017-07-02 23:23:23
-author: happycoder
+authors: [happycoder]
 tags: 
   - GO
   - GO lang

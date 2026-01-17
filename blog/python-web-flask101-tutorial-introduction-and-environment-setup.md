@@ -1,7 +1,7 @@
 ---
 title: Python Web Flask 實戰開發教學 - 簡介與環境建置
 date: 2017-05-01 22:00:00
-author: happycoder
+authors: [happycoder]
 tags:
     - Python
     - Django
