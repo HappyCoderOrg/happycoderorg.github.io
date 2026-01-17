@@ -1,0 +1,12 @@
+happycoder:
+  name: HappyCoder
+  title: 站長
+  url: https://www.happycoder.org
+  image_url: https://github.com/happycoderorg
+  page: true
+    # customize the url of the author page at /blog/authors/<permalink>
+  socials:
+    x: happycoderorg
+    github: happycoderorg
+    instagram: happycoderorg
+    website: https://www.happycoder.org
