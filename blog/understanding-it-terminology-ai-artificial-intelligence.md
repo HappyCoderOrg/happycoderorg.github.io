@@ -1,7 +1,7 @@
 ---
 title: 看懂 IT 術語：AI 人工智慧
 date: 2019-12-27 20:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags:
   - coding
   - code

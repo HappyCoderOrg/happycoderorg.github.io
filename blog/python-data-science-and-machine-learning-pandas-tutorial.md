@@ -1,7 +1,7 @@
 ---
 title: 用 Python 自學資料科學與機器學習入門實戰：Pandas 基礎入門
 date: 2017-10-11 09:54:49
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags:
   - Python
   - Machine Learning
@@ -581,7 +581,7 @@ print(pd.read_excel('foo.xlsx', 'Sheet1', index_col=None, na_values=['NA']))
 
 # 延伸閱讀
 1. [10 Minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html)
-2. [Pandas 使用 (1)](http://wiki.jikexueyuan.com/project/start-learning-python/311.html)
+2. [Pandas 使用教學 - 第一部分](http://wiki.jikexueyuan.com/project/start-learning-python/311.html)
 3. [Python Pandas - Understanding inplace=True](https://stackoverflow.com/questions/43893457/python-pandas-understanding-inplace-true)
 4. [pandas学习笔记](http://x-wei.github.io/pandas%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html)
 5. [【Python实战】Pandas：让你像写SQL一样做数据分析（一）](http://www.cnblogs.com/en-heng/p/5630849.html)

@@ -1,7 +1,7 @@
 ---
 title: 電腦科學概論：演算法概要
 date: 2019-01-27 22:18:20
-author: HappyCoder 自學程式設計學院
+author: happycoder
 share_cover: /img/cs101/algorithm/algorithm-cover.png
 description: 隨著資訊科技發展，演算法已經無所不在存在我們的生活當中。舉凡上網 google 搜尋資料、下載檔案的壓縮方法、檔案的加密傳輸等，都可以看到演算法運作的蹤跡。一般來說資料結構和演算法是程式設計最基本的內涵，所以有人說：`程式設計 = 資料結構 + 演算法`。那究竟什麼是演算法/算法呢？
 tags: 

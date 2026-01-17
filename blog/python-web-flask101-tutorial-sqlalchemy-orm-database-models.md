@@ -1,7 +1,7 @@
 ---
 title: Python Web Flask 實戰開發教學 - SQLAlchemy 與 ORM
 date: 2017-05-02 22:00:00
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags: 
     - Python
     - Django

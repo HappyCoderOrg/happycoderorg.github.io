@@ -1,7 +1,7 @@
 ---
 title: Go Web 程式設計入門教學：基礎介紹與環境建置
 date: 2017-07-01 00:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags: 
   - GO
   - GO lang

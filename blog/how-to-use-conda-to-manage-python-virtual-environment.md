@@ -1,7 +1,7 @@
 ---
 title: 如何在終端機下使用 conda 指令管理虛擬環境
 date: 2020-04-23 20:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags:
   - coding
   - code

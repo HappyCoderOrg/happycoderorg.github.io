@@ -1,7 +1,7 @@
 ---
 title: 程式挑戰：全域變數和區域變數可視範圍 Variable Scope
 date: 2019-12-27 20:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags:
   - coding
   - code

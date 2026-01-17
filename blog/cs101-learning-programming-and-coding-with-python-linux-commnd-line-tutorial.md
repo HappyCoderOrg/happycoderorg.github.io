@@ -1,7 +1,7 @@
 ---
 title: 自學程式設計與電腦科學入門實戰：Linux Command 命令列指令與基本操作入門教學
 date: 2017-11-18 10:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags: 
     - 自學程式
     - 自學程式設計

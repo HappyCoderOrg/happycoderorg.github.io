@@ -1,7 +1,7 @@
 ---
 title: Matplotlib / Pandas 資料分析繪圖顯示中文字體入門教學
 date: 2020-08-14 20:23:23
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags:
   - coding
   - code

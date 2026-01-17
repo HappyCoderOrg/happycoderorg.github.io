@@ -1,7 +1,7 @@
 ---
 title: 用 Python 自學資料科學與機器學習入門實戰：Scikit Learn 基礎入門
 date: 2017-10-14 09:54:49
-author: HappyCoder 自學程式設計學院
+author: happycoder
 tags: 
   - Python
   - Machine Learning

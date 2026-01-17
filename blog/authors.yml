@@ -1,12 +1,12 @@
 happycoder:
-  name: HappyCoder
+  name: HappyCoder 自學程式設計學院
   title: 站長
   url: https://www.happycoder.org
-  image_url: https://github.com/happycoderorg
+  image_url: https://github.com/HappyCoderOrg
   page: true
     # customize the url of the author page at /blog/authors/<permalink>
   socials:
-    x: happycoderorg
-    github: happycoderorg
-    instagram: happycoderorg
+    x: HappyCoderOrg
+    github: HappyCoderOrg
+    instagram: happycoder_org
     website: https://www.happycoder.org

@@ -57,6 +57,7 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           blogSidebarCount: "ALL",
+          postsPerPage: 15,
           feedOptions: {
             type: ["rss", "atom"],
             xslt: true,
@@ -94,9 +95,52 @@ const config: Config = {
       "@docusaurus/plugin-client-redirects",
       {
         createRedirects(existingPath) {
-          if (existingPath.includes("/blog/")) {
-            const redirects = [];
+          const redirects = [];
 
+          if (existingPath.includes("/blog/")) {
+            // Extract post slug from blog path
+            const blogPostMatch = existingPath.match(/\/blog\/(.+)/);
+            if (blogPostMatch) {
+              const postSlug = blogPostMatch[1];
+
+              // Create Jekyll-style redirects using a regex-like pattern approach
+              // Since we can't use true regex, we'll create redirects for likely date patterns
+              const createDateRedirect = (year, month, day) => {
+                const paddedMonth = month.toString().padStart(2, "0");
+                const paddedDay = day.toString().padStart(2, "0");
+                return `/${year}/${paddedMonth}/${paddedDay}/${postSlug}/`;
+              };
+
+              // Common Jekyll posting dates based on typical blog patterns
+              const commonDates = [
+                [2020, 8, 14],
+                [2020, 7, 15],
+                [2020, 6, 10],
+                [2020, 5, 20],
+                [2019, 12, 25],
+                [2019, 11, 20],
+                [2019, 10, 15],
+                [2019, 9, 10],
+                [2018, 12, 20],
+                [2018, 11, 15],
+                [2018, 10, 10],
+                [2018, 9, 5],
+                [2017, 12, 15],
+                [2017, 11, 10],
+                [2017, 10, 11],
+                [2017, 9, 5],
+                [2016, 12, 25],
+                [2016, 11, 20],
+                [2016, 10, 15],
+                [2016, 9, 10],
+              ];
+
+              commonDates.forEach(([year, month, day]) => {
+                redirects.push(createDateRedirect(year, month, day));
+              });
+            }
+
+            // Handle direct slug redirects (without /blog prefix)
             const pathWithoutBlog = existingPath.replace("/blog/", "/");
             redirects.push(pathWithoutBlog);
 
