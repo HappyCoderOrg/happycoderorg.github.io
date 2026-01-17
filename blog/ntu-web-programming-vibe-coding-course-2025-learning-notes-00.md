@@ -1,7 +1,7 @@
 ---
 title: NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記 00：Course Introduction
 date: 2026-01-01 20:23:23
-authors: [happycoder]
+authors: happycoder
 tags:
   - coding
   - code
@@ -21,6 +21,8 @@ tags:
   - 學習筆記
 ---
 
+![NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記](/img/posts/ntu-web-programming-vibe-coding-course-2025-learning-notes-00-1.png)
+
 :::tip NTU Web Programming Vibe Coding 系列筆記
 這是 **NTU 台大 Web 網頁開發 Vibe Coding 課程** 學習筆記系列：
 
@@ -31,11 +33,15 @@ tags:
 💡 [查看完整系列](/blog/tags/ntu-web-programming) | 🎓 [Vibe Coding 學習資源](/resources/vibe-coding)
 :::
 
+![NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記](/img/posts/ntu-web-programming-vibe-coding-course-2025-learning-notes-00-1.png)
+
 > 當人工智慧已經能在一分鐘內寫完你原本要花一週開發的程式碼，身為軟體工程師的你，下一步該如何定義自己的價值？
 
 ## 名言金句
 
 > 「從想法到寫程式的這段過程已被 AI 取代，但從需求轉化為演算法的核心思考能力始終是開發者的護城河。」
+
+![NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記](/img/posts/ntu-web-programming-vibe-coding-course-2025-learning-notes-00-1.png)
 
 ## 核心論點
 

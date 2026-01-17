@@ -1,7 +1,7 @@
 ---
 title: NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記 01-01：Introduction to Web Programming
 date: 2026-01-02 20:23:23
-authors: [happycoder]
+authors: happycoder
 tags:
   - coding
   - code
