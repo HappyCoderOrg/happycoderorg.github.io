@@ -39,7 +39,7 @@ const FeatureList: FeatureItem[] = [
     Png: require("@site/static/img/vibe-coding-icon.png").default,
     description: (
       <>
-        探索 AI 時代的氛圍程式開發方法，整合 Cursor、Loveable、v0.dev
+        探索 AI 時代的氛圍程式開發方法，整合 Cursor、Loveable、Replit
         等創新工具。
         從零程式基礎到專業開發者的完整學習路徑，讓您體驗快速原型開發與 AI
         協作創作和寫程式的樂趣
