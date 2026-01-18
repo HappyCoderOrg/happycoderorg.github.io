@@ -1,5 +1,5 @@
 ---
-title: NTU 台大網路服務程式設計 & AI Vibe Coding 課程學習重點筆記 00：Course Introduction
+title: NTU 台大網路服務程式設計 & AI Vibe Coding 課程學習重點筆記 01： Introduction to Web Programming (Part 1)
 date: 2026-01-02 20:23:23
 authors: happycoder
 tags:
@@ -28,7 +28,7 @@ tags:
 這是 **NTU 台大網路服務程式設計 AI Vibe Coding 課程** 學習筆記系列：
 
 📚 **第一階段：基礎概念**
-- [00. Course Introduction](/blog/ntu-web-programming-ai-vibe-coding-course-2025-learning-notes-00)
+- [00. Course Introduction](/blog/ntu-web-programming-ai-vibe-coding-course-2025-learning-notes-01)
 - **01. Introduction to Web Programming** (本文)
 
 💡 [查看完整系列](/blog/tags/ntu-web-programming) | 🎓 [Vibe Coding 學習資源](/resources/vibe-coding)

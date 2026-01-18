@@ -30,7 +30,7 @@ tags:
 
 📚 **第一階段：基礎概念**
 - **00. Course Introduction** (本文)
-- [01. Web Development Fundamentals](/blog/ntu-web-programming-ai-ai-vibe-coding-course-2025-learning-notes-01-01)
+- [01. Web Development Fundamentals](/blog/ntu-web-programming-ai-vibe-coding-course-2025-learning-notes-01-01)
 
 💡 [查看完整系列](/blog/tags/ntu-web-programming) | 🎓 [Vibe Coding 學習資源](/resources/vibe-coding)
 :::
@@ -52,6 +52,8 @@ tags:
 網路服務的開發遠比一般認知的網頁設計更為深奧。它不僅涉及視覺呈現的前端技術，更包含複雜的後端邏輯、資料庫架構以及伺服器端的運作機制。隨著前端技術發展至前所未有的高度，開發者必須建立完整的系統觀，理解軟體工程的生命週期，而不僅僅是處理零散的視覺元件或簡單的互動功能。
 
 在自動化工具普及的時代，偵錯與問題解決的能力成為衡量專業度的關鍵指標。當 AI 產出的代碼出現錯誤或不符合需求時，開發者必須具備深厚的基礎知識來進行系統性的除錯。這意味著學習者需要掌握從邏輯推演、演算法設計到最後實踐的完整流程，確保技術工具是為解決問題服務，而非僅是盲目地複製與貼上代碼。
+
+![NTU 台大 Web 網頁開發 Vibe Coding 課程學習重點筆記](/img/posts/ntu-web-programming-ai-vibe-coding-course-2025-learning-notes-00-4.jpg)
 
 ## 重點摘要
 
