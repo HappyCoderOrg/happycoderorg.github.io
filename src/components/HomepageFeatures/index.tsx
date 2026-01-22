@@ -23,13 +23,13 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "實用 AI Prompts 提示詞分享",
-    Png: require("@site/static/img/ai-prompts-icon.png").default,
+    title: "實用 AI Prompt 提示詞分享",
+    Png: require("@site/static/img/ai-prompt-icon.png").default,
     description: (
       <>
         收錄各職業領域最實用的 AI
         指令模板，涵蓋行政文書、人資管理、行銷企劃、社群經營、財務會計等。
-        提供可直接複製使用的 Prompts，讓 AI
+        提供可直接複製使用的 Prompt，讓 AI
         成為您工作上的得力助手，大幅提升日常工作效率
       </>
     ),
