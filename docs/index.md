@@ -29,7 +29,7 @@ tags:
 **準備好了嗎？選擇適合您的學習路徑，開始探索 AI 時代的程式開發！**
 
 - [從 AI 工具開始](/resources/ai-tools) - 了解現代開發必備工具
-- [練習下個好 Prompt](/resources/Prompt) - 掌握提示詞讓 AI 了解你的需求
+- [練習下個好 Prompt](/resources/prompts) - 掌握提示詞讓 AI 了解你的需求
 - [體驗 Vibe Coding](/resources/vibe-coding) - 嘗試氛圍式程式開發
 - [閱讀技術文章](/blog) - 深入了解技術細節與應用
 
@@ -149,7 +149,7 @@ tags:
 **準備好了嗎？選擇適合您的學習路徑，開始探索 AI 時代的程式開發！**
 
 - [從 AI 工具開始](/resources/ai-tools) - 了解現代開發必備工具
-- [練習下個好 Prompt](/resources/Prompt) - 掌握提示詞讓 AI 了解你的需求
+- [練習下個好 Prompt](/resources/prompts) - 掌握提示詞讓 AI 了解你的需求
 - [體驗 Vibe Coding](/resources/vibe-coding) - 嘗試氛圍式程式開發
 - [閱讀技術文章](/blog) - 深入了解技術細節與應用
 
