@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     Png: require("@site/static/img/vibe-coding-icon.png").default,
     description: (
       <>
-        內建行銷、HR、財務、行政、PM、工程等專業提示詞，直接套用，讓 AI
+        內建行銷、人資、財務、行政、PM、工程等專業提示詞，直接套用，讓 AI
         產出專業級結果
       </>
     ),
