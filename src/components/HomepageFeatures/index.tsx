@@ -11,11 +11,12 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "一鍵儲存 AI 指令",
+    title: "一鍵儲存 AI Prompt 指令",
     Png: require("@site/static/img/ai-tools-icon.png").default,
     description: (
       <>
-        看到好用的 Prompt？ 一鍵儲存，隨時搜尋、複製並貼上，不再重打或翻聊天紀錄
+        看到好用的 Prompt 提示詞？
+        一鍵儲存，隨時搜尋、複製並貼上，不再重打或翻聊天紀錄
       </>
     ),
   },
