@@ -25,17 +25,17 @@ const FeatureList: FeatureItem[] = [
     Png: require("@site/static/img/vibe-coding-icon.png").default,
     description: (
       <>
-        內建行銷、人資、財務、行政、PM、工程等專業提示詞，直接套用，讓 AI
-        產出專業級結果
+        內建行銷、業務、商務、營運、客服人資、財務、行政、PM、程式等專業提示詞。直接套用，讓
+        AI 產出專業級結果
       </>
     ),
   },
   {
-    title: "本地儲存，免登入/支援匯出匯入",
+    title: "免登入開箱即用/支援匯出匯入",
     Png: require("@site/static/img/ai-prompt-icon.png").default,
     description: (
       <>
-        資料只存在瀏覽器，不用註冊帳號，開箱即用。支援匯出匯入，隨時分享或備份，安心又快速
+        不用額外註冊帳號，開箱即用，支援本地資料儲存。同時支援匯出匯入，隨時分享或備份，安心又快速
       </>
     ),
   },
