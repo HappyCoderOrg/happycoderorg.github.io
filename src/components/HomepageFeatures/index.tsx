@@ -16,16 +16,16 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         看到好用的 Prompt 提示詞？
-        一鍵儲存，隨時搜尋、複製並貼上，不再重打或翻聊天紀錄
+        一鍵儲存和插入，隨時搜尋、複製，不再重打或翻聊天紀錄
       </>
     ),
   },
   {
-    title: "跨職能 Prompt 知識庫",
+    title: "內建跨職能 Prompt 知識庫",
     Png: require("@site/static/img/vibe-coding-icon.png").default,
     description: (
       <>
-        內建行銷、業務、商務、營運、客服人資、財務、行政、PM、程式等專業提示詞。直接套用，讓
+        內建行銷、業務、客服、人資、財務、行政、PM、程式等專業提示詞。直接套用，讓
         AI 產出專業級結果
       </>
     ),
