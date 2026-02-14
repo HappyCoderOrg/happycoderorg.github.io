@@ -19,13 +19,13 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--success button--lg"
             to="https://chromewebstore.google.com/detail/happycoder-ai-prompt-%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/egecphncaagaeolknghbdgelpjfihkdj?hl=zh-tw"
           >
             免費下載
           </Link>
           <Link
-            className="margin-left--sm button button--success button--lg"
+            className="margin-left--sm button button--secondary button--lg"
             to="/resources"
           >
             開始學習
