@@ -52,7 +52,7 @@ function formatJekyllDate(dateString: string): string | null {
 }
 
 const config: Config = {
-  title: "HappyCoder - Prompt 提示詞管理工具與 AI 知識庫",
+  title: "HappyCoder - 自學 AI 程式設計學院",
   tagline:
     "一鍵儲存與插入你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，施展你的 AI 魔法 ✨",
   favicon: "/img/favicon.png",
@@ -206,6 +206,7 @@ const config: Config = {
           position: "left",
           label: "學習資源",
         },
+        { to: "/products/happyprompt", label: "HappyPrompt", position: "left" },
         { to: "/about", label: "關於本站", position: "left" },
 
         // {`
