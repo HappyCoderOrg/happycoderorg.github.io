@@ -54,7 +54,7 @@ function formatJekyllDate(dateString: string): string | null {
 const config: Config = {
   title: "HappyCoder - 自學 AI 程式設計學院",
   tagline:
-    "一鍵儲存與插入你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，施展你的 AI 魔法 ✨",
+    "最溫馨有趣的自學 AI 工具、實用 Prompt 提示詞和 Vibe Coding 自學程式設計交流學習社群",
   favicon: "/img/favicon.png",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

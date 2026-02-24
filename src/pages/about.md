@@ -1,6 +1,6 @@
 ---
 title: About 關於我們
-description: HappyCoder | AI 自學程式設計學院是一個專為自學者打造最溫馨有趣的 AI 自學程式設計、Vibe Coding 軟體開發交流學習社群。我們致力於分享有趣且系統化的自學資源，結合熱門 AI 工具、實用 AI Prompt 提示詞與 AI Vibe Coding（氛圍程式設計）學習方法，讓程式設計變得更輕鬆、更有趣！
+description: HappyCoder - 自學 AI 程式設計學院是一個專為自學者打造最溫馨有趣的 AI 自學程式設計、Vibe Coding 軟體開發交流學習社群。我們致力於分享有趣且系統化的自學資源，結合熱門 AI 工具、實用 AI Prompt 提示詞與 AI Vibe Coding（氛圍程式設計）學習方法，讓程式設計變得更輕鬆、更有趣！
 date: 2017-01-27 22:18:20
 image: https://www.happycoder.org/img/logo.png
 tags: 
@@ -24,10 +24,23 @@ tags:
   - AI 程式設計
   - AI 氛圍程式設計
   - 氛圍程式設計
+  - 直覺程式設計
+  - HappyCoder
+  - HappyPrompt
+  - Prompt 提示詞管理工具
+  - ChatGPT
+  - Gemini
+  - Claude
+  - NotebookLM
+  - Notion
+  - Gamma
 ---
 
-## HappyCoder | AI Prompt 管理工具與知識庫
-一鍵儲存你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，成為你的最強副駕駛
+## HappyCoder - 自學 AI 程式設計學院
+最溫馨有趣的自學 AI 工具、實用 Prompt 提示詞和 Vibe Coding 自學程式設計交流學習社群
+
+## HappyPrompt - Prompt 提示詞管理工具與 AI 知識庫
+一鍵儲存與插入你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，施展你的 AI 魔法 ✨
 
 ---
 

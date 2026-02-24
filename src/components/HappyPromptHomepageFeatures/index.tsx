@@ -11,38 +11,31 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "熱門 AI 工具介紹",
+    title: "一鍵儲存 AI Prompt 指令",
     Png: require("@site/static/img/ai-tools-icon.png").default,
     description: (
       <>
-        精選熱門 AI 工具推薦，包含 ChatGPT、Claude、Gemini、GitHub
-        Copilot、Cursor 等。 從對話式 AI
-        到程式開發助手，從創作工具到研究平台，為您推薦最適合的 AI
-        工作夥伴，提升工作生產力
+        看到好用的 Prompt 提示詞？
+        一鍵儲存和插入，隨時搜尋、複製，不再重打或翻聊天紀錄
       </>
     ),
   },
   {
-    title: "實用 AI 提示詞和工作流分享",
-    Png: require("@site/static/img/ai-prompt-icon.png").default,
-    description: (
-      <>
-        收錄各職業領域最實用的 AI
-        指令模板，涵蓋行政、人資、行銷企劃、社群經營、財務會計等。
-        提供可直接複製使用的 Prompt/Skills 和 Workflow，讓 AI
-        成為您工作上的得力助手，大幅提升日常工作效率
-      </>
-    ),
-  },
-  {
-    title: "Vibe Coding 實戰教學",
+    title: "內建跨職能 Prompt 知識庫",
     Png: require("@site/static/img/vibe-coding-icon.png").default,
     description: (
       <>
-        探索 AI 時代的氛圍程式開發方法，整合 Cursor、Loveable、Replit
-        等創新工具。
-        從零程式基礎到專業開發者的完整學習路徑，讓您體驗快速原型開發與 AI
-        協作創作和寫程式的樂趣
+        內建行銷、業務、客服、人資、財務、行政、PM、程式等專業提示詞。直接套用，讓
+        AI 產出專業級結果
+      </>
+    ),
+  },
+  {
+    title: "免登入開箱即用/支援匯出匯入",
+    Png: require("@site/static/img/ai-prompt-icon.png").default,
+    description: (
+      <>
+        不用額外註冊帳號，開箱即用，支援本地資料儲存。同時支援匯出匯入，隨時分享或備份，安心又快速
       </>
     ),
   },
@@ -63,7 +56,7 @@ function Feature({ title, Png, description }: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export default function HappyPromptHomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">

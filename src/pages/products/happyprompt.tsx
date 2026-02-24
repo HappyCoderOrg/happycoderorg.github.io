@@ -3,10 +3,14 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import HappyPromptHomepageFeatures from "@site/src/components/HappyPromptHomepageFeatures";
 import Heading from "@theme/Heading";
 
-import styles from "../index.module.css";
+import styles from "./index.module.css";
+
+const pageTitle = "HappyPrompt - Prompt 提示詞管理工具與 AI 知識庫";
+const pageDescription =
+  "一鍵儲存與插入你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，施展你的 AI 魔法 ✨";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -14,9 +18,9 @@ function HomepageHeader() {
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          HappyPrompt - Prompt 提示詞管理工具與 AI 知識庫
+          {pageTitle}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">{pageDescription}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--success button--lg"
@@ -39,10 +43,10 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={`${siteConfig.title}`} description={`${siteConfig.tagline}`}>
+    <Layout title={pageTitle} description={pageDescription}>
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <HappyPromptHomepageFeatures />
       </main>
       <iframe
         src="https://happycoder.substack.com/embed"
