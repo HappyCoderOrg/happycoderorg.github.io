@@ -195,7 +195,7 @@ const config: Config = {
     navbar: {
       title: "HappyCoder",
       logo: {
-        alt: "HappyCoder | AI 自學程式設計學院 Logo",
+        alt: "HappyCoder - 自學 AI 程式設計學院 Logo",
         src: "img/logo.png",
       },
       items: [
@@ -269,7 +269,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} HappyCoder | AI 自學程式設計學院, Inc. Built with ❤️ in Taiwan.`,
+      copyright: `Copyright © ${new Date().getFullYear()} HappyCoder - 自學 AI 程式設計學院, Inc. Built with ❤️ in Taiwan.`,
     },
     prism: {
       theme: prismThemes.github,

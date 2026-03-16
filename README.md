@@ -1,2 +1,2 @@
-# HappyCoder | AI 自學程式設計學院
+# HappyCoder - 自學 AI 程式設計學院
 

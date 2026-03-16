@@ -13,7 +13,7 @@ tags:
 
 # 學習資源
 
-歡迎來到 **HappyCoder | AI 自學程式設計學院**：我們提供完整的 AI 工具、常用 AI Prompt 提示詞和 AI 自學程式設計學習（Vibe Coding）學習資源，包含 AI 輔助開發、Vibe Coding、推薦工具等，助您成透過提高生產力，減少知識焦慮
+歡迎來到 **HappyCoder - 自學 AI 程式設計學院**：我們提供完整的 AI 工具、常用 AI Prompt 提示詞和 AI 自學程式設計學習（Vibe Coding）學習資源，包含 AI 輔助開發、Vibe Coding、推薦工具等，助您成透過提高生產力，減少知識焦慮
 
 ## 🎯 學習導覽
 
