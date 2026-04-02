@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
@@ -48,31 +49,65 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Png, description }: FeatureItem) {
+function Feature({
+  title,
+  Png,
+  description,
+  index,
+}: FeatureItem & { index: number }) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <img src={Png} className={styles.featurePng} role="img" />
-      </div>
-      <br />
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx("col col--4", styles.featureCol)}>
+      <div
+        className={styles.featureCard}
+        style={{ animationDelay: `${index * 0.15}s` }}
+      >
+        <div className={styles.iconWrapper}>
+          <img src={Png} className={styles.featurePng} role="img" alt={title} />
+        </div>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDesc}>{description}</p>
       </div>
     </div>
   );
 }
 
 export default function HomepageFeatures(): ReactNode {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          element.classList.add(styles.visible);
+          observer.unobserve(element);
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.features}>
+    <section ref={ref} className={styles.features}>
       <div className="container">
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>✨ 核心功能</span>
+          <Heading as="h2" className={styles.sectionTitle}>
+            一站式 AI 學習與工具平台
+          </Heading>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature key={idx} index={idx} {...props} />
           ))}
         </div>
-        <br />
       </div>
     </section>
   );

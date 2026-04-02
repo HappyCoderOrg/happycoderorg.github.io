@@ -1,0 +1,106 @@
+/* =====================================================
+   STATS SECTION — Glassmorphism metrics bar
+   ===================================================== */
+
+.statsSection {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(53, 172, 166, 0.1);
+  border-bottom: 1px solid rgba(53, 172, 166, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(53, 172, 166, 0.04) 0%,
+    rgba(53, 172, 166, 0.06) 50%,
+    rgba(53, 172, 166, 0.04) 100%
+  );
+}
+
+.statsGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem 3rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.statItem:last-child {
+  border-right: none;
+}
+
+/* When section becomes visible, animate items in */
+.visible .statItem {
+  opacity: 1;
+  transform: translateY(0);
+  animation: statReveal 0.55s ease both;
+}
+
+@keyframes statReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statIcon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: #35aca6;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.3rem;
+}
+
+.statLabel {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media screen and (max-width: 768px) {
+  .statsGrid {
+    gap: 0;
+  }
+
+  .statItem {
+    padding: 1rem 1.5rem;
+    width: 50%;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .statItem:nth-child(2n) {
+    border-right: none;
+  }
+
+  .statItem:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .statNumber {
+    font-size: 1.65rem;
+  }
+}

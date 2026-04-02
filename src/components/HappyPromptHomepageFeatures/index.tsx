@@ -41,16 +41,25 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Png, description }: FeatureItem) {
+function Feature({
+  title,
+  Png,
+  description,
+  index,
+}: FeatureItem & { index: number }) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <img src={Png} className={styles.featurePng} role="img" />
-      </div>
-      <br />
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx("col col--4", styles.featureCol)}>
+      <div
+        className={styles.featureCard}
+        style={{ animationDelay: `${index * 0.15}s` }}
+      >
+        <div className={styles.iconWrapper}>
+          <img src={Png} className={styles.featurePng} role="img" alt={title} />
+        </div>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDesc}>{description}</p>
       </div>
     </div>
   );
@@ -60,12 +69,17 @@ export default function HappyPromptHomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>⚡ 核心特色</span>
+          <Heading as="h2" className={styles.sectionTitle}>
+            讓 AI Prompt 管理更輕鬆
+          </Heading>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature key={idx} index={idx} {...props} />
           ))}
         </div>
-        <br />
       </div>
     </section>
   );

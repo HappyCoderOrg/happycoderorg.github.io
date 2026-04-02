@@ -1,47 +1,315 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* =====================================================
+   HERO BANNER — Animated dark mesh with orbs
+   ===================================================== */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  background: #0a0e1a;
+  padding: 8rem 0 6rem;
+  text-align: center;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+/* Animated glow orbs */
+.heroBanner::before,
+.heroBanner::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbFloat 10s ease-in-out infinite alternate;
+}
+
+.heroBanner::before {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(53, 172, 166, 0.12) 0%,
+    transparent 65%
+  );
+  top: -180px;
+  left: -220px;
+}
+
+.heroBanner::after {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(53, 172, 166, 0.09) 0%,
+    transparent 65%
+  );
+  bottom: -160px;
+  right: -200px;
+  animation-delay: -5s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes orbFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(40px, 25px) scale(1.1);
   }
 }
 
+/* Third orb via extra element handled in tsx */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge above title */
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(53, 172, 166, 0.12);
+  border: 1px solid rgba(53, 172, 166, 0.28);
+  border-radius: 9999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #35aca6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Gradient title */
+.heroTitle {
+  font-size: clamp(2.25rem, 5.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, #c5eeec 45%, #5bc4be 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none !important;
+}
+
+/* Subtitle */
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA buttons row */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.heroBanner {
-  padding: 8rem 0;
+.primaryBtn {
+  background: linear-gradient(135deg, #35aca6 0%, #3dbdb7 100%);
+  color: #0a0e1a !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none !important;
+  padding: 0.875rem 2.25rem;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 0 28px rgba(53, 172, 166, 0.45),
+    0 4px 16px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 48px rgba(53, 172, 166, 0.65),
+    0 8px 28px rgba(0, 0, 0, 0.3);
+  color: #0a0e1a !important;
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  padding: 0.875rem 2.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.secondaryBtn:hover {
+  background: rgba(53, 172, 166, 0.1);
+  border-color: rgba(53, 172, 166, 0.45);
+  color: #35aca6 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(53, 172, 166, 0.15);
+}
+
+/* Grid dots decoration */
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(
+    rgba(53, 172, 166, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+  pointer-events: none;
+  mask-image: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+}
+
+/* =====================================================
+   NEWSLETTER SECTION
+   ===================================================== */
+.newsletterSection {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.newsletterWrapper {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 680px;
+  margin: 0 auto;
   text-align: center;
-  background: linear-gradient(rgba(25, 60, 71, 0.6), rgba(25, 60, 71, 0.6)),
-    url("/img/cover.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  box-shadow:
+    0 16px 64px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
-.heroBanner .hero__title {
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.newsletterWrapper::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(53, 172, 166, 0.5),
+    transparent
+  );
 }
 
-.heroBanner .hero__subtitle {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.newsletterBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(53, 172, 166, 0.12);
+  border: 1px solid rgba(53, 172, 166, 0.25);
+  border-radius: 9999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #35aca6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-.buttons {
-  margin-top: 1.5rem;
+.newsletterTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 0.6rem;
+}
+
+.newsletterSubtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.newsletterIframe {
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 12px;
+  background: transparent;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    min-height: unset;
+    padding: 6rem 1.5rem 4rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .heroBanner {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    justify-content: center;
+  }
+
+  .newsletterWrapper {
+    padding: 2rem 1.25rem 1.75rem;
+  }
 }
