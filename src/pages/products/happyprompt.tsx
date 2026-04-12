@@ -1,66 +1,12 @@
+import { useEffect } from "react";
 import type { ReactNode } from "react";
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import HappyPromptHomepageFeatures from "@site/src/components/HappyPromptHomepageFeatures";
-import Heading from "@theme/Heading";
 
-import styles from "./index.module.css";
+const REDIRECT_URL = "https://www.happyprompt.net/";
 
-const pageTitle = "HappyPrompt - Prompt 提示詞管理工具與 AI 知識庫";
-const pageDescription =
-  "一鍵儲存與插入你的 AI Prompt 指令，內建跨職能專業提示詞庫。讓你像工程師一樣駕馭 AI，施展你的 AI 魔法 ✨";
+export default function HappyPromptRedirect(): ReactNode {
+  useEffect(() => {
+    window.location.replace(REDIRECT_URL);
+  }, []);
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {pageTitle}
-        </Heading>
-        <p className="hero__subtitle">{pageDescription}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--success button--lg"
-            to="https://chromewebstore.google.com/detail/happycoder-ai-prompt-%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/egecphncaagaeolknghbdgelpjfihkdj?hl=zh-tw"
-          >
-            免費下載
-          </Link>
-          <Link
-            className="margin-left--sm button button--secondary button--lg"
-            to="/resources"
-          >
-            開始學習
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <Layout title={pageTitle} description={pageDescription}>
-      <HomepageHeader />
-      <main>
-        <HappyPromptHomepageFeatures />
-      </main>
-      <iframe
-        src="https://happycoder.substack.com/embed"
-        width="100%"
-        height="320"
-        style={{
-          border: "1px solid #EEE",
-          maxWidth: "100%",
-          margin: "0 auto",
-          display: "block",
-        }}
-        frameBorder="0"
-        scrolling="no"
-      ></iframe>
-    </Layout>
-  );
+  return null;
 }

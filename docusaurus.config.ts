@@ -206,7 +206,6 @@ const config: Config = {
           position: "left",
           label: "學習資源",
         },
-        { to: "/products/happyprompt", label: "HappyPrompt", position: "left" },
         { to: "/about", label: "關於本站", position: "left" },
 
         // {`
@@ -215,6 +214,11 @@ const config: Config = {
         //   position: "left",
         //   label: "職涯技能樹",
         // },
+        {
+          href: "https://www.happyprompt.net",
+          label: "HappyPrompt",
+          position: "left",
+        },
         {
           href: "https://facebook.com/groups/HappyCoderOrg",
           label: "學習交流社群",
